@@ -1,0 +1,454 @@
+2013-10-12 20:41:53 Error: [MissingControllerException] Controller class PartnerController could not be found.
+Exception Attributes: array (
+  'class' => 'PartnerController',
+  'plugin' => NULL,
+)
+Request URL: /sandbox/cakephp/Konalen/Partner/add
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-15 19:12:28 Error: [MissingControllerException] Controller class UserPartnersController could not be found.
+Exception Attributes: array (
+  'class' => 'UserPartnersController',
+  'plugin' => NULL,
+)
+Request URL: /sandbox/cakephp/Konalen/user_partners
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-10-15 19:23:16 Error: Fatal Error (1): Call to a member function setFlash() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/ServicesController.php, line 55]
+2013-10-15 19:23:16 Error: [FatalErrorException] Call to a member function setFlash() on a non-object
+Request URL: /sandbox/cakephp/Konalen/services/add
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 55)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 55, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 55, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-15 19:24:51 Error: Fatal Error (1): Call to a member function setFlash() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/ServicesController.php, line 52]
+2013-10-15 19:24:51 Error: [FatalErrorException] Call to a member function setFlash() on a non-object
+Request URL: /sandbox/cakephp/Konalen/services/add
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 52)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 52, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 52, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-15 20:11:01 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/basics.php, line 200]
+2013-10-15 20:11:01 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', '/home/iavalenzu...', 200)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', '/home/iavalenzu...', 200, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', '/home/iavalenzu...', 200, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-15 20:11:18 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp',
+)
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 20:11:59 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/basics.php, line 200]
+2013-10-15 20:11:59 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', '/home/iavalenzu...', 200)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', '/home/iavalenzu...', 200, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', '/home/iavalenzu...', 200, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-15 20:12:16 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp',
+)
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 20:13:39 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Utility/Debugger.php, line 488]
+2013-10-15 20:13:39 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', '/home/iavalenzu...', 488)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', '/home/iavalenzu...', 488, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', '/home/iavalenzu...', 488, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-15 20:13:52 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp',
+)
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 20:14:10 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp',
+)
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 20:21:39 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(22): UtilitiesComponent->getParam('uno', 'GET', true)
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 20:21:59 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(22): UtilitiesComponent->getParam('uno', 'GET', true)
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 20:22:33 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp',
+)
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 20:42:30 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp',
+)
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 20:50:48 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(27): UtilitiesComponent->getParam('uno')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 20:51:54 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(27): UtilitiesComponent->getParam('uno')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 20:52:19 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(27): UtilitiesComponent->getParam('uno')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 20:52:46 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(27): UtilitiesComponent->getParam('uno')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 20:53:06 Error: [Exception] No esta definida la llave
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(31): UtilitiesComponent->getHeader('Authorization', true, 'No esta definid...')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 20:57:13 Error: [Exception] No esta definida la llave
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(22): UtilitiesComponent->getHeader('Authorization', true, 'No esta definid...')
+#1 [internal function]: UsersController->beforeFilter(Object(CakeEvent))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(674): CakeEventManager->dispatch(Object(CakeEvent))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-10-15 20:59:51 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(30): UtilitiesComponent->getParam('uno', 'GET')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 21:02:19 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(30): UtilitiesComponent->getParam('uno', 'GET')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 21:02:28 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(30): UtilitiesComponent->getParam('uno', 'GET')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 21:04:09 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(30): UtilitiesComponent->getParam('uno', 'GET')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 21:04:22 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp',
+)
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 21:04:45 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/register.ctp',
+)
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 21:08:04 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(31): UtilitiesComponent->getParam('uno')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 21:22:20 Error: Fatal Error (1): Call to a member function findBySecretKey() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 30]
+2013-10-15 21:22:20 Error: [FatalErrorException] Call to a member function findBySecretKey() on a non-object
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 30)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 30, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 30, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-15 21:29:44 Error: [Exception] Access Denied
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-15 21:58:23 Error: Fatal Error (1): Call to undefined method UtilitiesComponent::getRawData() in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 46]
+2013-10-15 21:58:23 Error: [FatalErrorException] Call to undefined method UtilitiesComponent::getRawData()
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/iavalenzu...', 46)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/iavalenzu...', 46, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/iavalenzu...', 46, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-15 21:58:40 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(46): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:03:32 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:05:04 Error: Fatal Error (1): Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]]) in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/Component/UtilitiesComponent.php, line 32]
+2013-10-15 22:05:04 Error: [FatalErrorException] Wrong parameters for Exception([string $exception [, long $code [, Exception $previous = NULL]]])
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Wrong parameter...', '/home/iavalenzu...', 32)
+#1 [internal function]: ErrorHandler::handleError(1, 'Wrong parameter...', '/home/iavalenzu...', 32, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Wrong parameter...', '/home/iavalenzu...', 32, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-15 22:05:34 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:09:44 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:11:49 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:14:18 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:15:30 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:16:31 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:16:57 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:17:30 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:20:21 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-15 22:26:32 Error: [Exception] Missing Parameters
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(43): UtilitiesComponent->getRawPost()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
