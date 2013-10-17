@@ -25,9 +25,16 @@ class UsersController extends AppController {
             
         }
         
+        
+        //curl --request POST --data 'uno=1' -H 'Authorization: e2151f1272932c37609dcdbf477d805b' "http://localhost/sandbox/cakephp/Konalen/users/register.json"
+
 
         public function register() {
 
+            $content_type = $this->Utilities->getHeader('Content-Type', true, 'Access Denied');
+
+            
+            
             $authorization = $this->Utilities->getHeader('Authorization', true, 'Access Denied');
 
             if(empty($authorization))
@@ -42,14 +49,23 @@ class UsersController extends AppController {
             
             $post_data = $this->Utilities->getRawPost();
             
+            if(empty($post_data))
+                throw new Exception(__("Empty Data"));
+            
+            
             //json_decode($post_data);
+            
+            $code = $this->Utilities->createCode();
             
             $response = array(
                 'post_data' => $post_data,
                 'key' => $authorization,
                 'partner' => $partner,
-                'code' => $this->User->getAuthenticationCode()
-            );
+                'code' => $this->User->getAuthenticationCode(),
+                'code' => $code,
+                'check' => $this->Utilities->checkCode($code),
+                'content-type' => $content_type
+            ); 
             
             $this->set('response', $response);
             $this->set('_serialize', array('response'));

@@ -30,6 +30,8 @@ class UtilitiesComponent extends Component {
         
         $raw_data = file_get_contents('php://input');
         
+        //TODO Verificar el content type y parsear la info
+        
         if($raw_data)
             return $raw_data;
         
@@ -65,6 +67,38 @@ class UtilitiesComponent extends Component {
             throw new Exception(__($error_msg));
 
         return null;
+    }
+    
+    /*Agrega un checksum al codigo generado para luego poder comparar la integridad del codigo y identificar si se envian codigos incorrectos*/
+    
+    public function createCode($min = 50, $max = 70) {
+        
+        $length = mt_rand($min, $max);
+        
+        $characters = '0123456789abc' . 'efghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[mt_rand(0, strlen($characters)-1)];
+        }
+        
+        $crc = crc32($randomString);
+        $crc = base_convert($crc, 10, 26);
+        
+        return $randomString . 'd' . $crc;
+        
+    }
+
+    public function checkCode($code) {
+
+        //Buscamos la primera aparicion de la letra 'd'
+        $randomString = strstr($code, 'd', true);
+        
+        $crc = crc32($randomString);
+        $crc = base_convert($crc, 10, 26);
+        $randomString = $randomString . 'd' . $crc;
+        
+        return strcmp($code, $randomString) == 0;
+        
     }
     
     
