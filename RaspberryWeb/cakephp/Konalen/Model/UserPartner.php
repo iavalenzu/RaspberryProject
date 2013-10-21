@@ -1,5 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
+
+
 /**
  * UserPartner Model
  *
@@ -57,4 +59,6 @@ class UserPartner extends AppModel {
 			'order' => ''
 		)
 	);
+        
+        
 }

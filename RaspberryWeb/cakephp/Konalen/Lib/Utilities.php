@@ -1,15 +1,9 @@
 <?php
 
-App::uses('Component', 'Controller');
 
-class UtilitiesComponent extends Component {
+class Utilities {
     
-    public function initialize(&$controller, $settings = array()) {
-        $this->controller = $controller;
-    }    
-    
-    
-    public function getHeader($name = null, $require = true, $error_msg = 'Missing Parameters'){
+    public function getHeader($name = null, $require = true, $error_msg = 'Bad Request'){
         
         $headers = apache_request_headers();
         
@@ -17,32 +11,43 @@ class UtilitiesComponent extends Component {
             return $headers[$name];
 
         if($require)
-            throw new Exception(__($error_msg));
+            throw new BadRequestException(__($error_msg));
         
         return null;
         
     }
     
-    public function getRawPost($require = true, $error_msg = 'Missing Parameters') {
-        
-        if(isset($HTTP_RAW_POST_DATA))
-            return $HTTP_RAW_POST_DATA;
+    public function getRawPostData($require = true) {
         
         $raw_data = file_get_contents('php://input');
         
-        //TODO Verificar el content type y parsear la info
+        $content_type = Utilities::getHeader('Content-Type', false);
         
-        if($raw_data)
-            return $raw_data;
+        switch ($content_type) {
+            case "application/json":
+                return json_decode($raw_data, true);
+                break;
+            case "application/x-www-form-urlencoded;charset=UTF-8":
+                parse_str($raw_data, $output);
+                return $output;
+                break;
+
+            default:
+                //Por defecto se considera como si las variables vinieran en texto plano
+                parse_str($raw_data, $output);
+                return $output;
+                break;
+        }
         
         if($require)
-            throw new Exception(__($error_msg));
+            throw new BadRequestException();
         
         return null;
         
     }
-    
-    public function getParam($name = null, $type = 'POST', $require = true, $error_msg = 'Missing Parameters'){
+
+    /*
+    public function getParam($name = null, $type = 'POST', $require = true, $error_msg = 'Bad Request'){
 
         if(is_null($name))
             return null;
@@ -64,9 +69,21 @@ class UtilitiesComponent extends Component {
         }
         
         if($require)
-            throw new Exception(__($error_msg));
+            throw new BadRequestException(__($error_msg));
 
         return null;
+    }
+    */
+    public function getAuthorizationKey() {
+        
+        $authorization = Utilities::getHeader('Authorization', true, 'Access Denied');
+        
+        if(!preg_match('/key=([a-zA-Z0-9_]+)/i', $authorization, $matches)){
+            throw new UnauthorizedException();
+        }
+        
+        return $matches[1];
+
     }
     
     /*Agrega un checksum al codigo generado para luego poder comparar la integridad del codigo y identificar si se envian codigos incorrectos*/

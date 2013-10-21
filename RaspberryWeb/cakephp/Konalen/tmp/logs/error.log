@@ -496,3 +496,800 @@ Stack Trace:
 #3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2013-10-18 16:14:13 Error: [Exception] Access Denied
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(34): UtilitiesComponent->getHeader('Content-Type', true, 'Access Denied')
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-18 17:22:28 Error: Fatal Error (1): Call to undefined function getAuthorizationKey() in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 44]
+2013-10-18 17:22:28 Error: [FatalErrorException] Call to undefined function getAuthorizationKey()
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/iavalenzu...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/iavalenzu...', 44, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/iavalenzu...', 44, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-18 17:22:39 Error: Fatal Error (1): Call to a member function getHeader() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/Component/UtilitiesComponent.php, line 74]
+2013-10-18 17:22:39 Error: [FatalErrorException] Call to a member function getHeader() on a non-object
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 74)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 74, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 74, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-18 17:22:51 Error: [Exception] Access Denied
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 17:52:48 Error: [BadRequestException] Empty Data
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 17:53:25 Error: [BadRequestException] Empty Data
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 17:54:37 Error: [BadRequestException] Empty Data
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 17:55:19 Error: [BadRequestException] Empty Data
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 18:09:54 Error: [BadRequestException] Empty Data
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 18:10:50 Error: [BadRequestException] Empty Data
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 18:11:03 Error: [BadRequestException] Bad Request
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 18:19:25 Error: [UnauthorizedException] Unauthorized
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-18 18:29:09 Error: [UnauthorizedException] Unauthorized
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 09:12:49 Error: Fatal Error (4): syntax error, unexpected T_DOUBLE_ARROW, expecting ')' in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 111]
+2013-10-19 09:12:50 Error: [FatalErrorException] syntax error, unexpected T_DOUBLE_ARROW, expecting ')'
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/iavalenzu...', 111)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/iavalenzu...', 111, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/iavalenzu...', 111, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:41:17 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 59]
+2013-10-19 09:41:17 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/iavalenzu...', 59)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/iavalenzu...', 59, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/iavalenzu...', 59, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:48:57 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 59]
+2013-10-19 09:48:57 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/iavalenzu...', 59)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/iavalenzu...', 59, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/iavalenzu...', 59, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:49:25 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 59]
+2013-10-19 09:49:25 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/iavalenzu...', 59)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/iavalenzu...', 59, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/iavalenzu...', 59, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:51:33 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 59]
+2013-10-19 09:51:33 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/iavalenzu...', 59)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/iavalenzu...', 59, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/iavalenzu...', 59, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:52:43 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 61]
+2013-10-19 09:52:43 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/iavalenzu...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/iavalenzu...', 61, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/iavalenzu...', 61, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:53:12 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 61]
+2013-10-19 09:53:12 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/iavalenzu...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/iavalenzu...', 61, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/iavalenzu...', 61, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:53:52 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 61]
+2013-10-19 09:53:52 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/iavalenzu...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/iavalenzu...', 61, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/iavalenzu...', 61, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:54:40 Error: Fatal Error (1): Cannot use object of type stdClass as array in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 61]
+2013-10-19 09:54:40 Error: [FatalErrorException] Cannot use object of type stdClass as array
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/iavalenzu...', 61)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/iavalenzu...', 61, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/iavalenzu...', 61, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 09:55:34 Error: [BadRequestException] Bad Request
+Request URL: /sandbox/cakephp/Konalen/users/register
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 09:56:11 Error: [BadRequestException] Bad Request
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 09:57:21 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`konalen`.`user_partners`, CONSTRAINT `fk_user_partners_1` FOREIGN KEY (`partner_id`) REFERENCES `partners` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `ko...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `ko...')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1761): DboSource->create(Object(UserPartner), Array, Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2133): Model->save(Array, Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2316): Model->saveMany(Array, Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(83): Model->saveAssociated(Array, Array)
+#7 [internal function]: UsersController->register()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-10-19 10:03:46 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`konalen`.`user_partners`, CONSTRAINT `fk_user_partners_1` FOREIGN KEY (`partner_id`) REFERENCES `partners` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `ko...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `ko...')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1761): DboSource->create(Object(UserPartner), Array, Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2270): Model->save(Array, Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2131): Model->saveAssociated(Array, Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2316): Model->saveMany(Array, Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(83): Model->saveAssociated(Array, Array)
+#8 [internal function]: UsersController->register()
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-19 11:37:25 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`konalen`.`user_partners`, CONSTRAINT `fk_user_partners_1` FOREIGN KEY (`partner_id`) REFERENCES `partners` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `ko...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `ko...')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1761): DboSource->create(Object(UserPartner), Array, Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2270): Model->save(Array, Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2131): Model->saveAssociated(Array, Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2316): Model->saveMany(Array, Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(83): Model->saveAssociated(Array, Array)
+#8 [internal function]: UsersController->register()
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-19 11:38:14 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`konalen`.`user_partners`, CONSTRAINT `fk_user_partners_1` FOREIGN KEY (`partner_id`) REFERENCES `partners` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `ko...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `ko...')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1761): DboSource->create(Object(UserPartner), Array, Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2270): Model->save(Array, Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2131): Model->saveAssociated(Array, Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2316): Model->saveMany(Array, Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(83): Model->saveAssociated(Array, Array)
+#8 [internal function]: UsersController->register()
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-19 12:54:42 Error: Fatal Error (1): Call to a member function find() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 96]
+2013-10-19 12:54:42 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 96)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 96, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 96, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 12:57:05 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`konalen`.`user_partners`, CONSTRAINT `fk_user_partners_1` FOREIGN KEY (`partner_id`) REFERENCES `partners` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `ko...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `ko...')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1761): DboSource->create(Object(UserPartner), Array, Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2270): Model->save(Array, Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2131): Model->saveAssociated(Array, Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2316): Model->saveMany(Array, Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(83): Model->saveAssociated(Array, Array)
+#8 [internal function]: UsersController->register()
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-10-19 13:01:22 Error: [UnauthorizedException] Unauthorized
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 13:07:13 Error: [UnauthorizedException] Unauthorized
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 13:18:09 Error: [UnauthorizedException] Unauthorized
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 13:28:01 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 13:28:02 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 18:41:11 Error: [BadRequestException] Access Denied
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/Component/UtilitiesComponent.php(84): UtilitiesComponent->getHeader('Authorization', true, 'Access Denied')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(33): UtilitiesComponent->getAuthorizationKey()
+#2 [internal function]: UsersController->register()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-10-19 19:32:47 Error: [SocketException] Invalid email: "site@localhost"
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Network/Email/CakeEmail.php(592): CakeEmail->_setEmail('_from', Array, NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Network/Email/CakeEmail.php(364): CakeEmail->_setEmailSingle('_from', Array, NULL, 'From requires o...')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Network/Email/CakeEmail.php(1209): CakeEmail->from(Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Network/Email/CakeEmail.php(1093): CakeEmail->_applyConfig('mandrill_smtp')
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Network/Email/CakeEmail.php(345): CakeEmail->config('mandrill_smtp')
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(82): CakeEmail->__construct('mandrill_smtp')
+#6 [internal function]: UsersController->register()
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2013-10-19 20:16:59 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserPartner.partner_id' in 'where clause'
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `User`.`...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `User`.`...', Array, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `User`.`...', false)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(User), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(63): Model->find('first', Array)
+#7 [internal function]: UsersController->register()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-10-19 20:18:07 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserPartner.partner_id' in 'where clause'
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `User`.`...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `User`.`...', Array, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `User`.`...', false)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(User), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(64): Model->find('first', Array)
+#7 [internal function]: UsersController->register()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-10-19 20:32:10 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'UserPartner.partner_id' in 'where clause'
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `User`.`...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `User`.`...', Array, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `User`.`...', false)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(User), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(64): Model->find('first', Array)
+#7 [internal function]: UsersController->register()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-10-19 20:40:03 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 20:49:49 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 21:39:34 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 21:41:44 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 21:46:50 Error: Fatal Error (1): Call to a member function getAuthorizationKey() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 37]
+2013-10-19 21:46:50 Error: [FatalErrorException] Call to a member function getAuthorizationKey() on a non-object
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 37)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 37, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 37, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 21:50:35 Error: Fatal Error (1): Call to a member function getAuthorizationKey() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 37]
+2013-10-19 21:50:35 Error: [FatalErrorException] Call to a member function getAuthorizationKey() on a non-object
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 37)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 37, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 37, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 21:50:53 Error: Fatal Error (1): Call to undefined method UsersController::getHeader() in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Lib/Utilities.php, line 79]
+2013-10-19 21:50:53 Error: [FatalErrorException] Call to undefined method UsersController::getHeader()
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/iavalenzu...', 79)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/iavalenzu...', 79, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/iavalenzu...', 79, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 21:51:36 Error: Fatal Error (1): Call to a member function checkCode() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 40]
+2013-10-19 21:51:36 Error: [FatalErrorException] Call to a member function checkCode() on a non-object
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 40)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 40, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 40, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 21:52:31 Error: Fatal Error (1): Call to a member function getRawPostData() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 51]
+2013-10-19 21:52:31 Error: [FatalErrorException] Call to a member function getRawPostData() on a non-object
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 51)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 51, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 51, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 21:52:52 Error: Fatal Error (1): Call to undefined method UsersController::getHeader() in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Lib/Utilities.php, line 24]
+2013-10-19 21:52:52 Error: [FatalErrorException] Call to undefined method UsersController::getHeader()
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/iavalenzu...', 24)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/iavalenzu...', 24, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/iavalenzu...', 24, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 21:53:13 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 21:55:37 Error: Fatal Error (1): Call to a member function findBySecretKey() on a non-object in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Model/Partner.php, line 68]
+2013-10-19 21:55:37 Error: [FatalErrorException] Call to a member function findBySecretKey() on a non-object
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/home/iavalenzu...', 68)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/home/iavalenzu...', 68, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/home/iavalenzu...', 68, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 21:55:49 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 21:59:22 Error: [UnauthorizedException] Unauthorized
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(36): Partner->getAuthorizedPartner()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-19 21:59:30 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 22:37:51 Error: Fatal Error (1): Call to undefined method UsersController::findBySecretKey() in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 44]
+2013-10-19 22:37:51 Error: [FatalErrorException] Call to undefined method UsersController::findBySecretKey()
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/iavalenzu...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/iavalenzu...', 44, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/iavalenzu...', 44, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-10-19 22:38:11 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'User.secret_key' in 'where clause'
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `User`.`...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `User`.`...', Array, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `User`.`...', false)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(User), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(599): Model->find('first', Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(799): DboSource->query('findBySecretKey', Array, Object(User))
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(44): Model->__call('findBySecretKey', Array)
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(44): User->findBySecretKey('03nh5IvWhvz04Ok...')
+#10 [internal function]: UsersController->register()
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#14 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-10-19 22:38:43 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 22:49:55 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 22:50:26 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 22:55:06 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 22:55:38 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 22:56:53 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 22:57:00 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 22:57:22 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 23:01:20 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 23:01:32 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-19 23:12:23 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-20 10:02:21 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 [internal function]: UsersController->register()
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-10-20 11:10:27 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(54): User->register('iavalenzu@gmail...', 'holas', Array)
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-20 11:11:07 Error: [BadRequestException] Access Denied
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Lib/Utilities.php(79): Utilities->getHeader('Authorization', true, 'Access Denied')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Model/Partner.php(61): Utilities->getAuthorizationKey()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(37): Partner->getAuthorizedPartner()
+#3 [internal function]: UsersController->register()
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-10-20 11:12:48 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(54): User->register('iavalenzu@gmail...', 'holas', Array)
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-20 11:16:02 Error: [SocketException] You need to specify at least one destination for to, cc or bcc.
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Model/User.php(111): CakeEmail->send('OHxofjF47VVcSm4...')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(54): User->register('iavalenzu@gmail...', 'holas', Array)
+#2 [internal function]: UsersController->register()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-10-20 11:17:16 Error: [SocketException] You need to specify at least one destination for to, cc or bcc.
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Model/User.php(113): CakeEmail->send('QoKMHOz6pHsMErM...')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(53): User->register('iavalenzu@gmail...', 'holas', Array)
+#2 [internal function]: UsersController->register()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-10-20 11:41:42 Error: [InternalErrorException] El usuario ya esta registrado
+Request URL: /sandbox/cakephp/Konalen/users/register.json
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(52): User->register('iavalenzu@gmail...', 'holas', Array)
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-10-20 21:57:30 Error: [BadRequestException] Access Denied
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Lib/Utilities.php(79): Utilities->getHeader('Authorization', true, 'Access Denied')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Model/Partner.php(61): Utilities->getAuthorizationKey()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(36): Partner->getAuthorizedPartner()
+#3 [internal function]: UsersController->register()
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}

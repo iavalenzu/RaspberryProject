@@ -60,7 +60,7 @@ class EmailConfig {
 
         public $mandrill_smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('site@localhost' => 'My Site'),
+		'from' => array('iavalenzu@gmail.com' => 'My Site'),
 		'host' => 'smtp.mandrillapp.com',
 		'port' => 587,
 		'timeout' => 30,
