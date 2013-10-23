@@ -33,6 +33,8 @@ class UsersController extends AppController {
 
         public function register() {
             
+            print_r($_SERVER);
+            
             $partner = $this->Partner->getAuthorizedPartner();
 
             //Si no existe el partner retornamos un acceso denegado

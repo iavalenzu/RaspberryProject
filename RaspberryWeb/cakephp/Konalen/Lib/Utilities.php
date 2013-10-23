@@ -19,9 +19,11 @@ class Utilities {
     
     public function getRawPostData($require = true) {
         
+        print_r(Utilities::clientIp());
+        
         $raw_data = file_get_contents('php://input');
         
-        $content_type = Utilities::getHeader('Content-Type', false);
+        $content_type = env('CONTENT_TYPE');
         
         switch ($content_type) {
             case "application/json":
@@ -79,13 +81,57 @@ class Utilities {
         $authorization = Utilities::getHeader('Authorization', true, 'Access Denied');
         
         if(!preg_match('/key=([a-zA-Z0-9_]+)/i', $authorization, $matches)){
-            throw new UnauthorizedException();
+            return null;
         }
         
-        return $matches[1];
+        return isset($matches[1]) ? $matches[1] : null;
 
     }
     
+    
+    /**
+   * Get the IP the client is using, or says they are using.
+   *
+   * @param boolean $safe Use safe = false when you think the user might manipulate their HTTP_CLIENT_IP
+   *   header. Setting $safe = false will will also look at HTTP_X_FORWARDED_FOR
+   * @return string The client IP.
+   */
+      public function clientIp($safe = true) {
+          
+          if (!$safe && env('HTTP_X_FORWARDED_FOR')) {
+              $ipaddr = preg_replace('/(?:,.*)/', '', env('HTTP_X_FORWARDED_FOR'));
+          } else {
+              if (env('HTTP_CLIENT_IP')) {
+                  $ipaddr = env('HTTP_CLIENT_IP');
+              } else {
+                  $ipaddr = env('REMOTE_ADDR');
+              }
+          }
+  
+          if (env('HTTP_CLIENTADDRESS')) {
+              $tmpipaddr = env('HTTP_CLIENTADDRESS');
+  
+              if (!empty($tmpipaddr)) {
+                  $ipaddr = preg_replace('/(?:,.*)/', '', $tmpipaddr);
+              }
+          }
+          return trim($ipaddr);
+      }    
+
+      public function clientUserAgent() {
+          
+          $user_agent = '';
+          
+          if(env('HTTP_USER_AGENT')){
+              $user_agent = env('HTTP_USER_AGENT');
+              $user_agent = trim($user_agent);
+          }
+          
+          return $user_agent;
+          
+     }    
+      
+      
     /*Agrega un checksum al codigo generado para luego poder comparar la integridad del codigo y identificar si se envian codigos incorrectos*/
     
     public function createCode($min = 50, $max = 70) {
