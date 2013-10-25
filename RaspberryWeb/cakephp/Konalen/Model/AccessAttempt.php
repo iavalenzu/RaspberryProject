@@ -1,6 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
-App::import('Lib', 'Utilities');
+
 
 
 /**
@@ -18,18 +18,15 @@ class AccessAttempt extends AppModel {
  */
 	public $displayField = '';
 
-        public function add($secret_key = ''){
-
-            $data = array(
-                'AccessAttempt' => array(
-                    'user_agent' => Utilities::clientUserAgent(),
-                    'ip_address' => Utilities::clientIp(),
-                    'failed_key' => $secret_key
-                )
-            );
-
-            return $this->save($data);
-        }
+        public $belongsTo = array(
+		'IpAddressAccessAttempt' => array(
+			'className' => 'IpAddressAccessAttempt',
+			'foreignKey' => 'ip_address',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
         
         
 }

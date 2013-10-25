@@ -1,7 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 App::import('Lib', 'Utilities');
-App::import('Model', 'AccessAttempt');
+App::import('Model', 'IpAddressAccessAttempt');
 
 /**
  * Partner Model
@@ -10,6 +10,8 @@ App::import('Model', 'AccessAttempt');
  * @property UserPartner $UserPartner
  */
 class Partner extends AppModel {
+
+        public $IpAddressAccessAttempt;
 
 /**
  * Display field
@@ -68,38 +70,45 @@ class Partner extends AppModel {
 		)
 	);
 
+        public function __construct($id = false, $table = null, $ds = null) {
+
+            $this->IpAddressAccessAttempt = new IpAddressAccessAttempt();
+            parent::__construct($id, $table, $ds);
+            
+        }        
         
         public function getAuthorizedPartner(){
-
-            $AccessAttempt = new AccessAttempt();
+            
+            //Si la ip del request esta bloqueada, denegamos el acceso
+            if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
+                throw new UnauthorizedException();
+            }
             
             //Se obtiene la llave secreta que viene en el header
             $secret_key = Utilities::getAuthorizationKey();
             
-            if(is_null($secret_key)){
-                $AccessAttempt->add($secret_key);
-                throw new UnauthorizedException();
-            }
-            
-            //Se chequea que el codigo tenga el formato correcto
+            //Se chequea que el codigo tenga el formato correcto, en caso contrario se crea un intento de acceso
             if(!Utilities::checkCode($secret_key)){
-                $AccessAttempt->add($secret_key);
+                $this->IpAddressAccessAttempt->attempt();
                 throw new UnauthorizedException();
             }
 
             //Se busca al usuario correspondiente a la llave secreta
             $partner = $this->findBySecretKey($secret_key);
             
-            //Si es vacio creamos un intento acceso
+            //Si es vacio registramos un intento acceso, y denegamos el acceso
             if(empty($partner)){
-                $AccessAttempt->add($secret_key);
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException();
             }
             
+            //Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
+            $this->IpAddressAccessAttempt->reset();
+            //Registramos la info del acceso
+            $this->PartnerAccess->access($partner);
             
             return $partner;
            
        }
-        
-        
         
 }

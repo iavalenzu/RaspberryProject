@@ -19,8 +19,6 @@ class Utilities {
     
     public function getRawPostData($require = true) {
         
-        print_r(Utilities::clientIp());
-        
         $raw_data = file_get_contents('php://input');
         
         $content_type = env('CONTENT_TYPE');
@@ -151,8 +149,11 @@ class Utilities {
         
     }
 
-    public function checkCode($code) {
+    public function checkCode($code = null) {
 
+        if(is_null($code))
+            return false;
+        
         //Buscamos la primera aparicion de la letra 'd'
         $randomString = strstr($code, 'd', true);
         

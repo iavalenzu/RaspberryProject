@@ -1,6 +1,8 @@
 <?php
 App::uses('AppModel', 'Model');
 App::import('Lib', 'Utilities');
+App::import('Model', 'IpAddressAccessAttempt');
+
 
 
 /**
@@ -31,13 +33,17 @@ class PartnerAccess extends AppModel {
 		)
 	);
         
-        public function add($partner = null){
+        public function access($partner = null){
+ 
+            $ip_address = Utilities::clientIp();
+            $user_agent = Utilities::clientUserAgent();
+            $partner_id = $partner['Partner']['id'];
 
             $data = array(
                 'PartnerAccess' => array(
-                    'user_agent' => Utilities::clientUserAgent(),
-                    'ip_address' => Utilities::clientIp(),
-                    'partner_id' => $partner['Partner']['id']
+                    'user_agent' => $user_agent,
+                    'ip_address' => $ip_address,
+                    'partner_id' => $partner_id
                 )
             );
 

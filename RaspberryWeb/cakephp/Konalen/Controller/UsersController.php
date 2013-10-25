@@ -26,20 +26,14 @@ class UsersController extends AppController {
 
             $this->autoLayout = false;
             
-            
+            $this->authorizedPartner = $this->Partner->getAuthorizedPartner();
+
         }
         
         //curl --request POST --data '{"email":"iavalenzu@gmail.com", "password": "holas"}' -H 'Authorization:key=03nh5IvWhvz04OkSZLJ21S0LBLUEFUpbSY2gHoJE9aaugahT07NvY6JoziB6f0d6i476l5' -H 'Content-Type:application/json' -v "http://localhost/sandbox/cakephp/Konalen/users/register.json"
 
         public function register() {
             
-            print_r($_SERVER);
-            
-            $partner = $this->Partner->getAuthorizedPartner();
-
-            //Si no existe el partner retornamos un acceso denegado
-            if(empty($partner))
-                throw new UnauthorizedException();
             
             //Se obtiene la data correspondiente al nuevo usuario
             $post_data = Utilities::getRawPostData();
@@ -51,7 +45,7 @@ class UsersController extends AppController {
                !isset($post_data['password'])) 
                     throw new BadRequestException();
             
-            $new_user = $this->User->register($post_data['email'], $post_data['password'], $partner);
+            $new_user = $this->User->register($post_data['email'], $post_data['password'], $this->authorizedPartner);
             
             $response = array(
                 'msg' => 'Se ha registrado el usuario',

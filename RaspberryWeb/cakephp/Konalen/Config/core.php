@@ -377,3 +377,9 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+
+
+Configure::write('MaxAccessAttempts', 5);
+Configure::write('AuthenticationCodeCreateAttempts', 7);
+

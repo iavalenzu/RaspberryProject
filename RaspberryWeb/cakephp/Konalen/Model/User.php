@@ -61,7 +61,7 @@ class User extends AppModel {
         
         public function createAuthenticationCode(){
             
-            $max_attempts = 7;
+            $max_attempts = Configure::read('AuthenticationCodeCreateAttempts');
             
             for($i=0; $i<$max_attempts; $i++){
                 
