@@ -1,6 +1,9 @@
 <?php
 App::uses('AppModel', 'Model');
+
 App::import('Lib', 'Utilities');
+App::import('Lib', 'ResponseStatus');
+
 App::uses('CakeEmail', 'Network/Email');
 
 /**
@@ -59,40 +62,36 @@ class User extends AppModel {
 	);
 
         
-        public function createAuthenticationCode(){
+        public function __sendAuthCode($email, $authentication_code){
             
-            $max_attempts = Configure::read('AuthenticationCodeCreateAttempts');
+            if(empty($email) || empty($authentication_code))
+                return;
             
-            for($i=0; $i<$max_attempts; $i++){
-                
-                $code = Utilities::createCode();
-                
-                $user = $this->findByAuthenticationCode($code);
-                
-                if(empty($user))
-                    return $code;
-                
-            }
-
-            throw new InternalErrorException();
+             //Se envia el correo de autentificacion de cuenta
+            $Email = new CakeEmail('mandrill_smtp');
+            $Email->from(array('me@example.com' => 'Konalen'));
+            $Email->to($email);
+            $Email->subject('Activation code');
+            
+            return $Email->send($authentication_code);
+            
         }
-
         
         public function register($email, $password, $partner){
             
             $user = $this->findByEmail($email);
             
+            print_r($user);
+            
+            $authentication_code = $this->UserPartner->createAuthenticationCode();
+            
             if(empty($user)){
                 
                 $this->create();
                 
-                $authentication_code = $this->createAuthenticationCode();
-                 
                 $user = array(
                     'User' => array(
-                        'email' => $email,
-                        'authenticated' => 0,
-                        'authentication_code' => $authentication_code
+                        'email' => $email
                     ),
                     'UserPartner' => array(
                         array(
@@ -105,14 +104,9 @@ class User extends AppModel {
                 );
                 
                 if(!$this->saveAssociated($user, array('atomic'=>true)))
-                    throw new InternalErrorException();
+                    throw new InternalErrorException(ResponseStatus::$server_error);
 
-                //Se envia el correo de autentificacion de cuenta
-                $Email = new CakeEmail('mandrill_smtp');
-                $Email->from(array('me@example.com' => 'Konalen'));
-                $Email->to($email);
-                $Email->subject('Activation code');
-                $Email->send($authentication_code);
+                $this->__sendAuthCode($email, $authentication_code);
                 
                 return array(
                     'id' => $this->id
@@ -130,39 +124,24 @@ class User extends AppModel {
                     
                 if($user_partner){
                     //El usuario ya esta asociado a este partner
-                    throw new InternalErrorException('El usuario ya esta registrado');
+                    throw new InternalErrorException(ResponseStatus::$user_already_registered);
                 }
 
                 $user_partner = array(
                     'UserPartner' => array(
                         'user_id' => $user['User']['id'],
                         'partner_id' => $partner['Partner']['id'],
-                        'user_password' => Security::hash($password, null, true)
+                        'user_password' => Security::hash($password, null, true),
+                        'authenticated' => 0,
+                        'authentication_code' => $authentication_code
                     )
                 );
 
                 if(!$this->UserPartner->save($user_partner)){
-                    throw new InternalErrorException();
+                    throw new InternalErrorException(ResponseStatus::$server_error);
                 }
 
-                //Si el usuario no esta autentificado creamos un nuevo codigo y enviamos el correo de autenficacion
-                if($user['User']['authenticated'] == '0'){
-                    
-                    $authentication_code = $this->createAuthenticationCode();
-                     
-                    $this->id = $user['User']['id'];
-                    if(!$this->saveField('authentication_code', $authentication_code)){
-                        throw new InternalErrorException();
-                    }
-                     
-                    //Se envia el correo de autentificacion de cuenta
-                    $Email = new CakeEmail('mandrill_smtp');
-                    $Email->from(array('me@example.com' => 'Konalen'));
-                    $Email->to($user['User']['email']);
-                    $Email->subject('Activation code');
-                    $Email->send($authentication_code);
-                    
-                }
+                $this->__sendAuthCode($email, $authentication_code);
                 
                 return array(
                     'id' => $user['User']['id']

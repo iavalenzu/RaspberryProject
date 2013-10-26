@@ -3,7 +3,7 @@
 
 class Utilities {
     
-    public function getHeader($name = null, $require = true, $error_msg = 'Bad Request'){
+    public function getHeader($name = null, $require = true){
         
         $headers = apache_request_headers();
         
@@ -11,7 +11,7 @@ class Utilities {
             return $headers[$name];
 
         if($require)
-            throw new BadRequestException(__($error_msg));
+            return null;
         
         return null;
         
@@ -38,8 +38,8 @@ class Utilities {
                 break;
         }
         
-        if($require && is_null($output))
-            throw new BadRequestException();
+        if($require && empty($output))
+            throw new BadRequestException(ResponseStatus::$missing_data);
         
         return $output;
         
@@ -56,7 +56,7 @@ class Utilities {
             
             if(!$empty && empty($value)){
                 //Si el valor es vacio y no es posible que sea vacio lanzamos una excepcion
-                throw new BadRequestException();
+                throw new BadRequestException(ResponseStatus::$missing_parameters);
             }else if($default){
                 //Si esta permitido que sea vacio y esta definido el dafault, lo retornamos
                 return $default;
@@ -67,45 +67,21 @@ class Utilities {
 
         //Si en este punto no hemos retornado y el valor es requerido retornamos una excepcion
         if($require){
-            throw new BadRequestException();
+            throw new BadRequestException(ResponseStatus::$missing_parameters);
         }
         
         return null;
         
     }
     
-
-    /*
-    public function getParam($name = null, $type = 'POST', $require = true, $error_msg = 'Bad Request'){
-
-        if(is_null($name))
-            return null;
-        
-        switch ($type) {
-            
-            case 'GET':
-                if(isset($this->controller->request->query[$name]))
-                    return $this->controller->request->query[$name];
-                break;
-                
-            case 'POST':
-                if(isset($this->controller->request->data[$name]))
-                    return $this->controller->request->data[$name];
-                break;
-
-            default:
-                break;
-        }
-        
-        if($require)
-            throw new BadRequestException(__($error_msg));
-
-        return null;
-    }
-    */
     public function getAuthorizationKey() {
         
-        $authorization = Utilities::getHeader('Authorization', true, 'Access Denied');
+        $authorization = Utilities::getHeader('Authorization', true);
+        
+        if(empty($authorization))
+            return null;
+        
+        $matches = array();
         
         if(!preg_match('/key=([a-zA-Z0-9_]+)/i', $authorization, $matches)){
             return null;
@@ -180,7 +156,7 @@ class Utilities {
 
     public function checkCode($code = null) {
 
-        if(is_null($code))
+        if(empty($code))
             return false;
         
         //Buscamos la primera aparicion de la letra 'd'

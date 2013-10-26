@@ -81,7 +81,7 @@ class Partner extends AppModel {
             
             //Si la ip del request esta bloqueada, denegamos el acceso
             if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
-                throw new UnauthorizedException();
+                throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
             }
             
             //Se obtiene la llave secreta que viene en el header
@@ -90,7 +90,7 @@ class Partner extends AppModel {
             //Se chequea que el codigo tenga el formato correcto, en caso contrario se crea un intento de acceso
             if(!Utilities::checkCode($secret_key)){
                 $this->IpAddressAccessAttempt->attempt();
-                throw new UnauthorizedException();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
             }
 
             //Se busca al usuario correspondiente a la llave secreta
@@ -99,7 +99,7 @@ class Partner extends AppModel {
             //Si es vacio registramos un intento acceso, y denegamos el acceso
             if(empty($partner)){
                 $this->IpAddressAccessAttempt->attempt();
-                throw new UnauthorizedException();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
             }
             
             //Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso

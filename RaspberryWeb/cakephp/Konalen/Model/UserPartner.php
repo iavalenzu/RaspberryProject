@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::import('Lib', 'ResponseStatus');
 
 
 /**
@@ -59,6 +60,25 @@ class UserPartner extends AppModel {
 			'order' => ''
 		)
 	);
+        
+        
+        public function createAuthenticationCode(){
+            
+            $max_attempts = Configure::read('AuthenticationCodeCreateAttempts');
+            
+            for($i=0; $i<$max_attempts; $i++){
+                
+                $code = Utilities::createCode();
+                
+                $user = $this->findByAuthenticationCode($code);
+                
+                if(empty($user))
+                    return $code;
+                
+            }
+
+            throw new InternalErrorException(ResponseStatus::$server_error);
+        }
         
         
 }

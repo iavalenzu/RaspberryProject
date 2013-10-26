@@ -3,6 +3,9 @@ App::uses('AppController', 'Controller');
 App::uses('Security', 'Utility');
 
 App::import('Lib', 'Utilities');
+App::import('Lib', 'ResponseStatus');
+
+
 
 /**
  * Users Controller
@@ -25,7 +28,6 @@ class UsersController extends AppController {
             parent::beforeFilter();
 
             $this->autoLayout = false;
-            
             $this->authorizedPartner = $this->Partner->getAuthorizedPartner();
 
         }
