@@ -76,9 +76,9 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'user',
-		'password' => 'password',
-		'database' => 'test_database_name',
+		'login' => 'root',
+		'password' => 'pezticut8434',
+		'database' => 'konalen',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

@@ -19,32 +19,61 @@ class Utilities {
     
     public function getRawPostData($require = true) {
         
+        $output = null;
         $raw_data = file_get_contents('php://input');
         
         $content_type = env('CONTENT_TYPE');
         
         switch ($content_type) {
             case "application/json":
-                return json_decode($raw_data, true);
+                $output = json_decode($raw_data, true);
                 break;
             case "application/x-www-form-urlencoded;charset=UTF-8":
                 parse_str($raw_data, $output);
-                return $output;
                 break;
 
             default:
                 //Por defecto se considera como si las variables vinieran en texto plano
                 parse_str($raw_data, $output);
-                return $output;
                 break;
         }
         
-        if($require)
+        if($require && is_null($output))
             throw new BadRequestException();
+        
+        return $output;
+        
+    }
+    
+    public function exists($values = array(), $name = null, $require = true, $empty = false, $default = false){
+
+        if(empty($values) || empty($name))
+            throw new BadRequestException();
+            
+        if(isset($values[$name])){
+
+            $value = trim($values[$name]);
+            
+            if(!$empty && empty($value)){
+                //Si el valor es vacio y no es posible que sea vacio lanzamos una excepcion
+                throw new BadRequestException();
+            }else if($default){
+                //Si esta permitido que sea vacio y esta definido el dafault, lo retornamos
+                return $default;
+            }
+            
+            return $value;
+        }
+
+        //Si en este punto no hemos retornado y el valor es requerido retornamos una excepcion
+        if($require){
+            throw new BadRequestException();
+        }
         
         return null;
         
     }
+    
 
     /*
     public function getParam($name = null, $type = 'POST', $require = true, $error_msg = 'Bad Request'){

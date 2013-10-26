@@ -34,23 +34,24 @@ class UsersController extends AppController {
 
         public function register() {
             
-            
             //Se obtiene la data correspondiente al nuevo usuario
-            $post_data = Utilities::getRawPostData();
+            $post_data = Utilities::getRawPostData(true);
+
+            //Se obtienen los parametros
+            $email = Utilities::exists($post_data, 'email', true, false);
+            $password = Utilities::exists($post_data, 'password', true, false);
             
-            if(empty($post_data))
-                throw new BadRequestException();
+            $new_user = $this->User->register($email, $password, $this->authorizedPartner);
             
-            if(!isset($post_data['email']) ||
-               !isset($post_data['password'])) 
-                    throw new BadRequestException();
+            if($new_user){
+                $response = array(
+                    'msg' => 'Se ha registrado el usuario',
+                    'data' => $new_user
+                ); 
+            }else{
+                
+            }
             
-            $new_user = $this->User->register($post_data['email'], $post_data['password'], $this->authorizedPartner);
-            
-            $response = array(
-                'msg' => 'Se ha registrado el usuario',
-                'data' => $new_user
-            ); 
    
             $this->set('response', $response);
             $this->set('_serialize', array('response'));

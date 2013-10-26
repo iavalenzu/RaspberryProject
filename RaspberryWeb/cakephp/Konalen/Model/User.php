@@ -97,7 +97,9 @@ class User extends AppModel {
                     'UserPartner' => array(
                         array(
                             'partner_id' => $partner['Partner']['id'],
-                            'user_password' => Security::hash($password, null, true)
+                            'user_password' => Security::hash($password, null, true),
+                            'authenticated' => 0,
+                            'authentication_code' => $authentication_code
                         )
                     )
                 );
