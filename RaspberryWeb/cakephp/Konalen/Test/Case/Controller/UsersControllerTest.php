@@ -37,8 +37,6 @@ class UsersControllerTest extends MyControllerTestCase {
 
             debug($result);
             
-            $result = json_decode($result['content'], true);
-            echo $result['response']['data']['captcha'];
             
             
         }
