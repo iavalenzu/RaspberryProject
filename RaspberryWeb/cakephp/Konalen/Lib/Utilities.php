@@ -170,6 +170,81 @@ class Utilities {
         
     }
     
+    public function empties(){
+        
+        $arg_list = func_get_args();
+
+        foreach ($arg_list as $arg) {
+
+        }
+        
+    }
+    
+    
+    public function getCaptchaHtml(){
+        
+        $public_key = Configure::read('ReCaptchaPublicKey');
+        return "<script type='text/javascript' src='http://www.google.com/recaptcha/api/challenge?k=$public_key'> </script> <noscript> <iframe src='http://www.google.com/recaptcha/api/noscript?k=$public_key' height='300' width='500' frameborder='0'></iframe><br> <textarea name='recaptcha_challenge_field' rows='3' cols='40'> </textarea> <input type='hidden' name='recaptcha_response_field' value='manual_challenge'> </noscript>";
+        
+    }
+
+    public function captchaIsCorrect($recaptcha_challenge_field = null, $recaptcha_response_field = null){
+
+        //debug($recaptcha_challenge_field);
+        //debug($recaptcha_response_field);
+        
+        if(empty($recaptcha_challenge_field) || empty($recaptcha_response_field))
+            return false;
+
+        $url = Configure::read('ReCaptchaUrlVerify');
+        
+        $data = array(
+            'privatekey' => Configure::read('ReCaptchaPrivateKey'),
+            'remoteip' => '',
+            'challenge' => $recaptcha_challenge_field,
+            'response' => $recaptcha_response_field
+        );
+ 
+        $data = http_build_query($data);
+        
+        $headers = array();
+        
+        $options = array (
+            CURLOPT_RETURNTRANSFER => true, // return web page
+            CURLOPT_HEADER => false, // don't return headers
+            CURLOPT_FOLLOWLOCATION => true, // follow redirects
+            CURLOPT_ENCODING => "", // handle compressed
+            CURLOPT_USERAGENT => "", // who am i
+            CURLOPT_AUTOREFERER => true, // set referer on redirect
+            CURLOPT_CONNECTTIMEOUT => 120, // timeout on connect
+            CURLOPT_TIMEOUT => 120, // timeout on response
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_POST => true
+        );      
+
+        $ch = curl_init ( $url );
+        curl_setopt_array ( $ch, $options );
+        $content = curl_exec ( $ch );
+        $err = curl_errno ( $ch );
+        //$errmsg = curl_error ( $ch );
+        //$header = curl_getinfo ( $ch );
+        //$httpCode = curl_getinfo ( $ch, CURLINFO_HTTP_CODE );
+
+        curl_close ( $ch );            
+
+        if($err)
+            return false;
+        
+        $response = explode("\n", $content);
+        
+        if(empty($response))
+            return false;
+        
+        return trim($response[0]) == 'true';
+        
+    }    
     
 }
 

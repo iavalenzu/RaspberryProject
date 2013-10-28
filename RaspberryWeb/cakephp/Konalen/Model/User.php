@@ -1,9 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
-
 App::import('Lib', 'Utilities');
 App::import('Lib', 'ResponseStatus');
-
 App::uses('CakeEmail', 'Network/Email');
 
 /**
@@ -58,32 +56,66 @@ class User extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
+		'Notification' => array(
+			'className' => 'Notification',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 	);
 
-        
-        public function __sendAuthCode($email, $authentication_code){
+        public function getUserByEmailAndPartner($email = null, $partner = null){
             
-            if(empty($email) || empty($authentication_code))
+            $user = $this->findByEmail($email);
+            
+            if(empty($user))
+                return false;
+            
+            $user_partner = $this->UserPartner->find('first', array(
+                'conditions' => array(
+                    'UserPartner.user_id' => $user['User']['id'],
+                    'UserPartner.partner_id' => $partner['Partner']['id'],
+                )
+            ));
+            
+            return $user_partner;
+            
+        }
+        
+        public function sendActivationCode($user, $activation_code){
+            
+            if(empty($user) || empty($activation_code))
                 return;
             
+            $data = array(
+                'activation_code' => $activation_code
+            );
+            
+            return $this->Notification->add($user, $data, Notification::$types['EMAIL'], Notification::$status['PENDING']);
+/*            
              //Se envia el correo de autentificacion de cuenta
             $Email = new CakeEmail('mandrill_smtp');
             $Email->from(array('me@example.com' => 'Konalen'));
             $Email->to($email);
             $Email->subject('Activation code');
             
-            return $Email->send($authentication_code);
-            
+            return $Email->send($activation_code);
+*/            
         }
         
         public function register($email, $password, $partner){
             
             $user = $this->findByEmail($email);
             
-            print_r($user);
-            
-            $authentication_code = $this->UserPartner->createAuthenticationCode();
+            $activation_code = $this->UserPartner->createAuthenticationCode();
             
             if(empty($user)){
                 
@@ -97,20 +129,14 @@ class User extends AppModel {
                         array(
                             'partner_id' => $partner['Partner']['id'],
                             'user_password' => Security::hash($password, null, true),
-                            'authenticated' => 0,
-                            'authentication_code' => $authentication_code
+                            'active' => 0,
+                            'activation_code' => $activation_code
                         )
                     )
                 );
                 
                 if(!$this->saveAssociated($user, array('atomic'=>true)))
                     throw new InternalErrorException(ResponseStatus::$server_error);
-
-                $this->__sendAuthCode($email, $authentication_code);
-                
-                return array(
-                    'id' => $this->id
-                );
                 
             }else{
                 
@@ -124,7 +150,10 @@ class User extends AppModel {
                     
                 if($user_partner){
                     //El usuario ya esta asociado a este partner
-                    throw new InternalErrorException(ResponseStatus::$user_already_registered);
+                    return array(
+                        'msg' => ResponseStatus::$user_already_registered,
+                        'data' => array()
+                    );
                 }
 
                 $user_partner = array(
@@ -132,8 +161,8 @@ class User extends AppModel {
                         'user_id' => $user['User']['id'],
                         'partner_id' => $partner['Partner']['id'],
                         'user_password' => Security::hash($password, null, true),
-                        'authenticated' => 0,
-                        'authentication_code' => $authentication_code
+                        'active' => 0,
+                        'activation_code' => $activation_code
                     )
                 );
 
@@ -141,17 +170,27 @@ class User extends AppModel {
                     throw new InternalErrorException(ResponseStatus::$server_error);
                 }
 
-                $this->__sendAuthCode($email, $authentication_code);
-                
-                return array(
-                    'id' => $user['User']['id']
-                );
-                
             }
             
-            return false;
+            
+            $new_user = $this->getUserByEmailAndPartner($email, $partner);
+
+            if(empty($new_user))
+                throw new InternalErrorException(ResponseStatus::$server_error);
+
+            if(!$this->sendActivationCode($new_user, $activation_code)){
+                throw new InternalErrorException(ResponseStatus::$server_error);
+            }
+
+            return array(
+                'msg' => ResponseStatus::$user_registered,
+                'data' => array(
+                    'id' => $new_user['User']['id'],
+                    'email' => $new_user['User']['email'],
+                    'created' => $new_user['UserPartner']['created']
+                )
+            );
             
         }
-        
         
 }

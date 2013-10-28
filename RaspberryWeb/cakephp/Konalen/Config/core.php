@@ -382,4 +382,10 @@ Cache::config('_cake_model_', array(
 
 Configure::write('MaxAccessAttempts', 5);
 Configure::write('AuthenticationCodeCreateAttempts', 7);
+Configure::write('UserMaxLoginAttempts', 4);
+
+Configure::write('ReCaptchaPublicKey', '6LfWgMwSAAAAADykRsjG0b3Yv-ez9okdnfh3f0QT');
+Configure::write('ReCaptchaPrivateKey', '6LfWgMwSAAAAAHRcUt7OL8tKnmiVp0goLTPHGYi5');
+Configure::write('ReCaptchaUrlVerify', 'http://www.google.com/recaptcha/api/verify');
+
 

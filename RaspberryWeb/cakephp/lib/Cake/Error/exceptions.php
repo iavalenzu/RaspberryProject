@@ -52,8 +52,8 @@ class CakeBaseException extends RuntimeException {
 		}
 		return $this->_responseHeaders;
 	}
-
-}
+        
+        }
 
 /**
  * Parent class for all of the HTTP related exceptions in CakePHP.
@@ -106,7 +106,7 @@ class UnauthorizedException extends HttpException {
 		if (empty($message)) {
 			$message = 'Unauthorized';
 		}
-		parent::__construct($message, $code);
+                parent::__construct($message, $code);
 	}
 
 }

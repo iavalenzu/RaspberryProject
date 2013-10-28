@@ -27,8 +27,7 @@ class UsersController extends AppController {
         public function beforeFilter() {
             parent::beforeFilter();
 
-            $this->autoLayout = false;
-            $this->authorizedPartner = $this->Partner->getAuthorizedPartner();
+            //$this->autoLayout = false;
 
         }
         
@@ -36,6 +35,8 @@ class UsersController extends AppController {
 
         public function register() {
             
+            $authorizedPartner = $this->Partner->getAuthorizedPartner();
+
             //Se obtiene la data correspondiente al nuevo usuario
             $post_data = Utilities::getRawPostData(true);
 
@@ -43,24 +44,47 @@ class UsersController extends AppController {
             $email = Utilities::exists($post_data, 'email', true, false);
             $password = Utilities::exists($post_data, 'password', true, false);
             
-            $new_user = $this->User->register($email, $password, $this->authorizedPartner);
-            
-            if($new_user){
-                $response = array(
-                    'msg' => 'Se ha registrado el usuario',
-                    'data' => $new_user
-                ); 
-            }else{
-                
-            }
-            
+            $response = $this->User->register($email, $password, $authorizedPartner);
    
             $this->set('response', $response);
             $this->set('_serialize', array('response'));
             
         }
         
+        public function login(){
+            
+            $authorizedPartner = $this->Partner->getAuthorizedPartner();
+
+            //Se obtiene la data correspondiente al nuevo usuario
+            $post_data = Utilities::getRawPostData(true);
+
+            //Se obtienen los parametros
+            $email = Utilities::exists($post_data, 'email', true, false);
+            $password = Utilities::exists($post_data, 'password', true, false);
+            $user_agent = Utilities::exists($post_data, 'user_agent', true, false);
+            $user_ip_address = Utilities::exists($post_data, 'ip_address', true, false);
+            $recaptcha_challenge_field = Utilities::exists($post_data, 'recaptcha_challenge_field', false, false);
+            $recaptcha_response_field = Utilities::exists($post_data, 'recaptcha_response_field', false, false);
+            
+            $response = $this->UserPartner->login($email, $password, $user_agent, $user_ip_address, $authorizedPartner, $recaptcha_challenge_field, $recaptcha_response_field);
+            
+            $this->set('response', $response);
+            $this->set('_serialize', array('response'));
+            
+        }
         
+        public function activate(){
+            
+            $authorizedPartner = $this->Partner->getAuthorizedPartner();
+
+            //Se obtiene la data correspondiente al nuevo usuario
+            $post_data = Utilities::getRawPostData(true);
+
+            //Se obtienen los parametros
+            $email = Utilities::exists($post_data, 'email', true, false);
+            $password = Utilities::exists($post_data, 'password', true, false);
+            
+        }
         
         
         
@@ -70,9 +94,11 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function index() {
-		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
+	public function captcha() {
+            
+            debug($this->request);
+            
+            
 	}
         
 
@@ -83,6 +109,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
+/*        
 	public function view($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
@@ -90,13 +117,13 @@ class UsersController extends AppController {
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 		$this->set('user', $this->User->find('first', $options));
 	}
-
+*/
 /**
  * add method
  *
  * @return void
  */
-	public function add() {
+/*	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -107,7 +134,7 @@ class UsersController extends AppController {
 			}
 		}
 	}
-
+*/
 /**
  * edit method
  *
@@ -115,7 +142,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+/*	public function edit($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -131,7 +158,7 @@ class UsersController extends AppController {
 			$this->request->data = $this->User->find('first', $options);
 		}
 	}
-
+*/
 /**
  * delete method
  *
@@ -139,7 +166,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+/*	public function delete($id = null) {
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
@@ -152,17 +179,17 @@ class UsersController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-
+*/
 /**
  * admin_index method
  *
  * @return void
  */
-	public function admin_index() {
+/*	public function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
 	}
-
+*/
 /**
  * admin_view method
  *
@@ -170,20 +197,20 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_view($id = null) {
+/*	public function admin_view($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 		$this->set('user', $this->User->find('first', $options));
 	}
-
+*/
 /**
  * admin_add method
  *
  * @return void
  */
-	public function admin_add() {
+/*	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -194,7 +221,7 @@ class UsersController extends AppController {
 			}
 		}
 	}
-
+*/
 /**
  * admin_edit method
  *
@@ -202,7 +229,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_edit($id = null) {
+/*	public function admin_edit($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -218,7 +245,7 @@ class UsersController extends AppController {
 			$this->request->data = $this->User->find('first', $options);
 		}
 	}
-
+*/
 /**
  * admin_delete method
  *
@@ -226,7 +253,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_delete($id = null) {
+/*	public function admin_delete($id = null) {
 		$this->User->id = $id;
 		if (!$this->User->exists()) {
 			throw new NotFoundException(__('Invalid user'));
@@ -238,4 +265,6 @@ class UsersController extends AppController {
 			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
 		}
 		return $this->redirect(array('action' => 'index'));
-	}}
+	}
+ */ 
+ }

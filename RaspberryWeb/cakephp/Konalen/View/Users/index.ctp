@@ -1,3 +1,7 @@
+
+
+
+<!--
 <div class="users index">
 	<h2><?php echo __('Users'); ?></h2>
 	<table cellpadding="0" cellspacing="0">
@@ -46,3 +50,4 @@
 		<li><?php echo $this->Html->link(__('New User Partner'), array('controller' => 'user_partners', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
+-->

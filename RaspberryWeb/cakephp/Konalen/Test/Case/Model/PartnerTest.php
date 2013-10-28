@@ -12,11 +12,6 @@ class PartnerTest extends CakeTestCase {
  *
  * @var array
  */
-	public $fixtures = array(
-		'app.partner',
-		'app.service',
-		'app.user_partner'
-	);
 
 /**
  * setUp method
