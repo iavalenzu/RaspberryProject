@@ -88,130 +88,49 @@ class User extends AppModel {
                 
             }
 
-            throw new InternalErrorException(ResponseStatus::$server_error);
+            return false;
         }
         
-        
-        public function getUserByEmailAndPartner($email = null, $partner = null){
+        public function createUser($email = null){
             
-            $user = $this->findByEmail($email);
-            
-            if(empty($user))
+            if(empty($email))
                 return false;
             
-            $user_partner = $this->UserPartner->find('first', array(
-                'conditions' => array(
-                    'UserPartner.user_id' => $user['User']['id'],
-                    'UserPartner.partner_id' => $partner['Partner']['id'],
-                )
-            ));
+            //Iniciamos la transaccion
+            $dataSource = $this->getDataSource();
+            $dataSource->begin();
             
-            return $user_partner;
+            $public_id = $this->createUserId();
+            
+            $user = array(
+               'User' => array(
+                   'email' => $email,
+                   'public_id' => $public_id
+                )
+            );
+            
+            if($public_id && $this->save($user)){
+                if($dataSource->commit())
+                    return $this->findById($this->id);
+            }else{
+                $dataSource->rollback();
+            }   
+            
+            throw new InternalErrorException(ResponseStatus::$server_error);
             
         }
         
-        public function sendActivationCode($user, $activation_code){
+        public function sendActivationCode($user_partner = null){
             
-            if(empty($user) || empty($activation_code))
+            if(empty($user_partner))
                 return;
             
             $data = array(
-                'activation_code' => $activation_code
+                'activation_code' => $user_partner['UserPartner']['activation_code']
             );
             
-            return $this->Notification->add($user, $data, Notification::$types['EMAIL'], Notification::$status['PENDING']);
-/*            
-             //Se envia el correo de autentificacion de cuenta
-            $Email = new CakeEmail('mandrill_smtp');
-            $Email->from(array('me@example.com' => 'Konalen'));
-            $Email->to($email);
-            $Email->subject('Activation code');
-            
-            return $Email->send($activation_code);
-*/            
-        }
-        
-        public function register($email, $password, $partner){
-            
-            $user = $this->findByEmail($email);
-            
-            $activation_code = $this->UserPartner->createAuthenticationCode();
-            
-            if(empty($user)){
-                
-                $this->create();
-                
-                $user = array(
-                    'User' => array(
-                        'email' => $email,
-                        'public_id' => $this->createUserId()
-                    ),
-                    'UserPartner' => array(
-                        array(
-                            'partner_id' => $partner['Partner']['id'],
-                            'user_password' => Security::hash($password, null, true),
-                            'active' => 0,
-                            'activation_code' => $activation_code
-                        )
-                    )
-                );
-                
-                if(!$this->saveAssociated($user, array('atomic'=>true)))
-                    throw new InternalErrorException(ResponseStatus::$server_error);
-                
-            }else{
-                
-                //Si encuentra el usuario se debe verificar si esta asociado al partner 
-                $user_partner = $this->UserPartner->find('first', array(
-                    'conditions' => array(
-                        'UserPartner.user_id' => $user['User']['id'],
-                        'UserPartner.partner_id' => $partner['Partner']['id']
-                    )
-                ));   
-                    
-                if($user_partner){
-                    //El usuario ya esta asociado a este partner
-                    return array(
-                        'msg' => ResponseStatus::$user_already_registered,
-                        'data' => array()
-                    );
-                }
+            return $this->Notification->createNotification($user_partner, $data, Notification::$types['EMAIL'], Notification::$status['PENDING']);
 
-                $user_partner = array(
-                    'UserPartner' => array(
-                        'user_id' => $user['User']['id'],
-                        'partner_id' => $partner['Partner']['id'],
-                        'user_password' => Security::hash($password, null, true),
-                        'active' => 0,
-                        'activation_code' => $activation_code
-                    )
-                );
-
-                if(!$this->UserPartner->save($user_partner)){
-                    throw new InternalErrorException(ResponseStatus::$server_error);
-                }
-
-            }
-            
-            
-            $new_user = $this->getUserByEmailAndPartner($email, $partner);
-
-            if(empty($new_user))
-                throw new InternalErrorException(ResponseStatus::$server_error);
-
-            if(!$this->sendActivationCode($new_user, $activation_code)){
-                throw new InternalErrorException(ResponseStatus::$server_error);
-            }
-
-            return array(
-                'msg' => ResponseStatus::$user_registered,
-                'data' => array(
-                    'id' => $new_user['User']['public_id'],
-                    'email' => $new_user['User']['email'],
-                    'created' => $new_user['UserPartner']['created']
-                )
-            );
-            
         }
         
 }

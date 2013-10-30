@@ -71,7 +71,93 @@ class UserPartner extends AppModel {
 		)
 	);        
 
-        public function createAuthenticationCode(){
+        
+        public function getByUserAndPartner($user = null, $partner = null){
+            
+            if(empty($user) || empty($partner))
+                return false;
+            
+             //Se debe verificar si esta asociado al partner 
+            $user_partner = $this->find('first', array(
+                'conditions' => array(
+                    'UserPartner.user_id' => $user['User']['id'],
+                    'UserPartner.partner_id' => $partner['Partner']['id']
+                )
+            ));   
+            
+            return $user_partner;
+            
+        }
+        
+        public function createUserPartner($user = null, $partner = null, $password = null){
+            
+            if(empty($user) || empty($partner) || empty($password))
+                return false;
+            
+                 //Iniciamos la transaccion
+            $dataSource = $this->getDataSource();
+            $dataSource->begin();
+            
+            $activation_code = $this->createActivationCode(); 
+            
+            $user_partner = array(
+                'UserPartner' => array(
+                    'user_id' => $user['User']['id'],
+                    'partner_id' => $partner['Partner']['id'],
+                    'user_password' => Security::hash($password, null, true),
+                    'active' => 0,
+                    'activation_code' => $activation_code
+                )
+            );
+            
+            if($activation_code && $this->save($user_partner)){
+                if($dataSource->commit())
+                    return $this->findById($this->id);
+            }else{
+                $dataSource->rollback();
+            }                 
+            
+            throw new InternalErrorException(ResponseStatus::$server_error);
+            
+        }
+        
+        public function register($email, $password, $partner){
+            
+            $user = $this->User->findByEmail($email);
+            
+            if(empty($user)){
+                $user = $this->User->createUser($email);
+            }
+            
+            $user_partner = $this->getByUserAndPartner($user, $partner);
+            
+            if($user_partner){
+                //El usuario ya esta asociado a este partner
+                return array(
+                    'msg' => ResponseStatus::$user_already_registered,
+                    'data' => array()
+                );
+            }    
+            
+            //No esta asociado luego lo creamos
+            $new_user_partner = $this->createUserPartner($user, $partner, $password);
+    
+            if(!$this->User->sendActivationCode($new_user_partner)){
+                throw new InternalErrorException(ResponseStatus::$server_error);
+            }
+            
+            return array(
+                'msg' => ResponseStatus::$user_registered,
+                'data' => array(
+                    'id' => $new_user_partner['User']['public_id'],
+                    'email' => $new_user_partner['User']['email'],
+                    'created' => $new_user_partner['UserPartner']['created']
+                )
+            );
+            
+        }        
+        
+        public function createActivationCode(){
             
             $max_attempts = Configure::read('AuthenticationCodeGenerationAttempts');
             
@@ -86,7 +172,7 @@ class UserPartner extends AppModel {
                 
             }
 
-            throw new InternalErrorException(ResponseStatus::$server_error);
+            return false;
         }
         
         
@@ -101,12 +187,7 @@ class UserPartner extends AppModel {
                 );                
             }
 
-            $user_partner = $this->find('first', array(
-                'conditions' => array(
-                    'UserPartner.user_id' => $user['User']['id'],
-                    'UserPartner.partner_id' => $partner['Partner']['id']
-                )
-            ));
+            $user_partner = $this->getByUserAndPartner($user, $partner);
 
             if(empty($user_partner)){
                 return array(
@@ -162,17 +243,15 @@ class UserPartner extends AppModel {
                 
             }
             
-            //Se crea el identificador de session
-            $session_id = $this->UserAccess->createSessionId();
-            
             //Se agrega un acceso exitoso
-            if(!$this->UserAccess->access($user_partner, $user_agent, $user_ip_address, $session_id))
+            $user_access = $this->UserAccess->createAccess($user_partner, $user_agent, $user_ip_address);
+            
+            if(!$user_access)
                 throw new InternalErrorException(ResponseStatus::$server_error);
 
-            
             return array(
                 'msg' => ResponseStatus::$login_success,
-                'session_id' => $session_id,
+                'session_id' => $user_access['UserAccess']['session_id'],
                 'data' => array(
                     'id' => $user_partner['User']['public_id'],
                     'email' => $user_partner['User']['email'],
@@ -216,28 +295,16 @@ class UserPartner extends AppModel {
         
         public function changepassword($session_id, $new_password, $partner){
             
-            $user_access = $this->UserAccess->find('first', array(
-                'conditions' => array(
-                    'UserAccess.session_id' => $session_id
-                ),
-                'order' => array('UserAccess.id DESC')
-            ));
-                    
-            if(empty($user_access)){
+            $new_user_access = $this->UserAccess->checkSessionId($session_id);
+            
+            if(empty($new_user_access)){
                 return array(
                     'msg' => ResponseStatus::$session_invalid,
                     'data' => array()
                 );                
             }
             
-            $session_id = $this->UserAccess->createSessionId();
-            $user_access['UserAccess']['session_id'] = $session_id;
-
-            if(!$this->UserAccess->save($user_access)){
-                throw new InternalErrorException(ResponseStatus::$server_error);
-            }
-            
-            $user_partner = $this->findById($user_access['UserAccess']['user_partner_id']);
+            $user_partner = $this->findById($new_user_access['UserAccess']['user_partner_id']);
             
             if(empty($user_partner)){
                 return array(
@@ -254,7 +321,7 @@ class UserPartner extends AppModel {
             
             return array(
                 'msg' => ResponseStatus::$change_pass_success,
-                'session_id' => $session_id,
+                'session_id' => $new_user_access['UserAccess']['session_id'],
                 'data' => array(
                     'id' => $user_partner['User']['public_id'],
                     'email' => $user_partner['User']['email'],

@@ -29,8 +29,8 @@ class UsersControllerTest extends MyControllerTestCase {
         public function testChangePass(){
             
             $data = json_encode(array(
-                'session_id' => 'yifGqV3TOjI4WO2fN0UKUhaZAbrgJKy0J5lNqd7nXBGXUVdwKk', 
-                'new_password' => 'holass', 
+                'session_id' => 'sHyXBUqGzcYtVnUzDpl1Dgucz99jPGQZz4WPfFGDrwpMwiD5Vh', 
+                'new_password' => 'holasssss', 
             ));
             
             $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/changepassword.json", $data, $this->headers);
@@ -43,7 +43,7 @@ class UsersControllerTest extends MyControllerTestCase {
 
             $data = json_encode(array(
                 'email' => 'iavalenzu@gmail.com', 
-                'password' => 'holass', 
+                'password' => 'holasssss', 
                 'user_agent' => 'agent', 
                 'ip_address' => '1.0.0.0',
                 'recaptcha_challenge_field' => '03AHJ_Vut6xlfJnv7fpEdapgnMcZIA4-G1Wa9U3VJL_PeuYl4D3VXltpF-NksayPupWPRTGY2VjRlUki3VR7LtD8FzavvcubTIrD9XDzq8upcBXbT9-rR76NDQFAPS4cZYhVlnAL8vSC89AMr5hvIWqOVnlhmB1qa81tSorp8xB5oFipDM8knBW2w',

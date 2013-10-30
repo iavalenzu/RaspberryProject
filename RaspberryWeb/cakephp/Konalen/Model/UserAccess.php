@@ -33,14 +33,21 @@ class UserAccess extends AppModel {
                 
             }
 
-            throw new InternalErrorException(ResponseStatus::$server_error);
+            return false;
+            
         }
         
         
-        public function access($user_partner = null, $user_agent = null, $user_ip_address = null, $session_id = null){
+        public function createAccess($user_partner = null, $user_agent = null, $user_ip_address = null){
 
-            if(empty($user_partner) || empty($user_agent) || empty($user_ip_address) || empty($session_id))
+            if(empty($user_partner) || empty($user_agent) || empty($user_ip_address))
                 return false;
+            
+            $dataSource = $this->getDataSource();
+            
+            $dataSource->begin();
+            
+            $session_id = $this->createSessionId();
             
             $user_access = array(
                 'UserAccess' => array(
@@ -51,8 +58,49 @@ class UserAccess extends AppModel {
                 )
             );
 
-            return $this->save($user_access);
+            if($session_id && $this->save($user_access)){
+                if($dataSource->commit())
+                    return $this->findById($this->id);
+            }else{
+                $dataSource->rollback();
+            }
 
+            throw new InternalErrorException(ResponseStatus::$server_error);
+            
+        }
+        
+        public function checkSessionId($session_id = null){
+            
+            if(empty($session_id))
+                return false;
+            
+            $dataSource = $this->getDataSource();
+            
+            $dataSource->begin();
+            
+            $user_access = $this->find('first', array(
+                'conditions' => array(
+                    'UserAccess.session_id' => $session_id
+                ),
+                'order' => array('UserAccess.id DESC')
+            ));
+            
+            if(empty($user_access))
+                return false;
+            
+            $new_session_id = $this->createSessionId();
+            
+            $user_access['UserAccess']['session_id'] = $new_session_id;
+
+            if($new_session_id && $this->save($user_access)){
+                if($dataSource->commit())
+                    return $this->findById($this->id);
+            }else{
+                $dataSource->rollback();
+            }
+
+            return null;
+            
         }
         
         

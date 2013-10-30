@@ -51,7 +51,7 @@ class Notification extends AppModel {
 		)
 	);
         
-        public function add($user = null, $data = null, $type = null, $status = null){
+        public function createNotification($user = null, $data = null, $type = null, $status = null){
 
             
             if(empty($user) || empty($data) || empty($type) || empty($status))

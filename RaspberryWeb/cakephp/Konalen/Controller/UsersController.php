@@ -44,7 +44,7 @@ class UsersController extends AppController {
             $email = Utilities::exists($post_data, 'email', true, false);
             $password = Utilities::exists($post_data, 'password', true, false);
             
-            $response = $this->User->register($email, $password, $authorizedPartner);
+            $response = $this->UserPartner->register($email, $password, $authorizedPartner);
    
             $this->set('response', $response);
             $this->set('_serialize', array('response'));
