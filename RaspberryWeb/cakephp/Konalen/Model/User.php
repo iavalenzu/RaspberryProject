@@ -72,6 +72,26 @@ class User extends AppModel {
 		),
 	);
 
+        
+        public function createUserId(){
+            
+            $max_attempts = Configure::read('UserPublicIdGenerationAttempts');
+            
+            for($i=0; $i<$max_attempts; $i++){
+                
+                $code = Utilities::getRandomString(20,25);
+                
+                $user = $this->findByPublicId($code);
+                
+                if(empty($user))
+                    return $code;
+                
+            }
+
+            throw new InternalErrorException(ResponseStatus::$server_error);
+        }
+        
+        
         public function getUserByEmailAndPartner($email = null, $partner = null){
             
             $user = $this->findByEmail($email);
@@ -123,7 +143,8 @@ class User extends AppModel {
                 
                 $user = array(
                     'User' => array(
-                        'email' => $email
+                        'email' => $email,
+                        'public_id' => $this->createUserId()
                     ),
                     'UserPartner' => array(
                         array(
@@ -185,7 +206,7 @@ class User extends AppModel {
             return array(
                 'msg' => ResponseStatus::$user_registered,
                 'data' => array(
-                    'id' => $new_user['User']['id'],
+                    'id' => $new_user['User']['public_id'],
                     'email' => $new_user['User']['email'],
                     'created' => $new_user['UserPartner']['created']
                 )

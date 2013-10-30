@@ -23,6 +23,15 @@ class UserTest extends CakeTestCase {
 		$this->User = ClassRegistry::init('User');
 	}
 
+        public function testCreateUserId(){
+            
+            $code = $this->User->createUserId();
+            
+            debug($code);
+            
+        }
+        
+        
 /**
  * tearDown method
  *

@@ -18,16 +18,36 @@ class UserAccess extends AppModel {
 		)
 	);
             
-        public function access($user_partner = null, $user_agent = null, $user_ip_address = null){
+        public function createSessionId(){
+            
+            $max_attempts = Configure::read('SessionIdGenerationAttempts');
+            
+            for($i=0; $i<$max_attempts; $i++){
+                
+                $code = Utilities::getRandomString(50);
+                
+                $access = $this->findBySessionId($code);
+                
+                if(empty($access))
+                    return $code;
+                
+            }
 
-            if(empty($user_partner) || empty($user_agent) || empty($user_ip_address))
+            throw new InternalErrorException(ResponseStatus::$server_error);
+        }
+        
+        
+        public function access($user_partner = null, $user_agent = null, $user_ip_address = null, $session_id = null){
+
+            if(empty($user_partner) || empty($user_agent) || empty($user_ip_address) || empty($session_id))
                 return false;
             
             $user_access = array(
                 'UserAccess' => array(
                     'user_partner_id' => $user_partner['UserPartner']['id'],
                     'user_agent' => $user_agent,
-                    'ip_address' => $user_ip_address
+                    'ip_address' => $user_ip_address,
+                    'session_id' => $session_id
                 )
             );
 

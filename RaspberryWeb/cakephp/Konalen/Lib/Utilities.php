@@ -1,5 +1,6 @@
 <?php
 
+App::import('Lib', 'ResponseStatus');
 
 class Utilities {
     
@@ -134,52 +135,60 @@ class Utilities {
           
      }    
       
+     
+    public function getRandomString($min = 20, $max = false, $source = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"){
+
+        if($max)
+            $length = mt_rand($min, $max);
+        else
+            $length = $min;
+        
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $source[mt_rand(0, strlen($source)-1)];
+        }
+        
+        return $randomString;
+        
+        
+    } 
       
     /*Agrega un checksum al codigo generado para luego poder comparar la integridad del codigo y identificar si se envian codigos incorrectos*/
     
-    public function createCode($min = 50, $max = 70) {
+    public function createCode($min = 50, $max = false, $separator = '_', $base = 16) {
         
-        $length = mt_rand($min, $max);
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        $parts = preg_split("/$separator/", $characters);
         
-        $characters = '0123456789abc' . 'efghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $characters[mt_rand(0, strlen($characters)-1)];
+        if(count($parts) == 2){
+            $characters = $parts[0] . $parts[1];
         }
         
-        $crc = crc32($randomString);
-        $crc = base_convert($crc, 10, 26);
+        $randomString = Utilities::getRandomString($min, $max, $characters);
         
-        return $randomString . 'd' . $crc;
+        $crc = crc32($randomString);
+        $base_crc = base_convert($crc, 10, $base);
+        
+        return $randomString . $separator . $base_crc;
         
     }
 
-    public function checkCode($code = null) {
+    public function checkCode($code = null, $separator = '_', $base = 16) {
 
         if(empty($code))
             return false;
         
         //Buscamos la primera aparicion de la letra 'd'
-        $randomString = strstr($code, 'd', true);
+        $randomString = strstr($code, $separator, true);
         
         $crc = crc32($randomString);
-        $crc = base_convert($crc, 10, 26);
-        $randomString = $randomString . 'd' . $crc;
+        $crc = base_convert($crc, 10, $base);
+        $randomString = $randomString . $separator . $crc;
         
         return strcmp($code, $randomString) == 0;
         
     }
-    
-    public function empties(){
-        
-        $arg_list = func_get_args();
-
-        foreach ($arg_list as $arg) {
-
-        }
-        
-    }
-    
     
     public function getCaptchaHtml(){
         
@@ -188,26 +197,12 @@ class Utilities {
         
     }
 
-    public function captchaIsCorrect($recaptcha_challenge_field = null, $recaptcha_response_field = null){
-
-        //debug($recaptcha_challenge_field);
-        //debug($recaptcha_response_field);
+    public function doCurlRequest($url, $data = array(), $headers = array(), $post = true){
         
-        if(empty($recaptcha_challenge_field) || empty($recaptcha_response_field))
-            return false;
-
-        $url = Configure::read('ReCaptchaUrlVerify');
+        if(!is_array($data)) return null;
         
-        $data = array(
-            'privatekey' => Configure::read('ReCaptchaPrivateKey'),
-            'remoteip' => '',
-            'challenge' => $recaptcha_challenge_field,
-            'response' => $recaptcha_response_field
-        );
- 
-        $data = http_build_query($data);
-        
-        $headers = array();
+        if($data)
+            $data = http_build_query($data);
         
         $options = array (
             CURLOPT_RETURNTRANSFER => true, // return web page
@@ -221,28 +216,54 @@ class Utilities {
             CURLOPT_MAXREDIRS => 10,
             CURLOPT_POSTFIELDS => $data,
             CURLOPT_HTTPHEADER => $headers,
-            CURLOPT_POST => true
+            CURLOPT_POST => $post
         );      
 
         $ch = curl_init ( $url );
         curl_setopt_array ( $ch, $options );
         $content = curl_exec ( $ch );
-        $err = curl_errno ( $ch );
-        //$errmsg = curl_error ( $ch );
-        //$header = curl_getinfo ( $ch );
-        //$httpCode = curl_getinfo ( $ch, CURLINFO_HTTP_CODE );
+        $errno = curl_errno ( $ch );
+        $error = curl_error ( $ch );
+        $info = curl_getinfo ( $ch );
+        
+        return array(
+            'errno' => $errno,
+            'error' => $error,
+            'info' => $info,
+            'content' => $content
+        );
+        
+        
+    }
+    
+    public function captchaIsCorrect($recaptcha_challenge_field = null, $recaptcha_response_field = null){
 
-        curl_close ( $ch );            
+        if(empty($recaptcha_challenge_field) || empty($recaptcha_response_field))
+            return false;
 
-        if($err)
+        $url = Configure::read('ReCaptchaUrlVerify');
+        
+        $data = array(
+            'privatekey' => Configure::read('ReCaptchaPrivateKey'),
+            'remoteip' => '',
+            'challenge' => $recaptcha_challenge_field,
+            'response' => $recaptcha_response_field
+        );
+ 
+        $response = doCurlRequest($url, $data);
+
+        if(is_null($response))
+            return false;
+
+        if($response['errno'])
             return false;
         
-        $response = explode("\n", $content);
+        $content = explode("\n", $response['content']);
         
-        if(empty($response))
+        if(empty($content))
             return false;
         
-        return trim($response[0]) == 'true';
+        return trim($content[0]) == 'true';
         
     }    
     

@@ -15,5 +15,10 @@ class ResponseStatus {
     public static $login_success = 'LOGIN_SUCCESS';
     public static $user_inactive = 'USER_INACTIVE';
     public static $max_login_attempts_exceeded = 'MAX_LOGIN_ATTEMPTS_EXCEEDED';
+    public static $activation_error = 'ACTIVATION_ERROR';
+    public static $activation_success = 'ACTIVATION_SUCCESS';
+    public static $change_pass_error = 'CHANGE_PASS_ERROR';
+    public static $change_pass_success = 'CHANGE_PASS_SUCCESS';
+    public static $session_invalid = 'SESSION_INVALID';
 }
 ?>

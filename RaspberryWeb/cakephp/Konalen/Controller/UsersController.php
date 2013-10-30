@@ -36,7 +36,7 @@ class UsersController extends AppController {
         public function register() {
             
             $authorizedPartner = $this->Partner->getAuthorizedPartner();
-
+            
             //Se obtiene la data correspondiente al nuevo usuario
             $post_data = Utilities::getRawPostData(true);
 
@@ -75,31 +75,67 @@ class UsersController extends AppController {
         
         public function activate(){
             
+            $this->autoLayout = false;
+            
+            //Se obtienen los parametros
+            $code = Utilities::exists($this->request->query, 'code', true, false);
+            
+            $response = $this->UserPartner->activate($code);
+            
+            if($response['msg'] == ResponseStatus::$activation_success){
+                
+                if(isset($response['data']['redirect_url'])){
+
+                    $url = $response['data']['redirect_url'];
+                    unset($response['data']['redirect_url']);
+                    $url = $url . "?" . http_build_query($response);
+
+                    $this->redirect($url);
+
+                }
+                
+            }
+            
+        }
+        
+        public function setpreferences(){
+            
+            
+            
+        }
+        
+        public function changepassword(){
+            
             $authorizedPartner = $this->Partner->getAuthorizedPartner();
 
             //Se obtiene la data correspondiente al nuevo usuario
             $post_data = Utilities::getRawPostData(true);
 
             //Se obtienen los parametros
-            $email = Utilities::exists($post_data, 'email', true, false);
-            $password = Utilities::exists($post_data, 'password', true, false);
+            $session_id = Utilities::exists($post_data, 'session_id', true, false);
+            $new_password = Utilities::exists($post_data, 'new_password', true, false);
+            
+            $response = $this->UserPartner->changepassword($session_id, $new_password, $authorizedPartner);
+            
+            $this->set('response', $response);
+            $this->set('_serialize', array('response'));
+            
+            
+        }
+        public function forgotpassword(){
+            
+        }
+
+        
+        
+        public function myredirect(){
+            
+            debug($this->request);
             
         }
         
         
-        
-        
-/**
- * index method
- *
- * @return void
- */
-	public function captcha() {
-            
-            debug($this->request);
-            
-            
-	}
+	
         
 
 /**

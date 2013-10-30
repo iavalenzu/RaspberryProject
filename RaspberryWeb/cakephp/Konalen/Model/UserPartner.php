@@ -73,7 +73,7 @@ class UserPartner extends AppModel {
 
         public function createAuthenticationCode(){
             
-            $max_attempts = Configure::read('AuthenticationCodeCreateAttempts');
+            $max_attempts = Configure::read('AuthenticationCodeGenerationAttempts');
             
             for($i=0; $i<$max_attempts; $i++){
                 
@@ -162,15 +162,19 @@ class UserPartner extends AppModel {
                 
             }
             
+            //Se crea el identificador de session
+            $session_id = $this->UserAccess->createSessionId();
+            
             //Se agrega un acceso exitoso
-            if(!$this->UserAccess->access($user_partner, $user_agent, $user_ip_address))
+            if(!$this->UserAccess->access($user_partner, $user_agent, $user_ip_address, $session_id))
                 throw new InternalErrorException(ResponseStatus::$server_error);
 
             
             return array(
                 'msg' => ResponseStatus::$login_success,
+                'session_id' => $session_id,
                 'data' => array(
-                    'id' => $user_partner['User']['id'],
+                    'id' => $user_partner['User']['public_id'],
                     'email' => $user_partner['User']['email'],
                     'created' => $user_partner['UserPartner']['created'],
                 )
@@ -178,5 +182,86 @@ class UserPartner extends AppModel {
             
         }        
         
+        public function activate($code){
+            
+            $user_partner = $this->findByActivationCode($code);
+ 
+            if(empty($user_partner)){
+                return array(
+                    'msg' => ResponseStatus::$activation_error,
+                    'data' => array()
+                );            
+            }
+            
+            if(!$user_partner['UserPartner']['active']){
+            
+                $user_partner['UserPartner']['active'] = 1;
+                $user_partner['UserPartner']['activation_code'] = null;
+                $user_partner['UserPartner']['activation_date'] = date('Y-m-d h:i:s');
+
+                if(!$this->save($user_partner)){
+                    throw new InternalErrorException(ResponseStatus::$server_error);
+                }
+            
+            }
+            
+            return array(
+                'msg' => ResponseStatus::$activation_success,
+                'data' => array(
+                    'redirect_url' => $user_partner['Partner']['activation_url']
+                )
+            );                    
+            
+        }
+        
+        public function changepassword($session_id, $new_password, $partner){
+            
+            $user_access = $this->UserAccess->find('first', array(
+                'conditions' => array(
+                    'UserAccess.session_id' => $session_id
+                ),
+                'order' => array('UserAccess.id DESC')
+            ));
+                    
+            if(empty($user_access)){
+                return array(
+                    'msg' => ResponseStatus::$session_invalid,
+                    'data' => array()
+                );                
+            }
+            
+            $session_id = $this->UserAccess->createSessionId();
+            $user_access['UserAccess']['session_id'] = $session_id;
+
+            if(!$this->UserAccess->save($user_access)){
+                throw new InternalErrorException(ResponseStatus::$server_error);
+            }
+            
+            $user_partner = $this->findById($user_access['UserAccess']['user_partner_id']);
+            
+            if(empty($user_partner)){
+                return array(
+                    'msg' => ResponseStatus::$change_pass_error,
+                    'data' => array()
+                );
+            }
+            
+            $user_partner['UserPartner']['user_password'] = Security::hash($new_password, null, true);
+
+            if(!$this->save($user_partner)){
+                throw new InternalErrorException(ResponseStatus::$server_error);
+            }
+            
+            return array(
+                'msg' => ResponseStatus::$change_pass_success,
+                'session_id' => $session_id,
+                'data' => array(
+                    'id' => $user_partner['User']['public_id'],
+                    'email' => $user_partner['User']['email'],
+                    'created' => $user_partner['UserPartner']['created'],
+                )
+            );               
+            
+        }
         
 }

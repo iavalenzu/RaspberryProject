@@ -1,5 +1,6 @@
 <?php
 App::uses('UsersController', 'Controller');
+App::import('Lib', 'Utilities');
 
 require_once 'MyControllerTestCase.php';
 
@@ -11,12 +12,33 @@ require_once 'MyControllerTestCase.php';
 class UsersControllerTest extends MyControllerTestCase {
 
     
+    public $headers = array(
+        "Authorization:key=szR4ALOSZuDQYgjCgntvDcAP1LO72fBJlKBZt5IICwHuSGkiNA_29243146",
+        "Content-Type:application/json"
+    );
+
+    
+    
 /**
  * Fixtures
  *
  * @var array
  */
 
+
+        public function testChangePass(){
+            
+            $data = json_encode(array(
+                'session_id' => 'yifGqV3TOjI4WO2fN0UKUhaZAbrgJKy0J5lNqd7nXBGXUVdwKk', 
+                'new_password' => 'holass', 
+            ));
+            
+            $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/changepassword.json", $data, $this->headers);
+
+            debug($result);
+            
+        }
+        
         public function testLogin(){
 
             $data = json_encode(array(
@@ -28,21 +50,22 @@ class UsersControllerTest extends MyControllerTestCase {
 		'recaptcha_response_field' => 'ecenax senior'
             ));
             
-            $headers = array(
-                "Authorization:key=03nh5IvWhvz04OkSZLJ21S0LBLUEFUpbSY2gHoJE9aaugahT07NvY6JoziB6f0d6i476l5'",
-                "Content-Type:application/json"
-            );
-            
-            $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/login.json", $data, $headers);
+            $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/login.json", $data, $this->headers);
 
             debug($result);
             
-            
-            
         }
 
-        
         public function testRegister(){
+            
+            $data = json_encode(array(
+                'email' => 'iavalenzu@gmail.com', 
+                'password' => 'holas'
+            ));
+            
+            $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/register.json", $data, $this->headers);
+
+            debug($result);            
             
         }        
         
