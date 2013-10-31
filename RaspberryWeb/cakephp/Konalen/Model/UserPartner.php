@@ -89,9 +89,9 @@ class UserPartner extends AppModel {
             
         }
         
-        public function createUserPartner($user = null, $partner = null, $password = null){
+        public function createUserPartner($user = null, $partner = null, $password = null, $data = null){
             
-            if(empty($user) || empty($partner) || empty($password))
+            if(empty($user) || empty($partner) || empty($password) || empty($data))
                 return false;
             
                  //Iniciamos la transaccion
@@ -106,7 +106,8 @@ class UserPartner extends AppModel {
                     'partner_id' => $partner['Partner']['id'],
                     'user_password' => Security::hash($password, null, true),
                     'active' => 0,
-                    'activation_code' => $activation_code
+                    'activation_code' => $activation_code,
+                    'user_data' => $data
                 )
             );
             
@@ -121,7 +122,7 @@ class UserPartner extends AppModel {
             
         }
         
-        public function register($email, $password, $partner){
+        public function register($email, $password, $data, $partner){
             
             $user = $this->User->findByEmail($email);
             
@@ -140,7 +141,7 @@ class UserPartner extends AppModel {
             }    
             
             //No esta asociado luego lo creamos
-            $new_user_partner = $this->createUserPartner($user, $partner, $password);
+            $new_user_partner = $this->createUserPartner($user, $partner, $password, $data);
     
             if(!$this->User->sendActivationCode($new_user_partner)){
                 throw new InternalErrorException(ResponseStatus::$server_error);
@@ -249,13 +250,15 @@ class UserPartner extends AppModel {
             if(!$user_access)
                 throw new InternalErrorException(ResponseStatus::$server_error);
 
+            debug($user_access);
+            
             return array(
                 'msg' => ResponseStatus::$login_success,
-                'session_id' => $user_access['UserAccess']['session_id'],
                 'data' => array(
+                    'session_id' => $user_access['UserAccess']['session_id'],
                     'id' => $user_partner['User']['public_id'],
                     'email' => $user_partner['User']['email'],
-                    'created' => $user_partner['UserPartner']['created'],
+                    'created' => $user_partner['UserPartner']['created']
                 )
             );            
             
@@ -263,6 +266,8 @@ class UserPartner extends AppModel {
         
         public function activate($code){
             
+            
+            //Si el codigo es incorrecto seguimos la IP
             $user_partner = $this->findByActivationCode($code);
  
             if(empty($user_partner)){
@@ -295,7 +300,7 @@ class UserPartner extends AppModel {
         
         public function changepassword($session_id, $new_password, $partner){
             
-            $new_user_access = $this->UserAccess->checkSessionId($session_id);
+            $new_user_access = $this->UserAccess->checkSessionId($session_id, $partner);
             
             if(empty($new_user_access)){
                 return array(
@@ -321,8 +326,8 @@ class UserPartner extends AppModel {
             
             return array(
                 'msg' => ResponseStatus::$change_pass_success,
-                'session_id' => $new_user_access['UserAccess']['session_id'],
                 'data' => array(
+                    'session_id' => $new_user_access['UserAccess']['session_id'],
                     'id' => $user_partner['User']['public_id'],
                     'email' => $user_partner['User']['email'],
                     'created' => $user_partner['UserPartner']['created'],
@@ -330,5 +335,24 @@ class UserPartner extends AppModel {
             );               
             
         }
+        
+        public function beforeSave($options = array()) {
+            
+            if(isset($this->data['UserPartner']['user_data'])){
+                $this->data['UserPartner']['user_data'] = json_encode($this->data['UserPartner']['user_data']);
+            }
+            
+            return true;
+        }
+        
+        public function afterFind($results, $primary = false) {
+            
+            foreach ($results as $key => $val) {
+                if (isset($val['UserPartner']['user_data'])) {
+                    $results[$key]['UserPartner']['user_data'] = json_decode($val['UserPartner']['user_data'], true);
+                }
+            }
+            return $results;
+        }        
         
 }

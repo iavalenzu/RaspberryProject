@@ -22,7 +22,7 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator', 'RequestHandler');
 
-        public $uses = array('User', 'Partner', 'UserPartner');
+        public $uses = array('User', 'Partner', 'UserPartner', 'UserAccess');
         
         public function beforeFilter() {
             parent::beforeFilter();
@@ -31,8 +31,6 @@ class UsersController extends AppController {
 
         }
         
-        //curl --request POST --data '{"email":"iavalenzu@gmail.com", "password": "holas"}' -H 'Authorization:key=03nh5IvWhvz04OkSZLJ21S0LBLUEFUpbSY2gHoJE9aaugahT07NvY6JoziB6f0d6i476l5' -H 'Content-Type:application/json' -v "http://localhost/sandbox/cakephp/Konalen/users/register.json"
-
         public function register() {
             
             $authorizedPartner = $this->Partner->getAuthorizedPartner();
@@ -43,8 +41,9 @@ class UsersController extends AppController {
             //Se obtienen los parametros
             $email = Utilities::exists($post_data, 'email', true, false);
             $password = Utilities::exists($post_data, 'password', true, false);
+            $data = Utilities::exists($post_data, 'data', true, false);
             
-            $response = $this->UserPartner->register($email, $password, $authorizedPartner);
+            $response = $this->UserPartner->register($email, $password, $data, $authorizedPartner);
    
             $this->set('response', $response);
             $this->set('_serialize', array('response'));
@@ -98,7 +97,44 @@ class UsersController extends AppController {
             
         }
         
-        public function setpreferences(){
+        public function renewsession(){
+            
+            $authorizedPartner = $this->Partner->getAuthorizedPartner();
+
+            //Se obtiene la data correspondiente al nuevo usuario
+            $post_data = Utilities::getRawPostData(true);
+
+            //Se obtienen los parametros
+            $session_id = Utilities::exists($post_data, 'session_id', true, false);
+            
+            $new_user_access = $this->UserAccess->checkSessionId($session_id, $authorizedPartner);
+            
+            if($new_user_access){
+                
+                $response = array(
+                    'msg' => ResponseStatus::$ok,
+                    'data' => array(
+                        'session_id' => $new_user_access['UserAccess']['session_id'],
+                        'expiration_date' => $new_user_access['UserAccess']['session_expire']
+                    )
+                );
+                
+            }else{
+                
+                $response = array(
+                    'msg' => ResponseStatus::$session_invalid,
+                    'data' => array()
+                );          
+                
+            }
+            
+            $this->set('response', $response);
+            $this->set('_serialize', array('response'));
+            
+        }
+        
+        
+        public function setdata(){
             
             
             

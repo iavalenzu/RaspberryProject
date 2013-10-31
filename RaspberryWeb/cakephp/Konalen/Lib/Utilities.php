@@ -46,6 +46,17 @@ class Utilities {
         
     }
     
+    public function trimvalues($values = null){
+        
+        if(empty($values))
+            return null;
+        
+        
+        
+        
+        
+    }
+    
     public function exists($values = array(), $name = null, $require = true, $empty = false, $default = false){
 
         if(empty($values) || empty($name))
@@ -53,6 +64,7 @@ class Utilities {
             
         if(isset($values[$name])){
 
+            //Todo ver que pasa cuando el valor es un arreglo
             $value = trim($values[$name]);
             
             if(!$empty && empty($value)){

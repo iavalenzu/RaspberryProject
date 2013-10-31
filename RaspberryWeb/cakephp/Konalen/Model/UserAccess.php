@@ -49,12 +49,15 @@ class UserAccess extends AppModel {
             
             $session_id = $this->createSessionId();
             
+            $session_duration = $user_partner['Partner']['session_duration'];
+            
             $user_access = array(
                 'UserAccess' => array(
                     'user_partner_id' => $user_partner['UserPartner']['id'],
                     'user_agent' => $user_agent,
                     'ip_address' => $user_ip_address,
-                    'session_id' => $session_id
+                    'session_id' => $session_id,
+                    'session_expire' => date('Y-m-d H:i:s', time() + $session_duration)
                 )
             );
 
@@ -69,9 +72,9 @@ class UserAccess extends AppModel {
             
         }
         
-        public function checkSessionId($session_id = null){
+        public function checkSessionId($session_id = null, $partner = null){
             
-            if(empty($session_id))
+            if(empty($session_id) || empty($partner))
                 return false;
             
             $dataSource = $this->getDataSource();
@@ -80,7 +83,8 @@ class UserAccess extends AppModel {
             
             $user_access = $this->find('first', array(
                 'conditions' => array(
-                    'UserAccess.session_id' => $session_id
+                    'UserAccess.session_id' => $session_id,
+                    'UserAccess.session_expire >' => date('Y-m-d H:i:s') 
                 ),
                 'order' => array('UserAccess.id DESC')
             ));
@@ -89,9 +93,12 @@ class UserAccess extends AppModel {
                 return false;
             
             $new_session_id = $this->createSessionId();
+            $session_duration = $partner['Partner']['session_duration'];
             
             $user_access['UserAccess']['session_id'] = $new_session_id;
+            $user_access['UserAccess']['session_expire'] = date('Y-m-d H:i:s', time() + $session_duration);
 
+            
             if($new_session_id && $this->save($user_access)){
                 if($dataSource->commit())
                     return $this->findById($this->id);

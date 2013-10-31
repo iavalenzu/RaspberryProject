@@ -25,11 +25,23 @@ class UsersControllerTest extends MyControllerTestCase {
  * @var array
  */
 
+    
+        public function testRenewSession(){
+            
+            $data = json_encode(array(
+                'session_id' => 'DVRPwLDw3WXA5ZHTXZK7M8zCvHl6lcmgwdfjXsPwI3bPugImd1'
+            ));
+            
+            $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/renewsession.json", $data, $this->headers);
+
+            debug($result);
+            
+        }
 
         public function testChangePass(){
             
             $data = json_encode(array(
-                'session_id' => 'sHyXBUqGzcYtVnUzDpl1Dgucz99jPGQZz4WPfFGDrwpMwiD5Vh', 
+                'session_id' => 'LCTrkK8oxeCG2MrHAdiqcbQFjnNsPhtyXfevIDHKuLK2Q3w4kY', 
                 'new_password' => 'holasssss', 
             ));
             
@@ -60,7 +72,12 @@ class UsersControllerTest extends MyControllerTestCase {
             
             $data = json_encode(array(
                 'email' => 'iavalenzu@gmail.com', 
-                'password' => 'holas'
+                'password' => 'holas',
+                'data' => array(
+                    'name' => 'Pedrito',
+                    'address' => '',
+                    'age' => 27
+                )
             ));
             
             $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/register.json", $data, $this->headers);

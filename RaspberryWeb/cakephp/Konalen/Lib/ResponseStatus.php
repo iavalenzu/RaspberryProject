@@ -20,5 +20,7 @@ class ResponseStatus {
     public static $change_pass_error = 'CHANGE_PASS_ERROR';
     public static $change_pass_success = 'CHANGE_PASS_SUCCESS';
     public static $session_invalid = 'SESSION_INVALID';
+    public static $ok = 'OK';
+    
 }
 ?>
