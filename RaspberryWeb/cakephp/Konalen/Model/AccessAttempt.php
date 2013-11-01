@@ -4,20 +4,26 @@ App::uses('AppModel', 'Model');
 
 
 /**
- * Partner Model
+ * AccessAttempt Model
  *
- * @property Service $Service
- * @property UserPartner $UserPartner
+ * @property AccessAttempt $AccessAttempt
+ * @author Ismael Valenzuela <iavalenzu@gmail.com>
  */
 class AccessAttempt extends AppModel {
 
-/**
- * Display field
- *
- * @var string
- */
+        /**
+         * Display field
+         *
+         * @var string
+         */
 	public $displayField = '';
 
+        /**
+         *
+         * @var array
+         * 
+         */
+        
         public $belongsTo = array(
 		'IpAddressAccessAttempt' => array(
 			'className' => 'IpAddressAccessAttempt',

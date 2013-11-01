@@ -378,14 +378,21 @@ Cache::config('_cake_model_', array(
 	'duration' => $duration
 ));
 
+/**
+ * 
+ */
 
+Configure::write('BlockedPeriod', 600);
 
 Configure::write('MaxAccessAttempts', 5);
+
+Configure::write('UserMaxLoginAttempts', 4);
+
 Configure::write('AuthenticationCodeGenerationAttempts', 7);
 Configure::write('UserPublicIdGenerationAttempts', 7);
 Configure::write('SessionIdGenerationAttempts', 7);
+Configure::write('ResetPasswordCodeGenerationAttempts', 7);
 
-Configure::write('UserMaxLoginAttempts', 4);
 
 Configure::write('ReCaptchaPublicKey', '6LfWgMwSAAAAADykRsjG0b3Yv-ez9okdnfh3f0QT');
 Configure::write('ReCaptchaPrivateKey', '6LfWgMwSAAAAAHRcUt7OL8tKnmiVp0goLTPHGYi5');

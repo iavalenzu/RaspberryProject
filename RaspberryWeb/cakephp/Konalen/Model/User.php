@@ -133,4 +133,18 @@ class User extends AppModel {
 
         }
         
+        public function sendResetPassCode($user_partner = null){
+            
+            if(empty($user_partner))
+                return;
+            
+            $data = array(
+                'reset_password_code' => $user_partner['UserPartner']['reset_password_code']
+            );
+            
+            return $this->Notification->createNotification($user_partner, $data, Notification::$types['EMAIL'], Notification::$status['PENDING']);
+            
+        }
+        
+        
 }

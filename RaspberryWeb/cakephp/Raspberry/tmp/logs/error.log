@@ -1,0 +1,30 @@
+2013-10-26 11:16:41 Error: [MissingDatasourceConfigException] The datasource configuration "test" was not found in database.php
+Exception Attributes: array (
+  'config' => 'test',
+)
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(93): ConnectionManager::_getConnectionObject('test')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(94): ConnectionManager::getDataSource('test')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(73): CakeFixtureManager->_initDb()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(58): CakeFixtureManager->fixturize(Object(BehaviorCollectionTest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(CakeTestSuite), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/app/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#9 {main}
+2013-10-26 11:17:43 Error: [MissingDatasourceConfigException] The datasource configuration "test" was not found in database.php
+Exception Attributes: array (
+  'config' => 'test',
+)
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(93): ConnectionManager::_getConnectionObject('test')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(94): ConnectionManager::getDataSource('test')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(73): CakeFixtureManager->_initDb()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(58): CakeFixtureManager->fixturize(Object(ShellTest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/app/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#9 {main}

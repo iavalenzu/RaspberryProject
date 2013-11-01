@@ -26,6 +26,32 @@ class UsersControllerTest extends MyControllerTestCase {
  */
 
     
+        public function testSetPass(){
+            
+            $data = json_encode(array(
+                'code' => 'blZifnacWC3u6I9jdHb6cOVxaZYNRECKa00hR3U3ZN2RCQCdwA_747f5653',
+                'password' => 'chaossssssssssss'
+            ));
+            
+            $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/setpassword.json", $data, $this->headers);
+
+            debug($result);
+            
+        }
+ 
+        public function testResetPass(){
+            
+            $data = json_encode(array(
+                'email' => 'iavalenzu@gmail.com'
+            ));
+            
+            $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/resetpassword.json", $data, $this->headers);
+
+            debug($result);
+            
+        }
+    
+    
         public function testRenewSession(){
             
             $data = json_encode(array(
@@ -51,11 +77,28 @@ class UsersControllerTest extends MyControllerTestCase {
             
         }
         
+        public function testSetData(){
+            
+            $data = json_encode(array(
+                'session_id' => 'TfgpyXCuywIjDblyxhfIQop0r2JWlfDK3airvC0ODJqkyKpZRP', 
+                'data' => array(
+                    'name' => 'Pedritossss',
+                    'address' => '',
+                    'age' => 30
+                )));
+            
+            $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/setdata.json", $data, $this->headers);
+
+            debug($result);
+            
+        }
+        
+        
         public function testLogin(){
 
             $data = json_encode(array(
                 'email' => 'iavalenzu@gmail.com', 
-                'password' => 'holasssss', 
+                'password' => 'chaossssssssssss', 
                 'user_agent' => 'agent', 
                 'ip_address' => '1.0.0.0',
                 'recaptcha_challenge_field' => '03AHJ_Vut6xlfJnv7fpEdapgnMcZIA4-G1Wa9U3VJL_PeuYl4D3VXltpF-NksayPupWPRTGY2VjRlUki3VR7LtD8FzavvcubTIrD9XDzq8upcBXbT9-rR76NDQFAPS4cZYhVlnAL8vSC89AMr5hvIWqOVnlhmB1qa81tSorp8xB5oFipDM8knBW2w',

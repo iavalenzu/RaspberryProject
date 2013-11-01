@@ -1,10 +1,9 @@
 <?php
+
 App::uses('AppController', 'Controller');
 App::uses('Security', 'Utility');
-
 App::import('Lib', 'Utilities');
 App::import('Lib', 'ResponseStatus');
-
 
 
 /**
@@ -12,25 +11,38 @@ App::import('Lib', 'ResponseStatus');
  *
  * @property User $User
  * @property PaginatorComponent $Paginator
+ * @property RequestHandlerComponent $RequestHandler
+ * @author Ismael Valenzuela <iavalenzu@gmail.com>
  */
 class UsersController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
+        /**
+         * Components
+         *
+         * @var array
+         */
 	public $components = array('Paginator', 'RequestHandler');
 
+        /**
+         * Uses
+         *
+         * @var array
+         */
         public $uses = array('User', 'Partner', 'UserPartner', 'UserAccess');
         
         public function beforeFilter() {
             parent::beforeFilter();
-
-            //$this->autoLayout = false;
-
         }
         
+        /**
+         *  
+         * @param String email Corresponde al correo electronico del nuevo usuario.
+         * @param String password Corresponde a la contraseña del nuevo usuario.
+         * @param Array data Corresponde a la informacion adicional del nuevo usuario.
+         * 
+         * @return Array Retorna un arreglo con los datos del nuevo usuario creado
+         */
+
         public function register() {
             
             $authorizedPartner = $this->Partner->getAuthorizedPartner();
@@ -49,6 +61,11 @@ class UsersController extends AppController {
             $this->set('_serialize', array('response'));
             
         }
+        
+        /**
+         * @param string $email
+         * @param string $password
+         */
         
         public function login(){
             
@@ -81,7 +98,7 @@ class UsersController extends AppController {
             
             $response = $this->UserPartner->activate($code);
             
-            if($response['msg'] == ResponseStatus::$activation_success){
+            if($response['msg'] == ResponseStatus::$ok){
                 
                 if(isset($response['data']['redirect_url'])){
 
@@ -96,6 +113,26 @@ class UsersController extends AppController {
             }
             
         }
+
+        
+        public function setpassword(){
+            
+            $authorizedPartner = $this->Partner->getAuthorizedPartner();
+
+            //Se obtiene la data correspondiente al nuevo usuario
+            $post_data = Utilities::getRawPostData(true);
+            
+            //Se obtienen los parametros
+            $code = Utilities::exists($post_data, 'code', true, false);
+            $new_password = Utilities::exists($post_data, 'password', true, false);
+            
+            $response = $this->UserPartner->setpassword($code, $new_password);
+
+            $this->set('response', $response);
+            $this->set('_serialize', array('response'));
+            
+        }        
+        
         
         public function renewsession(){
             
@@ -136,7 +173,19 @@ class UsersController extends AppController {
         
         public function setdata(){
             
+            $authorizedPartner = $this->Partner->getAuthorizedPartner();
+
+            //Se obtiene la data correspondiente al nuevo usuario
+            $post_data = Utilities::getRawPostData(true);
+
+            //Se obtienen los parametros
+            $session_id = Utilities::exists($post_data, 'session_id', true, false);
+            $new_data = Utilities::exists($post_data, 'data', true, false);
             
+            $response = $this->UserPartner->changedata($session_id, $new_data, $authorizedPartner);
+            
+            $this->set('response', $response);
+            $this->set('_serialize', array('response'));
             
         }
         
@@ -158,185 +207,21 @@ class UsersController extends AppController {
             
             
         }
-        public function forgotpassword(){
+        public function resetpassword(){
+            
+            $authorizedPartner = $this->Partner->getAuthorizedPartner();
+
+            //Se obtiene la data correspondiente al nuevo usuario
+            $post_data = Utilities::getRawPostData(true);
+
+            //Se obtienen los parametros
+            $email = Utilities::exists($post_data, 'email', true, false);
+
+            $response = $this->UserPartner->resetpassword($email, $authorizedPartner);
+            
+            $this->set('response', $response);
+            $this->set('_serialize', array('response'));
             
         }
 
-        
-        
-        public function myredirect(){
-            
-            debug($this->request);
-            
-        }
-        
-        
-	
-        
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-/*        
-	public function view($id = null) {
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-		$this->set('user', $this->User->find('first', $options));
-	}
-*/
-/**
- * add method
- *
- * @return void
- */
-/*	public function add() {
-		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-			}
-		}
-	}
-*/
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-/*	public function edit($id = null) {
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
-		}
-	}
-*/
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-/*	public function delete($id = null) {
-		$this->User->id = $id;
-		if (!$this->User->exists()) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->User->delete()) {
-			$this->Session->setFlash(__('The user has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
-*/
-/**
- * admin_index method
- *
- * @return void
- */
-/*	public function admin_index() {
-		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
-	}
-*/
-/**
- * admin_view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-/*	public function admin_view($id = null) {
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-		$this->set('user', $this->User->find('first', $options));
-	}
-*/
-/**
- * admin_add method
- *
- * @return void
- */
-/*	public function admin_add() {
-		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-			}
-		}
-	}
-*/
-/**
- * admin_edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-/*	public function admin_edit($id = null) {
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
-		}
-	}
-*/
-/**
- * admin_delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-/*	public function admin_delete($id = null) {
-		$this->User->id = $id;
-		if (!$this->User->exists()) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->User->delete()) {
-			$this->Session->setFlash(__('The user has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
-		}
-		return $this->redirect(array('action' => 'index'));
-	}
- */ 
  }

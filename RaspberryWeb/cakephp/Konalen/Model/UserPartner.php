@@ -71,6 +71,13 @@ class UserPartner extends AppModel {
 		)
 	);        
 
+        public function __construct($id = false, $table = null, $ds = null) {
+
+            $this->IpAddressAccessAttempt = new IpAddressAccessAttempt();
+            parent::__construct($id, $table, $ds);
+            
+        }          
+        
         
         public function getByUserAndPartner($user = null, $partner = null){
             
@@ -94,7 +101,7 @@ class UserPartner extends AppModel {
             if(empty($user) || empty($partner) || empty($password) || empty($data))
                 return false;
             
-                 //Iniciamos la transaccion
+            //Iniciamos la transaccion
             $dataSource = $this->getDataSource();
             $dataSource->begin();
             
@@ -122,6 +129,31 @@ class UserPartner extends AppModel {
             
         }
         
+        public function setResetPasswordCode($user_partner = null){
+            
+            if(empty($user_partner))
+                return false;
+            
+            //Iniciamos la transaccion
+            $dataSource = $this->getDataSource();
+            $dataSource->begin();
+            
+            $reset_password_code = $this->createResetPasswordCode(); 
+            
+            $user_partner['UserPartner']['reset_password_code'] = $reset_password_code; 
+            
+            if($reset_password_code && $this->save($user_partner)){
+                if($dataSource->commit())
+                    return $this->findById($this->id);
+            }else{
+                $dataSource->rollback();
+            }                 
+            
+            throw new InternalErrorException(ResponseStatus::$server_error);
+            
+        }
+        
+        
         public function register($email, $password, $data, $partner){
             
             $user = $this->User->findByEmail($email);
@@ -148,11 +180,12 @@ class UserPartner extends AppModel {
             }
             
             return array(
-                'msg' => ResponseStatus::$user_registered,
+                'msg' => ResponseStatus::$ok,
                 'data' => array(
                     'id' => $new_user_partner['User']['public_id'],
                     'email' => $new_user_partner['User']['email'],
-                    'created' => $new_user_partner['UserPartner']['created']
+                    'created' => $new_user_partner['UserPartner']['created'],
+                    'data' => $new_user_partner['UserPartner']['user_data']
                 )
             );
             
@@ -175,6 +208,24 @@ class UserPartner extends AppModel {
 
             return false;
         }
+
+        public function createResetPasswordCode(){
+            
+            $max_attempts = Configure::read('ResetPasswordCodeGenerationAttempts');
+            
+            for($i=0; $i<$max_attempts; $i++){
+                
+                $code = Utilities::createCode();
+                
+                $user = $this->findByResetPasswordCode($code);
+                
+                if(empty($user))
+                    return $code;
+                
+            }
+
+            return false;
+        }        
         
         
         public function login($email, $password, $user_agent, $user_ip_address, $partner, $recaptcha_challenge_field, $recaptcha_response_field){
@@ -183,7 +234,7 @@ class UserPartner extends AppModel {
             
             if(empty($user)){
                 return array(
-                    'msg' => ResponseStatus::$login_error,
+                    'msg' => ResponseStatus::$error,
                     'data' => array()
                 );                
             }
@@ -192,7 +243,7 @@ class UserPartner extends AppModel {
 
             if(empty($user_partner)){
                 return array(
-                    'msg' => ResponseStatus::$login_error,
+                    'msg' => ResponseStatus::$error,
                     'data' => array()
                 );
             }
@@ -238,7 +289,7 @@ class UserPartner extends AppModel {
                 }
                 
                 return array(
-                    'msg' => ResponseStatus::$login_error,
+                    'msg' => ResponseStatus::$error,
                     'data' => array()
                 );            
                 
@@ -250,29 +301,66 @@ class UserPartner extends AppModel {
             if(!$user_access)
                 throw new InternalErrorException(ResponseStatus::$server_error);
 
-            debug($user_access);
-            
             return array(
-                'msg' => ResponseStatus::$login_success,
+                'msg' => ResponseStatus::$ok,
                 'data' => array(
                     'session_id' => $user_access['UserAccess']['session_id'],
                     'id' => $user_partner['User']['public_id'],
                     'email' => $user_partner['User']['email'],
-                    'created' => $user_partner['UserPartner']['created']
+                    'created' => $user_partner['UserPartner']['created'],
+                    'data' => $user_partner['UserPartner']['user_data']
                 )
             );            
             
         }        
         
+        
+        public function changedata($session_id = null, $data = null, $partner = null){
+
+            $new_user_access = $this->UserAccess->checkSessionId($session_id, $partner);
+            
+            if(empty($new_user_access)){
+                return array(
+                    'msg' => ResponseStatus::$session_invalid,
+                    'data' => array()
+                );                
+            }
+            
+            $user_partner = $this->findById($new_user_access['UserAccess']['user_partner_id']);
+            
+            if(empty($user_partner)){
+                return array(
+                    'msg' => ResponseStatus::$error,
+                    'data' => array()
+                );
+            }
+            
+            $user_partner['UserPartner']['user_data'] = $data;
+
+            if(!$this->save($user_partner)){
+                throw new InternalErrorException(ResponseStatus::$server_error);
+            }
+            
+            return array(
+                'msg' => ResponseStatus::$ok,
+                'data' => array(
+                    'session_id' => $new_user_access['UserAccess']['session_id'],
+                    'id' => $user_partner['User']['public_id'],
+                    'email' => $user_partner['User']['email'],
+                    'created' => $user_partner['UserPartner']['created'],
+                )
+            );               
+            
+        }
+
         public function activate($code){
             
-            
-            //Si el codigo es incorrecto seguimos la IP
+            //TODO Si el codigo es incorrecto seguimos la IP
             $user_partner = $this->findByActivationCode($code);
  
             if(empty($user_partner)){
                 return array(
-                    'msg' => ResponseStatus::$activation_error,
+                    'msg' => ResponseStatus::$error,
                     'data' => array()
                 );            
             }
@@ -290,13 +378,42 @@ class UserPartner extends AppModel {
             }
             
             return array(
-                'msg' => ResponseStatus::$activation_success,
+                'msg' => ResponseStatus::$ok,
                 'data' => array(
                     'redirect_url' => $user_partner['Partner']['activation_url']
                 )
             );                    
             
         }
+        
+        public function setpassword($code, $new_password){
+            
+            //Si el codigo es incorrecto seguimos la IP
+            $user_partner = $this->findByResetPasswordCode($code);
+ 
+            if(empty($user_partner)){
+                return array(
+                    'msg' => ResponseStatus::$error,
+                    'data' => array()
+                );            
+            }
+                        
+            $user_partner['UserPartner']['user_password'] = Security::hash($new_password, null, true);
+            $user_partner['UserPartner']['reset_password_code'] = null;
+
+            if(!$this->save($user_partner)){
+                throw new InternalErrorException(ResponseStatus::$server_error);
+            }            
+            
+           
+            return array(
+                'msg' => ResponseStatus::$ok,
+                'data' => array()
+            );
+             
+            
+        }
+        
         
         public function changepassword($session_id, $new_password, $partner){
             
@@ -313,7 +430,7 @@ class UserPartner extends AppModel {
             
             if(empty($user_partner)){
                 return array(
-                    'msg' => ResponseStatus::$change_pass_error,
+                    'msg' => ResponseStatus::$error,
                     'data' => array()
                 );
             }
@@ -325,7 +442,7 @@ class UserPartner extends AppModel {
             }
             
             return array(
-                'msg' => ResponseStatus::$change_pass_success,
+                'msg' => ResponseStatus::$ok,
                 'data' => array(
                     'session_id' => $new_user_access['UserAccess']['session_id'],
                     'id' => $user_partner['User']['public_id'],
@@ -335,6 +452,41 @@ class UserPartner extends AppModel {
             );               
             
         }
+        
+        public function resetpassword($email, $partner){
+            
+            $user = $this->User->findByEmail($email);
+            
+            if(empty($user)){
+                return array(
+                    'msg' => ResponseStatus::$error,
+                    'data' => array()
+                );                
+            }
+
+            $user_partner = $this->getByUserAndPartner($user, $partner);
+
+            if(empty($user_partner)){
+                return array(
+                    'msg' => ResponseStatus::$error,
+                    'data' => array()
+                );
+            }
+            
+            $user_partner_new_code = $this->setResetPasswordCode($user_partner);
+            
+            if(!$this->User->sendResetPassCode($user_partner_new_code)){
+                throw new InternalErrorException(ResponseStatus::$server_error);
+            }
+            
+            return array(
+                'msg' => ResponseStatus::$ok,
+                'data' => array()
+            );            
+            
+        }
+        
+        
         
         public function beforeSave($options = array()) {
             

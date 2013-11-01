@@ -1,12 +1,33 @@
 <?php
 App::uses('AppModel', 'Model');
 
+/**
+ * IpAddressAccessAttempt Model
+ *
+ * @property IpAddressAccessAttempt $IpAddressAccessAttempt
+ * @author Ismael Valenzuela <iavalenzu@gmail.com>
+ */
+
 class IpAddressAccessAttempt extends AppModel {
 
+        /**
+         * Display field
+         *
+         * @var string
+         */
 	public $displayField = '';
-        public $primaryKey = 'ip_address';
-        
-        
+        /**
+         * Primary key
+         *
+         * @var string
+         */
+       public $primaryKey = 'ip_address';
+
+       /**
+        * HasMany Association
+        * 
+        * @var array 
+        */
         public $hasMany = array(
 		'AccessAttempt' => array(
 			'className' => 'AccessAttempt',
@@ -22,6 +43,14 @@ class IpAddressAccessAttempt extends AppModel {
 			'counterQuery' => ''
 		)
 	);
+
+        /**
+         * Funcion encargada de resetear el numero de intentos de acceso y la fecha de bloqueo para la 
+         * direccion ip que generó la peticion.
+         * 
+         * @access public
+         * @return boolean
+         */
         
         public function reset(){
             
@@ -41,7 +70,14 @@ class IpAddressAccessAttempt extends AppModel {
             return true;
             
         }
-        
+
+        /**
+         * Genera un nuevo intento de acceso, si se supera el maximo de intentos de acceso se 
+         * bloquea la direccion ip hasta una proxima fecha
+         * 
+         * @access public
+         * @return boolean
+         */
         
         public function attempt(){
             
@@ -49,13 +85,15 @@ class IpAddressAccessAttempt extends AppModel {
             $ip_address = Utilities::clientIp();
             $user_agent = Utilities::clientUserAgent();
             $max_access_attempts = Configure::read('MaxAccessAttempts');
+            $blocked_period = Configure::read('BlockedPeriod');
+            
 
             $access = $this->findByIpAddress($ip_address);
             
             if($access){
                 
                 if($access['IpAddressAccessAttempt']['access_attempts'] >= $max_access_attempts){
-                    $access['IpAddressAccessAttempt']['blocked_until'] = date('Y-m-d H:i:s', $now + 10*60);
+                    $access['IpAddressAccessAttempt']['blocked_until'] = date('Y-m-d H:i:s', $now + $blocked_period);
                     $access['IpAddressAccessAttempt']['access_attempts'] = 0;
                 }else{
                     $access['IpAddressAccessAttempt']['access_attempts']++;
@@ -80,6 +118,13 @@ class IpAddressAccessAttempt extends AppModel {
             return $this->saveAssociated($access);
             
         }
+        
+        /**
+         * Verifica si la ip que realizó la peticion se encuentra bloqueada
+         * 
+         * @access public
+         * @return boolean
+         */
         
         public function isIpAddressBlocked(){
             

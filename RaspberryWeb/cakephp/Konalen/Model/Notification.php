@@ -3,16 +3,24 @@ App::uses('AppModel', 'Model');
 /**
  * Service Model
  *
- * @property Partner $Partner
+ * @property Notification $Notification
  */
 class Notification extends AppModel {
 
+        /**
+         * @static 
+         * @var array
+         */
     
         static public $types = array(
             'EMAIL' => 1,
             'PHONE' => 2
         );
 
+        /**
+         * @static 
+         * @var array
+         */
         static public $status = array(
             'PENDING' => 1,
             'DELIVERED' => 2
@@ -50,9 +58,19 @@ class Notification extends AppModel {
 			'order' => ''
 		)
 	);
+
+        /**
+         * 
+         * Crea una nueva notificacion que luego será despachada.
+         * 
+         * @param User $user
+         * @param array $data
+         * @param integer $type
+         * @param integer $status
+         * @return boolean
+         */
         
         public function createNotification($user = null, $data = null, $type = null, $status = null){
-
             
             if(empty($user) || empty($data) || empty($type) || empty($status))
                 return false;
@@ -69,6 +87,5 @@ class Notification extends AppModel {
             return $this->save($notification);
             
         }
-        
         
 }

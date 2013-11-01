@@ -1,0 +1,11 @@
+
+source: 
+    - /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Config/core.php
+    - /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller
+    - /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Lib
+    - /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Model
+
+destination: /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/docs/Konalen
+title: "Konalen"
+debug: yes
+tree: yes
