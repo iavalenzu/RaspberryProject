@@ -7,8 +7,12 @@ App::uses('CakeEmail', 'Network/Email');
 /**
  * User Model
  *
+ * @package       Konalen.Model
  * @property UserPartner $UserPartner
+ * @property Notification $Notification
+ * @author Ismael Valenzuela <iavalenzu@gmail.com>
  */
+
 class User extends AppModel {
 
 /**
@@ -72,6 +76,12 @@ class User extends AppModel {
 		),
 	);
 
+/**
+ * Genera un nuevo id unico de usuario verificando que no se encuentre ocupado por otro usuario.
+ * 
+ * @return string En caso de no lograr generar un id unico, luego de los intentos definidos retorna false.
+ */        
+        
         
         public function createUserId(){
             
@@ -90,6 +100,14 @@ class User extends AppModel {
 
             return false;
         }
+
+/**
+ * Crea un nuevo usuario.
+ * 
+ * @param string $email
+ * @return User
+ * @throws InternalErrorException
+ */        
         
         public function createUser($email = null){
             
@@ -120,6 +138,13 @@ class User extends AppModel {
             
         }
         
+/**
+ * Genera una nueva notificacion que incorpora el codigo de activacion de la nuevo usuario.
+ * 
+ * @param UserPartner $user_partner
+ * @return boolean
+ */        
+        
         public function sendActivationCode($user_partner = null){
             
             if(empty($user_partner))
@@ -132,6 +157,13 @@ class User extends AppModel {
             return $this->Notification->createNotification($user_partner, $data, Notification::$types['EMAIL'], Notification::$status['PENDING']);
 
         }
+
+/**
+ * Genera una nueva notificacion que incorpora el codigo de reseteo de contraseña de un usuario.
+ * 
+ * @param UserPartner $user_partner
+ * @return boolean
+ */        
         
         public function sendResetPassCode($user_partner = null){
             
@@ -145,6 +177,5 @@ class User extends AppModel {
             return $this->Notification->createNotification($user_partner, $data, Notification::$types['EMAIL'], Notification::$status['PENDING']);
             
         }
-        
         
 }

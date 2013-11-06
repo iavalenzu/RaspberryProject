@@ -5,9 +5,12 @@ App::uses('AppModel', 'Model');
 
 /**
  * AccessAttempt Model
- *
+ * 
+ * @package       Konalen.Model
  * @property AccessAttempt $AccessAttempt
+ * @property IpAddressAccessAttempt $IpAddressAttempt
  * @author Ismael Valenzuela <iavalenzu@gmail.com>
+ * 
  */
 class AccessAttempt extends AppModel {
 

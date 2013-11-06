@@ -4,6 +4,7 @@ App::uses('AppController', 'Controller');
 App::uses('Security', 'Utility');
 App::import('Lib', 'Utilities');
 App::import('Lib', 'ResponseStatus');
+App::import('Lib', 'SimpleCaptcha/SimpleCaptcha');
 
 
 /**
@@ -13,7 +14,9 @@ App::import('Lib', 'ResponseStatus');
  * @property PaginatorComponent $Paginator
  * @property RequestHandlerComponent $RequestHandler
  * @author Ismael Valenzuela <iavalenzu@gmail.com>
- */
+ * @package Konalen.Controller
+ * 
+*/
 class UsersController extends AppController {
 
         /**
@@ -28,7 +31,7 @@ class UsersController extends AppController {
          *
          * @var array
          */
-        public $uses = array('User', 'Partner', 'UserPartner', 'UserAccess');
+        public $uses = array('PartnerForm', 'User', 'Partner', 'UserPartner', 'UserAccess');
         
         public function beforeFilter() {
             parent::beforeFilter();
@@ -36,11 +39,11 @@ class UsersController extends AppController {
         
         /**
          *  
-         * @param String email Corresponde al correo electronico del nuevo usuario.
-         * @param String password Corresponde a la contraseña del nuevo usuario.
-         * @param Array data Corresponde a la informacion adicional del nuevo usuario.
+         * @param string email Corresponde al correo electronico del nuevo usuario.
+         * @param string password Corresponde a la contraseña del nuevo usuario.
+         * @param mixed data Corresponde a la informacion adicional del nuevo usuario.
          * 
-         * @return Array Retorna un arreglo con los datos del nuevo usuario creado
+         * @return array Retorna un arreglo con los datos del nuevo usuario creado.
          */
 
         public function register() {
@@ -62,9 +65,116 @@ class UsersController extends AppController {
             
         }
         
+        
+        public function checklogin(){
+            
+            $session_id = Utilities::exists($this->request->data, 'session_id', true, true, false);
+            $email = Utilities::exists($this->request->data, 'email', true, true, false);
+            $password = Utilities::exists($this->request->data, 'password', true, true, false);
+            $captcha_response = Utilities::exists($this->request->data, 'captcha_response', false, true, false);
+            
+            $response = $this->UserPartner->login($email, $password, $captcha_response, $session_id);
+
+            $this->redirect(array('action'=>'showlogin'));
+            
+        }
+        
+        //El formulario esta contenido en otra pagina
+        
+        public function loginform(){
+            
+            $this->autoLayout = false;
+            
+            //Se obtienen la llave publica del partner
+            $public_key = Utilities::exists($this->request->query, 'key', true, false);
+
+            $partner = $this->Partner->getPartnerByPublicKey($public_key);
+
+            if($partner){
+
+                //Se obtiene la ultima sesion activa o se crea una nueva con un identificador de session. 
+                $partner_form = $this->PartnerForm->getActiveSession($partner);
+                $this->set('partner_form', $partner_form);
+            
+            }
+            
+            $this->response->type('application/x-javascript');
+            
+        }
+        
+        public function showlogin(){
+            
+            $this->autoLayout = false;
+
+            
+        }
+        
+        public function getCaptcha($session_id = null){
+            
+            $this->autoLayout = false;
+            $this->autoRender = false;            
+            
+            if(empty($session_id))
+                return;
+            
+            $captcha = new SimpleCaptcha();
+
+            // OPTIONAL Change configuration...
+            //$captcha->wordsFile = 'words/es.php';
+            //$captcha->session_var = 'secretword';
+            //$captcha->imageFormat = 'png';
+            //$captcha->lineWidth = 3;
+            //$captcha->scale = 3; $captcha->blur = true;
+            //$captcha->resourcesPath = "/var/cool-php-captcha/resources";
+            
+            $captcha->resourcesPath = '/var/www/sandbox/cakephp/Konalen/Lib/SimpleCaptcha/resources';
+            
+            // Image generation
+            $captcha->CreateImage();
+            
+            $checksum = $captcha->getSha1Captcha();
+            
+            if($this->PartnerForm->setCaptchaChecksum($session_id, $checksum)){
+                $captcha->WriteImage();
+            }
+            
+            $captcha->Cleanup();
+            
+            $this->response->type('jpg');
+            
+        }
+        
+        public function testCaptcha(){
+            
+            $this->autoLayout = false;
+            $this->autoRender = false;
+            
+            $captcha = new SimpleCaptcha();
+
+            // OPTIONAL Change configuration...
+            //$captcha->wordsFile = 'words/es.php';
+            //$captcha->session_var = 'secretword';
+            //$captcha->imageFormat = 'png';
+            //$captcha->lineWidth = 3;
+            //$captcha->scale = 3; $captcha->blur = true;
+            //$captcha->resourcesPath = "/var/cool-php-captcha/resources";
+
+            // Image generation
+            $captcha->CreateImage();
+            
+            $this->log($captcha->getSha1Captcha());
+
+            //$this->response->type('jpg');
+            
+            
+            
+        }
+        
+        
         /**
          * @param string $email
          * @param string $password
+         * @return array Retorna un arreglo con los datos de la nueva sesion creada.
          */
         
         public function login(){
@@ -116,6 +226,8 @@ class UsersController extends AppController {
 
         
         public function setpassword(){
+            
+            //TODO Ver si es posible setear la password sin pasar por el partner
             
             $authorizedPartner = $this->Partner->getAuthorizedPartner();
 
@@ -223,5 +335,5 @@ class UsersController extends AppController {
             $this->set('_serialize', array('response'));
             
         }
-
+        
  }

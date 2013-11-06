@@ -1,13 +1,18 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Service Model
+ * Notification Model
  *
+ * @package       Konalen.Model
  * @property Notification $Notification
+ * @property User $User
+ * 
  */
 class Notification extends AppModel {
 
         /**
+         * Define los tipos de notificacion disponible
+         * 
          * @static 
          * @var array
          */
@@ -18,6 +23,8 @@ class Notification extends AppModel {
         );
 
         /**
+         * Define el estado en que se encuentra una notificacion en particular
+         * 
          * @static 
          * @var array
          */
@@ -31,6 +38,7 @@ class Notification extends AppModel {
  * Display field
  *
  * @var string
+ * @access public
  */
 	public $displayField = 'name';
 
@@ -48,6 +56,7 @@ class Notification extends AppModel {
  * belongsTo associations
  *
  * @var array
+ * @access public
  */
 	public $belongsTo = array(
 		'User' => array(
@@ -61,8 +70,9 @@ class Notification extends AppModel {
 
         /**
          * 
-         * Crea una nueva notificacion que luego será despachada.
+         * Crea una nueva notificacion.
          * 
+         * @access public
          * @param User $user
          * @param array $data
          * @param integer $type

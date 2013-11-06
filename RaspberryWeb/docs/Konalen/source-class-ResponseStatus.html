@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+	<meta name="robots" content="noindex" />
+
+	<title>File ResponseStatus.php | Konalen</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?2045708298"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active"><a href="package-Konalen.html">Konalen<span></span></a>
+						<ul>
+				<li><a href="package-Konalen.Controller.html">Controller</a>
+						</li>
+				<li class="active"><a href="package-Konalen.Lib.html">Lib</a>
+						</li>
+				<li><a href="package-Konalen.Model.html">Model</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-ResponseStatus.html">ResponseStatus</a></li>
+				<li><a href="class-Utilities.html">Utilities</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-Konalen.Lib.html" title="Summary of Konalen\Lib"><span>Package</span></a>
+			</li>
+			<li>
+				<a href="class-ResponseStatus.html" title="Summary of ResponseStatus"><span>Class</span></a>
+			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<pre><code><span id="1" class="l"><a class="l" href="#1"> 1: </a><span class="xlang">&lt;?php</span>
+</span><span id="2" class="l"><a class="l" href="#2"> 2: </a>
+</span><span id="3" class="l"><a class="l" href="#3"> 3: </a><span class="php-comment">/**
+</span></span><span id="4" class="l"><a class="l" href="#4"> 4: </a><span class="php-comment"> * @author Ismael Valenzuela &lt;iavalenzu@gmail.com&gt;
+</span></span><span id="5" class="l"><a class="l" href="#5"> 5: </a><span class="php-comment"> * @package Konalen.Lib
+</span></span><span id="6" class="l"><a class="l" href="#6"> 6: </a><span class="php-comment"> */</span>
+</span><span id="7" class="l"><a class="l" href="#7"> 7: </a>
+</span><span id="8" class="l"><a class="l" href="#8"> 8: </a><span class="php-keyword1">class</span> <a id="ResponseStatus" href="#ResponseStatus">ResponseStatus</a> {
+</span><span id="9" class="l"><a class="l" href="#9"> 9: </a>    
+</span><span id="10" class="l"><a class="l" href="#10">10: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$user_already_registered" href="#$user_already_registered">$user_already_registered</a></span> = <span class="php-quote">'USER_ALREADY_REGISTERED'</span>;    
+</span><span id="11" class="l"><a class="l" href="#11">11: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$server_error" href="#$server_error">$server_error</a></span> = <span class="php-quote">'SERVER_ERROR'</span>;   
+</span><span id="12" class="l"><a class="l" href="#12">12: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$ip_address_blocked" href="#$ip_address_blocked">$ip_address_blocked</a></span> = <span class="php-quote">'IP_ADDRESS_BLOCKED'</span>;
+</span><span id="13" class="l"><a class="l" href="#13">13: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$missing_header" href="#$missing_header">$missing_header</a></span> = <span class="php-quote">'MISSING_HEADER'</span>;
+</span><span id="14" class="l"><a class="l" href="#14">14: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$missing_parameters" href="#$missing_parameters">$missing_parameters</a></span> = <span class="php-quote">'MISSING_PARAMETERS'</span>;
+</span><span id="15" class="l"><a class="l" href="#15">15: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$missing_data" href="#$missing_data">$missing_data</a></span> = <span class="php-quote">'MISSING_DATA'</span>;
+</span><span id="16" class="l"><a class="l" href="#16">16: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$missing_auth_key" href="#$missing_auth_key">$missing_auth_key</a></span> = <span class="php-quote">'MISSING_AUTH_KEY'</span>;
+</span><span id="17" class="l"><a class="l" href="#17">17: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$access_denied" href="#$access_denied">$access_denied</a></span> = <span class="php-quote">'ACCESS_DENIED'</span>;
+</span><span id="18" class="l"><a class="l" href="#18">18: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$user_inactive" href="#$user_inactive">$user_inactive</a></span> = <span class="php-quote">'USER_INACTIVE'</span>;
+</span><span id="19" class="l"><a class="l" href="#19">19: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$max_login_attempts_exceeded" href="#$max_login_attempts_exceeded">$max_login_attempts_exceeded</a></span> = <span class="php-quote">'MAX_LOGIN_ATTEMPTS_EXCEEDED'</span>;
+</span><span id="20" class="l"><a class="l" href="#20">20: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$session_invalid" href="#$session_invalid">$session_invalid</a></span> = <span class="php-quote">'SESSION_INVALID'</span>;
+</span><span id="21" class="l"><a class="l" href="#21">21: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$ok" href="#$ok">$ok</a></span> = <span class="php-quote">'OK'</span>;
+</span><span id="22" class="l"><a class="l" href="#22">22: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">static</span> <span class="php-var"><a id="$error" href="#$error">$error</a></span> = <span class="php-quote">'ERROR'</span>;
+</span><span id="23" class="l"><a class="l" href="#23">23: </a>    
+</span><span id="24" class="l"><a class="l" href="#24">24: </a>}
+</span><span id="25" class="l"><a class="l" href="#25">25: </a><span class="xlang">?&gt;</span>
+</span><span id="26" class="l"><a class="l" href="#26">26: </a></span></code></pre>
+
+	<div id="footer">
+		Konalen API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

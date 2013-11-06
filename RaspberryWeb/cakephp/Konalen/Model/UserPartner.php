@@ -1,13 +1,20 @@
 <?php
 App::uses('AppModel', 'Model');
 App::import('Lib', 'ResponseStatus');
+App::import('Model', 'IpAddressAccessAttempt');
+App::import('Model', 'PartnerForm');
+
 
 
 /**
  * UserPartner Model
  *
+ * @package       Konalen.Model
  * @property User $User
  * @property Partner $Partner
+ * @property UserAccess $UserAccess
+ * @author Ismael Valenzuela <iavalenzu@gmail.com>
+ * 
  */
 class UserPartner extends AppModel {
 
@@ -61,6 +68,11 @@ class UserPartner extends AppModel {
 		)
 	);
         
+/**
+ * HasMany Associations
+ * 
+ * @var array 
+ */        
         public $hasMany = array(
 		'UserAccess' => array(
 			'className' => 'UserAccess',
@@ -74,10 +86,19 @@ class UserPartner extends AppModel {
         public function __construct($id = false, $table = null, $ds = null) {
 
             $this->IpAddressAccessAttempt = new IpAddressAccessAttempt();
+            $this->PartnerForm = new PartnerForm();
             parent::__construct($id, $table, $ds);
             
         }          
         
+        /**
+         * 
+         * Retorna el UserPartner asociado al User y Partner entregado.
+         * 
+         * @param User $user
+         * @param Partner $partner
+         * @return UserPartner
+         */
         
         public function getByUserAndPartner($user = null, $partner = null){
             
@@ -95,6 +116,16 @@ class UserPartner extends AppModel {
             return $user_partner;
             
         }
+        
+        /**
+         * 
+         * @param User $user
+         * @param Partner $partner
+         * @param string $password
+         * @param mixed $data
+         * @return UserPartner
+         * @throws InternalErrorException
+         */
         
         public function createUserPartner($user = null, $partner = null, $password = null, $data = null){
             
@@ -129,6 +160,15 @@ class UserPartner extends AppModel {
             
         }
         
+        /**
+         * Genera un nuevo codigo de reseteo de contraseña.
+         * 
+         * 
+         * @param UserPartner $user_partner
+         * @return UserPartner
+         * @throws InternalErrorException
+         */
+        
         public function setResetPasswordCode($user_partner = null){
             
             if(empty($user_partner))
@@ -153,6 +193,15 @@ class UserPartner extends AppModel {
             
         }
         
+        /**
+         * 
+         * @param string $email
+         * @param string $password
+         * @param mixed $data
+         * @param Partner $partner
+         * @return array Corresponde a la respuesta que será enviada al partner que realizó la peticion.
+         * @throws InternalErrorException
+         */
         
         public function register($email, $password, $data, $partner){
             
@@ -190,6 +239,12 @@ class UserPartner extends AppModel {
             );
             
         }        
+
+        /**
+         * Genera un nuevo codigo de activacion unico.
+         * 
+         * @return string|boolean En caso de error retorna false.
+         */
         
         public function createActivationCode(){
             
@@ -209,6 +264,12 @@ class UserPartner extends AppModel {
             return false;
         }
 
+        /**
+         * Genera una nuevo codigo unico de reseteo de contraseña.
+         * 
+         * @return string|false
+         */
+        
         public function createResetPasswordCode(){
             
             $max_attempts = Configure::read('ResetPasswordCodeGenerationAttempts');
@@ -227,82 +288,236 @@ class UserPartner extends AppModel {
             return false;
         }        
         
+        /**
+         * 
+         * @param string $email
+         * @param string $password
+         * @param string $user_agent
+         * @param string $user_ip_address
+         * @param Partner $partner
+         * @param string $recaptcha_challenge_field
+         * @param string $recaptcha_response_field
+         * @return array Corresponde a la respuesta que será enviada al partner que realizó la peticion.
+         * @throws InternalErrorException
+         */
         
-        public function login($email, $password, $user_agent, $user_ip_address, $partner, $recaptcha_challenge_field, $recaptcha_response_field){
-            
-            $user = $this->User->findByEmail($email);
-            
-            if(empty($user)){
-                return array(
-                    'msg' => ResponseStatus::$error,
-                    'data' => array()
-                );                
-            }
+        public function login($email = false, $password = false, $recaptcha_response = false, $session_id = false){
 
-            $user_partner = $this->getByUserAndPartner($user, $partner);
+            
+            $partner_form = $this->PartnerForm->getSession($session_id);
 
-            if(empty($user_partner)){
+            //Se verifica si la sesion es valida
+            if(empty($partner_form)){
+                
+                $data_form = array(
+                    'error' => 'La session no es valida',
+                    'fields' => array()
+                );
+                
+                $this->PartnerForm->setData($session_id, $data_form);
+                
                 return array(
-                    'msg' => ResponseStatus::$error,
+                    'status' => ResponseStatus::$invalid_session,
                     'data' => array()
                 );
             }
 
-            if(!$user_partner['UserPartner']['active']){
+            //Si el correo electronico es vacion retornamos un error
+            if(empty($email)){
+
+                $data_form = array(
+                    'error' => 'Ingresa tu dirección de correo electrónico.',
+                    'fields' => array(
+                        'email' => array(
+                            'error' => 'Ingresa tu dirección de correo electrónico.'
+                        )
+                    )
+                );
+                
+                $this->PartnerForm->setData($session_id, $data_form);
+                
                 return array(
-                    'msg' => ResponseStatus::$user_inactive,
+                    'status' => ResponseStatus::$error,
+                    'data' => array()
+                );
+                
+            }
+
+            $user = $this->User->findByEmail($email);
+            
+            if(empty($user)){
+                
+                $data_form = array(
+                    'error' => 'El nombre de usuario o la contraseña que ingresaste es incorrecto.',
+                    'fields' => array(
+                        'email' => array(
+                            'value' => $email
+                        )
+                    )                
+                );
+                
+                $this->PartnerForm->setData($session_id, $data_form);
+                
+                return array(
+                    'status' => ResponseStatus::$error,
                     'data' => array()
                 );                
             }
 
+            $user_partner = $this->getByUserAndPartner($user, $partner_form);
+
+            if(empty($user_partner)){
+
+                $data_form = array(
+                    'error' => 'El nombre de usuario o la contraseña que ingresaste es incorrecto.',
+                    'fields' => array(
+                        'email' => array(
+                            'value' => $email
+                        )
+                    )
+                );
+                
+                $this->PartnerForm->setData($session_id, $data_form);
+                
+                return array(
+                    'status' => ResponseStatus::$error,
+                    'data' => array()
+                );
+            }
+
+            
+            if(!$user_partner['UserPartner']['active']){
+                
+                $data_form = array(
+                    'error' => 'El usuario se encuentra inactivo.',
+                    'fields' => array(
+                        'email' => array(
+                            'value' => $email
+                        )
+                    )
+                );
+                
+                $this->PartnerForm->setData($session_id, $data_form);
+                
+                return array(
+                    'status' => ResponseStatus::$user_inactive,
+                    'data' => array()
+                );                
+            }
+
+            
             //Si el numero de intentos de acceso se supera se envia un captcha
             if( $user_partner['UserPartner']['login_attempts'] >= Configure::read('UserMaxLoginAttempts')){
-                //Si vienen definidos los campos de captcha, chequeamos
-
-                if(Utilities::captchaIsCorrect($recaptcha_challenge_field, $recaptcha_response_field)){
                 
+                if(empty($recaptcha_response)){
+                    
+                    $data_form = array(
+                        'captcha' => true,
+                        'fields' => array(
+                            'email' => array(
+                                'value' => $email
+                            )
+
+                        )
+                    );
+
+                    $this->PartnerForm->setData($session_id, $data_form);
+
+                    return array(
+                        'status' => ResponseStatus::$error,
+                        'data' => array()
+                    );
+                    
+                }
+                
+                //Si vienen definidos los campos de captcha, chequeamos que coincida el checksum
+                if(sha1($recaptcha_response) == $partner_form['PartnerForm']['captcha_checksum']){
+
                     //Dado que el codigo es correcto se resetean los intentos de login    
                     $user_partner['UserPartner']['login_attempts'] = 0;
-                    if(!$this->save($user_partner)){
-                        throw new InternalErrorException(ResponseStatus::$server_error);
-                    }
-                    
-                }else{
-                
-                    return array(
-                        'msg' => ResponseStatus::$max_login_attempts_exceeded,
-                        'data' => array(
-                            'captcha' => Utilities::getCaptchaHtml()
+
+                    $this->save($user_partner);
+
+                }else{   
+
+                    $data_form = array(
+                        'captcha' => true,
+                        'error' => 'El codigo ingresado es incorrecto.',
+                        'fields' => array(
+                            'captcha' => array(
+                                'error' => 'El codigo ingresado es incorrecto.'
+                            ),
+                            'email' => array(
+                                'value' => $email
+                            )
+
                         )
-                    );    
-                    
+                    );
+
+                    $this->PartnerForm->setData($session_id, $data_form);
+
+                    return array(
+                        'status' => ResponseStatus::$error,
+                        'data' => array()
+                    );
+
                 }
                 
             }
+
+            //Se verifica si la contraseña es vacia
+            if(empty($password)){
+
+                $data_form = array(
+                    'error' => 'Ingresa tu contraseña.',
+                    'fields' => array(
+                        'email' => array(
+                            'value' => $email
+                        )
+                    )
+                );
+                
+                $this->PartnerForm->setData($session_id, $data_form);
+                
+                return array(
+                    'status' => ResponseStatus::$error,
+                    'data' => array()
+                );
+                
+            }
             
-            if( strcmp($user_partner['UserPartner']['user_password'], Security::hash($password, null, true)) != 0){
+            
+            
+            if( $user_partner['UserPartner']['user_password'] != Security::hash($password, null, true)){
 
                 //Guardamos un intento de acceso
                 $user_partner['UserPartner']['login_attempts']++;
-                if(!$this->save($user_partner)){
-                    throw new InternalErrorException(ResponseStatus::$server_error);
-                }
+                
+                $this->save($user_partner);
+                
+                $data_form = array(
+                    'error' => 'El nombre de usuario o la contraseña que ingresaste es incorrecto.',
+                    'fields' => array(
+                        'email' => array(
+                            'value' => $email
+                        )
+                    )
+                );
+                
+                $this->PartnerForm->setData($session_id, $data_form);
                 
                 return array(
-                    'msg' => ResponseStatus::$error,
+                    'status' => ResponseStatus::$error,
                     'data' => array()
                 );            
                 
             }
             
             //Se agrega un acceso exitoso
-            $user_access = $this->UserAccess->createAccess($user_partner, $user_agent, $user_ip_address);
+            $user_access = $this->UserAccess->createAccess($user_partner);
             
-            if(!$user_access)
-                throw new InternalErrorException(ResponseStatus::$server_error);
-
             return array(
-                'msg' => ResponseStatus::$ok,
+                'status' => ResponseStatus::$ok,
                 'data' => array(
                     'session_id' => $user_access['UserAccess']['session_id'],
                     'id' => $user_partner['User']['public_id'],
@@ -313,7 +528,15 @@ class UserPartner extends AppModel {
             );            
             
         }        
-        
+
+        /**
+         * 
+         * @param string $session_id
+         * @param mixed $data
+         * @param Partner $partner
+         * @return array Corresponde a la respuesta que será enviada al partner que realizó la peticion.
+         * @throws InternalErrorException
+         */
         
         public function changedata($session_id = null, $data = null, $partner = null){
 
@@ -353,6 +576,14 @@ class UserPartner extends AppModel {
             
         }
 
+        /**
+         * 
+         * @param string $code
+         * @return array Corresponde a la respuesta que será enviada al partner que realizó la peticion.
+         * @throws InternalErrorException
+         */
+        
+        
         public function activate($code){
             
             //TODO Si el codigo es incorrecto seguimos la IP
@@ -369,7 +600,7 @@ class UserPartner extends AppModel {
             
                 $user_partner['UserPartner']['active'] = 1;
                 $user_partner['UserPartner']['activation_code'] = null;
-                $user_partner['UserPartner']['activation_date'] = date('Y-m-d h:i:s');
+                $user_partner['UserPartner']['activation_date'] = date('Y-m-d H:i:s');
 
                 if(!$this->save($user_partner)){
                     throw new InternalErrorException(ResponseStatus::$server_error);
@@ -385,6 +616,14 @@ class UserPartner extends AppModel {
             );                    
             
         }
+        
+        /**
+         * 
+         * @param string $code
+         * @param string $new_password
+         * @return array Corresponde a la respuesta que será enviada al partner que realizó la peticion.
+         * @throws InternalErrorException
+         */
         
         public function setpassword($code, $new_password){
             
@@ -414,6 +653,14 @@ class UserPartner extends AppModel {
             
         }
         
+        /**
+         * 
+         * @param string $session_id
+         * @param string $new_password
+         * @param Partner $partner
+         * @return array Corresponde a la respuesta que será enviada al partner que realizó la peticion.
+         * @throws InternalErrorException
+         */
         
         public function changepassword($session_id, $new_password, $partner){
             
@@ -453,6 +700,14 @@ class UserPartner extends AppModel {
             
         }
         
+        /**
+         * 
+         * @param string $email
+         * @param Partner $partner
+         * @return array Corresponde a la respuesta que será enviada al partner que realizó la peticion.
+         * @throws InternalErrorException
+         */
+        
         public function resetpassword($email, $partner){
             
             $user = $this->User->findByEmail($email);
@@ -486,7 +741,12 @@ class UserPartner extends AppModel {
             
         }
         
-        
+        /**
+         * Callback Method
+         * 
+         * @param array $options
+         * @return boolean
+         */
         
         public function beforeSave($options = array()) {
             
@@ -496,6 +756,15 @@ class UserPartner extends AppModel {
             
             return true;
         }
+
+        /**
+         * Callback Method
+         * 
+         * @param mixed $results
+         * @param boolean $primary
+         * @return mixed
+         */
+        
         
         public function afterFind($results, $primary = false) {
             

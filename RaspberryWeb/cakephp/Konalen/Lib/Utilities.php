@@ -2,7 +2,21 @@
 
 App::import('Lib', 'ResponseStatus');
 
+/**
+ * @author Ismael Valenzuela <iavalenzu@gmail.com>
+ * @package Konalen.Lib
+
+ */
+
+
 class Utilities {
+
+    /**
+     * 
+     * @param string $name
+     * @param boolean $require
+     * @return string
+     */
     
     public function getHeader($name = null, $require = true){
         
@@ -12,15 +26,22 @@ class Utilities {
             return $headers[$name];
 
         if($require)
-            return null;
+            return "";
         
-        return null;
+        return "";
         
     }
     
+    /**
+     * 
+     * @param boolean $require
+     * @return string|array
+     * @throws BadRequestException
+     */
+    
     public function getRawPostData($require = true) {
         
-        $output = null;
+        $output = "";
         $raw_data = file_get_contents('php://input');
         
         $content_type = env('CONTENT_TYPE');
@@ -46,6 +67,17 @@ class Utilities {
         
     }
     
+    /**
+     * 
+     * @param array $values
+     * @param string $name
+     * @param boolean $require
+     * @param boolean $empty
+     * @param mixed $default
+     * @return mixed
+     * @throws BadRequestException
+     */
+    
     public function exists($values = array(), $name = null, $require = true, $empty = false, $default = false){
 
         if(empty($values) || empty($name))
@@ -56,11 +88,12 @@ class Utilities {
             //Todo ver que pasa cuando el valor es un arreglo
             $value = $values[$name];
             
-            if(!$empty && empty($value)){
+            if(empty($value)){
+                
                 //Si el valor es vacio y no es posible que sea vacio lanzamos una excepcion
-                throw new BadRequestException(ResponseStatus::$missing_parameters);
-            }else if($default){
-                //Si esta permitido que sea vacio y esta definido el dafault, lo retornamos
+                if(!$empty)
+                    throw new BadRequestException(ResponseStatus::$missing_parameters);
+
                 return $default;
             }
             
@@ -76,20 +109,26 @@ class Utilities {
         
     }
     
+    /**
+     * Busca el header Authorization y obtiene la llave de acceso que viene en él.
+     * 
+     * @return string
+     */
+    
     public function getAuthorizationKey() {
         
         $authorization = Utilities::getHeader('Authorization', true);
         
         if(empty($authorization))
-            return null;
+            return "";
         
         $matches = array();
         
         if(!preg_match('/key=([a-zA-Z0-9_]+)/i', $authorization, $matches)){
-            return null;
+            return "";
         }
         
-        return isset($matches[1]) ? $matches[1] : null;
+        return isset($matches[1]) ? $matches[1] : "";
 
     }
     
@@ -123,6 +162,11 @@ class Utilities {
           return trim($ipaddr);
       }    
 
+      /**
+       * 
+       * @return string El user agent del partner.
+        */
+      
       public function clientUserAgent() {
           
           $user_agent = '';
@@ -136,6 +180,16 @@ class Utilities {
           
      }    
       
+     /**
+      * Genera una cadena de caracteres aleatorios. 
+      *
+      * Si el maximo no está definido, se crea una cadena de largo igual al mínimo. 
+      * 
+      * @param integer $min El largo minimo de la cadena a generar.
+      * @param integer|boolean $max El largo maximo de la cadena a generar.
+      * @param string $source La cadena de caracteres utilizada como fuente para seleccionar caracteres al azar.
+      * @return string La cadena aleatoria.
+      */
      
     public function getRandomString($min = 20, $max = false, $source = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"){
 
@@ -146,17 +200,44 @@ class Utilities {
         
         $randomString = '';
         for ($i = 0; $i < $length; $i++) {
-            $randomString .= $source[mt_rand(0, strlen($source)-1)];
+            $randomString .= $source[Utilities::crypto_rand_secure(0, strlen($source)-1)];
         }
         
         return $randomString;
         
         
     } 
-      
-    /*Agrega un checksum al codigo generado para luego poder comparar la integridad del codigo y identificar si se envian codigos incorrectos*/
+
+    /**
+     * Transforma en mayusculas caracteres elegidos al azar de la cadena.
+     * 
+     * @param string $source
+     * @return string
+     */
     
-    public function createCode($min = 50, $max = false, $separator = '_', $base = 16) {
+    public function randUpperCase($source = false){
+        
+        $out = "";
+        for($i=0; $i<strlen($source); $i++)
+            $out .=  mt_rand(0,1) ? strtoupper($source[$i]) : $source[$i];
+        
+        return $out;
+        
+    }
+    
+    
+    /**
+     * Genera un codigo aleatorio que incluye una cadena de comprobacion.
+     * Agrega un checksum al codigo generado para luego poder comparar la integridad del codigo y identificar si se envian codigos incorrectos
+     * 
+     * @param integer $min El largo minimo de la cadena.
+     * @param integer|boolean $max El largo maximo de la cadena, en caso de ser false se genera una cadena de largo $min
+     * @param string $separator La subcadena que separa la cadena aleatoria y el codigo de comprobacion.
+     * @param integer $base La base numérica a la cual se convierte el codigo de comprobacion.
+     * @return string
+     */
+    
+    public function createCode($min = 50, $max = false, $separator = 'i', $base = 28) {
         
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
@@ -168,28 +249,47 @@ class Utilities {
         
         $randomString = Utilities::getRandomString($min, $max, $characters);
         
-        $crc = crc32($randomString);
-        $base_crc = base_convert($crc, 10, $base);
+        $check = base_convert(crc32($randomString), 10, $base);
         
-        return $randomString . $separator . $base_crc;
+        return $randomString . $separator . Utilities::randUpperCase($check);
         
     }
+    
+    /**
+     * 
+     * @param string $code
+     * @param string $separator
+     * @param integer $base
+     * @return boolean
+     */
 
-    public function checkCode($code = null, $separator = '_', $base = 16) {
+    public function checkCode($code = null, $separator = 'i', $base = 28) {
 
         if(empty($code))
             return false;
+
+        //Buscamos la primera aparicion del separador
+        $parts = explode($separator, $code, 2);
         
-        //Buscamos la primera aparicion de la letra 'd'
-        $randomString = strstr($code, $separator, true);
+        if(count($parts) < 2)
+            return false;
         
-        $crc = crc32($randomString);
-        $crc = base_convert($crc, 10, $base);
-        $randomString = $randomString . $separator . $crc;
+        $randomString = $parts[0];
+        $check = $parts[1];
         
-        return strcmp($code, $randomString) == 0;
+        $crc = base_convert(crc32($randomString), 10, $base);
+        
+        return strcasecmp($crc, $check) == 0;
         
     }
+    
+    /**
+     * Obtiene el bloque html que incluye el codigo recapcha a resolver.
+     * 
+     * @see https://developers.google.com/recaptcha/docs/display
+     * 
+     * @return string
+     */
     
     public function getCaptchaHtml(){
         
@@ -198,9 +298,18 @@ class Utilities {
         
     }
 
+    /**
+     * 
+     * @param string $url
+     * @param array $data
+     * @param array $headers
+     * @param boolean $post
+     * @return array
+     */
+    
     public function doCurlRequest($url, $data = array(), $headers = array(), $post = true){
         
-        if(!is_array($data)) return null;
+        if(!is_array($data)) return array();
         
         if($data)
             $data = http_build_query($data);
@@ -237,6 +346,17 @@ class Utilities {
         
     }
     
+    /**
+     * 
+     * Verifica el recaptcha ingresado por el cliente.
+     * 
+     * @see https://developers.google.com/recaptcha/docs/verify
+     * 
+     * @param string $recaptcha_challenge_field
+     * @param string $recaptcha_response_field
+     * @return boolean
+     */
+    
     public function captchaIsCorrect($recaptcha_challenge_field = null, $recaptcha_response_field = null){
 
         if(empty($recaptcha_challenge_field) || empty($recaptcha_response_field))
@@ -267,6 +387,90 @@ class Utilities {
         return trim($content[0]) == 'true';
         
     }    
+    
+    /**
+     * 
+     * @param integer $min
+     * @param integer $max
+     * @return integer
+     * @see http://www.php.net/manual/en/function.openssl-random-pseudo-bytes.php#104322
+     */
+    
+    
+    function crypto_rand_secure($min, $max) {
+        
+        $range = $max - $min;
+        if ($range == 0) return false;
+        
+        $log = log($range, 2);
+        $bytes = (int) ($log / 8) + 1; // length in bytes
+        $bits = (int) $log + 1; // length in bits
+        $filter = (int) (1 << $bits) - 1; // set all lower bits to 1
+        do {
+            $rnd = hexdec(bin2hex(openssl_random_pseudo_bytes($bytes, $s)));
+            $rnd = $rnd & $filter; // discard irrelevant bits
+        } while ($rnd >= $range);
+        
+        return $min + $rnd;
+        
+    }    
+    
+    function bits2hex($bin)
+    {
+       $out = "";
+       for($i=0;$i<strlen($bin);$i+=8)
+       {
+          $byte = substr($bin,$i,8); 
+          if( strlen($byte)<8 ) 
+              $byte .= str_repeat('0',8-strlen($byte));
+          $out .= base_convert($byte,2,16);
+       }
+       return $out;
+    }    
+    
+    public function randomPseudo(){
+        
+        $bytes = openssl_random_pseudo_bytes(30, $cstrong);
+        $hex   = bin2hex($bytes);
+        //$hex2 = unpack("H*", $bytes);
+
+        
+        debug($hex);
+        
+        if(empty($bytes)){
+            debug("Error!!");
+            return;
+        }
+        
+        for($i=0;$i<strlen($bytes);$i+=8)
+        {
+          $byte = substr($bytes,$i,8); 
+          if( strlen($byte)<8 ) 
+              $byte .= str_repeat('0',8-strlen($byte));
+          
+          $byte_convert = bin2hex($byte);
+          
+          //$byte_convert = base_convert($byte,2,16);
+          
+          debug($byte_convert);
+          
+        }        
+        
+        //debug($hex);
+        //debug($hex2);
+        
+for ($i = -1; $i <= 4; $i++) {
+    $bytes = openssl_random_pseudo_bytes($i, $cstrong);
+    $hex   = bin2hex($bytes);
+
+    echo "Lengths: Bytes: $i and Hex: " . strlen($hex) . "<br>";
+    var_dump($hex);
+    var_dump($cstrong);
+    echo "<br>";
+}        
+        
+        
+    }
     
 }
 

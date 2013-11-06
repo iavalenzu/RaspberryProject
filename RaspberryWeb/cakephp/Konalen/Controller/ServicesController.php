@@ -3,6 +3,7 @@ App::uses('AppController', 'Controller');
 /**
  * Services Controller
  *
+ * @package       Konalen.Controller
  * @property Service $Service
  * @property PaginatorComponent $Paginator
  */

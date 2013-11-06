@@ -3,8 +3,10 @@ App::uses('AppModel', 'Model');
 
 /**
  * IpAddressAccessAttempt Model
- *
+ * 
+ * @package       Konalen.Model
  * @property IpAddressAccessAttempt $IpAddressAccessAttempt
+ * @property AccessAttempt $AccessAttempt
  * @author Ismael Valenzuela <iavalenzu@gmail.com>
  */
 

@@ -32,7 +32,9 @@ class UtilitiesTest extends CakeTestCase {
     
     public function testCreateCode(){
 
-        $code = Utilities::createCode(5,7);
+        $code = Utilities::createCode(70);
+        
+        debug($code);
         
         $check1 = Utilities::checkCode($code);
         $this->assertEquals(true, $check1);
@@ -44,12 +46,23 @@ class UtilitiesTest extends CakeTestCase {
     
     public function testRandomString(){
         
-        $rand_string =  Utilities::getRandomString(40);
+        $rand_string =  Utilities::getRandomString(256);
         
-        debug($rand_string);
+        //debug($rand_string);
         
     }
    
+    public function testRandomPseudo(){
+        
+        $code = Utilities::createCode(40);
+       
+        debug($code);
+        
+        
+        //wDeClRgx4TrVWXPaWQ0vL32OITOFY8a8GE735saQi2i84o2k
+        
+        
+    }
     
 }
 

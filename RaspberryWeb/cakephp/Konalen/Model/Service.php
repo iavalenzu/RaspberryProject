@@ -3,6 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * Service Model
  *
+ * @package       Konalen.Model
  * @property Partner $Partner
  */
 class Service extends AppModel {

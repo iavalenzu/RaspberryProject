@@ -13,7 +13,7 @@ class UsersControllerTest extends MyControllerTestCase {
 
     
     public $headers = array(
-        "Authorization:key=szR4ALOSZuDQYgjCgntvDcAP1LO72fBJlKBZt5IICwHuSGkiNA_29243146",
+        "Authorization:key=37OqESVjnUqsLejUCGgv9nn91k2nSllaNuzXq1MFWCNORNm65k0SjzJfJTFkqd4FE1o5AEiaC8qbk",
         "Content-Type:application/json"
     );
 

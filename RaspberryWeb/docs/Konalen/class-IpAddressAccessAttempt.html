@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class IpAddressAccessAttempt | Konalen</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?2045708298"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active"><a href="package-Konalen.html">Konalen<span></span></a>
+						<ul>
+				<li><a href="package-Konalen.Controller.html">Controller</a>
+						</li>
+				<li><a href="package-Konalen.Lib.html">Lib</a>
+						</li>
+				<li class="active"><a href="package-Konalen.Model.html">Model</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-AccessAttempt.html">AccessAttempt</a></li>
+				<li><a href="class-AppModel.html">AppModel</a></li>
+				<li class="active"><a href="class-IpAddressAccessAttempt.html">IpAddressAccessAttempt</a></li>
+				<li><a href="class-Notification.html">Notification</a></li>
+				<li><a href="class-Partner.html">Partner</a></li>
+				<li><a href="class-PartnerAccess.html">PartnerAccess</a></li>
+				<li><a href="class-Service.html">Service</a></li>
+				<li><a href="class-User.html">User</a></li>
+				<li><a href="class-UserAccess.html">UserAccess</a></li>
+				<li><a href="class-UserPartner.html">UserPartner</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-Konalen.Model.html" title="Summary of Konalen\Model"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class IpAddressAccessAttempt</h1>
+
+
+	<div class="description">
+	
+<p>IpAddressAccessAttempt Model</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+Model
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by" />
+			<a href="class-AppModel.html"><span>AppModel</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by" />
+<b><span>IpAddressAccessAttempt</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-Konalen.html">Konalen</a>\<a href="package-Konalen.Model.html">Model</a><br />
+
+				<b>Author:</b>
+				Ismael Valenzuela &lt;<a
+href="mailto:iavalenzu&#64;gmail.com">iavalenzu&#64;<!-- -->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-IpAddressAccessAttempt.html#5-149" title="Go to source code">IpAddressAccessAttempt.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="reset" id="_reset">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_reset">#</a>
+		<code><a href="source-class-IpAddressAccessAttempt.html#50-74" title="Go to source code">reset</a>( )</code>
+
+		<div class="description short">
+			
+<p>Funcion encargada de resetear el numero de intentos de acceso y la fecha de
+bloqueo para la direccion ip que generó la peticion.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Funcion encargada de resetear el numero de intentos de acceso y la fecha de
+bloqueo para la direccion ip que generó la peticion.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="attempt" id="_attempt">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_attempt">#</a>
+		<code><a href="source-class-IpAddressAccessAttempt.html#77-122" title="Go to source code">attempt</a>( )</code>
+
+		<div class="description short">
+			
+<p>Genera un nuevo intento de acceso, si se supera el maximo de intentos de
+acceso se bloquea la direccion ip hasta una proxima fecha</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Genera un nuevo intento de acceso, si se supera el maximo de intentos de
+acceso se bloquea la direccion ip hasta una proxima fecha</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="isIpAddressBlocked" id="_isIpAddressBlocked">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_isIpAddressBlocked">#</a>
+		<code><a href="source-class-IpAddressAccessAttempt.html#125-146" title="Go to source code">isIpAddressBlocked</a>( )</code>
+
+		<div class="description short">
+			
+<p>Verifica si la ip que realizó la peticion se encuentra bloqueada</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Verifica si la ip que realizó la peticion se encuentra bloqueada</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="displayField" id="$displayField">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-IpAddressAccessAttempt.html#15-20" title="Go to source code"><var>$displayField</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">''</span></code></td>
+		<td class="description"><div>
+			<a href="#$displayField" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Display field</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Display field</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="primaryKey" id="$primaryKey">
+		<td class="attributes"><code>
+			public  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-IpAddressAccessAttempt.html#21-26" title="Go to source code"><var>$primaryKey</var></a>
+		</td>
+		<td class="value"><code><span class="php-quote">'ip_address'</span></code></td>
+		<td class="description"><div>
+			<a href="#$primaryKey" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Primary key</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Primary key</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="hasMany" id="$hasMany">
+		<td class="attributes"><code>
+			public  
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-IpAddressAccessAttempt.html#28-47" title="Go to source code"><var>$hasMany</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-quote">'AccessAttempt'</span> =&gt; <span class="php-keyword1">array</span>(
+		<span class="php-quote">'className'</span> =&gt; <span class="php-quote">'AccessAttempt'</span>,
+		<span class="php-quote">'foreignKey'</span> =&gt; <span class="php-quote">'ip_address'</span>,
+		<span class="php-quote">'dependent'</span> =&gt; <span class="php-keyword1">false</span>,
+		<span class="php-quote">'conditions'</span> =&gt; <span class="php-quote">''</span>,
+		<span class="php-quote">'fields'</span> =&gt; <span class="php-quote">''</span>,
+		<span class="php-quote">'order'</span> =&gt; <span class="php-quote">''</span>,
+		<span class="php-quote">'limit'</span> =&gt; <span class="php-quote">''</span>,
+		<span class="php-quote">'offset'</span> =&gt; <span class="php-quote">''</span>,
+		<span class="php-quote">'exclusive'</span> =&gt; <span class="php-quote">''</span>,
+		<span class="php-quote">'finderQuery'</span> =&gt; <span class="php-quote">''</span>,
+		<span class="php-quote">'counterQuery'</span> =&gt; <span class="php-quote">''</span>
+	)
+)</code></td>
+		<td class="description"><div>
+			<a href="#$hasMany" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>HasMany Association</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>HasMany Association</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary" id="magicProperties">
+	<caption>Magic properties summary</caption>
+	<tr data-order="IpAddressAccessAttempt" id="m$IpAddressAccessAttempt">
+		<td class="attributes"><code>
+			public  
+			<code><a href="class-IpAddressAccessAttempt.html">IpAddressAccessAttempt</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-IpAddressAccessAttempt.html#9" title="Go to source code"><var>$IpAddressAccessAttempt</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$IpAddressAccessAttempt" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="AccessAttempt" id="m$AccessAttempt">
+		<td class="attributes"><code>
+			public  
+			<code><a href="class-AccessAttempt.html">AccessAttempt</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-IpAddressAccessAttempt.html#10" title="Go to source code"><var>$AccessAttempt</var></a>
+		</td>
+		<td class="description"><div>
+			<a href="#m$AccessAttempt" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+</div>
+
+	<div id="footer">
+		Konalen API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

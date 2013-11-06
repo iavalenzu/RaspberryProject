@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class Utilities | Konalen</title>
+
+	<script type="text/javascript" src="resources/combined.js?394153670"></script>
+	<script type="text/javascript" src="elementlist.js?2045708298"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Packages</h3>
+			<ul>
+				<li class="active"><a href="package-Konalen.html">Konalen<span></span></a>
+						<ul>
+				<li><a href="package-Konalen.Controller.html">Controller</a>
+						</li>
+				<li class="active"><a href="package-Konalen.Lib.html">Lib</a>
+						</li>
+				<li><a href="package-Konalen.Model.html">Model</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-ResponseStatus.html">ResponseStatus</a></li>
+				<li class="active"><a href="class-Utilities.html">Utilities</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="package-Konalen.Lib.html" title="Summary of Konalen\Lib"><span>Package</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Utilities</h1>
+
+
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		
+		<b>Package:</b> <a href="package-Konalen.html">Konalen</a>\<a href="package-Konalen.Lib.html">Lib</a><br />
+
+				<b>Author:</b>
+				Ismael Valenzuela &lt;<a
+href="mailto:iavalenzu&#64;gmail.com">iavalenzu&#64;<!-- -->gmail.com</a>&gt;<br />
+		<b>Located at</b> <a href="source-class-Utilities.html#7-370" title="Go to source code">Utilities.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="getHeader" id="_getHeader">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getHeader">#</a>
+		<code><a href="source-class-Utilities.html#15-33" title="Go to source code">getHeader</a>( <span>string <var>$name</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$require</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+					<dt><var>$require</var></dt>
+					<dd><code>boolean</code><br>$require</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRawPostData" id="_getRawPostData">
+
+		<td class="attributes"><code>
+			 public 
+			string|array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRawPostData">#</a>
+		<code><a href="source-class-Utilities.html#36-68" title="Go to source code">getRawPostData</a>( <span>boolean <var>$require</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$require</var></dt>
+					<dd><code>boolean</code><br>$require</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string|array</code><br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>BadRequestException</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="exists" id="_exists">
+
+		<td class="attributes"><code>
+			 public 
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_exists">#</a>
+		<code><a href="source-class-Utilities.html#71-109" title="Go to source code">exists</a>( <span>array <var>$values</var> = <span class="php-keyword1">array</span>()</span>, <span>string <var>$name</var> = <span class="php-keyword1">null</span></span>, <span>boolean <var>$require</var> = <span class="php-keyword1">true</span></span>, <span>boolean <var>$empty</var> = <span class="php-keyword1">false</span></span>, <span>mixed <var>$default</var> = <span class="php-keyword1">false</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$values</var></dt>
+					<dd><code>array</code><br>$values</dd>
+					<dt><var>$name</var></dt>
+					<dd><code>string</code><br>$name</dd>
+					<dt><var>$require</var></dt>
+					<dd><code>boolean</code><br>$require</dd>
+					<dt><var>$empty</var></dt>
+					<dd><code>boolean</code><br>$empty</dd>
+					<dt><var>$default</var></dt>
+					<dd><code>mixed</code><br>$default</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>mixed</code><br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>BadRequestException</code><br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getAuthorizationKey" id="_getAuthorizationKey">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getAuthorizationKey">#</a>
+		<code><a href="source-class-Utilities.html#112-132" title="Go to source code">getAuthorizationKey</a>( )</code>
+
+		<div class="description short">
+			
+<p>Busca el header Authorization y obtiene la llave de acceso que viene en
+él.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Busca el header Authorization y obtiene la llave de acceso que viene en
+él.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clientIp" id="_clientIp">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clientIp">#</a>
+		<code><a href="source-class-Utilities.html#135-162" title="Go to source code">clientIp</a>( <span>boolean <var>$safe</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Get the IP the client is using, or says they are using.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get the IP the client is using, or says they are using.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$safe</var></dt>
+					<dd><code>boolean</code><br>$safe Use safe = false when you think the user might manipulate their
+HTTP_CLIENT_IP header. Setting $safe = false will will also look at
+HTTP_X_FORWARDED_FOR</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>The client IP.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clientUserAgent" id="_clientUserAgent">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clientUserAgent">#</a>
+		<code><a href="source-class-Utilities.html#165-180" title="Go to source code">clientUserAgent</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>El user agent del partner.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getRandomString" id="_getRandomString">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getRandomString">#</a>
+		<code><a href="source-class-Utilities.html#183-208" title="Go to source code">getRandomString</a>( <span>integer <var>$min</var> = <span class="php-num">20</span></span>, <span>integer|boolean <var>$max</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$source</var> = <span class="php-quote">&quot;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Genera una cadena de caracteres aleatorios.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Genera una cadena de caracteres aleatorios.</p>
+
+<p>Si el maximo no está definido, se crea una cadena de largo igual al
+mínimo.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$min</var></dt>
+					<dd><code>integer</code><br>$min El largo minimo de la cadena a generar.</dd>
+					<dt><var>$max</var></dt>
+					<dd><code>integer|boolean</code><br>$max El largo maximo de la cadena a generar.</dd>
+					<dt><var>$source</var></dt>
+					<dd><code>string</code><br>$source La cadena de caracteres utilizada como fuente para seleccionar
+caracteres al azar.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>La cadena aleatoria.<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createCode" id="_createCode">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createCode">#</a>
+		<code><a href="source-class-Utilities.html#212-239" title="Go to source code">createCode</a>( <span>integer <var>$min</var> = <span class="php-num">50</span></span>, <span>integer|boolean <var>$max</var> = <span class="php-keyword1">false</span></span>, <span>string <var>$separator</var> = <span class="php-quote">'_'</span></span>, <span>integer <var>$base</var> = <span class="php-num">16</span></span> )</code>
+
+		<div class="description short">
+			
+<p>Genera un codigo aleatorio que incluye una cadena de comprobacion. Agrega un
+checksum al codigo generado para luego poder comparar la integridad del codigo y
+identificar si se envian codigos incorrectos</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Genera un codigo aleatorio que incluye una cadena de comprobacion. Agrega un
+checksum al codigo generado para luego poder comparar la integridad del codigo y
+identificar si se envian codigos incorrectos</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$min</var></dt>
+					<dd><code>integer</code><br>$min El largo minimo de la cadena.</dd>
+					<dt><var>$max</var></dt>
+					<dd><code>integer|boolean</code><br>$max El largo maximo de la cadena, en caso de ser false se genera una cadena de
+largo $min</dd>
+					<dt><var>$separator</var></dt>
+					<dd><code>string</code><br>$separator La subcadena que separa la cadena aleatoria y el codigo de
+comprobacion.</dd>
+					<dt><var>$base</var></dt>
+					<dd><code>integer</code><br>$base La base numérica a la cual se convierte el codigo de comprobacion.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="checkCode" id="_checkCode">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_checkCode">#</a>
+		<code><a href="source-class-Utilities.html#242-263" title="Go to source code">checkCode</a>( <span>string <var>$code</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$separator</var> = <span class="php-quote">'_'</span></span>, <span>integer <var>$base</var> = <span class="php-num">16</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$code</var></dt>
+					<dd><code>string</code><br>$code</dd>
+					<dt><var>$separator</var></dt>
+					<dd><code>string</code><br>$separator</dd>
+					<dt><var>$base</var></dt>
+					<dd><code>integer</code><br>$base</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getCaptchaHtml" id="_getCaptchaHtml">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getCaptchaHtml">#</a>
+		<code><a href="source-class-Utilities.html#266-278" title="Go to source code">getCaptchaHtml</a>( )</code>
+
+		<div class="description short">
+			
+<p>Obtiene el bloque html que incluye el codigo recapcha a resolver.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Obtiene el bloque html que incluye el codigo recapcha a resolver.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<a
+href="https://developers.google.com/recaptcha/docs/display">https://developers.google.com/recaptcha/docs/display</a><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="doCurlRequest" id="_doCurlRequest">
+
+		<td class="attributes"><code>
+			 public 
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_doCurlRequest">#</a>
+		<code><a href="source-class-Utilities.html#281-326" title="Go to source code">doCurlRequest</a>( <span>string <var>$url</var></span>, <span>array <var>$data</var> = <span class="php-keyword1">array</span>()</span>, <span>array <var>$headers</var> = <span class="php-keyword1">array</span>()</span>, <span>boolean <var>$post</var> = <span class="php-keyword1">true</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$url</var></dt>
+					<dd><code>string</code><br>$url</dd>
+					<dt><var>$data</var></dt>
+					<dd><code>array</code><br>$data</dd>
+					<dt><var>$headers</var></dt>
+					<dd><code>array</code><br>$headers</dd>
+					<dt><var>$post</var></dt>
+					<dd><code>boolean</code><br>$post</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="captchaIsCorrect" id="_captchaIsCorrect">
+
+		<td class="attributes"><code>
+			 public 
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_captchaIsCorrect">#</a>
+		<code><a href="source-class-Utilities.html#329-368" title="Go to source code">captchaIsCorrect</a>( <span>string <var>$recaptcha_challenge_field</var> = <span class="php-keyword1">null</span></span>, <span>string <var>$recaptcha_response_field</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Verifica el recaptcha ingresado por el cliente.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$recaptcha_challenge_field</var></dt>
+					<dd><code>string</code><br>$recaptcha_challenge_field</dd>
+					<dt><var>$recaptcha_response_field</var></dt>
+					<dd><code>string</code><br>$recaptcha_response_field</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>boolean</code><br />
+				</div>
+
+
+				<h4>See</h4>
+				<div class="list">
+						<a
+href="https://developers.google.com/recaptcha/docs/verify">https://developers.google.com/recaptcha/docs/verify</a><br />
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Konalen API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

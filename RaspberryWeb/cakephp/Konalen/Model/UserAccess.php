@@ -1,12 +1,19 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Service Model
+ * UserAccess Model
  *
- * @property Partner $Partner
+ * @package       Konalen.Model
+ * @property UserPartner $UserPartner
+ * @author Ismael Valenzuela <iavalenzu@gmail.com>
  */
 class UserAccess extends AppModel {
 
+    /**
+     * BelongsTo Associations
+     * 
+     * @var array
+     */
 
 	public $belongsTo = array(
 		'UserPartner' => array(
@@ -17,7 +24,12 @@ class UserAccess extends AppModel {
 			'order' => ''
 		)
 	);
-            
+
+        /**
+         * 
+         * @return string En caso de no lograr generar el nuevo id de sesion retorna false.
+         */
+        
         public function createSessionId(){
             
             $max_attempts = Configure::read('SessionIdGenerationAttempts');
@@ -37,10 +49,18 @@ class UserAccess extends AppModel {
             
         }
         
+        /**
+         * 
+         * @param UserPartner $user_partner
+         * @param string $user_agent
+         * @param string $user_ip_address
+         * @return UserAccess
+         * @throws InternalErrorException
+         */
         
-        public function createAccess($user_partner = null, $user_agent = null, $user_ip_address = null){
+        public function createAccess($user_partner = null){
 
-            if(empty($user_partner) || empty($user_agent) || empty($user_ip_address))
+            if(empty($user_partner))
                 return false;
             
             $dataSource = $this->getDataSource();
@@ -54,8 +74,8 @@ class UserAccess extends AppModel {
             $user_access = array(
                 'UserAccess' => array(
                     'user_partner_id' => $user_partner['UserPartner']['id'],
-                    'user_agent' => $user_agent,
-                    'ip_address' => $user_ip_address,
+                    'user_agent' => Utilities::clientUserAgent(),
+                    'ip_address' => Utilities::clientIp(),
                     'session_id' => $session_id,
                     'session_expire' => date('Y-m-d H:i:s', time() + $session_duration)
                 )
@@ -71,6 +91,13 @@ class UserAccess extends AppModel {
             throw new InternalErrorException(ResponseStatus::$server_error);
             
         }
+        
+        /**
+         * 
+         * @param string $session_id
+         * @param Partner $partner
+         * @return UserAccess En caso que el id de sesion provisto sea invalido se retorna false, en caso contrario se retorna una nueva session.
+         */
         
         public function checkSessionId($session_id = null, $partner = null){
             
@@ -106,10 +133,9 @@ class UserAccess extends AppModel {
                 $dataSource->rollback();
             }
 
-            return null;
+            return false;
             
         }
-        
         
 }
 
