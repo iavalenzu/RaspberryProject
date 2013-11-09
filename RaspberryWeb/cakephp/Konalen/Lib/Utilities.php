@@ -428,49 +428,153 @@ class Utilities {
        return $out;
     }    
     
-    public function randomPseudo(){
+    function getRSAKeyPair($digest = "sha512", $bits = 2048){
         
-        $bytes = openssl_random_pseudo_bytes(30, $cstrong);
-        $hex   = bin2hex($bytes);
-        //$hex2 = unpack("H*", $bytes);
+        $config = array(
+            "digest_alg" => $digest,
+            "private_key_bits" => $bits,
+            "private_key_type" => OPENSSL_KEYTYPE_RSA,
+        );
 
-        
-        debug($hex);
-        
-        if(empty($bytes)){
-            debug("Error!!");
-            return;
-        }
-        
-        for($i=0;$i<strlen($bytes);$i+=8)
-        {
-          $byte = substr($bytes,$i,8); 
-          if( strlen($byte)<8 ) 
-              $byte .= str_repeat('0',8-strlen($byte));
-          
-          $byte_convert = bin2hex($byte);
-          
-          //$byte_convert = base_convert($byte,2,16);
-          
-          debug($byte_convert);
-          
-        }        
-        
-        //debug($hex);
-        //debug($hex2);
-        
-for ($i = -1; $i <= 4; $i++) {
-    $bytes = openssl_random_pseudo_bytes($i, $cstrong);
-    $hex   = bin2hex($bytes);
+        // Create the private and public key
+        $res = openssl_pkey_new($config);
 
-    echo "Lengths: Bytes: $i and Hex: " . strlen($hex) . "<br>";
-    var_dump($hex);
-    var_dump($cstrong);
-    echo "<br>";
-}        
+        if(!$res)
+            return array();
         
+        // Extract the private key from $res to $privKey
+        if(!openssl_pkey_export($res, $privKey))
+            return array();
+            
+        // Extract the public key from $res to $pubKey
+        $details = openssl_pkey_get_details($res);
+
+        if(!$details)
+            return array();
+
+        if(!isset($details["key"]))
+            return array();
+            
+        $pubKey = $details["key"];   
+        
+        return array(
+            'PublicKey' => $pubKey,
+            'PrivateKey' => $privKey
+        );
         
     }
+    
+    public function sendSecureData($plaindata = null, $recipientpublickey = null, $senderprivatekey = null){
+        
+        if(empty($plaindata) || empty($recipientpublickey) || empty($senderprivatekey))
+            return false;
+        
+        $plaindata_encoded = json_encode ($plaindata);
+        
+        //Sella la informacion para solo el recipiente pueda leer el mensaje con su llave privada
+        
+        $recipientpublickeyid = openssl_get_publickey($recipientpublickey);
+        
+        if(empty($recipientpublickeyid))
+            return false;
+
+        if(!openssl_seal($plaindata_encoded, $sealeddata, $envkeys, array($recipientpublickeyid)))
+            return false;
+        
+        $encryptdata = array(
+            'data' => bin2hex($sealeddata),
+            'key' => bin2hex($envkeys[0])
+        );
+        
+        $encryptdata_encoded = json_encode($encryptdata);
+
+        if(empty($encryptdata_encoded))
+            return false;
+        
+        //Firmamos el mensaje para asegurar que Konalen es quien lo envia.
+
+        $senderprivatekeyid = openssl_get_privatekey($senderprivatekey);
+        
+        if(empty($senderprivatekeyid))
+            return false;
+
+        // compute signature
+        if(!openssl_sign($encryptdata_encoded, $signature, $senderprivatekeyid, OPENSSL_ALGO_SHA1))
+            return false;
+        
+        $signeddata = array(
+            'data' => $encryptdata_encoded,
+            'signature' => bin2hex($signature)
+        );
+        
+        $signeddata_encoded = json_encode($signeddata);
+        
+        if(empty($signeddata_encoded))
+            return false;
+        
+        return base64_encode($signeddata_encoded);
+        
+    }
+    
+    public function reciveSecureData($signeddata = null, $recipientprivatekey = null, $senderpublickey = null){
+        
+        if(empty($signeddata) || empty($recipientprivatekey) || empty($senderpublickey))
+            return false;
+        
+        $signeddata_b64_decoded = base64_decode($signeddata);
+        
+        if(empty($signeddata_b64_decoded))
+            return false;
+        
+        $signeddata_json_decode = json_decode($signeddata_b64_decoded, true);
+        
+        if(empty($signeddata_json_decode))
+            return false;
+        
+        if(!isset($signeddata_json_decode['data']) || !isset($signeddata_json_decode['signature']))
+            return false;
+
+        $encryptdata = $signeddata_json_decode['data'];
+        $signature = pack("H*", $signeddata_json_decode['signature']);
+        
+        if(empty($encryptdata) || empty($signature))
+            return false;
+
+        $senderpublickeyid = openssl_get_publickey($senderpublickey);
+        
+        if(empty($senderpublickeyid))
+            return false;
+        
+        if(!openssl_verify($encryptdata, $signature, $senderpublickeyid))
+            return false;
+        
+        $encryptdata_decoded = json_decode($encryptdata, true);
+        
+        if(empty($encryptdata_decoded))
+            return false;
+        
+        if(!isset($encryptdata_decoded['data']) || !isset($encryptdata_decoded['key']))
+            return false;
+        
+        $sealeddata = pack("H*", $encryptdata_decoded['data']);
+        $envkey = pack("H*", $encryptdata_decoded['key']);
+
+        if(empty($sealeddata) || empty($envkey))
+            return false;
+        
+        //Se obtiene la llave privada del receptor del mensaje
+        $recipientprivatekeyid = openssl_get_privatekey($recipientprivatekey);
+        
+        if(empty($recipientprivatekeyid))
+            return false;
+        
+        if(!openssl_open($sealeddata, $opendata, $envkey, $recipientprivatekeyid))
+            return false;
+        
+        return json_decode($opendata, true);        
+
+    }
+    
     
 }
 

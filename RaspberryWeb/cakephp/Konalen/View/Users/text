@@ -1,0 +1,33 @@
+   /*
+            echo $this->Form->create(null, array(
+                'type' => 'post',
+                'url' => array('controller' => 'users', 'action' => 'checklogin')
+
+            ));
+            echo $this->Form->input(null, array('label' => 'Email', 'name' => 'email', 'value' => $email));
+            echo $this->Form->input(null, array('label' => 'Password', 'type'=>'password', 'name' => 'password'));
+            echo $this->Form->input(null, array('label' => 'Password', 'type' => 'hidden', 'name' => 'session_id', 'value' => $partner_form['PartnerForm']['session_id']));
+            
+            if($captcha){
+                echo $this->Html->image(
+                    $this->Html->url(array(
+                        "controller" => "users",
+                        "action" => "getCaptcha",
+                        $session_id
+                    )
+                ), array('alt' => 'Captcha'));
+                echo $this->Form->input(null, array('label' => 'Captcha', 'type' => 'text', 'name' => 'captcha_response', 'value' => ''));
+            }
+            
+            
+            echo $this->Form->end('Enviar');
+
+            echo "<pre>";
+            echo $captcha ? 'true' : 'false' .'<br>';
+            echo $session_expire.'<br>';
+            echo date('Y-m-d H:i:s').'<br>';
+            echo $timeout_millis.'<br>';
+            echo  str_replace("\n", "<br>", print_r($data,true));
+            echo "</pre>";
+            
+            */
