@@ -5786,3 +5786,2779 @@ Stack Trace:
 #3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-11-09 13:38:16 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(51): Partner->getAuthorizedPartner()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-09 13:54:24 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(51): Partner->getAuthorizedPartner()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-10 09:46:59 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(51): Partner->getAuthorizedPartner()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-10 10:25:45 Error: [MissingControllerException] Controller class LoginformsController could not be found.
+Exception Attributes: array (
+  'class' => 'LoginformsController',
+  'plugin' => NULL,
+)
+Request URL: /loginforms/viewLogin
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 10:26:14 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/loginform.ctp.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/loginform.ctp.ctp',
+)
+Request URL: /loginForms/viewLogin
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName('/Users/loginfor...')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render('/Users/loginfor...', NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/LoginFormsController.php(19): Controller->render('/Users/loginfor...')
+#3 [internal function]: LoginFormsController->viewLogin()
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(LoginFormsController), Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2013-11-10 17:34:23 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(51): Partner->getAuthorizedPartner()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-10 18:21:17 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:21:18 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:21:18 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:21:18 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:21:19 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:21:19 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:21:19 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:21:19 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:22:38 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:22:38 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:22:38 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:22:38 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:22:38 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:24:14 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:24:14 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:24:14 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:24:14 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:24:14 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:24:15 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:24:15 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:24:15 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:24:15 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:24:15 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:09 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:09 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:09 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:09 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:10 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:10 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:10 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:10 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:10 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:11 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:11 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:11 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:11 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:11 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:12 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:12 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:12 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:12 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:12 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:13 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:13 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:13 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:25:13 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:25:13 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:26:26 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:26:26 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:26:26 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:26:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:26:26 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:29:14 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:14 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:14 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:15 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:29:15 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:29:27 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:28 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:28 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:28 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:29:28 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:29:43 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:43 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:43 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:29:43 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:29:43 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:30:31 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:30:31 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:30:31 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:30:31 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:30:31 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:33:41 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:33:41 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:33:41 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:33:41 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:33:41 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:34:31 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:34:31 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:34:31 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:34:31 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:34:31 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:35:47 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:35:47 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:35:48 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:35:48 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:35:48 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:36:17 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:17 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:17 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:17 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:36:17 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:36:34 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:35 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:35 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:35 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:36:35 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:36:47 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:47 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:47 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:36:47 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:36:47 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:38:04 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:38:04 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:38:04 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:38:05 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:38:05 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:39:19 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:39:19 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:39:20 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:39:20 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:39:20 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:39:35 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:39:35 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:39:36 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:39:36 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:39:36 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:40:19 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:19 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:19 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:19 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:40:19 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:40:42 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:42 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:42 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:42 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:40:43 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:40:58 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:58 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:58 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:40:58 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:40:58 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:41:10 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:41:10 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:41:10 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:41:10 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:41:10 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:42:35 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:42:35 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:42:35 Error: [MissingActionException] Action LoginFormsController::colors.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'colors.css',
+)
+Request URL: /loginForms/colors.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:42:35 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/glyphicons-halflings.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:42:35 Error: [MissingControllerException] Controller class ImgController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgController',
+  'plugin' => NULL,
+)
+Request URL: /img/backgrounds/subtle_white_feathers.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-10 18:44:03 Error: [MissingActionException] Action LoginFormsController::index.html() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'index.html',
+)
+Request URL: /loginForms/index.html
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:59:48 Error: [MissingActionException] Action LoginFormsController::icons.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'icons.css',
+)
+Request URL: /loginForms/icons.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 18:59:49 Error: [MissingActionException] Action LoginFormsController::third-party.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'third-party.css',
+)
+Request URL: /loginForms/third-party.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/charts/flot/jquery.flot.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/charts/flot/jquery.flot.symbol.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jquery.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/charts/jquery.sparkline.min.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/charts/flot/jquery.flot.pie.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/charts/flot/jquery.flot.resize.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jquery.nicescroll.min.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/charts/flot/jquery.flot.axislabels.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jquery.autogrowtextarea.min.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:06 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jquery.dataTables.min.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/elfinder.min.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/fullcalendar.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/dataTable_bootstrap.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jquery-ui-1.8.16.custom.min.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jQuery-UI-FileInput/js/enhance.min.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jQuery-validation/jquery.validationEngine.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jQuery-UI-FileInput/js/fileinput.jquery.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jQuery-validation/languages/jquery.validationEngine-en.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/uniform.jquery.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/bootstrap-timepicker.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:07 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/inputmask.jquery.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jquery.cleditor.min.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jquery.tagsinput.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/chosen.jquery.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/jquery.fancybox.pack.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/bootstrap.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/charts-custom.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/prettify.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/accordion.jquery.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/ios-orientationchange-fix.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 19:44:08 Error: [MissingActionException] Action LoginFormsController::js() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'js',
+)
+Request URL: /loginForms/js/custom.js
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 20:31:48 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 20:32:44 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 20:33:14 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 20:33:48 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 20:33:55 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 20:36:36 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 20:36:36 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:19:55 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:20:51 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:20:52 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:20:53 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:20:53 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:21:34 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:21:35 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:22:39 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:22:40 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:22:41 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:22:42 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:01 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:02 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:26 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:27 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:28 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:28 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:28 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:28 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:29 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:29 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:29 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:39 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:40 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:41 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:23:54 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:26:31 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:26:38 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:26:51 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:27:21 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:37:41 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:34 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:35 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:36 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:36 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:37 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:37 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:37 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:37 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:38 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:38 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:39 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:39 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:39 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:39 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:40 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:40 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:40 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:40 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:41 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:41 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:41 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-10 21:53:45 Error: [MissingActionException] Action LoginFormsController::animate.css() could not be found.
+Exception Attributes: array (
+  'controller' => 'LoginFormsController',
+  'action' => 'animate.css',
+)
+Request URL: /loginForms/animate.css
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(LoginFormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2013-11-12 19:17:21 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(51): Partner->getAuthorizedPartner()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-12 19:37:00 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:37:44 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:37:45 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:37:46 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:38:21 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/shadowbg.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:38:22 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/greytopbg.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:38:22 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:38:23 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/shadowbg.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:38:23 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:38:23 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/greytopbg.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:38:49 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:38:49 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:41:54 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:42:18 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:44:09 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:44:47 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:45:40 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:45:40 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/botonesflecha.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:46:57 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/botonesflecha.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:46:57 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:46:58 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/vinetauser.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:46:58 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/botonesflecha.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-12 19:48:45 Error: [MissingControllerException] Controller class ImgsController could not be found.
+Exception Attributes: array (
+  'class' => 'ImgsController',
+  'plugin' => NULL,
+)
+Request URL: /imgs/botonesflecha.png
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

@@ -12,6 +12,10 @@
         <script type="text/javascript" src="http://konalen.dev/users/loginform?key=1493xn4d5sjpXPCPbHMKK5vM6bnJFt718ARnWMkujSe86UluK4Uedp4LtvwNOOOSpHpfUTi3pdC3Q5"></script>
         <div id="loginform"></div>
         
+        
+        <iframe src="http://konalen.dev/loginForms/viewLogin" frameborder="0"></iframe>
+        
+        
     </body>
     
     
