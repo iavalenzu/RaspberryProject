@@ -84,6 +84,7 @@ class UsersController extends AppController {
         public function loginform(){
             
             $this->autoLayout = false;
+            $this->autoRender = false;
             
             //Se obtienen la llave publica del partner
             $public_key = Utilities::exists($this->request->query, 'key', true, false);
@@ -95,8 +96,42 @@ class UsersController extends AppController {
                 //Se obtiene la ultima sesion activa o se crea una nueva con un identificador de session. 
                 $partner_form = $this->PartnerForm->getActiveSession($partner);
                 $this->set('partner_form', $partner_form);
-            
+                
+                /* Set up new view that won't enter the ClassRegistry */
+                $view = new View($this, false);
+                $view->set('partner_form', $partner_form);
+
+                /* Grab output into variable without the view actually outputting! */
+                $view_output = $view->render('test');
+                
+                //print_r($view_output);
+                
+                
             }
+            
+            $this->response->type('application/x-javascript');
+            
+        }
+        
+        public function test(){
+            
+            $this->autoLayout = false;
+            $this->autoRender = false;
+            
+            
+            /* Set up new view that won't enter the ClassRegistry */
+            $view = new View($this, false);
+            
+            $headcode = "<style type='text/css'> .red { color: red; } </style>";
+            $content = '<div class="red">Este es el formulario de login!!!</div>';
+            
+            $view->set('headcode', $headcode);
+            $view->set('content', $content);
+
+            /* Grab output into variable without the view actually outputting! */
+            $view_output = $view->render('/Elements/insert_code');
+            
+            print_r($view_output);
             
             $this->response->type('application/x-javascript');
             
