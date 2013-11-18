@@ -3,4 +3,4 @@
  * and open the template in the editor.
  */
 
-alert("Este es una prueba!!!");
+console.log("Este es 'js/test.js'");
