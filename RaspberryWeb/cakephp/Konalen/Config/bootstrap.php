@@ -110,3 +110,4 @@ CakeLog::config('error', array(
 
 
 CakePlugin::load('DebugKit');
+CakePlugin::load('ScriptsManager', array('bootstrap' => false, 'routes' => false));

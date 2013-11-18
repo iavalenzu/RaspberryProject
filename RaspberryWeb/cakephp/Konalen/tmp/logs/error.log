@@ -8582,3 +8582,290 @@ Stack Trace:
 #4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #6 {main}
+2013-11-16 09:51:06 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /sandbox/cakephp/Konalen/users/register?uno=1&dos=2
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(51): Partner->getAuthorizedPartner()
+#1 [internal function]: UsersController->register()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-16 10:37:26 Error: [MissingControllerException] Controller class ScriptManagerController could not be found.
+Exception Attributes: array (
+  'class' => 'ScriptManagerController',
+  'plugin' => NULL,
+)
+Request URL: /ScriptManager
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-16 10:38:49 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptManager/Controller/ScriptsController.php, line 10]
+2013-11-16 10:38:49 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /script_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 10)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 10, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 10, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:39:36 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:39:36 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /script_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:39:37 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:39:37 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /script_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:39:38 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:39:38 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /script_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:40:35 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:40:35 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /script_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:42:54 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:42:54 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /script_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:42:54 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:42:54 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /script_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:42:55 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:42:55 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /script_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:46:23 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:46:23 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /scripts_manager/scripts
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:47:36 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:47:36 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /scripts_manager/scripts/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:48:22 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:48:22 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /scripts_manager/scripts/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:54:40 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:54:40 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /scripts_manager/scripts/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:55:52 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:55:52 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /scripts_manager/scripts/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 10:55:52 Error: Fatal Error (1): Class 'ScriptsManagerAppController' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 12]
+2013-11-16 10:55:52 Error: [FatalErrorException] Class 'ScriptsManagerAppController' not found
+Request URL: /scripts_manager/scripts/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'ScriptsM...', '/home/iavalenzu...', 12, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 22:18:28 Error: Fatal Error (1): Class 'Script' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Helper/ScriptHelper.php, line 41]
+2013-11-16 22:18:28 Error: [FatalErrorException] Class 'Script' not found
+Request URL: /scripts_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'Script' ...', '/home/iavalenzu...', 41)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Script' ...', '/home/iavalenzu...', 41, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'Script' ...', '/home/iavalenzu...', 41, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-16 22:42:41 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'field list'
+Request URL: /scripts_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('INSERT INTO `ko...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1004): DboSource->execute('INSERT INTO `ko...')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1761): DboSource->create(Object(Script), Array, Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Model/Script.php(41): Model->save(Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Helper/ScriptHelper.php(43): Script->createScript(Array)
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Tests/index.ctp(3): ScriptHelper->js(Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(931): include('/home/iavalenzu...')
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(893): View->_evaluate('/home/iavalenzu...', Array)
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(462): View->_render('/home/iavalenzu...')
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2013-11-16 23:02:26 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp',
+)
+Request URL: /scripts_manager/scripts/getScript/22714d3b7645bda8500161092d5dce3fb8ed6a61
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ScriptsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-11-16 23:02:33 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp',
+)
+Request URL: /scripts_manager/scripts/getScript/49cfbbeabede65ba4de33d90fe78c57e1fd7c1b1
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ScriptsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-11-17 19:36:11 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp',
+)
+Request URL: /scripts_manager/scripts/getScript/6024efb5d10d1ce5e2ccf365001b0fbe9043ed4d
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ScriptsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-11-17 19:36:18 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp',
+)
+Request URL: /scripts_manager/scripts/getScript/6024efb5d10d1ce5e2ccf365001b0fbe9043ed4d
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ScriptsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-11-17 20:01:05 Error: [MissingViewException] View file "/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/View/Scripts/get_script.ctp',
+)
+Request URL: /scripts_manager/scripts/getScript/49bf7161352809f465ecbb9335a147e47ec13b93
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ScriptsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-11-17 22:56:50 Error: Fatal Error (1): Class 'JavaScriptPacker' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 81]
+2013-11-17 22:56:50 Error: [FatalErrorException] Class 'JavaScriptPacker' not found
+Request URL: /scripts_manager/scripts/getScript/a920b377ee6e48abb2381e1810e11c06c5f509e0
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'JavaScri...', '/home/iavalenzu...', 81)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'JavaScri...', '/home/iavalenzu...', 81, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'JavaScri...', '/home/iavalenzu...', 81, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-17 23:02:25 Error: Fatal Error (1): Class 'JavaScriptPacker' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 81]
+2013-11-17 23:02:25 Error: [FatalErrorException] Class 'JavaScriptPacker' not found
+Request URL: /scripts_manager/scripts/getScript/a920b377ee6e48abb2381e1810e11c06c5f509e0
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'JavaScri...', '/home/iavalenzu...', 81)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'JavaScri...', '/home/iavalenzu...', 81, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'JavaScri...', '/home/iavalenzu...', 81, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-17 23:02:26 Error: Fatal Error (1): Class 'JavaScriptPacker' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 81]
+2013-11-17 23:02:26 Error: [FatalErrorException] Class 'JavaScriptPacker' not found
+Request URL: /scripts_manager/scripts/getScript/a920b377ee6e48abb2381e1810e11c06c5f509e0
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'JavaScri...', '/home/iavalenzu...', 81)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'JavaScri...', '/home/iavalenzu...', 81, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'JavaScri...', '/home/iavalenzu...', 81, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-17 23:02:46 Error: Fatal Error (1): Class 'JavaScriptPacker' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/ScriptsManager/Controller/ScriptsController.php, line 81]
+2013-11-17 23:02:46 Error: [FatalErrorException] Class 'JavaScriptPacker' not found
+Request URL: /scripts_manager/scripts/getScript/a920b377ee6e48abb2381e1810e11c06c5f509e0
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'JavaScri...', '/home/iavalenzu...', 81)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'JavaScri...', '/home/iavalenzu...', 81, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'JavaScri...', '/home/iavalenzu...', 81, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
