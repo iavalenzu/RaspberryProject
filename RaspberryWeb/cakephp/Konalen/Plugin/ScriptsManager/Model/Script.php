@@ -40,7 +40,7 @@ class Script extends ScriptsManagerAppModel {
             
     }
         
-    public function createScript($filenames = null){
+    public function createScript($filenames = null, $allowed_domain = false){
         
         //Se eliminan los script que lleven algun tiempo guardados
         $this->manageOldScripts();
@@ -53,7 +53,8 @@ class Script extends ScriptsManagerAppModel {
         $dataSource->begin();
 
         $script['Script']['id'] = $this->createId();
-        $script['Script']['data'] = json_encode($filenames);
+        $script['Script']['sources'] = json_encode($filenames);
+        $script['Script']['allowed_domain'] = $allowed_domain;
 
         if($this->save($script)){
             if($dataSource->commit())

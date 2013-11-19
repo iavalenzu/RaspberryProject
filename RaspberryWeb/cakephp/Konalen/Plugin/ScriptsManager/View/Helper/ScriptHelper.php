@@ -16,13 +16,13 @@ class ScriptHelper extends AppHelper {
     
     
     
-     public function js($filenames = null, $returnurl = false){
+     public function js($filenames = null, $allowed_domain = false, $returnurl = false){
          
          if(empty($filenames))
              return "";
 
          $ScriptModel = new Script(); 
-         $new_script_id = $ScriptModel->createScript($filenames);
+         $new_script_id = $ScriptModel->createScript($filenames, $allowed_domain);
 
          if(empty($new_script_id))
              return "";

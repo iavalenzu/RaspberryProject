@@ -8869,3 +8869,4 @@ Stack Trace:
 #3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-11-19 00:14:08 Error: El dominio de origen no esta permitido

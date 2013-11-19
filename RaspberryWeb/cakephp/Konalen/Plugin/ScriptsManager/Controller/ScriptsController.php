@@ -39,17 +39,27 @@ class ScriptsController extends ScriptsManagerAppController {
         if(empty($id))
             return;
 
-        //Si la los scripts son llamados directamente retornamos
-        //TODO Se debe verificar con el url de llamada del login
-        if($this->request->referer() == "/")
-            return;
-        
         $script = $this->Script->findById($id);
  
         if(empty($script))
             return;
         
-        $filenames = json_decode($script['Script']['data'], true);
+        if(!empty($script['Script']['allowed_domain'])){
+        
+            $referer = parse_url($this->request->referer());
+            $allowed_domain = parse_url($script['Script']['allowed_domain']);
+
+            if(empty($referer) || !isset($referer['host']) || empty($allowed_domain) || !isset($allowed_domain['host']))
+                return;
+
+            if($referer['host'] != $allowed_domain['host']){
+                $this->log("El dominio de origen no esta permitido");
+                return;
+            }
+        
+        }
+        
+        $filenames = json_decode($script['Script']['sources'], true);
         
         if(empty($filenames))
             return;
@@ -83,13 +93,11 @@ class ScriptsController extends ScriptsManagerAppController {
         $packer = new JavaScriptPacker($generatedoutput, 'Normal', true, false);
         $packed = $packer->pack();
         
+        $this->Script->delete($id);
         
-        //$this->Script->delete($id);
-        
-        
-        $this->response->type('application/x-javascript');        
-        
-        echo $packed;
+        $this->response->type('javascript');
+        $this->response->disableCache();
+        $this->response->body($packed);
          
     }
     
