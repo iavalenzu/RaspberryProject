@@ -1,8 +1,15 @@
 <?php
 App::uses('AppModel', 'Model');
 
-class Script extends ScriptsManagerAppModel {
-
+class StaticContent extends StaticContentManagerAppModel {
+    
+    
+    public static $JS = 1;
+    public static $CSS = 2;
+    public static $IMG = 3;
+    public static $FILE = 4;
+    
+    
     public function manageOldScripts(){
 
         $session_duration = 5*60;
@@ -13,7 +20,7 @@ class Script extends ScriptsManagerAppModel {
         $random = mt_rand()/mt_getrandmax();
         
         if($random <= $limit)       
-            return $this->deleteAll(array('Script.created <=' => date('Y-m-d H:i:s', time() - $session_duration)), false);
+            return $this->deleteAll(array('StaticContent.created <=' => date('Y-m-d H:i:s', time() - $session_duration)), false);
         else
             return false;
         
@@ -40,21 +47,23 @@ class Script extends ScriptsManagerAppModel {
             
     }
         
-    public function createScript($filenames = null, $allowed_domain = false){
+    public function createContent($filenames = null, $allowed_domain = false, $type = false, $options = array()){
         
         //Se eliminan los script que lleven algun tiempo guardados
         $this->manageOldScripts();
 
-        if(empty($filenames))
+        if(empty($filenames) || empty($type))
             return false;
 
         $dataSource = $this->getDataSource();
 
         $dataSource->begin();
 
-        $script['Script']['id'] = $this->createId();
-        $script['Script']['sources'] = json_encode($filenames);
-        $script['Script']['allowed_domain'] = $allowed_domain;
+        $script['StaticContent']['id'] = $this->createId();
+        $script['StaticContent']['files'] = json_encode($filenames);
+        $script['StaticContent']['allowed_domain'] = $allowed_domain;
+        $script['StaticContent']['type'] = $type;
+        $script['StaticContent']['options'] = json_encode($options);
 
         if($this->save($script)){
             if($dataSource->commit())

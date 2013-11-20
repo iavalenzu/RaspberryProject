@@ -8870,3 +8870,347 @@ Stack Trace:
 #4 [internal function]: App::shutdown()
 #5 {main}
 2013-11-19 00:14:08 Error: El dominio de origen no esta permitido
+2013-11-19 20:38:12 Error: [MissingControllerException] Controller class ScriptsManagerController could not be found.
+Exception Attributes: array (
+  'class' => 'ScriptsManagerController',
+  'plugin' => NULL,
+)
+Request URL: /scripts_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-19 20:38:26 Error: [MissingControllerException] Controller class TestController could not be found.
+Exception Attributes: array (
+  'class' => 'TestController',
+  'plugin' => 'StaticContentManager',
+)
+Request URL: /static_content_manager/test/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-19 20:39:06 Error: [MissingPluginException] Plugin ScriptsManager could not be found.
+Exception Attributes: array (
+  'plugin' => 'ScriptsManager',
+)
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(367): CakePlugin::path('ScriptsManager')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(228): App::pluginPath('ScriptsManager')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(549): App::path('View/Helper', 'ScriptsManager')
+#3 [internal function]: App::load('ScriptHelper')
+#4 [internal function]: spl_autoload_call('ScriptHelper')
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/HelperCollection.php(130): class_exists('ScriptHelper')
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(869): HelperCollection->load('ScriptsManager....', Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(343): View->loadHelpers()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(1240): View->__construct(Object(TestsController))
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(938): Controller->_getViewObject()
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-11-19 20:39:23 Error: [MissingPluginException] Plugin ScriptsManager could not be found.
+Exception Attributes: array (
+  'plugin' => 'ScriptsManager',
+)
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(367): CakePlugin::path('ScriptsManager')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(228): App::pluginPath('ScriptsManager')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(549): App::path('View/Helper', 'ScriptsManager')
+#3 [internal function]: App::load('ScriptHelper')
+#4 [internal function]: spl_autoload_call('ScriptHelper')
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/HelperCollection.php(130): class_exists('ScriptHelper')
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(869): HelperCollection->load('ScriptsManager....', Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(343): View->loadHelpers()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(1240): View->__construct(Object(TestsController))
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(938): Controller->_getViewObject()
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-11-19 20:44:39 Error: [MissingPluginException] Plugin ScriptsManager could not be found.
+Exception Attributes: array (
+  'plugin' => 'ScriptsManager',
+)
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(367): CakePlugin::path('ScriptsManager')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(228): App::pluginPath('ScriptsManager')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(549): App::path('View/Helper', 'ScriptsManager')
+#3 [internal function]: App::load('ScriptHelper')
+#4 [internal function]: spl_autoload_call('ScriptHelper')
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/HelperCollection.php(130): class_exists('ScriptHelper')
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(869): HelperCollection->load('ScriptsManager....', Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(343): View->loadHelpers()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(1240): View->__construct(Object(TestsController))
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(938): Controller->_getViewObject()
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-11-19 20:44:40 Error: [MissingPluginException] Plugin ScriptsManager could not be found.
+Exception Attributes: array (
+  'plugin' => 'ScriptsManager',
+)
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(367): CakePlugin::path('ScriptsManager')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(228): App::pluginPath('ScriptsManager')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(549): App::path('View/Helper', 'ScriptsManager')
+#3 [internal function]: App::load('ScriptHelper')
+#4 [internal function]: spl_autoload_call('ScriptHelper')
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/HelperCollection.php(130): class_exists('ScriptHelper')
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(869): HelperCollection->load('ScriptsManager....', Array)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(343): View->loadHelpers()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(1240): View->__construct(Object(TestsController))
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(938): Controller->_getViewObject()
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-11-19 20:45:10 Error: Fatal Error (1): Class 'Script' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/View/Helper/ScriptHelper.php, line 24]
+2013-11-19 20:45:10 Error: [FatalErrorException] Class 'Script' not found
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'Script' ...', '/home/iavalenzu...', 24)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'Script' ...', '/home/iavalenzu...', 24, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'Script' ...', '/home/iavalenzu...', 24, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-19 20:45:24 Error: [MissingHelperException] Helper class StaticContentHelper could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentHelper',
+  'plugin' => 'StaticContentManager',
+)
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(869): HelperCollection->load('StaticContentMa...', Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(343): View->loadHelpers()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(1240): View->__construct(Object(TestsController))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(938): Controller->_getViewObject()
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-11-19 20:46:14 Error: [MissingHelperException] Helper class StaticContentHelper could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentHelper',
+  'plugin' => 'StaticContentManager',
+)
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(869): HelperCollection->load('StaticContentMa...', Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(343): View->loadHelpers()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(1240): View->__construct(Object(TestsController))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(938): Controller->_getViewObject()
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2013-11-19 20:46:32 Error: Fatal Error (1): Class 'StaticContentManagerAppModel' not found in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Model/StaticContent.php, line 4]
+2013-11-19 20:46:32 Error: [FatalErrorException] Class 'StaticContentManagerAppModel' not found
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'StaticCo...', '/home/iavalenzu...', 4)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'StaticCo...', '/home/iavalenzu...', 4, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'StaticCo...', '/home/iavalenzu...', 4, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-19 20:47:11 Error: [MissingHelperException] Helper class ScriptHelper could not be found.
+Exception Attributes: array (
+  'class' => 'ScriptHelper',
+  'plugin' => 'StaticContentManager',
+)
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/HelperCollection.php(66): HelperCollection->load('StaticContentMa...')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(820): HelperCollection->__isset('Script')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/View/Tests/index.ctp(3): View->__get('Script')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(931): include('/home/iavalenzu...')
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(893): View->_evaluate('/home/iavalenzu...', Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(462): View->_render('/home/iavalenzu...')
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2013-11-19 20:48:12 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Script.created' in 'where clause'
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('DELETE `StaticC...', Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/Database/Mysql.php(442): DboSource->execute('DELETE `StaticC...')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2558): Mysql->delete(Object(StaticContent), Array)
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Model/StaticContent.php(16): Model->deleteAll(Array, false)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Model/StaticContent.php(46): StaticContent->manageOldScripts()
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/View/Helper/StaticContentHelper.php(25): StaticContent->createScript(Array, 'http://konalen....')
+#7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/View/Tests/index.ctp(3): StaticContentHelper->js(Array, 'http://konalen....', false)
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(931): include('/home/iavalenzu...')
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(893): View->_evaluate('/home/iavalenzu...', Array)
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(462): View->_render('/home/iavalenzu...')
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#12 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#13 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TestsController), Object(CakeRequest), Object(CakeResponse))
+#14 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-11-19 20:48:46 Error: [MissingControllerException] Controller class ScriptsManagerController could not be found.
+Exception Attributes: array (
+  'class' => 'ScriptsManagerController',
+  'plugin' => NULL,
+)
+Request URL: /scripts_manager/scripts/getScript/95c9584439d82245367cce3948f7e5f644a3a6ca
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-19 20:49:07 Error: [MissingControllerException] Controller class ScriptsManagerController could not be found.
+Exception Attributes: array (
+  'class' => 'ScriptsManagerController',
+  'plugin' => NULL,
+)
+Request URL: /scripts_manager/scripts/getScript/b401b4b2480683b18570b95df75881060f719fc6
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-19 20:50:54 Error: [MissingControllerException] Controller class StaticContentController could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentController',
+  'plugin' => 'StaticContentManager',
+)
+Request URL: /static_content_manager/StaticContent/getContent/fca575c2125b22e02f624e64f9e545a9a323d447
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-19 20:51:00 Error: [MissingControllerException] Controller class StaticContentController could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentController',
+  'plugin' => 'StaticContentManager',
+)
+Request URL: /static_content_manager/StaticContent/getContent/fca575c2125b22e02f624e64f9e545a9a323d447
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-19 20:51:30 Error: [MissingControllerException] Controller class StaticContentController could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentController',
+  'plugin' => 'StaticContentManager',
+)
+Request URL: /static_content_manager/static_content/getContent/fca575c2125b22e02f624e64f9e545a9a323d447
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-19 20:55:05 Error: [MissingControllerException] Controller class StaticContentController could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentController',
+  'plugin' => 'StaticContentManager',
+)
+Request URL: /static_content_manager/static_content/getContent/fca575c2125b22e02f624e64f9e545a9a323d447
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-19 22:46:01 Error: [NotFoundException] The requested file /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen//home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/img/test.txt was not found or not readable
+Request URL: /static_content_manager/Content/getContent/b1d02bb53910de3fe8cde739981b4165d7ea4819
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Controller/ContentController.php(149): CakeResponse->file('/home/iavalenzu...')
+#1 [internal function]: ContentController->getContent('b1d02bb53910de3...')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ContentController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ContentController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-19 22:59:34 Error: [ConfigureException] No variable $config found in /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Config/config.php
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/Configure.php(298): PhpReader->read('StaticContentMa...')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Controller/StaticContentManagerAppController.php(11): Configure::load('StaticContentMa...', 'default', false)
+#2 [internal function]: StaticContentManagerAppController->__construct(Object(CakeRequest), Object(CakeResponse))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(239): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(153): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-19 23:01:29 Error: [ConfigureException] Could not load configuration file: /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Config/config.php
+Request URL: /static_content_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/Configure.php(298): PhpReader->read('StaticContentMa...')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Controller/StaticContentManagerAppController.php(15): Configure::load('StaticContentMa...', 'default', false)
+#2 [internal function]: StaticContentManagerAppController->__construct(Object(CakeRequest), Object(CakeResponse))
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(239): ReflectionClass->newInstance(Object(CakeRequest), Object(CakeResponse))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(153): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-19 23:46:28 Error: [NotFoundException] The requested file /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen//home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/files/ was not found or not readable
+Request URL: /static_content_manager/Content/getContent/bbd39c1834679ea5ff5388cd9fd21604d65c6dbb
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Controller/ContentController.php(151): CakeResponse->file('/home/iavalenzu...', Array)
+#1 [internal function]: ContentController->getContent('bbd39c1834679ea...')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ContentController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ContentController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-19 23:48:39 Error: [NotFoundException] The requested file /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen//home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/files/ was not found or not readable
+Request URL: /static_content_manager/Content/getContent/bbd39c1834679ea5ff5388cd9fd21604d65c6dbb
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Controller/ContentController.php(149): CakeResponse->file('/home/iavalenzu...', Array)
+#1 [internal function]: ContentController->getContent('bbd39c1834679ea...')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ContentController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ContentController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-19 23:48:56 Error: [NotFoundException] The requested file /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen//home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/files/ was not found or not readable
+Request URL: /static_content_manager/Content/getContent/bbd39c1834679ea5ff5388cd9fd21604d65c6dbb
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Controller/ContentController.php(148): CakeResponse->file('/home/iavalenzu...', Array)
+#1 [internal function]: ContentController->getContent('bbd39c1834679ea...')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ContentController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ContentController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-20 00:16:44 Error: [MissingControllerException] Controller class StaticcontentmanagerController could not be found.
+Exception Attributes: array (
+  'class' => 'StaticcontentmanagerController',
+  'plugin' => NULL,
+)
+Request URL: /staticcontentmanager/Content/get/c83504f51160daac7d0e14c4ae633fe3aad39a19
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-20 00:16:55 Error: [MissingControllerException] Controller class StaticContentManagerController could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentManagerController',
+  'plugin' => NULL,
+)
+Request URL: /StaticContentManager/Content/get/c83504f51160daac7d0e14c4ae633fe3aad39a19
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-20 00:17:02 Error: [MissingControllerException] Controller class StaticContentManagerController could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentManagerController',
+  'plugin' => NULL,
+)
+Request URL: /Static_Content_Manager/Content/get/c83504f51160daac7d0e14c4ae633fe3aad39a19
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-20 01:18:22 Error: [MissingControllerException] Controller class ScriptsManagerController could not be found.
+Exception Attributes: array (
+  'class' => 'ScriptsManagerController',
+  'plugin' => NULL,
+)
+Request URL: /scripts_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-20 12:13:45 Error: [MissingControllerException] Controller class ScriptsManagerController could not be found.
+Exception Attributes: array (
+  'class' => 'ScriptsManagerController',
+  'plugin' => NULL,
+)
+Request URL: /scripts_manager/tests/index
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
