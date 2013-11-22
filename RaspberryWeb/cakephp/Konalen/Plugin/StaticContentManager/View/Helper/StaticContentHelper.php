@@ -88,8 +88,12 @@ class StaticContentHelper extends AppHelper {
          if(empty($filenames))
              return "";
 
+         $options = array(
+             'return_url' => $returnurl
+         );
+         
          $StaticContent = new StaticContent(); 
-         $new_script_id = $StaticContent->createContent($filenames, $allowed_domain, StaticContent::$JS);
+         $new_script_id = $StaticContent->createContent($filenames, $allowed_domain, StaticContent::$JS, $options);
 
          if(empty($new_script_id))
              return "";

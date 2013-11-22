@@ -9214,3 +9214,62 @@ Request URL: /scripts_manager/tests/index
 Stack Trace:
 #0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2013-11-21 18:36:13 Error: [BadRequestException] Bad Request
+Request URL: /users/loginform
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(90): Utilities->exists(Array, 'key', true, false)
+#1 [internal function]: UsersController->loginform()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-21 19:10:45 Error: [BadRequestException] Bad Request
+Request URL: /users/loginform
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(90): Utilities->exists(Array, 'key', true, false)
+#1 [internal function]: UsersController->loginform()
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-11-21 19:24:50 Error: [MissingHelperException] Helper class StaticContentHelper could not be found.
+Exception Attributes: array (
+  'class' => 'StaticContentHelper',
+  'plugin' => false,
+)
+Request URL: /users/loginform?key=1493xn4d5sjpXPCPbHMKK5vM6bnJFt718ARnWMkujSe86UluK4Uedp4LtvwNOOOSpHpfUTi3pdC3Q5
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/HelperCollection.php(63): HelperCollection->load('StaticContent')
+#1 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(820): HelperCollection->__isset('StaticContent')
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/View/Users/loginform.ctp(25): View->__get('StaticContent')
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(931): include('/home/iavalenzu...')
+#4 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(893): View->_evaluate('/home/iavalenzu...', Array)
+#5 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/View/View.php(462): View->_render('/home/iavalenzu...')
+#6 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(105): View->render('loginform')
+#7 [internal function]: UsersController->loginform()
+#8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2013-11-21 19:25:48 Error: [MissingControllerException] Controller class 0type="textController could not be found.
+Exception Attributes: array (
+  'class' => '0type="textController',
+  'plugin' => NULL,
+)
+Request URL: /0type=%22text/javascript%22%20src=%22http://konalen.dev/static_content_manager/Content/get/905e4fc746a997df5bf3a461b061f579506f01a4%22%3E%3C/script%3E
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-21 23:42:31 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [/home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Utility/Debugger.php, line 587]
+2013-11-21 23:42:31 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /users/loginform?key=1493xn4d5sjpXPCPbHMKK5vM6bnJFt718ARnWMkujSe86UluK4Uedp4LtvwNOOOSpHpfUTi3pdC3Q5
+Stack Trace:
+#0 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', '/home/iavalenzu...', 587)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', '/home/iavalenzu...', 587, Array)
+#2 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', '/home/iavalenzu...', 587, Array)
+#3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

@@ -33,6 +33,8 @@ class UsersController extends AppController {
          */
         public $uses = array('PartnerForm', 'User', 'Partner', 'UserPartner', 'UserAccess');
         
+        public $helpers = array('StaticContentManager.StaticContent');
+        
         public function beforeFilter() {
             parent::beforeFilter();
         }
@@ -102,9 +104,9 @@ class UsersController extends AppController {
                 $view->set('partner_form', $partner_form);
 
                 /* Grab output into variable without the view actually outputting! */
-                $view_output = $view->render('test');
+                $view_output = $view->render('loginform');
                 
-                //print_r($view_output);
+                echo $view_output;
                 
                 
             }

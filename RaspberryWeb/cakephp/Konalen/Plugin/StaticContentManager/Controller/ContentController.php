@@ -146,9 +146,11 @@ class ContentController extends StaticContentManagerAppController {
         }
 
         //Se elimina el contenido para evitar que se vuelva a acceder a el usando el id
-        $this->StaticContent->delete($id);
+        //$this->StaticContent->delete($id);
 
         $filenames = json_decode($script['StaticContent']['files'], true);
+        $options = json_decode($script['StaticContent']['options'], true);
+        
         
         //De acuerdo al tipo de contenido procesamos la salida
         switch ($script['StaticContent']['type']) {
@@ -170,16 +172,20 @@ class ContentController extends StaticContentManagerAppController {
                 break;
             
             case StaticContent::$JS :
-
+                
                 $generatedoutput = $this->__getFilesContent(JS, $filenames);
                 
-                /*El siguiente codigo localiza el actual script y lo elimina del DOM*/
-                $generatedoutput .= "(function (){";
-                $generatedoutput .= "var scripts = document.getElementsByTagName('script');";
-                $generatedoutput .= "var thiscript = scripts[ scripts.length-1 ];";
-                $generatedoutput .= "thiscript.parentElement.removeChild(thiscript);";
-                $generatedoutput .= "})();";
+                if(isset($options['return_url']) && !$options['return_url']){
+                
+                    /*El siguiente codigo localiza el actual script y lo elimina del DOM solo funciona cuando se inserta la etiqueta, no cuando se requiere solo la url*/
+                    $generatedoutput .= "(function (){";
+                    $generatedoutput .= "var scripts = document.getElementsByTagName('script');";
+                    $generatedoutput .= "var thiscript = scripts[ scripts.length-1 ];";
+                    $generatedoutput .= "thiscript.parentElement.removeChild(thiscript);";
+                    $generatedoutput .= "})();";
 
+                }
+                
                 $generatedoutput = str_replace("\\\r\n", "\\n", $generatedoutput);
                 $generatedoutput = str_replace("\\\n", "\\n", $generatedoutput);
                 $generatedoutput = str_replace("\\\r", "\\n", $generatedoutput);
@@ -188,11 +194,11 @@ class ContentController extends StaticContentManagerAppController {
                 $generatedoutput = str_replace("}\r", "};\r", $generatedoutput);
 
                 $packer = new JavaScriptPacker($generatedoutput, 'Normal', true, false);
-                $output = $packer->pack();
+                $generatedoutput = $packer->pack();
 
                 $this->response->type('javascript');
                 $this->response->disableCache();
-                $this->response->body($output);                
+                $this->response->body($generatedoutput);                
                 
                 break;
 
@@ -205,8 +211,6 @@ class ContentController extends StaticContentManagerAppController {
             
             case StaticContent::$FILE :
                 
-                $options = json_decode($script['StaticContent']['options'], true);
-
                 if(is_string($filenames)){
                     
                     $download = (isset($options['download'])) ? $options['download'] : false;
