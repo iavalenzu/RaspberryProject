@@ -181,7 +181,7 @@ direction: ltr;
     
 background-color: #f7f7f7;
 padding: 20px 25px 30px;
-margin: 0 auto 25px;
+/*margin: 0 auto 25px;*/
 width: 304px;
 -moz-border-radius: 2px;
 -webkit-border-radius: 2px;

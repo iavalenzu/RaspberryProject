@@ -8,6 +8,8 @@ class ContentController extends StaticContentManagerAppController {
     
     public $uses = array('StaticContentManager.StaticContent');
     
+    public $components = array('StaticContentManager.Compressor');
+    
     /**
      * 
      * Obtiene el contenido de un archivo dado por su ruta
@@ -129,7 +131,7 @@ class ContentController extends StaticContentManagerAppController {
         if(empty($script))
             return;
 
-        //Se veirfica que los deminios permitidos para ver este contenido coincidan
+        //Se verifica que los deminios permitidos para ver este contenido coincidan
         if(!empty($script['StaticContent']['allowed_domain'])){
         
             $referer = parse_url($this->request->referer());
@@ -146,7 +148,7 @@ class ContentController extends StaticContentManagerAppController {
         }
 
         //Se elimina el contenido para evitar que se vuelva a acceder a el usando el id
-        //$this->StaticContent->delete($id);
+        $this->StaticContent->delete($id);
 
         $filenames = json_decode($script['StaticContent']['files'], true);
         $options = json_decode($script['StaticContent']['options'], true);
@@ -175,7 +177,7 @@ class ContentController extends StaticContentManagerAppController {
                 
                 $generatedoutput = $this->__getFilesContent(JS, $filenames);
                 
-                if(isset($options['return_url']) && !$options['return_url']){
+                if(isset($options['auto_delete']) && $options['auto_delete'] == true){
                 
                     /*El siguiente codigo localiza el actual script y lo elimina del DOM solo funciona cuando se inserta la etiqueta, no cuando se requiere solo la url*/
                     $generatedoutput .= "(function (){";
@@ -223,11 +225,10 @@ class ContentController extends StaticContentManagerAppController {
                     
                     //Se crea un fichero comprimido con los archivos dados
                     $zipfilename = $this->__getCompressFile($filenames);
-                    $content_disposition = $this->__getContentDisposition($options);
                     
                     $this->response->header("Content-Type", "application/zip"); 
                     $this->response->header("Content-Length", filesize($zipfilename)); 
-                    $this->response->header("Content-Disposition", $content_disposition); 
+                    $this->response->header("Content-Disposition", $this->__getContentDisposition($options)); 
                     readfile($zipfilename); 
                     unlink($zipfilename);
                     

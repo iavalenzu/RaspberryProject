@@ -46,6 +46,40 @@ class StaticContent extends StaticContentManagerAppModel {
         return false;
             
     }
+    
+    public function __cleanFilenames($filenames = null){
+        
+        if(empty($filenames))
+            return $filenames;
+        
+        $allowed_extensions = array('js','css','png','jpg','jpeg');
+        
+        if(is_array($filenames)){
+            
+            $cleanfilenames = array();
+            
+            foreach ($filenames as $filename) {
+                
+                $info = pathinfo($filename);
+                
+                if(in_array($info['extension'], $allowed_extensions)){
+                    $cleanfilenames[] = $filename;
+                }
+                
+            }
+            
+            return $cleanfilenames;
+            
+        }
+        
+        $info = pathinfo($filenames);
+
+        if(in_array($info['extension'], $allowed_extensions)){
+            return $filenames;
+        }
+        
+        return "";
+    }
         
     public function createContent($filenames = null, $allowed_domain = false, $type = false, $options = array()){
         
@@ -54,6 +88,8 @@ class StaticContent extends StaticContentManagerAppModel {
 
         if(empty($filenames) || empty($type))
             return false;
+        
+        $filenames = $this->__cleanFilenames($filenames);
 
         $dataSource = $this->getDataSource();
 

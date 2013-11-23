@@ -88,9 +88,10 @@ class StaticContentHelper extends AppHelper {
          if(empty($filenames))
              return "";
 
-         $options = array(
-             'return_url' => $returnurl
-         );
+         //Si se solicita solo la url, el auto_delete es falso
+         if($returnurl){
+             $options['auto_delete'] = false;
+         }
          
          $StaticContent = new StaticContent(); 
          $new_script_id = $StaticContent->createContent($filenames, $allowed_domain, StaticContent::$JS, $options);
@@ -104,6 +105,8 @@ class StaticContentHelper extends AppHelper {
             "action" => "get",
             $new_script_id
          ), true);
+         
+         unset($options['auto_delete']);
          
          echo ($returnurl) ? $url : $this->Html->script($url, $options);
          
