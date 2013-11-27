@@ -9293,3 +9293,72 @@ Stack Trace:
 #3 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-11-26 16:21:17 Error: [MissingControllerException] Controller class TestsController could not be found.
+Exception Attributes: array (
+  'class' => 'TestsController',
+  'plugin' => NULL,
+)
+Request URL: /tests
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2013-11-26 17:26:51 Error: Fatal Error (4): syntax error, unexpected '.' in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Partner.php, line 101]
+2013-11-26 17:26:51 Error: [FatalErrorException] syntax error, unexpected '.'
+Request URL: /users/loginform?key=1493xn4d5sjpXPCPbHMKK5vM6bnJFt718ARnWMkujSe86UluK4Uedp4LtvwNOOOSpHpfUTi3pdC3Q5
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/ivalenzu/...', 101)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/ivalenzu/...', 101, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/ivalenzu/...', 101, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-26 18:27:52 Error: Fatal Error (64): Cannot redeclare class JavaScriptPacker in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Lib/Packer/JavaScriptPacker.php, line 69]
+2013-11-26 18:27:52 Error: [FatalErrorException] Cannot redeclare class JavaScriptPacker
+Request URL: /static_content_manager/Content/get/73ccd82d281e8e6ede37ee945f4e9d80a5a82f4a
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Cannot redeclar...', '/home/ivalenzu/...', 69)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot redeclar...', '/home/ivalenzu/...', 69, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Cannot redeclar...', '/home/ivalenzu/...', 69, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-26 18:40:27 Error: Fatal Error (64): Cannot redeclare class JavaScriptPacker in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Lib/Packer/JavaScriptPacker.php, line 69]
+2013-11-26 18:40:27 Error: [FatalErrorException] Cannot redeclare class JavaScriptPacker
+Request URL: /static_content_manager/Content/get/47293b39f5d3aa87348a2fee6dc01b592468a134
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Cannot redeclar...', '/home/ivalenzu/...', 69)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot redeclar...', '/home/ivalenzu/...', 69, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Cannot redeclar...', '/home/ivalenzu/...', 69, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-26 18:42:07 Error: Fatal Error (64): Cannot redeclare class JavaScriptPacker in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Plugin/StaticContentManager/Lib/Packer/JavaScriptPacker.php, line 69]
+2013-11-26 18:42:07 Error: [FatalErrorException] Cannot redeclare class JavaScriptPacker
+Request URL: /static_content_manager/Content/get/47293b39f5d3aa87348a2fee6dc01b592468a134
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Cannot redeclar...', '/home/ivalenzu/...', 69)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot redeclar...', '/home/ivalenzu/...', 69, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Cannot redeclar...', '/home/ivalenzu/...', 69, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-26 22:22:00 Error: Fatal Error (1): Call to undefined method UsersController::element() in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 113]
+2013-11-26 22:22:00 Error: [FatalErrorException] Call to undefined method UsersController::element()
+Request URL: /users/loginform?key=LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUF3cTVnNUM1aXJ2cWJtUjJPRk1BZQpneWd4Zkh6dVNBNjBkdjk4L3VGRkxyaEozaGxQVUFZWTNzNjd3aXZPSUhvNFNrclZKcFJ5MXFIREtZQnI3Z1VGCkRHTjVXTEJGY2F0TFhtNGR2a3NGTFppR1RFTTFmNHAvdUxZSWVzYU5SYjF2L3k4NjZZZVZOdHpSbkd1a0JJSFEKc3RKMUJqY3RYT0NGcHp4RUFHM2pzdDN3S3dJd3piZ21VRTFyRzJITmRtL2owa1pEQkdVRm50a09ZVkwzN1lrcwpLRXYrYkNBWFpQZTd5QjYvelM2MXpwS0gvRG9mWmRRaTIxUzhtMUY4Y091ZkNzbEhBTXJYY2hKNlZoQTBraHFwClJjcE9tTGJndlcwN0xGMXNqUGRVdUpzelVFU2hubkd1SGJQZkRLZGFRWlJsWlNRd3hqYUhTSkFVNmZwLythTlcKN3dJREFRQUIKLS0tLS1FTkQgUFVCTElDIEtFWS0tLS0t
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/ivalenzu/...', 113)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/ivalenzu/...', 113, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/ivalenzu/...', 113, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-11-26 22:35:00 Error: Fatal Error (4): syntax error, unexpected T_PUBLIC, expecting '(' in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 90]
+2013-11-26 22:35:00 Error: [FatalErrorException] syntax error, unexpected T_PUBLIC, expecting '('
+Request URL: /users/showlogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/ivalenzu/...', 90)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/ivalenzu/...', 90, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/ivalenzu/...', 90, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

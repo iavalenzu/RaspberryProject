@@ -3,7 +3,7 @@
 App::import('Model', 'StaticContentManager.StaticContent');
 App::uses('AppHelper', 'View/Helper');
 
-
+    
 class StaticContentHelper extends AppHelper {
     
     public $helpers = array('Html');

@@ -97,7 +97,7 @@ class Partner extends AppModel {
             
             if(empty($public_key))
                 return false;
-
+            
             if($this->IpAddressAccessAttempt->isIpAddressBlocked())
                 return false;
             

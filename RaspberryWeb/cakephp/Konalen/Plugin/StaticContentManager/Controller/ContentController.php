@@ -1,7 +1,6 @@
 <?php
 
 App::uses('StaticContentManagerAppController', 'StaticContentManager.Controller');
-App::import('Lib', 'StaticContentManager.Packer/JavaScriptPacker');
 
 
 class ContentController extends StaticContentManagerAppController {
@@ -62,38 +61,7 @@ class ContentController extends StaticContentManagerAppController {
         
     }
 
-    /**
-     * Comprime y empaqueta los archivos dados y retorna el nombre del archivo temporal.
-     * 
-     * @param array $filenames
-     * @return string
-     */
     
-    private function __getCompressFile($filenames = null){
-        
-        if(empty($filenames))
-            return;
-        
-        # create new zip opbject
-        $zip = new ZipArchive();
-
-        # create a temp file & open it
-        $tmp_file = tempnam('tmp','scm_');
-        
-        $zip->open($tmp_file, ZipArchive::CREATE);
-
-        # loop through each file
-        foreach($filenames as $filename){
-            #add it to the zip
-            $zip->addFile(FILES . $filename, $filename);
-        }
-        
-        # close zip
-        $zip->close();
-        
-        return $tmp_file;
-        
-    }
 
     private function __getContentDisposition($options = array()){
         
@@ -162,10 +130,7 @@ class ContentController extends StaticContentManagerAppController {
                 //Se obtiene el contenido conjunto de los archivos .css
                 $generatedoutput = $this->__getFilesContent(CSS, $filenames);
 
-                // Remove comments 
-                $generatedoutput = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $generatedoutput);
-                // Remove tabs, spaces, newlines, etc. 
-                $generatedoutput = str_replace(array("\r\n", "\r", "\n", "\t", '  ', '    ', '    '), '', $generatedoutput);
+                $generatedoutput = $this->Compressor->compressCss($generatedoutput);
                 
                 $this->response->type('css');
                 $this->response->disableCache();
@@ -187,17 +152,9 @@ class ContentController extends StaticContentManagerAppController {
                     $generatedoutput .= "})();";
 
                 }
+
+                $generatedoutput = $this->Compressor->compressJs($generatedoutput);
                 
-                $generatedoutput = str_replace("\\\r\n", "\\n", $generatedoutput);
-                $generatedoutput = str_replace("\\\n", "\\n", $generatedoutput);
-                $generatedoutput = str_replace("\\\r", "\\n", $generatedoutput);
-                $generatedoutput = str_replace("}\r\n", "};\r\n", $generatedoutput);
-                $generatedoutput = str_replace("}\n", "};\n", $generatedoutput);
-                $generatedoutput = str_replace("}\r", "};\r", $generatedoutput);
-
-                $packer = new JavaScriptPacker($generatedoutput, 'Normal', true, false);
-                $generatedoutput = $packer->pack();
-
                 $this->response->type('javascript');
                 $this->response->disableCache();
                 $this->response->body($generatedoutput);                
@@ -224,7 +181,7 @@ class ContentController extends StaticContentManagerAppController {
                 }elseif(is_array($filenames)){
                     
                     //Se crea un fichero comprimido con los archivos dados
-                    $zipfilename = $this->__getCompressFile($filenames);
+                    $zipfilename = $this->Compressor->compressFiles($filenames);
                     
                     $this->response->header("Content-Type", "application/zip"); 
                     $this->response->header("Content-Length", filesize($zipfilename)); 

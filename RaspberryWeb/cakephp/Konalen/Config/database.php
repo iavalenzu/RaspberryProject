@@ -65,13 +65,13 @@ class DATABASE_CONFIG {
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'root',
-		'password' => 'pezticut8434',
+		'login' => 'konalen',
+		'password' => 'Konalen_12345',
 		'database' => 'konalen',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
-
+        
 	public $test = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,

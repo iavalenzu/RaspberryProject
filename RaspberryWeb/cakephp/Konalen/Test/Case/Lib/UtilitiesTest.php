@@ -52,6 +52,15 @@ class UtilitiesTest extends CakeTestCase {
         
     }
    
+    
+    public function testRSAKeyPair(){
+        
+        
+        debug(Utilities::getRSAKeyPair());
+        
+        
+    }
+    
     public function testRandomPseudo(){
         
         
