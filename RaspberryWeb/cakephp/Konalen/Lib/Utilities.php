@@ -469,7 +469,13 @@ class Utilities {
         if(empty($plaindata) || empty($recipientpublickey) || empty($senderprivatekey))
             return false;
         
-        $plaindata_encoded = json_encode ($plaindata);
+        $plainpacket = array(
+            'id' => sha1(mt_rand()),
+            'time' => microtime(true),
+            'plaindata' => $plaindata
+        );
+        
+        $plainpacket_encoded = json_encode ($plainpacket);
         
         //Sella la informacion para solo el recipiente pueda leer el mensaje con su llave privada
         
@@ -478,7 +484,7 @@ class Utilities {
         if(empty($recipientpublickeyid))
             return false;
 
-        if(!openssl_seal($plaindata_encoded, $sealeddata, $envkeys, array($recipientpublickeyid)))
+        if(!openssl_seal($plainpacket_encoded, $sealeddata, $envkeys, array($recipientpublickeyid)))
             return false;
         
         $encryptdata = array(

@@ -1,14 +1,14 @@
 <?php if (isset($partner_form)): ?>
 
     <?php
-    $session_expire = $partner_form['PartnerForm']['session_expire'];
-    $session_id = $partner_form['PartnerForm']['session_id'];
-    $data = $partner_form['PartnerForm']['data'];
 
-    $captcha = isset($data['captcha']) ? true : false;
-    $email = isset($data['fields']['email']['value']) ? $data['fields']['email']['value'] : '';
+    $session_id = isset($partner_form['PartnerForm']['session_id']) ? $partner_form['PartnerForm']['session_id'] : '';
+    
+    $form_data = isset($partner_form['PartnerForm']['data']) ? $partner_form['PartnerForm']['data'] : array();
+    
+    $captcha = isset($form_data['captcha']) ? $form_data['captcha'] : '';
+    $email = isset($form_data['fields']['email']['value']) ? $form_data['fields']['email']['value'] : '';
 
-    $timeout_millis = (strtotime($session_expire) - time()) * 1000;
 
     ?>
 
@@ -19,6 +19,7 @@
             <input id="Email" name="Email" type="email" class="input-email<?php echo $id; ?>" placeholder="Email" >
             <input id="Password" name="Password" type="password" placeholder="Password" class="input-password<?php echo $id; ?>">
             <input id="SignIn" name="SignIn" class="input-submit<?php echo $id; ?> rc-button<?php echo $id; ?> rc-button-submit<?php echo $id; ?>" type="submit" value="Sign in">
+            <input name="SessionId" type="hidden" value="<?php echo $session_id; ?>">
         </form>
         <!--<a id="link-forgot-passwd" href="">  Need help?  </a>-->
     </div>

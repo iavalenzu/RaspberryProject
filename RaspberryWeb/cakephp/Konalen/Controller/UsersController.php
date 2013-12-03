@@ -103,16 +103,19 @@ class UsersController extends AppController {
 
 
             /*Se obtiene el css de la caja de login y se comprime*/
-            $css_box = $view->element($element_path . 'css', array('id' => $css_class_id));
+            $css_box = $view->element($element_path . 'css', array('id' => $css_class_id, 'partner_form' => $partner_form));
             $css_box = $this->Compressor->compressCss($css_box);
 
+            /*Se fija el codigo javascript*/
+            $js_box = $view->element($element_path . 'js', array('id' => $css_class_id, 'partner_form' => $partner_form));
             
             /*Se envia el html y el css a la vista que inserta el contenido*/
             $view->set('html', $html_box);
             $view->set('css', $css_box);
+            $view->set('js', $js_box);
+            $view->set('allowed_url', $partner_form['Partner']['login_url']);
 
-
-            $view_output = $view->render('loginform');
+            $view_output = $view->element('loginform');
             $view_output = $this->Compressor->compressJs($view_output);
                 
             return $view_output;
@@ -121,20 +124,33 @@ class UsersController extends AppController {
         
         
         //El formulario esta contenido en otra pagina
-        public function loginform(){
+        public function loginform($encoded_public_key = null){
             
             $this->autoLayout = false;
             $this->autoRender = false;
      
-            //Se obtienen la llave publica del partner
-            $public_key = Utilities::exists($this->request->query, 'key', true, false);
-
-            $public_key_decoded = base64_decode($public_key);
+            if(empty($encoded_public_key)){
+                return;
+            }
+            
+            $public_key_decoded = base64_decode($encoded_public_key);
             
             $partner = $this->Partner->getPartnerByPublicKey($public_key_decoded);
 
             if($partner){
 
+                //Chequeamos el referer, si no coincide retornamos 
+                $referer = parse_url($this->request->referer());
+                $allowed_domain = parse_url($partner['Partner']['login_url']);
+
+                if(empty($referer) || !isset($referer['host']) || empty($allowed_domain) || !isset($allowed_domain['host'])){
+                    return;
+                }
+
+                if($referer['host'] != $allowed_domain['host']){
+                    return;
+                }
+                
                 //Se obtiene la ultima sesion activa o se crea una nueva con un identificador de session. 
                 $partner_form = $this->PartnerForm->getActiveSession($partner);
                 

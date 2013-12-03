@@ -9362,3 +9362,14 @@ Stack Trace:
 #3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-11-27 13:17:39 Error: El dominio de origen no esta permitido
+2013-11-27 13:27:55 Error: Fatal Error (4): syntax error, unexpected ';' in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php, line 116]
+2013-11-27 13:27:55 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /users/showlogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/ivalenzu/...', 116)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/ivalenzu/...', 116, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/ivalenzu/...', 116, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
