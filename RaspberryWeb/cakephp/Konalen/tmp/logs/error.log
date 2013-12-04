@@ -9373,3 +9373,30 @@ Stack Trace:
 #3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-12-03 20:39:44 Error: Fatal Error (1): Class 'SecurePacket' not found in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Test/Case/Lib/SecurePacketTest.php, line 80]
+2013-12-03 20:39:44 Error: [FatalErrorException] Class 'SecurePacket' not found
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SecurePa...', '/home/ivalenzu/...', 80)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SecurePa...', '/home/ivalenzu/...', 80, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SecurePa...', '/home/ivalenzu/...', 80, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-03 21:58:48 Error: Fatal Error (1): Class 'SecurePacketReceiver' not found in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Test/Case/Lib/SecurePacketTest.php, line 94]
+2013-12-03 21:58:48 Error: [FatalErrorException] Class 'SecurePacketReceiver' not found
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SecurePa...', '/home/ivalenzu/...', 94)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SecurePa...', '/home/ivalenzu/...', 94, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SecurePa...', '/home/ivalenzu/...', 94, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-03 22:40:43 Error: Fatal Error (1): Call to undefined function SecurePacket() in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Test/Case/Lib/SecurePacketTest.php, line 105]
+2013-12-03 22:40:43 Error: [FatalErrorException] Call to undefined function SecurePacket()
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/ivalenzu/...', 105)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/ivalenzu/...', 105, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/ivalenzu/...', 105, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
