@@ -11,7 +11,7 @@
  *
  * @author ivalenzu
  */
-class SecurePacketSender {
+class SecureSender {
     
     /*Llave publica del receptor en este caso Konalen*/
     var $recipientPublicKey = null;
@@ -27,8 +27,34 @@ class SecurePacketSender {
     public function setSenderPrivateKey($private_key = null){
         $this->senderPrivateKey = $private_key;
     }    
+
+   
+    /*Ya que no es posible ssl_seal con el cifrado AES256 se implementa esta opcion*/
+    public function aes256_seal($data, &$sealed_data, &$env_key, $pub_key_id){
     
+        $crypto_strong = false;
+        
+        /*Se genera la llave aleatoria*/
+        $randomkey = openssl_random_pseudo_bytes( 32, &$crypto_strong);
+        
+        if(!$crypto_strong){
+            return false;
+        }
+        
+        $iv = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND);
+        
+        /*Se encripta la data usando la llave aleatoria*/
+        $sealed_data = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $randomkey, $data, MCRYPT_MODE_ECB, $iv);
+        
+        /*Se cifra la llave aleatoria usando la llave publica del receptor*/
+        if(!openssl_public_encrypt($randomkey, $env_key , $pub_key_id, OPENSSL_PKCS1_PADDING)){
+            return false;
+        }
+     
+        return true;
+    }    
     
+        
     public function encrypt($plaindata = null){
         
         if(empty($plaindata) || empty($this->recipientPublicKey) || empty($this->senderPrivateKey)){
@@ -45,16 +71,16 @@ class SecurePacketSender {
             return false;
         }
 
-        $sealeddata = "";
-        $envkeys = array();
+        $sealeddata = false;
+        $envkey = false;
         
-        if(!openssl_seal($plaindata_serialized, $sealeddata, $envkeys, array($recipientpublickeyid))){
+        if(!SecureSender::aes256_seal($plaindata_serialized, $sealeddata, $envkey, $recipientpublickeyid) || !$sealeddata || !$envkey){
             return false;
         }
         
         $encryptdata = array(
             'sealeddata' => bin2hex($sealeddata),
-            'envkey' => bin2hex($envkeys[0])
+            'envkey' => bin2hex($envkey)
         );
         
         $encryptdata_encoded = json_encode($encryptdata);
@@ -71,10 +97,10 @@ class SecurePacketSender {
             return false;
         }
 
-        $signature = "";
+        $signature = false;
         
         // compute signature
-        if(!openssl_sign($encryptdata_encoded, $signature, $senderprivatekeyid, OPENSSL_ALGO_SHA1)){
+        if(!openssl_sign($encryptdata_encoded, $signature, $senderprivatekeyid, OPENSSL_ALGO_SHA1) || !$signature){
             return false;
         }
         
@@ -88,6 +114,9 @@ class SecurePacketSender {
         if(empty($signeddata_encoded)){
             return false;
         }
+        
+        openssl_free_key($recipientpublickeyid);        
+        openssl_free_key($senderprivatekeyid);        
         
         unset($this->recipientPublicKey);
         unset($this->senderPrivateKey);

@@ -28,3 +28,42 @@ Stack Trace:
 #7 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
 #8 /home/iavalenzu/NetBeansProjects/RaspberryGroup/RaspberryWeb/cakephp/app/webroot/test.php(100): CakeTestSuiteDispatcher::run()
 #9 {main}
+2013-12-05 23:08:49 Error: Fatal Error (1): Call to undefined function curl_init() in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 34]
+2013-12-05 23:08:49 Error: [FatalErrorException] Call to undefined function curl_init()
+Request URL: /users/register
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/ivalenzu/...', 34)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/ivalenzu/...', 34, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/ivalenzu/...', 34, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-05 23:10:44 Error: Fatal Error (1): Call to undefined function curl_init() in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 34]
+2013-12-05 23:10:44 Error: [FatalErrorException] Call to undefined function curl_init()
+Request URL: /users/register
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/ivalenzu/...', 34)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/ivalenzu/...', 34, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/ivalenzu/...', 34, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-05 23:10:45 Error: Fatal Error (1): Call to undefined function curl_init() in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 34]
+2013-12-05 23:10:45 Error: [FatalErrorException] Call to undefined function curl_init()
+Request URL: /users/register
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/ivalenzu/...', 34)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/ivalenzu/...', 34, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/ivalenzu/...', 34, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-05 23:11:42 Error: [MissingControllerException] Controller class ApiController could not be found.
+Exception Attributes: array (
+  'class' => 'ApiController',
+  'plugin' => NULL,
+)
+Request URL: /api/register
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

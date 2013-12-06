@@ -1,8 +1,8 @@
 <?php
 
 App::import('Lib', 'SecurePacket');
-App::import('Lib', 'SecurePacketSender');
-App::import('Lib', 'SecurePacketReceiver');
+App::import('Lib', 'SecureSender');
+App::import('Lib', 'SecureReceiver');
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -73,38 +73,31 @@ JL5gAtTxTr8e+XOR1oA2bNcz
         
         
         
-        $data = array(
-            'msg' => "Este es un mensaje al azar!!!"
-        );
-
+        $data = "AUTHENTICATE";
 
         /*Simulo un envio de data*/
 
         $KonalenPrivateKey = Configure::read('KonalenPrivateKey');
-        
-        $sps = new SecurePacketSender();
-        $sps->setRecipientPublicKey($recipientPublicKey);
-        $sps->setSenderPrivateKey($KonalenPrivateKey);
-
-        $sd = new SecurePacket();
-        $sd->setData("Holas!!!!");
-        
-        $securedata = $sps->encrypt($sd);
-        
-        debug(strlen($securedata));
-        debug($securedata);
-
         $KonalenPublicKey = Configure::read('KonalenPublicKey');
         
-        $spr = new SecurePacketReceiver();
-        $spr->setSenderPublicKey($KonalenPublicKey);
-        $spr->setRecipientPrivateKey($recipientPrivateKey);
+        $sps = new SecureSender();
+        $sps->setRecipientPublicKey($KonalenPublicKey);
+        $sps->setSenderPrivateKey($recipientPrivateKey);
+        $securedata = $sps->encrypt($data);
+
+        debug($securedata);
+
         
-        $packet = $spr->decrypt($securedata);
+        $spr = new SecureReceiver();
+        $spr->setSenderPublicKey($recipientPublicKey);
+        $spr->setRecipientPrivateKey($KonalenPrivateKey);
         
-        debug($packet->getData());
+        //$securedata = 'a' . $securedata;
         
-      
+        $plain = $spr->decrypt($securedata);
+        
+        debug($plain);
+
     }    
     
     

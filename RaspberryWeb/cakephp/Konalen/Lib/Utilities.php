@@ -22,11 +22,13 @@ class Utilities {
         
         $headers = apache_request_headers();
         
-        if(isset($headers[$name]))
+        if(isset($headers[$name])){
             return $headers[$name];
+        }
 
-        if($require)
+        if($require){
             return "";
+        }
         
         return "";
         
@@ -115,21 +117,30 @@ class Utilities {
      * @return string
      */
     
-    public function getAuthorizationKey() {
+    public function getCredentials() {
         
         $authorization = Utilities::getHeader('Authorization', true);
         
-        if(empty($authorization))
-            return "";
-        
+        if(empty($authorization)){
+            return null;
+        }
+  
         $matches = array();
-        
-        if(!preg_match('/key=([a-zA-Z0-9_]+)/i', $authorization, $matches)){
-            return "";
+
+        if(!preg_match('/([a-zA-Z0-9]+)\s+([a-zA-Z0-9]+)/i', $authorization, $matches)){
+            return null;
         }
         
-        return isset($matches[1]) ? $matches[1] : "";
-
+        if(empty($matches) || !isset($matches[1]) || !isset($matches[2])){
+            return null;
+        }
+        
+        $credentials = new stdClass();
+        $credentials->name = $matches[1];
+        $credentials->key = $matches[2];
+        
+        return $credentials;
+        
     }
     
     

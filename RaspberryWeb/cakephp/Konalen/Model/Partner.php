@@ -1,6 +1,7 @@
 <?php
 App::uses('AppModel', 'Model');
 App::import('Lib', 'Utilities');
+App::import('Lib', 'SecureReceiver');
 App::import('Model', 'IpAddressAccessAttempt');
 
 /**
@@ -93,28 +94,8 @@ class Partner extends AppModel {
             
         }    
         
-        public function getPartnerByPublicKey($public_key = null){
-            
-            if(empty($public_key))
-                return false;
-            
-            if($this->IpAddressAccessAttempt->isIpAddressBlocked())
-                return false;
-            
-            $this->recursive = 0;
-            $partner = $this->findByPublicKey($public_key);
-
-            if(empty($partner))
-                $this->IpAddressAccessAttempt->attempt();
-            
-            return $partner;
-            
-        }
-        
-        
-        
         /**
-         * Autentifica a un Parner de acuerdo a sus credenciales, la llave de acceso
+         * Autentifica a un Parner de acuerdo a sus credenciales, el nombre de usuario y la llave de acceso (saludo)
          * viene definida en el header 'Authorization' de la peticion
          * 
          * @access public
@@ -129,21 +110,42 @@ class Partner extends AppModel {
                 throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
             }
             
-            //Se obtiene la llave secreta que viene en el header
-            $secret_key = Utilities::getAuthorizationKey();
+            //Se obtiene el nombre de usuario y el saludo inicial que viene en el header AUTHORIZATION
+            $credentials = Utilities::getCredentials();
             
-            //Se chequea que el codigo tenga el formato correcto, en caso contrario se crea un intento de acceso
-            if(!Utilities::checkCode($secret_key)){
+            if(empty($credentials)){
                 $this->IpAddressAccessAttempt->attempt();
                 throw new UnauthorizedException(ResponseStatus::$access_denied);
             }
 
-            //Se busca al usuario correspondiente a la llave secreta
+            //Se busca al usuario correspondiente al nombre de usuario
             $this->recursive = 0;
-            $partner = $this->findByPrivateKey($secret_key);
+            $partner = $this->findByName($credentials->name);
             
             //Si es vacio registramos un intento acceso, y denegamos el acceso
             if(empty($partner)){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+
+            //Se obtiene la llave privade de KONALEN
+            $KonalenPrivateKey = Configure::read('KonalenPrivateKey');
+        
+            //Se crea un recibidor seguro de mensaje y desencriptamos el saludo con la llave publica del partner
+            $spr = new SecureReceiver();
+            $spr->setSenderPublicKey($partner['Partner']['public_key']);
+            $spr->setRecipientPrivateKey($KonalenPrivateKey);
+        
+            //Desencriptamos el mensaje
+            $msg = $spr->decrypt($credentials->key);
+            
+            if(empty($msg)){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+            
+            //Si el mensaje es distinto de AUTHENTICATE retornamos una excepcion
+            if(strcasecmp(trim($msg), 'AUTHENTICATE')){
                 $this->IpAddressAccessAttempt->attempt();
                 throw new UnauthorizedException(ResponseStatus::$access_denied);
             }
@@ -158,24 +160,4 @@ class Partner extends AppModel {
             
        }
  
-       
-        /**
-         * Callback Method
-         * 
-         * @param mixed $results
-         * @param boolean $primary
-         * @return mixed
-         */
-        
-        
-        public function afterFind($results, $primary = false) {
-            
-            foreach ($results as $key => $val) {
-                if (isset($val['Partner']['private_key'])) {
-                    $results[$key]['Partner']['private_key'] = "******";
-                }
-            }
-            return $results;
-        }               
-       
 }

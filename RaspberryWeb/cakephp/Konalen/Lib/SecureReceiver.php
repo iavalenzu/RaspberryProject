@@ -11,7 +11,7 @@
  *
  * @author ivalenzu
  */
-class SecurePacketReceiver {
+class SecureReceiver {
     
     /*Llave publica del que envia el mensaje*/
     var $senderPublicKey = null;
@@ -66,6 +66,18 @@ class SecurePacketReceiver {
     }
     
    
+    public function aes256_open($sealed_data, &$open_data, $env_key, $priv_key_id){
+        
+        $randomkey = false;
+        
+        if(!openssl_private_decrypt($env_key, &$randomkey , $priv_key_id, OPENSSL_PKCS1_PADDING) || !$randomkey){
+            return false;
+        }
+        
+        $open_data = mcrypt_decrypt(MCRYPT_RIJNDAEL_256, $randomkey, $sealed_data, MCRYPT_MODE_ECB, mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB), MCRYPT_RAND));
+        
+        return true;
+    }    
     
     public function decrypt($encryptdata = null){
         
@@ -130,9 +142,12 @@ class SecurePacketReceiver {
             return false;
         }
         
-        if(!openssl_open($sealeddata, $opendata, $envkey, $recipientprivatekeyid)){
+        if(!SecureReceiver::aes256_open($sealeddata, $opendata, $envkey, $recipientprivatekeyid)){
             return false;
         }
+        
+        openssl_free_key($senderpublickeyid);        
+        openssl_free_key($recipientprivatekeyid);            
         
         unset($this->recipientPrivateKey);
         unset($this->senderPublicKey);
