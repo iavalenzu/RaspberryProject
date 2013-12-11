@@ -1,11 +1,11 @@
 <?php
-App::uses('Service', 'Model');
+App::uses('Identificator', 'Model');
 
 /**
- * Service Test Case
+ * Identificator Test Case
  *
  */
-class ServiceTest extends CakeTestCase {
+class IdentificatorTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -13,12 +13,8 @@ class ServiceTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.service',
-		'app.partner',
-		'app.partner_access',
-		'app.account',
-		'app.user',
-		'app.service_form'
+		'app.identificator',
+		'app.identity'
 	);
 
 /**
@@ -28,7 +24,7 @@ class ServiceTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Service = ClassRegistry::init('Service');
+		$this->Identificator = ClassRegistry::init('Identificator');
 	}
 
 /**
@@ -37,7 +33,7 @@ class ServiceTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Service);
+		unset($this->Identificator);
 
 		parent::tearDown();
 	}

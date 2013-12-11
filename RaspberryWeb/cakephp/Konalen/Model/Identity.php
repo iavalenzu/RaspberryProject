@@ -1,11 +1,12 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Notification Model
+ * Identity Model
  *
  * @property User $User
+ * @property Identificator $Identificator
  */
-class Notification extends AppModel {
+class Identity extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -19,6 +20,13 @@ class Notification extends AppModel {
 		'User' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+		'Identificator' => array(
+			'className' => 'Identificator',
+			'foreignKey' => 'identificator_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

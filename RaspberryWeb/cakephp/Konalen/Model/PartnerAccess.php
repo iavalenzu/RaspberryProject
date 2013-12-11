@@ -1,35 +1,21 @@
 <?php
 App::uses('AppModel', 'Model');
-App::import('Lib', 'Utilities');
-App::import('Model', 'IpAddressAccessAttempt');
-
-
-
 /**
  * PartnerAccess Model
  *
- * @package       Konalen.Model
  * @property Partner $Partner
  */
 class PartnerAccess extends AppModel {
 
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
 /**
- * Display field
+ * belongsTo associations
  *
- * @var string
+ * @var array
  */
-	public $displayField = '';
-
-
-/**
- * The Associations below have been created with all possible keys, those that are not needed can be removed
- * 
- * @var array 
- * 
- */        
-        
-
-        public $belongsTo = array(
+	public $belongsTo = array(
 		'Partner' => array(
 			'className' => 'Partner',
 			'foreignKey' => 'partner_id',
@@ -39,13 +25,13 @@ class PartnerAccess extends AppModel {
 		)
 	);
         
-/**
- * Crea un nuevo intento de acceso considerando info de la peticion como es 
- * la direccion ip y el user-agent.
- * 
- * @param Partner $partner
- * @return boolean
- */        
+        /**
+         * Crea un nuevo intento de acceso considerando info de la peticion como es 
+         * la direccion ip y el user-agent.
+         * 
+         * @param Partner $partner
+         * @return boolean
+         */        
         
         public function access($partner = null){
             
@@ -64,6 +50,6 @@ class PartnerAccess extends AppModel {
             return $this->save($partner_access);
             
         }
-        
+                
         
 }

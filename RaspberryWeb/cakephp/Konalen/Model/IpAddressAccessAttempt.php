@@ -1,36 +1,28 @@
 <?php
 App::uses('AppModel', 'Model');
-
 /**
  * IpAddressAccessAttempt Model
- * 
- * @package       Konalen.Model
- * @property IpAddressAccessAttempt $IpAddressAccessAttempt
+ *
  * @property AccessAttempt $AccessAttempt
- * @author Ismael Valenzuela <iavalenzu@gmail.com>
  */
-
 class IpAddressAccessAttempt extends AppModel {
 
-        /**
-         * Display field
-         *
-         * @var string
-         */
-	public $displayField = '';
-        /**
-         * Primary key
-         *
-         * @var string
-         */
-       public $primaryKey = 'ip_address';
+/**
+ * Primary key field
+ *
+ * @var string
+ */
+	public $primaryKey = 'ip_address';
 
-       /**
-        * HasMany Association
-        * 
-        * @var array 
-        */
-        public $hasMany = array(
+
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
 		'AccessAttempt' => array(
 			'className' => 'AccessAttempt',
 			'foreignKey' => 'ip_address',
@@ -145,5 +137,6 @@ class IpAddressAccessAttempt extends AppModel {
             
         }
         
-
+        
+        
 }

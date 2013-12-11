@@ -1,20 +1,17 @@
 <?php
 App::uses('AppModel', 'Model');
-App::import('Lib', 'Utilities');
-App::import('Lib', 'SecureReceiver');
-App::import('Model', 'IpAddressAccessAttempt');
-
 /**
  * Partner Model
  *
- * @package       Konalen.Model
- * @property Service $Service
- * @property UserPartner $UserPartner
  * @property PartnerAccess $PartnerAccess
+ * @property Service $Service
  */
-class Partner extends AppModel {
 
-        public $IpAddressAccessAttempt;
+App::import('Lib', 'SecureReceiver');
+App::import('Model', 'IpAddressAccessAttempt');
+
+
+class Partner extends AppModel {
 
 /**
  * Display field
@@ -32,32 +29,6 @@ class Partner extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Service' => array(
-			'className' => 'Service',
-			'foreignKey' => 'partner_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'UserPartner' => array(
-			'className' => 'UserPartner',
-			'foreignKey' => 'partner_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'PartnerAccess' => array(
 			'className' => 'PartnerAccess',
 			'foreignKey' => 'partner_id',
@@ -71,8 +42,8 @@ class Partner extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'PartnerForm' => array(
-			'className' => 'PartnerForm',
+		'Service' => array(
+			'className' => 'Service',
 			'foreignKey' => 'partner_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -84,9 +55,9 @@ class Partner extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		)
-            
 	);
 
+        
         public function __construct($id = false, $table = null, $ds = null) {
 
             $this->IpAddressAccessAttempt = new IpAddressAccessAttempt();
@@ -119,7 +90,7 @@ class Partner extends AppModel {
             }
 
             //Se busca al usuario correspondiente al nombre de usuario
-            $this->recursive = 0;
+            //$this->recursive = 0;
             $partner = $this->findByName($credentials->name);
             
             //Si es vacio registramos un intento acceso, y denegamos el acceso
@@ -158,6 +129,7 @@ class Partner extends AppModel {
 
             return $partner;
             
-       }
- 
+       }        
+        
+        
 }

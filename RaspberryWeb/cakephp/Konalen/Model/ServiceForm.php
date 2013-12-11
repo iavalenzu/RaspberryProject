@@ -1,11 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * UserAccess Model
+ * ServiceForm Model
  *
- * @property Account $Account
+ * @property Service $Service
  */
-class UserAccess extends AppModel {
+class ServiceForm extends AppModel {
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -16,9 +16,9 @@ class UserAccess extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Account' => array(
-			'className' => 'Account',
-			'foreignKey' => 'account_id',
+		'Service' => array(
+			'className' => 'Service',
+			'foreignKey' => 'service_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

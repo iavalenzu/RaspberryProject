@@ -21,7 +21,7 @@ class ApiController extends AppController {
      *
      * @var array
      */
-    public $uses = array('Partner');
+    public $uses = array('User', 'Partner');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -38,6 +38,8 @@ class ApiController extends AppController {
         
         $this->autoLayout = false;
         $this->autoRender = false;
+        
+        
         
         
         

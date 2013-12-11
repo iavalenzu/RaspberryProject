@@ -12,6 +12,18 @@ class UserTest extends CakeTestCase {
  *
  * @var array
  */
+	public $fixtures = array(
+		'app.user',
+		'app.account',
+		'app.service',
+		'app.partner',
+		'app.partner_access',
+		'app.service_form',
+		'app.user_access',
+		'app.identity',
+		'app.identificator',
+		'app.notification'
+	);
 
 /**
  * setUp method
@@ -23,15 +35,6 @@ class UserTest extends CakeTestCase {
 		$this->User = ClassRegistry::init('User');
 	}
 
-        public function testCreateUserId(){
-            
-            $code = $this->User->createUserId();
-            
-            debug($code);
-            
-        }
-        
-        
 /**
  * tearDown method
  *
