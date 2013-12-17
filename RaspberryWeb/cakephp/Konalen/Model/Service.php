@@ -68,4 +68,26 @@ class Service extends AppModel {
 		)
 	);
 
+        public function getService($partner = null, $service_id = null){
+            
+            if(empty($partner) || empty($service_id)){
+                return null;
+            }
+            
+            $service = $this->find('first', array(
+                'conditions' => array(
+                    'Service.id' => $service_id,
+                    'Service.partner_id' => $partner['Partner']['id']
+                )
+            ));
+            
+            if(empty($service)){
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+            
+            return $service;
+            
+        }
+        
+        
 }

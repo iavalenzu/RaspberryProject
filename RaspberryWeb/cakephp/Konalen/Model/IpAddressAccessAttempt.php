@@ -133,6 +133,7 @@ class IpAddressAccessAttempt extends AppModel {
                 'order' => array('IpAddressAccessAttempt.created DESC')
             ));
             
+            
             return ($blocked) ? true : false;
             
         }

@@ -18,13 +18,6 @@ class Account extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
-		),
 		'Service' => array(
 			'className' => 'Service',
 			'foreignKey' => 'service_id',
@@ -42,6 +35,32 @@ class Account extends AppModel {
 	public $hasMany = array(
 		'UserAccess' => array(
 			'className' => 'UserAccess',
+			'foreignKey' => 'account_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'AccountIdentity' => array(
+			'className' => 'AccountIdentity',
+			'foreignKey' => 'account_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Notification' => array(
+			'className' => 'Notification',
 			'foreignKey' => 'account_id',
 			'dependent' => false,
 			'conditions' => '',

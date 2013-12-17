@@ -18,7 +18,7 @@ class Utilities {
      * @return string
      */
     
-    public function getHeader($name = null, $require = true){
+    public function getHeader($name = null){
         
         $headers = apache_request_headers();
         
@@ -26,13 +26,29 @@ class Utilities {
             return $headers[$name];
         }
 
-        if($require){
-            return "";
-        }
-        
         return "";
         
     }
+    
+    public function getPost($name = null){
+        
+        if(isset($_POST[$name])){
+            return $_POST[$name];
+        }
+
+        return "";
+    }
+
+    public function getGet($name = null){
+        
+        if(isset($_GET[$name])){
+            return $_GET[$name];
+        }
+
+        return "";
+    }
+    
+    
     
     /**
      * 
@@ -119,28 +135,31 @@ class Utilities {
     
     public function getCredentials() {
         
-        $authorization = Utilities::getHeader('Authorization', true);
-        
+        $authorization = Utilities::getHeader('Authorization');
+
         if(empty($authorization)){
             return null;
-        }
-  
+        }            
+        
         $matches = array();
 
         if(!preg_match('/([a-zA-Z0-9]+)\s+([a-zA-Z0-9]+)/i', $authorization, $matches)){
             return null;
         }
-        
+
         if(empty($matches) || !isset($matches[1]) || !isset($matches[2])){
             return null;
         }
-        
+
+        $name = $matches[1];
+        $key = $matches[2];
+            
         $credentials = new stdClass();
-        $credentials->name = $matches[1];
-        $credentials->key = $matches[2];
-        
+        $credentials->name = $name;
+        $credentials->key = $key;
+
         return $credentials;
-        
+            
     }
     
     

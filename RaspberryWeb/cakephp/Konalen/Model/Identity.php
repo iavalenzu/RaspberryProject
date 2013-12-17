@@ -23,13 +23,27 @@ class Identity extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
-		),
-		'Identificator' => array(
-			'className' => 'Identificator',
-			'foreignKey' => 'identificator_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => ''
 		)
 	);
+        
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'AccountIdentity' => array(
+			'className' => 'AccountIdentity',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);        
 }

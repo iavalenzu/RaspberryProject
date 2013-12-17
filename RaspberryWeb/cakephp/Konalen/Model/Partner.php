@@ -65,6 +65,62 @@ class Partner extends AppModel {
             
         }    
         
+        public function checkCredentials($name = null, $key = null){
+            
+            //Si la ip del request esta bloqueada, denegamos el acceso
+            if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
+                throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
+            }
+            
+            if(empty($name) || empty($key)){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+
+            //Se busca al usuario correspondiente al nombre de usuario
+            $this->recursive = 0;
+            $partner = $this->findByName($name);
+            
+            //Si es vacio registramos un intento acceso, y denegamos el acceso
+            if(empty($partner)){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+
+            //Se obtiene la llave privade de KONALEN
+            $KonalenPrivateKey = Configure::read('KonalenPrivateKey');
+        
+            //Se crea un recibidor seguro de mensaje y desencriptamos el saludo con la llave publica del partner
+            $spr = new SecureReceiver();
+            $spr->setSenderPublicKey($partner['Partner']['public_key']);
+            $spr->setRecipientPrivateKey($KonalenPrivateKey);
+        
+            //Desencriptamos el mensaje
+            $msg = $spr->decrypt($key);
+            
+            if(empty($msg)){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+            
+            //Si el mensaje es distinto de AUTHENTICATE retornamos una excepcion
+            if(strcasecmp(trim($msg), 'HELLO')){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+            
+            //Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
+            $this->IpAddressAccessAttempt->reset();
+            //Registramos la info del acceso
+            $this->PartnerAccess->access($partner);
+            
+
+            return $partner;
+            
+            
+        }
+        
+        
         /**
          * Autentifica a un Parner de acuerdo a sus credenciales, el nombre de usuario y la llave de acceso (saludo)
          * viene definida en el header 'Authorization' de la peticion
@@ -116,7 +172,7 @@ class Partner extends AppModel {
             }
             
             //Si el mensaje es distinto de AUTHENTICATE retornamos una excepcion
-            if(strcasecmp(trim($msg), 'AUTHENTICATE')){
+            if(strcasecmp(trim($msg), 'HELLO')){
                 $this->IpAddressAccessAttempt->attempt();
                 throw new UnauthorizedException(ResponseStatus::$access_denied);
             }

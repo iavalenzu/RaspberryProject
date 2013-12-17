@@ -25,34 +25,8 @@ class User extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Account' => array(
-			'className' => 'Account',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
 		'Identity' => array(
 			'className' => 'Identity',
-			'foreignKey' => 'user_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
-		),
-		'Notification' => array(
-			'className' => 'Notification',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',

@@ -10,12 +10,16 @@ App::import('Lib', 'SecureSender');
  */
 class UsersController extends AppController {
 
-    public function doCurlRequest($url, $data = array(), $headers = array(), $post = true){
+    public function doCurlRequest($url, $get = array(), $post = array(), $headers = array()){
         
-        if(!is_array($data)) return array();
-        
-        if($data)
-            $data = http_build_query($data);
+
+        if(!empty($post)){
+            $post = http_build_query($post);
+        }
+
+        if(!empty($get)){
+            $url .= "?" . http_build_query($get);
+        }
         
         $options = array (
             CURLOPT_RETURNTRANSFER => true, // return web page
@@ -27,9 +31,9 @@ class UsersController extends AppController {
             CURLOPT_CONNECTTIMEOUT => 120, // timeout on connect
             CURLOPT_TIMEOUT => 120, // timeout on response
             CURLOPT_MAXREDIRS => 10,
-            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_POSTFIELDS => $post,
             CURLOPT_HTTPHEADER => $headers,
-            CURLOPT_POST => $post
+            CURLOPT_POST => empty($post) ? false : true
         );      
 
         $ch = curl_init ( $url );
@@ -64,17 +68,82 @@ class UsersController extends AppController {
         $sps->setSenderPrivateKey($MyPrivateKey);
         
         $headers = array(
-            'Authorization: Raspberry ' . $sps->encrypt('AUTHENTICATE') . ' '
+            'Authorization Raspberry ' . $sps->encrypt('HELLO') . ' '
         );
-        
         debug($headers);
+
+        /*
+        $post = array(
+            'Authorization' => 'Raspberry ' . $sps->encrypt('AUTHENTICATE') . ' '
+        );
+        debug($post);
+        */
         
-        $response = $this->doCurlRequest("http://konalen.dev/api/register", array(), $headers, false);
+        $response = $this->doCurlRequest("http://konalen.dev/api/register", array(), $post, $headers);
 
         print_r($response);
         
         
     }
+    
+
+    public function login(){
+        
+        $MyPrivateKey = Configure::read('MyPrivateKey');
+        $KonalenPublicKey = Configure::read('KonalenPublicKey');
+        
+        $sps = new SecureSender();
+        $sps->setRecipientPublicKey($KonalenPublicKey);
+        $sps->setSenderPrivateKey($MyPrivateKey);
+
+        $get = array(
+            'User' => 'Raspberry',
+            'Key' => $sps->encrypt('HELLO'),
+            'Service' => 2
+                
+        );
+ 
+        $this->set('get', $get);
+        
+    }
+    
+    public function checklogin(){
+        
+        $this->autoLayout = false;
+        $this->autoRender = false;
+        
+        
+//        $register_url = Configure::read('KonalenRegisterUrl');
+        
+        
+        $MyPrivateKey = Configure::read('MyPrivateKey');
+        $KonalenPublicKey = Configure::read('KonalenPublicKey');
+   
+        
+        $sps = new SecureSender();
+        $sps->setRecipientPublicKey($KonalenPublicKey);
+        $sps->setSenderPrivateKey($MyPrivateKey);
+        
+        $headers = array(
+            'Authorization: Raspberry ' . $sps->encrypt('HELLO') . ' '
+        );
+
+        debug($headers);
+
+        $post = array(
+            'form_id' => '45875968756984769',
+            'user_id' => 'iavalenzu@gmail.com',
+            'user_pass' => 'awdrgyjil'
+        );
+        
+        debug($post);
+        
+        $response = $this->doCurlRequest("http://konalen.dev/api/checklogin", array(), $post, $headers);
+
+        print_r($response);
+        
+        
+    }    
     
     
 }
