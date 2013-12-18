@@ -26,31 +26,24 @@ class ServiceForm extends AppModel {
 	);
         
         
-   /**
+        /**
          * 
          * @param Partner $partner
          * @return PartnerForm 
          */
         
-        public function getForm($service = null, $form_id = null){
+        public function getForm($form_id = null){
             
-            if(empty($service)){
+            if(empty($form_id)){
                 return false;
             }
             
             $service_form = $this->find('first', array(
                 'conditions' => array(
                     'ServiceForm.form_id' => $form_id,
-                    'ServiceForm.service_id' => $service['Service']['id'],
                     'ServiceForm.form_expire >' => date('Y-m-d H:i:s') 
                 )
             ));            
-            
-            if(empty($service_form)){
-                //Crea uno nuevo
-                $service_form = $this->createForm($service);
-                
-            }
             
             return $service_form;
             

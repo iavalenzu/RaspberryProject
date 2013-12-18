@@ -42,8 +42,10 @@ class ApiController extends AppController {
     }
     
     public function loginform(){
+        
+        $this->Components->unload('DebugKit.Toolbar');
 
-        $this->autoLayout = false;
+        $this->layout = 'api';
         
         //Se obtienen las credenciales de autentificacion de konalen
         $konalen_user = Utilities::exists($this->request->query, 'User', true, true, false);
@@ -55,17 +57,18 @@ class ApiController extends AppController {
         $service = $this->Service->getService($partner, $konalen_service_id);
         
         $service_form = $this->ServiceForm->createForm($service);
-        
-        /*
-        
-        $konalen_user = Utilities::exists($this->request->data, 'form_id', true, true, false);
-        $user_id = Utilities::exists($this->request->data, 'user_id', true, true, false);
-        $user_pass = Utilities::exists($this->request->data, 'user_pass', true, true, false);
-        */
-        
-        
-        $this->set('service_form', $service_form);
-        
+
+        $service_id =  $service['Service']['id'];
+        $form_id = $service_form['ServiceForm']['form_id']; 
+        $form_checksum = Utilities::checksum(array($form_id, $service_id));
+      
+        $this->set('form_id', $form_id);
+        $this->set('service_id', $service_id);
+        $this->set('form_checksum', $form_checksum);
+       
+       
+       
+       
     }
 
     public function checklogin(){
@@ -73,27 +76,27 @@ class ApiController extends AppController {
         $this->autoLayout = false;
         $this->autoRender = false;
         
+        $service_id = Utilities::exists($this->request->data, 'service_id', true, true, false);
         $form_id = Utilities::exists($this->request->data, 'form_id', true, true, false);
         $user_id = Utilities::exists($this->request->data, 'user_id', true, true, false);
         $user_pass = Utilities::exists($this->request->data, 'user_pass', true, true, false);
-         
-        $form = $this->ServiceForm->findByFormId($form_id);
+        
+        $service = $this->Service->findById($service_id);
 
-        if(empty($form)){
-            
-        }
-            
-        
-        
-        $identity = $this->Identity->findByIdentificator($user_id);
-        
-        if(empty($identity)){
-            //Escribimos un login error
+        if(empty($service)){
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
         }
         
-        debug($identity);
+        $service_form = $this->ServiceForm->getForm($form_id);
+  
+        if(empty($service_form)){
+            /*
+             * Hacemos un redirect a la pagina de login del partner
+             */
+            $this->redirect($service['Service']['login_url']);
+        }
         
-        
+        debug($service_form);
         
         
     }

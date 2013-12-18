@@ -393,6 +393,16 @@ class Utilities {
         
     }    
     
+    public function checksum($data = array()){
+        
+        $imploded_data = implode('-', $data);
+
+        $key = Configure::read('HmacHashKey');
+        
+        return hash_hmac("sha256", $imploded_data , $key);
+        
+    }
+    
     
 }
 

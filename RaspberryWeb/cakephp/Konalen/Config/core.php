@@ -440,3 +440,5 @@ J0MuvOJkZCmijNsFRzVTrxB0
 -----END PRIVATE KEY-----');
 
 
+Configure::write('HmacHashKey', 'ZG1vy29cTv1ZYY3SA01183H8K');
+
