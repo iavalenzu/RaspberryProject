@@ -44,7 +44,7 @@ class ApiController extends AppController {
     public function loginform(){
 
         $this->autoLayout = false;
-
+        
         //Se obtienen las credenciales de autentificacion de konalen
         $konalen_user = Utilities::exists($this->request->query, 'User', true, true, false);
         $konalen_key = Utilities::exists($this->request->query, 'Key', true, true, false);
@@ -54,11 +54,7 @@ class ApiController extends AppController {
 
         $service = $this->Service->getService($partner, $konalen_service_id);
         
-        $service_form = $this->ServiceForm->getActiveSession($service);
-        
-        
-        debug($service_form);
-        
+        $service_form = $this->ServiceForm->createForm($service);
         
         /*
         
@@ -68,7 +64,7 @@ class ApiController extends AppController {
         */
         
         
-        $this->set('partner', $partner);
+        $this->set('service_form', $service_form);
         
     }
 

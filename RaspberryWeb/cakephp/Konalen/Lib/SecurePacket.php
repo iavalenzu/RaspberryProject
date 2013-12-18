@@ -18,13 +18,16 @@ class SecurePacket {
     var $created = null;
     var $author = null;
     
-    function __construct() {
+    function __construct($data = null, $session_timeout = 60) {
         
-        $now = time();
-        
-        $this->created = $now;
+        //Definimos la data del paquete
+        $this->data = $data;
+        //Identificador del paquete
+        $this->id = sha1(mt_rand());
+        //Fecha de creacion del paquete
+        $this->created = time();
         //Por defecto la duracion es de una hora
-        $this->expires = $now + 60*60;
+        $this->expires = $this->created + $session_timeout;
         
     }    
     
@@ -39,21 +42,34 @@ class SecurePacket {
         return $this->expires < time();
     }
     
-    public function setExpires($duration = null){
-        $this->expires = time() + $duration;
-    }
-
     public function setAuthor($author){
         $this->author = $author;
     }
 
     public function setData($data = null){
-        $this->data = serialize($data);
+        $this->data = $data;
     }
     
-    public function getData(){
-        return unserialize($this->data);
+    public function isData($data = null){
+        return strcasecmp($this->data, $data) === 0;
     }
+    
+    public function isEmpty(){
+        return empty($this->data);
+    }
+    
 
     
 }
+
+class HelloPacket extends SecurePacket {
+
+    public static $DATA = 'HELLO';
+    
+    function __construct() {
+        parent::__construct(HelloPacket::$DATA, 5);
+    }   
+    
+}
+
+

@@ -7,6 +7,7 @@ App::uses('AppModel', 'Model');
  * @property Service $Service
  */
 
+App::import('Lib', 'SecurePacket');
 App::import('Lib', 'SecureReceiver');
 App::import('Model', 'IpAddressAccessAttempt');
 
@@ -96,15 +97,15 @@ class Partner extends AppModel {
             $spr->setRecipientPrivateKey($KonalenPrivateKey);
         
             //Desencriptamos el mensaje
-            $msg = $spr->decrypt($key);
+            $packet = $spr->decrypt($key);
             
-            if(empty($msg)){
+            if(empty($packet) || $packet->isEmpty()){
                 $this->IpAddressAccessAttempt->attempt();
                 throw new UnauthorizedException(ResponseStatus::$access_denied);
             }
-            
-            //Si el mensaje es distinto de AUTHENTICATE retornamos una excepcion
-            if(strcasecmp(trim($msg), 'HELLO')){
+
+            //Chequeamos si el paquete corresponde a uno de tipo HELLO
+            if(!$packet->isData(HelloPacket::$DATA)){
                 $this->IpAddressAccessAttempt->attempt();
                 throw new UnauthorizedException(ResponseStatus::$access_denied);
             }

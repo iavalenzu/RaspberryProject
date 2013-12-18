@@ -96,7 +96,7 @@ class SecureReceiver {
         if(empty($signeddata_json_decode)){
             return false;
         }
-
+        
         if(!isset($signeddata_json_decode['data']) || !isset($signeddata_json_decode['signature'])){
             return false;
         }

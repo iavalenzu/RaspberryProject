@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::import('Lib', 'SecurePacket');
 App::import('Lib', 'SecureSender');
 
 /**
@@ -96,9 +97,11 @@ class UsersController extends AppController {
         $sps->setRecipientPublicKey($KonalenPublicKey);
         $sps->setSenderPrivateKey($MyPrivateKey);
 
+        $hello = new HelloPacket();
+        
         $get = array(
             'User' => 'Raspberry',
-            'Key' => $sps->encrypt('HELLO'),
+            'Key' => $sps->encrypt($hello) . '',
             'Service' => 2
                 
         );

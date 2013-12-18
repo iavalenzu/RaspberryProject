@@ -71,9 +71,26 @@ oh1ejeit9z/Gj+1suMs36eAKviY/ITOm/e1d4fFCY7lBYIkPAu81whNiniumtViZ
 JL5gAtTxTr8e+XOR1oA2bNcz
 -----END PRIVATE KEY-----';
         
+
+        $packet = new HelloPacket();
+
+        debug($packet);
+        debug(get_class($packet));
+        
+        $serialized = serialize($packet);
+        
+        debug($serialized);
+        
+        sleep(11);
+        
+        $unserialized = unserialize($serialized);
+        
+        debug($unserialized);
+        
         
         
         $data = "AUTHENTICATE";
+        
 
         /*Simulo un envio de data*/
 

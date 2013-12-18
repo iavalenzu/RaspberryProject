@@ -221,20 +221,19 @@ class Utilities {
       * @return string La cadena aleatoria.
       */
      
-    public function getRandomString($min = 20, $max = false, $source = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"){
+    public function getRandomCode($numBits = 1024){
 
-        if($max)
-            $length = mt_rand($min, $max);
-        else
-            $length = $min;
+        $numBytes = $numBits / 8;
         
-        $randomString = '';
-        for ($i = 0; $i < $length; $i++) {
-            $randomString .= $source[Utilities::crypto_rand_secure(0, strlen($source)-1)];
+        $crypto_strong = false;
+        
+        $randBytes = openssl_random_pseudo_bytes($numBytes, $crypto_strong);
+
+        if(!$crypto_strong){
+            return false;
         }
-        
-        return $randomString;
-        
+
+        return bin2hex($randBytes);
         
     } 
 
@@ -266,7 +265,7 @@ class Utilities {
      * @param integer $base La base numérica a la cual se convierte el codigo de comprobacion.
      * @return string
      */
-    
+    /*
     public function createCode($min = 50, $max = false, $separator = 'i', $base = 28) {
         
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -284,7 +283,7 @@ class Utilities {
         return $randomString . $separator . Utilities::randUpperCase($check);
         
     }
-    
+    */
     /**
      * 
      * @param string $code
@@ -292,7 +291,7 @@ class Utilities {
      * @param integer $base
      * @return boolean
      */
-
+    /*
     public function checkCode($code = null, $separator = 'i', $base = 28) {
 
         if(empty($code))
@@ -312,37 +311,27 @@ class Utilities {
         return strcasecmp($crc, $check) == 0;
         
     }
-    
-    /**
-     * Obtiene el bloque html que incluye el codigo recapcha a resolver.
-     * 
-     * @see https://developers.google.com/recaptcha/docs/display
-     * 
-     * @return string
-     */
-    
-    public function getCaptchaHtml(){
-        
-        $public_key = Configure::read('ReCaptchaPublicKey');
-        return "<script type='text/javascript' src='http://www.google.com/recaptcha/api/challenge?k=$public_key'> </script> <noscript> <iframe src='http://www.google.com/recaptcha/api/noscript?k=$public_key' height='300' width='500' frameborder='0'></iframe><br> <textarea name='recaptcha_challenge_field' rows='3' cols='40'> </textarea> <input type='hidden' name='recaptcha_response_field' value='manual_challenge'> </noscript>";
-        
-    }
+    */
 
     /**
      * 
      * @param string $url
-     * @param array $data
+     * @param array $get
+     * @param array $post
      * @param array $headers
-     * @param boolean $post
      * @return array
      */
     
-    public function doCurlRequest($url, $data = array(), $headers = array(), $post = true){
+    public function doCurlRequest($url, $get = array(), $post = array(), $headers = array()){
         
-        if(!is_array($data)) return array();
-        
-        if($data)
-            $data = http_build_query($data);
+
+        if(!empty($post)){
+            $post = http_build_query($post);
+        }
+
+        if(!empty($get)){
+            $url .= "?" . http_build_query($get);
+        }
         
         $options = array (
             CURLOPT_RETURNTRANSFER => true, // return web page
@@ -354,9 +343,9 @@ class Utilities {
             CURLOPT_CONNECTTIMEOUT => 120, // timeout on connect
             CURLOPT_TIMEOUT => 120, // timeout on response
             CURLOPT_MAXREDIRS => 10,
-            CURLOPT_POSTFIELDS => $data,
+            CURLOPT_POSTFIELDS => $post,
             CURLOPT_HTTPHEADER => $headers,
-            CURLOPT_POST => $post
+            CURLOPT_POST => empty($post) ? false : true
         );      
 
         $ch = curl_init ( $url );
@@ -374,49 +363,8 @@ class Utilities {
         );
         
         
-    }
-    
-    /**
-     * 
-     * Verifica el recaptcha ingresado por el cliente.
-     * 
-     * @see https://developers.google.com/recaptcha/docs/verify
-     * 
-     * @param string $recaptcha_challenge_field
-     * @param string $recaptcha_response_field
-     * @return boolean
-     */
-    
-    public function captchaIsCorrect($recaptcha_challenge_field = null, $recaptcha_response_field = null){
-
-        if(empty($recaptcha_challenge_field) || empty($recaptcha_response_field))
-            return false;
-
-        $url = Configure::read('ReCaptchaUrlVerify');
-        
-        $data = array(
-            'privatekey' => Configure::read('ReCaptchaPrivateKey'),
-            'remoteip' => '',
-            'challenge' => $recaptcha_challenge_field,
-            'response' => $recaptcha_response_field
-        );
- 
-        $response = doCurlRequest($url, $data);
-
-        if(is_null($response))
-            return false;
-
-        if($response['errno'])
-            return false;
-        
-        $content = explode("\n", $response['content']);
-        
-        if(empty($content))
-            return false;
-        
-        return trim($content[0]) == 'true';
-        
     }    
+    
     
     /**
      * 
@@ -430,7 +378,7 @@ class Utilities {
     function crypto_rand_secure($min, $max) {
         
         $range = $max - $min;
-        if ($range == 0) return false;
+        if ($range == 0){ return false; }
         
         $log = log($range, 2);
         $bytes = (int) ($log / 8) + 1; // length in bytes
@@ -445,20 +393,6 @@ class Utilities {
         
     }    
     
-    function bits2hex($bin)
-    {
-       $out = "";
-       for($i=0;$i<strlen($bin);$i+=8)
-       {
-          $byte = substr($bin,$i,8); 
-          if( strlen($byte)<8 ) 
-              $byte .= str_repeat('0',8-strlen($byte));
-          $out .= base_convert($byte,2,16);
-       }
-       return $out;
-    }    
-    
-   
     
 }
 

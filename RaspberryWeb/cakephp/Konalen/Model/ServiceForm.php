@@ -32,7 +32,7 @@ class ServiceForm extends AppModel {
          * @return PartnerForm 
          */
         
-        public function getActiveSession($service = null){
+        public function getForm($service = null, $form_id = null){
             
             if(empty($service)){
                 return false;
@@ -40,16 +40,15 @@ class ServiceForm extends AppModel {
             
             $service_form = $this->find('first', array(
                 'conditions' => array(
+                    'ServiceForm.form_id' => $form_id,
                     'ServiceForm.service_id' => $service['Service']['id'],
                     'ServiceForm.form_expire >' => date('Y-m-d H:i:s') 
-                ),
-                'order' => array('ServiceForm.id DESC')
-                
+                )
             ));            
             
             if(empty($service_form)){
                 //Crea uno nuevo
-                $service_form = $this->form($service);
+                $service_form = $this->createForm($service);
                 
             }
             
@@ -57,7 +56,7 @@ class ServiceForm extends AppModel {
             
         }          
         
-        public function form($service = null){
+        public function createForm($service = null){
             
             if(empty($service)){
                 return false;
@@ -67,21 +66,21 @@ class ServiceForm extends AppModel {
             
             $dataSource->begin();
             
-            $session_id = $this->createFormId();
+            $form_id = $this->createFormId();
             
-            $session_duration = 10*60;
+            $form_timeout = $service['Service']['form_timeout'];
             
             $service_form = array(
                 'ServiceForm' => array(
                     'service_id' => $service['Service']['id'],
-                    'form_id' => $session_id,
-                    'form_expire' => date('Y-m-d H:i:s', time() + $session_duration)
+                    'form_id' => $form_id,
+                    'form_expire' => date('Y-m-d H:i:s', time() + $form_timeout)
                 )
             );
 
             $this->create();
             
-            if($session_id && $this->save($service_form)){
+            if($form_id && $this->save($service_form)){
                 if($dataSource->commit()){
                     return $this->findById($this->id);
                 }
@@ -99,16 +98,17 @@ class ServiceForm extends AppModel {
          */
         
         public function createFormId(){
-            
+
+            $num_bits = 4096;
             $max_attempts = Configure::read('SessionIdGenerationAttempts');
             
             for($i=0; $i<$max_attempts; $i++){
                 
-                $code = Utilities::getRandomString(50);
+                $code = Utilities::getRandomCode($num_bits);
                 
                 $form = $this->findByFormId($code);
                 
-                if(empty($form)){
+                if($code && empty($form)){
                     return $code;
                 }
             }
