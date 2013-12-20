@@ -873,3 +873,134 @@ Stack Trace:
 2013-12-19 22:51:10 Error: Borrando los registros expirados
 2013-12-19 22:57:33 Error: Borrando los registros expirados
 2013-12-19 22:57:34 Error: Borrando los registros expirados
+2013-12-20 09:03:09 Error: [BadRequestException] Bad Request
+Request URL: /api/loginform
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(51): Utilities->exists(Array, 'User', true, true, false)
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-20 09:03:27 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiYTAxYTJhOTdkMTFmNjE3ZTIzNmYwZmEwOWVmMTQ3NmMzM2FlZjdlZjk2N2Y2NTdmZjAyNGQ2NWVhYmU4OTE4MTQyYzA0ZmU3N2JlNTNiMGY5ZjdhOGJhMTlmNWZiMjM0YmZlMGI0Y2U2ZmI2M2NmYzg2ZTQ2ZWY3MThiZDVhNTIyNGM5ZWViYmM0ZTViYzg0NDJmYWZmMGM3MmJjYzE3MDE3ZGZlZmU2OWU1NmNhNjRkMTViZGJkMTEwZTE5NmI4MjIyZGY4OTQ3NzUxOGU4YTNjZGM3MTVhMDU3YTc4NzFhZDcwMDhmYjFjMWI3OGJmYjEyNzYwZDE5YjlkMDMxODFiMjBjODA2N2FmZGVmNTM1MTliMTJiOGQ1N2E3MThlOWRjYTU0YWI1Y2VmZjE0MzBhM2UzNGZkMDFmMmQxNzI4Y2FiNDQ3Mzg4NjY4MTIwNjk5ODk5YzA5ZDYyYTA1YmYwZTRiMWVmYzkxOTI1NGExNTM0ZGQ3ODdlMDJhNzJhXCIsXCJlbnZrZXlcIjpcIjY1MWU2MmRlNTlhZGU1ZDg0Zjg2MjUyZmE3MjkzYzAzNThmMzBhMzQxMTExZTZlMzFjOGJjMjIxNjBhZWU0NzVjMWI2M2ZmODI1ZGExNzExNGY1MjEzOWM1N2QxMTQ4NDZlZDBlYzk2ZThmODRhYzQ3ZDEwNzBlNDUwNzJiODAxZjJjOTE4Y2ZiNzliYTQ2OGRmY2YxOTM0MjRjOTdlZTI3MDhlYmE4ZjZjNzM0ZDY1NjM2YzlmMmI4MTZlNzUxNDUxNzRkYTM5MGIxOGViNGM3NTFiZjA4NzcwNTZhMTE4YjY4ZTk3YzQzYTcyNGIxNzc5NjI3YjE3ZjgxNTg0NGE4ZmUyZmUwNDhmZjZkNmQ0ODQ5N2Y1OTZiMTExY2FkZmE4YWQ4YWY5ZDY1MmFiOTM3ZmE0NjNmNTlhMDE2NTNjODkxNzc2YjAyYzhhZDI3ODNlZTAwZmJiYmJhMTQ5ZDE5NzE0ZjZjZmFiZjM5Y2QyZWMwZTgzOTI5ZDY1M2E0NTBiMWNiNzgyMjc3OTgyMGE4ZmQ5NTU2MWU3OTEwYzRiZjI3NGQ2MWM2OWE0MGUyMDU4NmEwZDMzNjY1NzI5NDNhMjU4NWZjZmI1MGY0YTczOGI1NjY5YWM4NTUzYzFkNjQ1NDIwOTk1OGZkYWYwODMyYTI5YTY0OWFkMjc2ODgzXCJ9Iiwic2lnbmF0dXJlIjoiMDRkODBhNzNiYzE5NzlmNjI1YmM3OWJlNzk1YjRiNDdlZWFhZDcyNTg0MmU2ZmEwZGFmNjM5MmNhZGM5MzkyYzA4MDJjZTdmNzhhNGFiYWYxNWQ0NjgyNGU2YjM0ZDYzMmUwZTMyYzRkODdhMmU0NWM4MWVjMTVlMzBlYTVmZGU4YmIxM2FmNTMxNTA5YzFjYmRlY2YwYzk1MmMzNDg1ZDM4ZDVkNmY0ZGNiOTRlNjJhNjBiN2E1YTA5OTBhNTM3ZWYyYTE3MDllM2E1N2VmYTBmMjA1YjJlODM1M2QwN2M5NWQwMTg4Y2YxZTZmNDdjNmEyYjcxMmNiYTBhOWRlMTQxNzE4ZTRlZmUyYWFiNjI1Y2UzNGFhMWQ1YzhhNmM0MzVmMThiNGViNDE2MzRiZjU4NzJlMzc2ZjQ0NzcyMGMwNDgwYWYxYmI2YWE1NjU3YmM3NDYwYjlhZDU3YmYzY2VkNzczMTQzYzI4ZDRhZjcxM2I2YTFkNWIzMmFjNmQ0M2MwOThlM2RiYTVhY2ZkZDk2N2NjMTNiOTEyMGFhNDg1ODVkYzY3MzhiZTM3YjUyNWUxYjdkYTliZjc0ODY0YzE3MWMwYWYyY2E4YTAzZTM2NDUxMzg3ZjFmNzQ0MmYxMjAyOWM2MzA3NGZiOTBlOWY0ZjQ5Y2M5ZWRiM2MyMGIifQ%3D%3D&Service=2&FormId=225c7b2783280b7fc1c60f339dec3b9f70a10bc8a92046a4560d6fb5136cb9c74b7d3e7e7878fda2bbfd36ee0a83c13545664c91b174c25bc9c08c486ff690359a8985796ebc7a9a65d8f4fde90977aafc4a0811cf98965a9a5e5fc1e20e6016c43698183b696de3a7a665f614b99e3c64d4f20ac827a1bacce60fe2d7d6b4d2dcdfcf0f848582f18c555846b048d09da5f16b1fbd04bd9ea5f54d6f489018b1686870c17307e24a41c20671ff7042b3c3131eb356525402dc7323a2e33bc152169778ef7f66b7a4284c91ea7a9310182da9dbed00c50f7d96fa19371a0e72fc184d1738486400005e20a6b2120d0d5f3990adfe9c95489ea645cde197b6b9c81b36224fa935b363e17c2af84e7ed95af077e49efe825b6f2793236ee9a2a0a005b07c74c00b8027c8d7545be255b1a309626f2d7bf75ea80b6165b96fb5e615f383eae604b47cf50410273a35125737ef315bd5fd6a2665c9cd31ee206ed691fdb3d43c0b43525cb495cec30f38bb8c6e5260d9c563e57c0f673597e2540056eee2baa69bf4fd518db38df6addcabe3d8d0512d549ee55eb9faf8d6b62d9d2235960409c9ac0f88e51f8609ca69635aab601634e4a46ea5d1f393a949b398c2ef19201142f9a3bfa63b7b43719974f84575d649e8b7ed55866de9dc440e69eaa71db5b04b0737457361f862606cc1d7485ed7d7d552f9623f689c8427f8becb
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(57): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-20 09:18:22 Error: Borrando los registros expirados
+2013-12-20 09:18:22 Error: 
+2013-12-20 09:18:55 Error: 
+2013-12-20 09:19:12 Error: Borrando los registros expirados
+2013-12-20 09:19:13 Error: Borrando los registros expirados
+2013-12-20 09:24:26 Error: Borrando los registros expirados
+2013-12-20 09:46:48 Error: Borrando los registros expirados
+2013-12-20 09:47:18 Error: Borrando los registros expirados
+2013-12-20 09:47:28 Error: Borrando los registros expirados
+2013-12-20 09:49:02 Error: Borrando los registros expirados
+2013-12-20 09:50:09 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Identity.identificator' in 'where clause'
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Identit...', Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Identit...', Array, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Identit...', false)
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Account), Array)
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/AccountIdentity.php(47): Model->find('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Account.php(84): AccountIdentity->getIdentity('iavalenzu')
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(125): Account->login('iavalenzu', 'hosdfs??dlfk')
+#9 [internal function]: ApiController->checklogin()
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2013-12-20 09:51:29 Error: Borrando los registros expirados
+2013-12-20 09:51:35 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AccountIdentity.user_id' in 'field list'
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Account...', Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Account...', Array, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1339): DboSource->fetchAll('SELECT `Account...', false)
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1201): DboSource->fetchAssociated(Object(Identity), 'SELECT `Account...', Array)
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1112): DboSource->queryAssociation(Object(Identity), Object(AccountIdentity), 'hasMany', 'AccountIdentity', Array, Array, true, Array, 0, Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Identity), Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/AccountIdentity.php(47): Model->find('first', Array)
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Account.php(84): AccountIdentity->getIdentity('iavalenzu')
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(125): Account->login('iavalenzu', 's??fs??dfldlk')
+#11 [internal function]: ApiController->checklogin()
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#14 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-12-20 09:59:30 Error: Borrando los registros expirados
+2013-12-20 10:21:34 Error: Borrando los registros expirados
+2013-12-20 10:28:10 Error: Borrando los registros expirados
+2013-12-20 10:28:15 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Service.service_id' in 'where clause'
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Service...', Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Service...', Array, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Service...', false)
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Service), Array)
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(599): Model->find('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(799): DboSource->query('findByServiceId', Array, Object(Service))
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Account.php(91): Model->__call('findByServiceId', Array)
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Account.php(91): Service->findByServiceId('2')
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(125): Account->login('2', 'iavalenzu', '??fdkfd??gkf??g')
+#11 [internal function]: ApiController->checklogin()
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#14 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#15 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#16 {main}
+2013-12-20 10:34:27 Error: Borrando los registros expirados
+2013-12-20 10:34:27 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Account.user_pass' in 'where clause'
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Account...', Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Account...', Array, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Account...', false)
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Account), Array)
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Account.php(96): Model->find('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(125): Account->login('2', 'iavalenzu', 'sfddfkg??dlkfg?...')
+#8 [internal function]: ApiController->checklogin()
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2013-12-20 10:41:48 Error: Borrando los registros expirados
+2013-12-20 10:44:35 Error: Borrando los registros expirados
+2013-12-20 10:46:32 Error: Borrando los registros expirados
+2013-12-20 11:34:38 Error: Fatal Error (4): syntax error, unexpected T_DOUBLE_ARROW in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php, line 125]
+2013-12-20 11:34:38 Error: [FatalErrorException] syntax error, unexpected T_DOUBLE_ARROW
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMTE4ZjMzNWVmNjE3YjMwOTM4OGUxNzBiNDE5ODBlZmE3NTM2OTc4ODM2YjgxNzkxM2Q4Njk3ZjUxNTlkZTlkN2U3ZGI1Y2FjMmJlYzgzZWRmNjAxNjBjYmRiMTM1MGQ5ZTBmMTk3MzM3YjNkNzZjYmYwNGNhODA3OGIyOGM4ZmE1ODIxZjk0OGYzMmM0OTYyYjZjMDIyNzkwMGE3YWU5YmFjYWI3NmZkNDFmMWVjMTQ0Nzg1MWRmZDRlYTliMzQ0ZDgyOTYwNGVlZWIyNGUzYjJjNDRkYzUwMTQ5YzczY2Q1NGJmYTc1YjgwNjhhZDUwNzE3NTVmNDA5ZjY3NmVmY2FhNmVmZWE5NGI4OWM4ZDBlMzM0MWQ3NzBiODAxYzNkMzFhZjllYmY0YzFiNzljZTk4Zjg3ZTNiOTM0MWUzYTBmNTU5ZGM2OTY0ODlhN2JlN2UwZGQyZTc5ZTQzYzdlMjRlNjE2ZmFkZmQ5MDJlN2U2OGJlOTI0ODhiZDIxYzA5XCIsXCJlbnZrZXlcIjpcIjVjYTM5NzUzYTk5M2MwNTY1YWRkY2U3ZDI3NTQ2MTMxZjk1NjVkMWEwNDJkMTI1NzE0NmFlNjA1ODViOGY0NzBlMDQ2ZTdkNDFmZGMzNjcxOWI3MjI1MTI4MjgyMzk4MmNmNjYwM2FlNGEwNTQ5YzFjNmY2MTRhOGZmYjBmODQzNzY4ZmNiOTQ2YTcxZWQ5MmRlOGVkN2JiMThjMGRlNDQ3NDIwYTdkODEwMGM3MGQ5MTczZWExNThjNWFjYWVhY2NkMmQyMTZiZjlmZDQyOTFjMjU2Y2NhZDE0MmY1YjkwOWU3MjQ1YTEyY2Q0NmFiMmZkNGYzNmI4ODBhNTg0N2MyN2Q2NGM4N2U3MDhlYTY4NTRhY2NhOTE5NjI5OGQyYzIyZjgxYzJjZTFlZDU1NWQ4NTNiMzAxN2U4NWQ0ODg5OTQ4ODY5ZGUwZjY2YzBmMWZhN2RmZTliNThlMzYxMWQyMzI0OGM2ZTBkY2QyNjllNTJiMzcyNGY3NTMxMGI0OTU4NTE4MWI3MjRlNDk4NDYyNzdjYmMwYzA4ZmEzNzMyYzhiZTc1MjYyODVjZmJjNWQxYmViM2YwZjhjZmQ5MzBiMWEyZDIxOTEzYjkwZTUwNjBhNjFiNGU2NTEzMjdjMTRjY2M2N2JkYmQ5MWNmYjQ3ZDU2MGVmZTViZDFhZTQyXCJ9Iiwic2lnbmF0dXJlIjoiOTJlODczY2Q3MTllMDFkMzY5NGE3YjI0NzMyYTA4ZTlkNWMzNzkzNzNjMjM4Y2IzMThjN2QyOWI3YWM1Nzc4OThjODI1ZGFkZTk1ODEwNTNiZjhjZGNkZjdiMWU2YWMzZTc3YTMwNmQ4NjFmN2RmZGY3Mjk1ZTg2ODRkN2QxYWRlMGFlZDQ5MGVhMDNmZmFkMTYxMWU4NDdhNWNhMjBmNTE0YzI4MzJjMzU4OGM3MWM2OTAxZjc3YmZhN2UxNGJmNGVmNmVmYmRhZTY4MTlkOTI1MWUyZDdkNGVjMzRmYWUwZTU5YjM3NTFhY2QwOWJjOWYxMWYyNDk5ZjFkNTk0ODY2ZTcwNWYxYTRiMWE5MzNkYTJjNTY2YzExMjFmZmJjMmFkNjI3MGMwZmMzNGRlNThkNTZlMDYyYzk2NzI0MWQzMzM0YzBlYmU1YzEwMGVjODg3YmZlNTcxZGNhZWU4MjJiODBmOTgwMzYzYWNhMDk2MTViNDI2NDJlNzI1NWFlNjY5YWY5MjBkZThlZDE5YWYyN2UzZjZkOGZmNTkwOTA1NmUzMDg4NTVlZmQ5ODc0ZDY1N2I5MzY0MDgyMDBkNGMyYWY2ZjJjNDUyNzI3M2MxZTM4NGZjNWNmYmEzYjEwNGU4ZjY3NDc4MmVkMTFlNjQ4NjI0ZTZhNDE5ODBiMzMifQ%3D%3D&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/home/ivalenzu/...', 125)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/home/ivalenzu/...', 125, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/home/ivalenzu/...', 125, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-20 11:52:04 Error: Borrando los registros expirados
+2013-12-20 11:52:05 Error: Borrando los registros expirados
+2013-12-20 11:54:14 Error: Borrando los registros expirados
+2013-12-20 11:54:15 Error: Borrando los registros expirados
+2013-12-20 11:59:18 Error: Borrando los registros expirados
+2013-12-20 12:00:17 Error: Borrando los registros expirados
+2013-12-20 12:00:18 Error: Borrando los registros expirados
+2013-12-20 12:22:23 Error: Borrando los registros expirados

@@ -2,6 +2,7 @@
 App::uses('AppController', 'Controller');
 App::import('Lib', 'SecurePacket');
 App::import('Lib', 'SecureSender');
+App::import('Lib', 'SecureReceiver');
 
 /**
  * Users Controller
@@ -88,6 +89,26 @@ class UsersController extends AppController {
     }
     
 
+    public function login_success(){
+        
+        $this->autoLayout = false;
+        $this->autoRender = false;
+        
+        $data = $this->request->query['data'];
+        
+        
+        //Se crea un recibidor seguro de mensaje y desencriptamos el saludo con la llave publica del partner
+        $spr = new SecureReceiver();
+        $spr->setSenderPublicKey(Configure::read('KonalenPublicKey'));
+        $spr->setRecipientPrivateKey(Configure::read('MyPrivateKey'));
+
+        //Desencriptamos el mensaje
+        $packet = $spr->decrypt($data);        
+        
+        debug($packet);
+        
+    }
+    
     public function login(){
         
         $MyPrivateKey = Configure::read('MyPrivateKey');

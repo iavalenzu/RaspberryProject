@@ -72,4 +72,12 @@ class HelloPacket extends SecurePacket {
     
 }
 
+class LoginPacket extends SecurePacket {
+
+    function __construct($data = null) {
+        parent::__construct($data, 5);
+    }   
+    
+}
+
 

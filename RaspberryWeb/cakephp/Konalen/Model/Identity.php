@@ -34,7 +34,7 @@ class Identity extends AppModel {
 	public $hasMany = array(
 		'AccountIdentity' => array(
 			'className' => 'AccountIdentity',
-			'foreignKey' => 'user_id',
+			'foreignKey' => 'identity_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

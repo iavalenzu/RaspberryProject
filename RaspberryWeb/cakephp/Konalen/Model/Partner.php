@@ -88,13 +88,10 @@ class Partner extends AppModel {
                 throw new UnauthorizedException(ResponseStatus::$access_denied);
             }
 
-            //Se obtiene la llave privade de KONALEN
-            $KonalenPrivateKey = Configure::read('KonalenPrivateKey');
-        
             //Se crea un recibidor seguro de mensaje y desencriptamos el saludo con la llave publica del partner
             $spr = new SecureReceiver();
             $spr->setSenderPublicKey($partner['Partner']['public_key']);
-            $spr->setRecipientPrivateKey($KonalenPrivateKey);
+            $spr->setRecipientPrivateKey(Configure::read('KonalenPrivateKey'));
         
             //Desencriptamos el mensaje
             $packet = $spr->decrypt($key);

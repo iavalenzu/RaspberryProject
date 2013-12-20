@@ -24,11 +24,42 @@ class AccountIdentity extends AppModel {
 			'order' => ''
 		),
 		'Identity' => array(
-			'className' => 'Account',
+			'className' => 'Identity',
 			'foreignKey' => 'identity_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 	);
+        
+        public function getIdentity($user_id = null){
+            
+            if(empty($user_id)){
+                return null;
+            }
+
+            return $this->Identity->find('first', array(
+                'conditions' => array(
+                    'Identity.identificator' => $user_id
+                ),
+                'recursive' => -1
+            ));
+            
+        }
+        
+        public function check($account = null, $identity = null){
+            
+            if(empty($account) || empty($identity)){
+                return null;
+            }
+            
+            return $this->find('first', array(
+                'conditions' => array(
+                    'AccountIdentity.account_id' => $account['Account']['id'],
+                    'AccountIdentity.identity_id' => $identity['Identity']['id'],
+                    'AccountIdentity.authenticated' => 1
+                )
+            ));
+        }
+        
 }

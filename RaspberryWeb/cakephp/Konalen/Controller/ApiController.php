@@ -3,6 +3,9 @@
 App::uses('AppController', 'Controller');
 App::import('Lib', 'Utilities');
 
+App::import('Lib', 'SecurePacket');
+App::import('Lib', 'SecureSender');
+
 /**
  * Users Controller
  *
@@ -21,7 +24,7 @@ class ApiController extends AppController {
      *
      * @var array
      */
-    public $uses = array('User', 'Partner', 'Identity', 'Service', 'ServiceForm');
+    public $uses = array('User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -82,7 +85,7 @@ class ApiController extends AppController {
     public function checklogin(){
         
         $this->autoLayout = false;
-        //$this->autoRender = false;
+        $this->autoRender = false;
         
         $service_id = Utilities::exists($this->request->data, 'service_id', true, true, false);
         $form_id = Utilities::exists($this->request->data, 'form_id', true, true, false);
@@ -118,16 +121,29 @@ class ApiController extends AppController {
              * en caso de exito se redirecciona a la url de login success del partner
              */
 
-            $login_success = false;
+            $response = $this->Account->login($service, $user_id, $user_pass);
             
-            if($login_success){
+            if($response['success'] === true){
 
-                $this->redirect($service['Service']['login_success']);
+                /*
+                 * Creamos un mensajero seguro para enviar la data del usuario de acceso exitoso
+                 */
+                $sps = new SecureSender();
+                $sps->setRecipientPublicKey($service['Partner']['public_key']);
+                $sps->setSenderPrivateKey(Configure::read('KonalenPrivateKey'));
+
+                $packet = new LoginPacket($response);
+                
+                /*
+                 * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada
+                 */
+                $this->redirect($service['Service']['login_success'] . '?' . http_build_query(array('data' => $sps->encrypt($packet))));
                 
             }else{
                 
                 $service_form['ServiceForm']['data'] = array(
-                    'message' => "Fecha: " . date("Y-m-d H:i:s")
+                    'message' => "Fecha: " . date("Y-m-d H:i:s"),
+                    'error' => $response['error']
                 );
 
                 if(!$this->ServiceForm->save($service_form)){
@@ -138,11 +154,7 @@ class ApiController extends AppController {
                  * Se hace un redirect indicando el id del formulario
                  */
 
-                $query = http_build_query(array(
-                    'FormId' => $form_id
-                ));
-
-                $this->redirect($service['Service']['login_url'] . '?' . $query);
+                $this->redirect($service['Service']['login_url'] . '?' . http_build_query(array('FormId' => $form_id)));
                 
                 
             }
