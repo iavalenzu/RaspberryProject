@@ -25,6 +25,21 @@ class ServiceForm extends AppModel {
 		)
 	);
         
+        public function garbageCollector(){
+            
+            $rand = rand(0,100);
+            
+            if($rand <= Configure::read('ServiceFormGarbageCollectorIndex')){
+
+                $this->log("Borrando los registros expirados");
+                
+                $this->deleteAll(array(
+                    'ServiceForm.form_expire <' => date('Y-m-d H:i:s')
+                ), false);
+                
+            }
+            
+        }
         
         /**
          * 
@@ -33,6 +48,11 @@ class ServiceForm extends AppModel {
          */
         
         public function getForm($form_id = null){
+
+            /*
+             * Llamamos al garbage collector que se encarga de eliminar de las BD los registros de formularios expirados
+             */
+            $this->garbageCollector();
             
             if(empty($form_id)){
                 return false;
@@ -92,7 +112,7 @@ class ServiceForm extends AppModel {
         
         public function createFormId(){
 
-            $num_bits = 4096;
+            $num_bits = Configure::read('FormIdCodeBitsLength');
             $max_attempts = Configure::read('SessionIdGenerationAttempts');
             
             for($i=0; $i<$max_attempts; $i++){
@@ -108,6 +128,44 @@ class ServiceForm extends AppModel {
 
             return false;
             
-        }               
+        }      
+        
+        
+        /**
+         * Callback Method
+         * 
+         * @param array $options
+         * @return boolean
+         */
+        
+        public function beforeSave($options = array()) {
+            
+            if(isset($this->data['ServiceForm']['data'])){
+                $this->data['ServiceForm']['data'] = json_encode($this->data['ServiceForm']['data']);
+            }
+            
+            return true;
+        }          
+        
+        
+   
+        /**
+         * Callback Method
+         * 
+         * @param mixed $results
+         * @param boolean $primary
+         * @return mixed
+         */
+        
+        
+        public function afterFind($results, $primary = false) {
+            
+            foreach ($results as $key => $val) {
+                if (isset($val['ServiceForm']['data'])) {
+                    $results[$key]['ServiceForm']['data'] = json_decode($val['ServiceForm']['data'], true);
+                }
+            }
+            return $results;
+        }           
         
 }

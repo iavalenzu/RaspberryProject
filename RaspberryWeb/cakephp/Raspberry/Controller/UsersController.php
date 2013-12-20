@@ -99,10 +99,13 @@ class UsersController extends AppController {
 
         $hello = new HelloPacket();
         
+        
+        
         $get = array(
             'User' => 'Raspberry',
             'Key' => $sps->encrypt($hello) . '',
-            'Service' => 2
+            'Service' => 2,
+            'FormId' => isset($_GET['FormId']) ? $_GET['FormId'] : ''
                 
         );
  

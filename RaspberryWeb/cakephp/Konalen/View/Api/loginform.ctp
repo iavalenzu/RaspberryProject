@@ -1,12 +1,11 @@
 <?php
 
-//debug($service_form);
-
-
+print_r($form_data['message']);
 
 echo $this->Form->create(null, array(
     'url' => array('controller' => 'api', 'action' => 'checklogin'),
-    'type' => 'post'
+    'type' => 'post',
+    'target' => '_parent'
 ));
 echo $this->Form->input(null, array('name' => 'user_id', 'label' => 'User'));
 echo $this->Form->input(null, array('name' => 'user_pass', 'label' => 'Password', 'type' => 'password'));

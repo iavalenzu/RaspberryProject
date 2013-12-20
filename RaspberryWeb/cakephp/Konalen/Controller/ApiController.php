@@ -51,35 +51,51 @@ class ApiController extends AppController {
         $konalen_user = Utilities::exists($this->request->query, 'User', true, true, false);
         $konalen_key = Utilities::exists($this->request->query, 'Key', true, true, false);
         $konalen_service_id = Utilities::exists($this->request->query, 'Service', true, true, false);
+        $form_id = Utilities::exists($this->request->query, 'FormId', true, true, false);
+
         
         $partner = $this->Partner->checkCredentials($konalen_user, $konalen_key);
 
         $service = $this->Service->getService($partner, $konalen_service_id);
         
-        $service_form = $this->ServiceForm->createForm($service);
+        /*
+         * Se obtiene el form asociado al id
+         */
+        $service_form = $this->ServiceForm->getForm($form_id);
+        
+        if(empty($service_form)){
+            $service_form = $this->ServiceForm->createForm($service);
+        }
 
         $service_id =  $service['Service']['id'];
-        $form_id = $service_form['ServiceForm']['form_id']; 
+        $form_id = $service_form['ServiceForm']['form_id'];
+        $form_data = $service_form['ServiceForm']['data'];
         $form_checksum = Utilities::checksum(array($form_id, $service_id));
       
         $this->set('form_id', $form_id);
+        $this->set('form_data', $form_data);
         $this->set('service_id', $service_id);
         $this->set('form_checksum', $form_checksum);
-       
-       
-       
        
     }
 
     public function checklogin(){
         
         $this->autoLayout = false;
-        $this->autoRender = false;
+        //$this->autoRender = false;
         
         $service_id = Utilities::exists($this->request->data, 'service_id', true, true, false);
         $form_id = Utilities::exists($this->request->data, 'form_id', true, true, false);
+        $form_checksum = Utilities::exists($this->request->data, 'form_checksum', true, true, false);
         $user_id = Utilities::exists($this->request->data, 'user_id', true, true, false);
         $user_pass = Utilities::exists($this->request->data, 'user_pass', true, true, false);
+
+        /*
+         * Se verifica si el checksum es correcto
+         */
+        if(Utilities::checksum(array($form_id, $service_id)) != $form_checksum){
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
         
         $service = $this->Service->findById($service_id);
 
@@ -94,9 +110,46 @@ class ApiController extends AppController {
              * Hacemos un redirect a la pagina de login del partner
              */
             $this->redirect($service['Service']['login_url']);
+            
+        }else{
+            
+            /*
+             * Se chequea los datos de acceso
+             * en caso de exito se redirecciona a la url de login success del partner
+             */
+
+            $login_success = false;
+            
+            if($login_success){
+
+                $this->redirect($service['Service']['login_success']);
+                
+            }else{
+                
+                $service_form['ServiceForm']['data'] = array(
+                    'message' => "Fecha: " . date("Y-m-d H:i:s")
+                );
+
+                if(!$this->ServiceForm->save($service_form)){
+                    $this->log("Error al guardar en la BD");
+                }
+                
+                /*
+                 * Se hace un redirect indicando el id del formulario
+                 */
+
+                $query = http_build_query(array(
+                    'FormId' => $form_id
+                ));
+
+                $this->redirect($service['Service']['login_url'] . '?' . $query);
+                
+                
+            }
+            
+            
+            
         }
-        
-        debug($service_form);
         
         
     }

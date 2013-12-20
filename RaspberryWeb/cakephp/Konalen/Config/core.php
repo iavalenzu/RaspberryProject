@@ -441,4 +441,8 @@ J0MuvOJkZCmijNsFRzVTrxB0
 
 
 Configure::write('HmacHashKey', 'ZG1vy29cTv1ZYY3SA01183H8K');
-
+Configure::write('FormIdCodeBitsLength', 4096);
+/*
+ * Indice [0,100]
+ */
+Configure::write('ServiceFormGarbageCollectorIndex', 25); 
