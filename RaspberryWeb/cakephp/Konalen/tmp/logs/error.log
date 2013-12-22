@@ -1004,3 +1004,235 @@ Stack Trace:
 2013-12-20 12:00:17 Error: Borrando los registros expirados
 2013-12-20 12:00:18 Error: Borrando los registros expirados
 2013-12-20 12:22:23 Error: Borrando los registros expirados
+2013-12-21 12:11:00 Error: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'konalen.identities' doesn't exist
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/Database/Mysql.php(333): DboSource->_execute('SHOW FULL COLUM...')
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1321): Mysql->describe(Object(Identity))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2292): Model->schema()
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1047): DboSource->fields(Object(Identity))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Identity), Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/AccountIdentity.php(46): Model->find('first', Array)
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Account.php(89): AccountIdentity->getIdentity('iavalenzu')
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(133): Account->login(Array, 'iavalenzu', 'password')
+#10 [internal function]: ApiController->checklogin()
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#14 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-12-21 12:43:55 Error: [BadRequestException] Bad Request
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(99): Utilities->exists(Array, 'service_id', true, true, false)
+#1 [internal function]: ApiController->checklogin()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-21 12:59:03 Error: [BadRequestException] Bad Request
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(99): Utilities->exists(Array, 'service_id', true, true, false)
+#1 [internal function]: ApiController->checklogin()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-21 14:35:12 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'Selected driver is not enabled',
+  'enabled' => false,
+)
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMDFhYTc4ZTY3NmIwZDQyYjFmNjAwMDUxZTIwMmM3Y2Y5NDE4ZDNhMTkwNjkyZTEyZGUxOTcyZGRjOGIzMTM1ZGIzNzcwYjU2N2EyNmRlYTMzMWRmZTFjNTc2NjY2MDE0NjVlMjAzODBiY2FlMjAyNmMyY2Y4OGEzNjRjNzFmZDY5YWFmZjY0ODg0ODA0OTg4MmIyMGFjOGMxNWE2OWVjNzI5Mjg4ZGRhODMyMzNkNmVhODY3NzMwMmEwNDI2NjY0ZjY1OGY2OGZmOGY2OTFjNGFhNmI1NTdlZjE4ZmY5NGNlYTI3MzNjMzQ2M2RhYTJlMDQzNzgwNjM2N2IxMjJkMmMyMTVmY2Y4MTg3YzBkOWQyMjhiYWEzODQ3MzdmN2NhNWE5YzU2MmVjY2FkN2UyZmRlMGU0OTJmZTgwYmUyMWJcIixcImVudmtleVwiOlwiM2M4ZDhlYzUxNDEzYWM1MGI3NjIzZGFiZWYxN2RhOTcxN2NjZmYzMjFhYTdjZDA5NDU5ZjhjMDI2MGUyN2U0ZjdjZWY5MDBmNDNiMWM0NTdhNzhhYzE5MmM3N2M5NDAwZWE5YjdiYjc3ZDQwMWQxZTM5MjYyZjZlYzFkOTVhYzA0YTFiYmY0ZGIwODU4YmNlNTE5MDY4ZGZjMmJmMjY5NDBiYTRiNGE1MGQwYzM5ODA3YTdiZDFlNmZjZWQ5MzJkMjAxZmQyMjhiOTIyYmFkZmRjODU4MWExZjYxYzkyYTRlMGJiYzU5YmZiYmNjMDNlNTc3ZWMzZDVhYzkwZWFmYzkwN2ZiZTI2NDM1MTVmNzE1YzlkMTRjNzc0YjFlMWI2MjQwZjMwMmUyNDI0M2MxNjA0ZTAyNDIyMTc5MWRkMmQyNWM3ZGUwMWFiMmFkZTYzOTY2ZmZiNjIyM2QyOTc5ZDVjZWI1NmE5MDg0MjZjZTAwMGVkZTViODIzM2UyMGUzZDljOTY1MjkzZDNkMDJjODUwM2VhNzllNzJiM2ViMDM3ZWM5NDY5YWI4YzJiMmRiMTk4YzNhYWNlNzhjMDRjZjIwODE1ZTVjMjA3ZTI5YjIyNzIxNTA1ZmE5YmFkMzA0ZjVlMmM5ZDEzYTNiOWM5ZTI0YTlhNTg3MzdlNjY5Y2JcIn0iLCJzaWduYXR1cmUiOiIyOTA1ZTZmYmUxNWQ5NGY5ZTUyZjY0YTM1NzYzYzMwYjg1ZDQ0Y2Q0NDEyODEyZDQ5NjM4MjRiODFhNTMyM2E5ZjQxMWU5MmQxZjIzZjllMWEwYzg1NzNjN2Y0NGYyZTg0NDdmNDdkZTVmYTA3MzJiMWRlZDhkOGJkY2I2OTUwOTcwMzdjM2RkZDZiYzRlN2ZmNmVmNWQxOTk0NWVmZjA2ODZkOGYwNDU0YWE1ZjE2OWMxODcwZjRiNWI4M2I5NTQ0MjkxMzA5ODk0Mzc0YzMzZmRiYThlNDE4ZjQ2M2NmNmU3MzI4NTBmYTdkNzFjYjAxODFiNTA5NzdlMDJmMmM5Y2ViNjQ5YWU0NmRhNWQ3NzU0OTVmZmI3Yzc1ZWQ1YTc1YmM0ZjM5Y2FlODAyNzdmZGQ4NGJjZjY3YTg3MmJiOGU5MmU2N2VlZTkwZTk2MDIxNzdmMTNkYmVhYWM0OTI5ZmU1YTEyNTIyM2VjODIyNjBlN2NhZmVlMDFiYzM5NWI0NTQxYjhlMDI1ZDNkMTVjNzI3MmE5ZjM1ZjJmM2M3MGZlNWZkMjAyYjg1ZDM2OTIzZDQwMzI2MmViYzM4NDllOTJhM2YyYjBlNTBjOWE5MzdiYzc3NWNiZmVhNDA4ZmU5MmE0ZWE0Y2U3MGIzNGNmMzRhODVhZTgxYTdiOTljNSJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3288): ConnectionManager::getDataSource('default')
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1107): Model->setDataSource('default')
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3310): Model->setSource('ip_address_acce...')
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): Model->getDataSource()
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/IpAddressAccessAttempt.php(134): Model->find('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Partner.php(72): IpAddressAccessAttempt->isIpAddressBlocked()
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#9 [internal function]: ApiController->loginform()
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2013-12-21 14:37:21 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'Selected driver is not enabled',
+  'enabled' => false,
+)
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMTFkMTFkODE3MTEzMjA0ODI2N2UxMGFiOWRjYzRjMmVkODg0MmVkYjI3ZTE5NTBjM2U4M2Q2OWY2NWZlZWQ4NzdjZWViMTg0ZmIyN2JlZGJmNDg3OTM2NzEwMzE3NDYwYjE2NzkyNmExYjBmZGFjMjk2NjIzMzljOTZjMGI5YzkxYTZmODM5MDcyN2MzZjgzMDAyODA2ZDg5ZjYxNTY3NDM2YzlkYjYyZmJmMGRjMjUwNWRmNDc0YmVhOTJjZTViMjQwNTI0YjUzNTY3MzI0ZjFlN2IxOTAxZTYxZGM4Yzg5ZDUwNGVjOWRjY2E5MDI1MDczZTY2ZWFjZDhkN2VhN2RkMjdhZDUxZGY5M2I2ZDczNTAzMzlmMWYzMWQzY2Y3YTVmMjllZWE1ODU1ODUwMWVhNjVhYzhiMDRkNDgzOTlcIixcImVudmtleVwiOlwiY2M0ZDYxYjM4Zjk5YWU0M2ZjNTZmYjVjZmQ0MWFlNTk2ZGRjMDE5ZTUxZmEzMTA3ODgxZmI3ZWNjMTI1NDE2NzIyMWVhNTQxNzJlOTU2MWZmZGUxZDUxMWM2ZTdlZWViZTUxYWFlN2M2OTA1NzA3ZWEyMzRkMGM3MWIzZTNhNTg5YjkyMTFlY2MzMDk4MjI5YzRhNDlmZDZhYjZhYWYxZTllYzBiYjY1YTAwYzg2OTkwNGUzOWI1YWM1ZmQ1NTI1NWFhOTlmMjM4Yjk4ZDIyZjQ3NjY1NzQ2ZmUzZmQ5NjQyNTcwYzMwMzgwMzY4YWUzN2M1ZmUzOWUxNWRkYTQxNTFhOTUyNDU3Y2QzZDNlNzNiNzllOTI5ZGYxZTAyMTNjMDYxZGZmMWYyMDk1NzhiYjcyYzg4YzA2NWFkNzZiNDE3NzE5NzQ3NDk4OTAxZGYyZWI4ZjUwZTBlZWM0ZWIwYjk0YzZlNTU1ZWYwYzIxZDQwYmVlOWI0ODZiZTY1ODA0MmI5OWM1MWViMTc4MmIwMzM2ZmNmMmYxNWM1ZTY0ZmJjYjEzNWU5MDI1OGNiNDZkMWYzNDY0ZjM5NTEzNjhmZmQ0NjQ5YWQ1YTJlYzEwYzFlMWJjNWQwMGFjNTJlOWZjZWM1NWFiZDQxYzQ1NDZiN2UwZTZlNDJmMjhhMGVhZTdcIn0iLCJzaWduYXR1cmUiOiIzNmJkMmZjN2YxZmM2OTVkZjc2M2Q3NGI3OTI0NzVhMTc5NDE2NTZiMjRlZjIxN2FhZTIzOGZmYmExNmQ0NmRkZjAwYWVmYjUwOWRkMTE5N2Q2NDE0NmE0ZjVlOWJlMDczM2RiMmFkYmM1ODY2MzZiZTMwYTI0NTY3YjFlMWUyMTY1MmM2YjZjMDljOTVhNWE4YzY5MDUxMDNiYTM5Mjk2NWJlZTkzZWE1MmVjMmI4NGEzYTFkOGI0MjcwNjRiNjAxOThkYWUzMzAwZWE1OGM0NTQ4YjQxZGYxMTc2N2VhNjVhM2YxYTM4NjA4ZjBhZGYwZTljNWM2MDc1MDhjZTVkY2ZlMTA5ZjRkNjYxYzNjOTkyM2M5YzU3ODJlM2ZiZTI2ZTExNDczNjRjYTk4MGU1M2YzZmYwYTM1YjBjYzM1OWE2OTA4N2E0YWFjZjY2MmU3Yjk4Y2Q5ZjA5ZmUyNTZmYTFhZWFmMTNjMmM1Y2I4Y2ZmYzNiZTIxMjg1NjAxNjhiM2I5YTU5MTY3M2YxYjM5YjM1NDM3MjdmNTMyMWE3Y2Q2ZTBiOGQwNzAxZGIzYjdiMTE3Y2ZjOGU4MDJjYzBlODg4MTMyM2UwMzM2ZjQyMDBiODBlOGQ0YTNhNzY5OTVkNzhiM2Q5ZWEzMWFkZjdlODBiMzMwZmQ5MWUyNzM3ZSJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3288): ConnectionManager::getDataSource('default')
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1107): Model->setDataSource('default')
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3310): Model->setSource('ip_address_acce...')
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): Model->getDataSource()
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/IpAddressAccessAttempt.php(134): Model->find('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Partner.php(72): IpAddressAccessAttempt->isIpAddressBlocked()
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#9 [internal function]: ApiController->loginform()
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2013-12-21 14:37:35 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'Selected driver is not enabled',
+  'enabled' => false,
+)
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMDJhMTRiNGI3MWEyOGQxYzFkOWM4YmU1ZDAzMDAzZmFmZjk4NmU3YjEwOTJkZTZmNWY1OTBhMTI1NGVkMzNiMzFjMDVlNzZmYzQ1MzAyNzQ3NmUzOWY0ZDM0ODlkNDdkZTFlZTE3ZGFmM2NlMTEyNzNiM2FmOGFkODljZDIzMmI0YWJmYjllNmVmOGE1YzI1ZmEwYzI2MzgwNTNkZTk2MGE3NmRjMjFkYTQ3NmJhZGIzODI1OGQ1ODE2OWU1ZTBmYTYwNzRhNTFlYjkyZjU1ZWVkYTM2N2E3MTg0Yjc5MTc5YmI0YmIzMzI0NmIzODhmNGRhYTE5ZDZlNGMwZGUwZGE5N2E4YWJiNzMyMTk0MTM3NTAzNTRjNjQ4ZjMwZTQ2ZTFjMDlkNDg2YTQ3NDFiMWEyZDE0ZTM1YTgxMzExNzlcIixcImVudmtleVwiOlwiNDdiNzVhYWRiNWYzNWY0NWQ3ZWZmNWQ2MzM5MDU1YjUxYzIwZGU0YjZiZjQ3NGMwMzRkZWY3M2NmYjY0OGE1OTY5YTc3ZjM2YTQwMDBmZTIzMjc1M2ZlY2IyNGFmMTRiYzJlOWYxNDllNDYyMThlNWZlMDMyZTM5NmY1MzliNjc3MmRiOWU2NjU5ODE4NDA1NjYwMDA3YzVmNGYyMGNjYzllN2M5ODUwMmZlMTExOTFhNDRlNTdlMDc3NmIyN2QxYmJmMmJjMDA4Zjg2Yzg3NDc1NTg4MDZjODYyM2U4ZGNlYTJhNjgwMGY4ZGEwYmE0NzE3NDFiNGI0YWI5ZWQwOWY1NjA2YzNlN2RmMDcwMDVkM2I3YWM1NDMwYTdiZWE1ZDgyZmU4ODcwYjg0ODRmODdlNWY1NTdmYzk2NDMxOTkwNmMyZDE5YzlhNWIxMDgxY2Y3MTU0MzBlYTFhYWU5MzM1ZTc5Y2ZjMzFmMmI5MTE0MzllMWU0NjhmOGMwNjc1NmJjZjYyNGU3MWNhNWQ2YWZjZTg3Njc1ZDJhMjRmNzBlY2QwZTRiYmE2YWJlNzVkNWNjMTFiMzY3NzIyZWI0MWU4YWEyNDhmNjNkMTFlOGJjOTdhYTY2MWUxNzY4MDBmNTA0YTFmZmZjNmIyODIwNzM5MmFiMDUzYTk4NzE3NzlcIn0iLCJzaWduYXR1cmUiOiIwNTk0MDdjZTAyZDhmZDEzZTc3ZjlkMWNjYjM2Y2VmNzE1NDY1ZWY0OWU4ODU2OTdmYzVmNTA0ZGViNTIzMzdhOTUzMTQ4MDcwM2JmOTRhYWRmY2IzYjJmZGU2M2RiNWRiNDViNTNiOThiYmMyNDY1NGNhM2ViMGQyMzIyMzVkMDMwNWMzZDI2YWJlYmYxMjE1M2EwNzQ1MzRmZDUxNDVjNWNiOWE3OGQ5Yzc1OWUyYmJmYTk2MGI3OWNhNDRiYzU1ZGEzZWE5ZjZjMDVlNTQ4NmE4NTM2NDVhM2M3MjIwY2I3MjRlNmZiYjQ1ZDZhYTMyNTExYWNhMmQ1Mzk0NDk4NGM5MTA3N2I2Njg0ZDJlMTQwNzAzZmY4NjUyMDkzMDcwNDI1ZDQ3MTk0ZThhYWIyZDNlMTVkNjg5MDE0ZmViMDE4NzhlNmY3NjMyMmU2YjUwYmY5ZDUzM2VhMmI2ODJkMzU1ZTJhYjYxYjVkZjAwZmYyM2VjMzRiMjRmZWJhNTcyZmM4ZTJlYjliMDg0YTYwYzk4MWVhOWRiZWU5NzA0MDMzMDA0MWQ0YjkyNDg1MTQyOGVmYjg0MmFjMTU5YjZiODYzOTlmNGZkOTU3MjcyOTA1OGQwMDZiZTVkMGU5NGYwMjk1NjBjY2Y0ZDVmZWVlY2Y0N2QwZjIwYjA5YjMwYiJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3288): ConnectionManager::getDataSource('default')
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1107): Model->setDataSource('default')
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3310): Model->setSource('ip_address_acce...')
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): Model->getDataSource()
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/IpAddressAccessAttempt.php(134): Model->find('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Partner.php(72): IpAddressAccessAttempt->isIpAddressBlocked()
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#9 [internal function]: ApiController->loginform()
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2013-12-21 14:38:01 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[28000] [1045] Access denied for user \'konalen\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiZDRhYjk5OWNlMmI3YjZlZGVmNzRjODg4ZTU4MmY0MTg5MWM3NzExNzBlYTE5MGZhMjVlZDA4ZjA4OTZjN2YwNmY4NDE2ZWExODc4NGE4YWFhODdiMjRlZWVjMTcwMTc4NDYyMGJiNzI1ZGQwNGVmNGI0YTY3MzE2ZmU4MWI3ZGQ1NDhhMTQ1YWUwOTg5M2MyNjAyZjNlMjZmY2Y4YjYwMGQyNWMzYzFhZmYwY2YxOGU1MmE2YmE0NTUxZjExOGE2YmY4MTM5MmMwNmU5MWQwZTc5ZGNmNjI4ZTg5Njg1MDFjYWUyYjgwYmM1NmM2MDE2OTQwZGUzNTNhMDI1ZWNhYTJiM2NhOWRjMzNlNjAyMzdmODZlOTgyYzIzNDYxNDM4NjIxZWI1NGQwZjJhMWMxYzk1MjYzMDVhNGY1YmYxZWZcIixcImVudmtleVwiOlwiNTM4OGUzM2Q1MzcxMmI0ZDg4M2Q1Nzg1ZjA0NjlkYzYyMTY1ZGFiZTFkMWNiNDAyOWJlZWRiMDdiYmE2MDU5MzFlNGExNzhiNmE0NTIxYzgxN2YwY2E1MjVhMDNkNTBjYzJjYTMzZTM1NDY4N2FmNDJjYTM4Yzg2NGY2MmM1ODliZTFhNGQyNWY0MDgwMjg4ZTYyMWNjMjE0OTdhYTQyZWIwZGVmNThjMDczYmVmOWM4ZDdmZTNhNTUxNGViYTE4NmM1ZTJjMzU5ZWI2OWU2M2IyMGYwOTE4MjE1MjM2MGE1OGY0NzllM2FiZmRkMGY0YWQ0NjFhMzNiM2Q3MTNjZGM2NmEwZGRmMDQ5ZjY3OTM2OWE3MTc0YjYzNzQ4OWIyNmFmMWUwZGNlZWQzMWVkMzk1ZDUwMzI4OTVhNTI1NzdlZGM3YzMyMGY3NjFlZDRlMjUzMjM4NjY0Y2I0MGY5M2RmMzFiNjlkYmNmNjQwOTBhZTBkODgwMzgzYTIyZGFjNGVjYmYyMzU4MmE2NTNmMzc2OWViN2YzOTcxNWQ2MDE0MGRkN2M4ZTVkZTA3MGJhZmRlNmY0MWRiNzQ5NjJjMGMzNTA2NzVkOGYxZWE5ZTRiNDAwYTA2OTVjYjIwNTEyOTkyMTk5OWY4NWY5MTFlODk0YzMwZDY1ZmUyOTRlYzNcIn0iLCJzaWduYXR1cmUiOiJhZjlhM2IwZjczMTg1ZGYzNGUzZGRkZTk2Nzc4ZjYxMzY1MWU1MDY4YTMyZDM2MWU0NmVmNjAxNDMyOTZjZGU1N2MwMzc1MjgzZjM0NWVhNDc3NjY0MzMyYzEwOTg3YWZmNjM1NDRjNTNmN2I1ZGUyZGJmZGJjOWNmYmY4N2FmMmNjY2YwNWY3NDgxNGU1NTk1ZmJmZTE1NmVhNDhjZWViNzU3MTQwZmI0ODM1OGEzZTUyZWQzYjk0Mzk5MTFlODYzN2E4MGMyYjJhMjkxNTcxNzg3ZWMyOTY3MzlmNzllMTBlMzUxMTY3YzdiOGY0ZDc2OGY5MDBiYTc4YjBlODc5ZGU4ZTdkYTE4YTM5MGExNDliNDIxMmI3ZWM5YTkxYmZiZGRhOWEzZjE1Y2I1ODBjN2IzZDBjODg4ZDdhNzVlYTQwOTEyNDlmZmJlOWIyNDJkOGEyODhkMGE4YTMyMDRjZDAwNTY3YWNiODNmYmY1OTM3ZDE1YTU3MWViNTg1MzgwNzk5ZjRjNzI0YmYzNTQ2MjZhOGIwMmJjN2ZmMTZlMTM4YjM5YTc5YTYxZThlZGUxNWQwYjc2YTI4YmNlMDJiZWIxODhkODhmYjgyMTNiZjZlZWZjZjA2NjY5NmI4MzE1OWI3MmI1MjA5OTA4YWJmMmNhNGYzZWFjMTYyY2E3OCJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3288): ConnectionManager::getDataSource('default')
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1107): Model->setDataSource('default')
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3310): Model->setSource('ip_address_acce...')
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): Model->getDataSource()
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/IpAddressAccessAttempt.php(134): Model->find('first', Array)
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Partner.php(72): IpAddressAccessAttempt->isIpAddressBlocked()
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#10 [internal function]: ApiController->loginform()
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#14 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-12-21 14:38:23 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[28000] [1045] Access denied for user \'konalen\'@\'localhost\' (using password: YES)',
+  'enabled' => true,
+)
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNTk1OWZhN2QxZmI4MWY3NWYyNzU1ZTcxNGNlOTNlOTRjZDE1YzY0ZjdjODcyN2M1MzQ1MGEyMDgzNGUxMWRjMDE1OWZhZjYxNjc4MWNlZjIzODYxMDVkN2MxZTNjMTQwY2U3ZTNiYzg3ZjVmOGY0MzAwNjU4MjA1MTQ2ZWMyMTBhMzNlNGJjYWRkNTdmN2U5YmQ3NzM2NGQ3NzdiNzJhN2ZlY2FjOWQ2NDZlNzk2ODA1OTEwNDk3ZmRhODFhNzQ2NGRkYjQ5NGE1ZjIwYjk5YTUyYWU0ODdkNDE0NGE5OTE3ZTg1OTRjYTZjY2Y1YWMzYjQyYTlkYmE0MmE2YTUyMTgyNjFhOTVjYmEzMDg1ODY2ZGRlOTgzNTg0NTRkZTBjOTIzYTFjZGFmNWZkMzgxM2RlNWVmMWQzNTMzMWMwMjVcIixcImVudmtleVwiOlwiNjY0NTNiNTRkZWQ1NDZiODBjODkxNWFmMjAyMWMzMzI2NzkwMGM3Mzc3ZWRhOWVmMmE2YzU1NzAwY2UzY2I3NmE3N2RkOThjZWE3NTVlYjBiZDgwOTk3N2ZiYjgwMzgxZDFjYzMwZjg5YmMyYjY4ZGZhZjBlOTZlM2NjN2U2NDIxZTlkZDBlY2IyMGI1YzkzMzdmZTI2MjhkNjJmNmY1MTkxMzEzMjJiMGE0ZjM0MjBiMDRiYzcyOTA0MjY0NDE2MjAyMjc1Mjc4Njk1NWUzMDY5YjA3OGM4YmM0NzA3NTJhYjhkOTM4MGVjYjhjMjg4ZTY4YWI2ZTM1YmZiZjg4NWU1NGQ0ZjQ3MTRjNThkY2NmYjY2M2YwOThjNzlkZTZjMDFjZDBjMTIwODQ3OWE2MDNmYzI4ZTExNjU2OGRkYWM2ZjFmNjBjMDVmZTBlMGUzODc5NWU0MmI4MTdhZjExMTViMmM4ZGEwZDhlOTI5NzdmZTUxZWQ2NTlmMWU4NjE2ODVjZDU3YzZlNTkzMjFmMDNmMGIwNzhlNTcyZTY3YjM2MWQwZjBiZmUwMmU1MGY3OWYyNWJiNjc1ZGNlMDVmZWU2MTQ5MjRhNmQ1ZjRmNWEyMjM3MTkwZGMyOWJjYzM0ZWEzODVkYTY5M2E2NjFhMzczOTA4Nzk5ZGQzOGIxMzdcIn0iLCJzaWduYXR1cmUiOiI5ZWZiMzk3ZTEyZDc0ODIxZmE2OTIyNDA2NmJkYWYzMDc0NTc3ZmNlZjI4YjAwM2NkYjBiMGNlNmE0NTY1ZmRiNzI3MmNiZTU0MjdlOGY4NGVjNTM4NDhmZjQ1YTljMGE5YjNjMjAyN2Q3NDE3MmM2N2Y5NzVkNGJlZTJlZmZjMjU1MDIyYmNhZjc0NDBhM2E1OGVhNTQxMjkyNzgzZGQ4NjljZTdhNGI4ZmNjNzEwYzE2MWIyMDQyZGM1YTI1ZTJhMGI2N2RhNTA1ZDA0YjhiYzRhM2RlMTNiNmM5MGY1NmYyNDAxMjUxOWJhMjdjMjhhZjIzMGY3MmRhZDE5NjkyODdjYjU2ZjYxYTc5MzExYjliOTcxZDAwYWZhNTRmYjkzNzJiMDMxZGIzNWRhNzlhNjQ3Y2MxYzBmYTlkM2Q0ZGRhMmJhMDU4NDIzMDNjODA3N2Y4NDEwMzJkZDdkOTQ1NzhmYTQzNDg5ZDEwNzIwYmE1MzY4YzBjMTBmMDQ2NjA1NmMzYzE1YWNhOWFhMDM5ODA0Njg0NWE5ZDI2MjUwNGZiNzk3NTJiY2U0MmQ2OGFkODM2ODg3MGY2MmE0MGM3MjE3Yjc0N2U1NzU5NzFlMjUzYTYzYmU0NWM4NmRmNTczODhhNzdiYzU2ODU3NmRmMTM2ZmY4MzgxMWI5YzU5NiJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(262): Mysql->connect()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(107): DboSource->__construct(Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3288): ConnectionManager::getDataSource('default')
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(1107): Model->setDataSource('default')
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(3310): Model->setSource('ip_address_acce...')
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): Model->getDataSource()
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/IpAddressAccessAttempt.php(134): Model->find('first', Array)
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Partner.php(72): IpAddressAccessAttempt->isIpAddressBlocked()
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#10 [internal function]: ApiController->loginform()
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#13 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#14 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#15 {main}
+2013-12-21 14:40:36 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMDNkN2M5YjE2ZTQxMGUyYzI2ZWIxOTBmYTI5ODg3YzVjN2M4YzNiODhhMWU2ZGRjM2Q2M2I0MjhiNzBmNWNhYWQ2Nzk4NTdkZDg1OGZiNGI2OGI1MzYwNjcwZmJkMTk2Yzg0OGM3YTA2Mzg4NTE3OGJjOTgzOWJiZTVlY2JhNjUwZTI5ZDdiMWQwOGM3OGIyMzFjOWM2NmNhZTJmNGNiZjRmNGQzNjFiOTRhYzRhOWE5N2EwNWNjYTdjOWJiNWJlZTI5MTMxMTQ0MWI2YWJmYTlkZTA1ZTQ4MzkyYThiYTNjN2JhYTk0MWQ3NGRjNWM2NTZhZjNkZjJiZjJiNGE1NTEzNTMyNDRlMDg5MDZkNjE5YWFlNmJkNmY0ODAzNmQwZWI4M2JkOTU3MmVmYjcxNWE0OTEyM2Q2ZjAzMTFmMWJcIixcImVudmtleVwiOlwiNzkzMTM1ZDcyYWU5MjVkMDI4MDlkMGNmNmIwYzExYmFjZjNmM2U2ZDVjZGVkYjQ0YjM3MTYyNjA5ZjA0YmE5NDkwZTVjZmU3YzE4YmNlMjliMWIzZmQyYzA1Zjk5MWFlMGYyYjE5ZjhlYzk1YjcxZjEzZTQ0ODFmNzc3YTkyOTE4Njg2MDk1ODdlODBhMzBkYzEwNWRhM2FhNzNhYWEzYzdlMzEyMjgxNjA3YjJmM2Q2MzY5MDZjZjUwYjY1MTY3ZTc3MmVmOTU2MzExNzMyOWU5ZGIzYmY1MTM1YjJjNTMyMWRlMzQyNDU1YmExZTUxZTRkZDgxZDMwZmRhZTQ5M2Y3NzBmNTkwYjNiMDIzYzVkOWE1Nzc4N2EyNTMwYmE4MjAwM2E2MTAwM2Y0MzQxYjg2MWVkMGFhMjhkOTY5Nzg0YTE2Y2U2ZjE3MWViN2VlYWM0MjIzZGVlMTU3OTYyNDU1NDlkYzIyOWRiYzE3MzgzZWIxMDEzNjM3ZDA0ODIwODMyMDBmNWNhOTc5NDA5Y2QyMmQ2MTNlNTVmN2U1YmUyZTEwZWVhMDUxNzdhMmU1OGFlMmI3MTQ3MjM0NzI1OWUxZThmMDlkYjRhNDM0ZDE5ZDEzMTQ4MzAwMGM3ZTk3NGRjODMyNGY4Y2NmNGIwZjRhMThlOTc3YjNhNjhmNzZcIn0iLCJzaWduYXR1cmUiOiI5YThlODQxZDcwY2NkN2QzYWMzMjQzMjg1NzBlMDY4ZDVkMmNhOWNkODMyMmJjYTE3YzRmNTAwYTQ5NTlkMWE1NmRjNzdhZTA0OTYyNDFmNDE4M2JhMWYxMDA5ZmNhODViZDg1MDU3MDZhNDYyOTc4ODhkYzYwYjFlZGYwMGZlNDZjMTc2NmVhOTk2NGE1MzFjZjY3ZjY2NTJhY2E5MmIyNTBiYjc5NmI0YTVjYzI5ZmM2N2ZhNDNlMzYyOGI4MjQ2ODQ4ZDU3NTU4ZmY3MTI2NTIwNjQ5NjVhOGM1M2JhZTkzOTMwZGE3OTg0MzU1MDRmOGY4MDY3YTI0NzQ0Zjc4NzM4MTAwN2YxODRiM2Q0NzlkZjUyMGRjZTVhYmU4MWJhOWE4Zjc0MDVjOWFkNGNmNzk2ZmI4Y2VjMDk3YzU2NDg4ZmU3ODQ3MjY1YjQ0YTA1YzE1OWI0ZDgyNzgxYjBjNzA2ZTliZTJmZTczNWYxM2JlZDdmZDYzN2ViMzBkMzJhMjIyYTlmZTIzNTNlNGI2MmYwZGIwMTcxNjBkN2JjY2QwODJmYmExMDk1MjhlZmFlMmY0YjUxMmQwMTVjNDAwMmExNWYzNGU1Mjk2OTFjZDFlZjZhMGJmZTFlNjNhMGZlOTk3ZGM2OGQzN2VmYmM5ODdmYzg3NmUzYjgzMzFmNSJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-21 14:41:48 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMGNhZTUyNmQyYWE1ZGZmYmZkM2RhYjQ5NzlkOWRlMjQ1ZmM0YTliZDcwMmJmMzkwYWE3MTIzYmVlMDg1MGQzNTJlODkzZmZjN2NiNzBlZDYzMDZlZTlhYzQzOTUzNjc1ODI5MTVlMGVkNjk0Mzc0ZTJiNjdlYjhiN2U2NzljYzcxNWRkZTc1NGJmZmRiNzcwM2MwMjBkYzM0ZmRjNmZiMzVkZDJlOWI0MGU3YTMwZmQ4NGE0ZjU2MTlkYzYzYmNmZWQxN2VkNzk1MWUyOTliMTk4NWI0NzAxY2ZlNzdkNzQwY2FlZmYwYmQ4MTgyYWQwZTk0NzJkNDg5ZWZhNGY0OTAyMTEwNmJmYTNhZmQ2MTBmOTJmMWJmYzhjZWJiOTM3YmI1MTNlZTZiNzcyZjgxODQ4NzY5YzAwZTBhODE0MmZcIixcImVudmtleVwiOlwiNDM2NTEwNmZhZmY2NmVhZTczNWJiYTA4OThlNTAzNjIyM2Y1MDZlNmU5ZTU1ZGZkN2FkYmJjYzk4OTliYjY0MTZkYzQ4ZGQzMWY4M2Q5YzVmYjk4N2NjY2I3Njc4OGIxNzNjNDNlN2Y2ZmNkNTgzYzI2ZTMyMmE1Y2EyOTkxNTVjMTk4MGYxZjg1ZWVmNGU5ZWM2NTU4NDc3ODMzY2Y3OGVkYjhmYWE4MTgxMmI3NmEyYjk3ZjY1MzE1YTJhMjQ1YTIzZGMyZTE4ODlmMTE3OGRhYzE5MjNjOWQ0NjkxMGEzNGQwYzM5NWNmZjZiYWEyNGRiMDMwYzA5ZmJlYmRmODRkNjNjNzBhNGJkYjJjZmNjZDQ4M2U3NGEyNzMxYzQyMDRhNDYwNWU0M2YzMGJhNmU0YjFjYTQxYjBhYjcxYjQ1NzIwYTYxZmYyNTg5ZjU2ZjI3NTczOWJiYjQwMGNjYzQxNzMzODEzMjBjNjViYmM3MjUwZmQ0OWRlMmJhYTUzNzgxMGVkNDQ2MmUwOWM2ODVhNjIzNDRhMzQ0NDEyZTMyOTUzMGYxNzc3MmQ3MDMwMjQyY2EwYWVkZThkNmQ1NWRlMGUwYTA0NGFjODU5ZjFlYzE2NDhmNjU2OTMwMDcwMGFlYWFjYzg0OTMyMmZjZTc2MDMyYzJmNjkzYjk5ZWRcIn0iLCJzaWduYXR1cmUiOiI5NmJlOTY5MzgyYTY5ZTQ0ZWE4ODg0Njg1ZjA3ZWZhOTQ1NzQ1MTMyZWM1MTUwYTJmODkzZmYwYWEyZjA0MGE3YTliODdjMTZkN2NjY2RkOGE3MjA4MWE2NmM4NjQ0ZjkwMzk4YTNkZWMxYTY0MTQxYjE0ZTQyZTYzMjdkNzEzNDQyM2YxYmY5NWE4Mjg4Zjg4Y2RhZjcwYmQxMGMyMmE2ZTQwMzUyOTQ4YTdkODhiZmJiZTUxMzIzOWE5OGJmZWYxZjU4Yzk0YzZmOTEyZGQyOTlkNDc2N2I1NjdhYTUxZWZkOTE2OWI1Y2U4MDY2NjNmYmFiYjY4NDIxNWEyZjA1MjZlOTMwZTc1Y2E2YmUwODE0NjIzYWYzN2JkYmEzNjE0Mzk3NzM2MDQxMThhZThlNWJlNzY0MDk2YmYwZjRlMGExZDU0Yjc0NDU0NjVmNWJlNTNjMjY1YTkyMWJjMzUzMzllMzlkYzAxNmNmZWQyOTU2NWY1NDg4MDg2OGExMzE5YWM2ODQ4YTE2ZTY0NGVkZWJlMmE2ZDU2YzZjYmViOTNhYjc1OTkyMGZlYzZkMWQzNjE0ZTk2MTM4MDZmYzQ0OTBmYjNjZTkxZDkwZTI1NmQ5MjBmNmNkMmUzMTQyZGZlMGJkNDg4YWEzOTIxYjRlZGNkMjg0MTk4NWRiMGVhZCJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-21 14:44:10 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiZjM0ZjVhM2FhOGQ5ODBiODc0ODRlMTBmODY4Zjk3YzFkMTNlNTg5YWJiMzYwYWMxYjg2NGYzYjg1M2Q1OGY4M2Y5M2Q3YWZlYjExODY3OTNmYTBiM2IyMGMzNTU4MTcyOGM5MjMwMDY1ZGE4ZTY4NTc1ZThmOGYyZmZlMjA0M2JlNDYxYTkzMmI3OWU1MTY4ZjQwY2RhNWQyNDlmY2QxOTFjNTRiZmY3YTE5MjFiZDQyODE2YjQ0MjBiMTdhODg2YWVlMzA5OWMzNjM2NmQ2ZjUzMDRkNTQyODZkY2NkYTAyZmI3ODIyNjIyNjVjMzBjOGQ3MmUzM2E0ZjU0NzU4YWMzYjIxYzA2ODIzNTMyMTY3Mjg3YWUxZTJiOTk3YjViZmYzY2EyNjcxM2IxMTZjZjQ5NWVhZGE1NTc4NTdjOTVcIixcImVudmtleVwiOlwiZTAxZTM5MjRlN2YzOWJmMDFlZWVmMDJhNGQwNGJhZTZlYjcyNTFlYjdiOWZiMjk2ZTFhZDdkZWY2MTMzZDkyOGM3YmQwOThjM2U4OGE0MjAzNzg1NGU0MzMzZTM1MTc5MDYxMmMxOWY2YmM3N2M1MzNiMzI0YzkyYzlhNjU0NzM1NzllYjI5MDdlYTBhMzM2ZWE3NDQ5MDk5NDFhNzczMWQ4ODVmM2NlZmNlZmY1NDk0MDhkOTI3YWVmODdkNWE5MjhmYTVkNDdkOTc1Y2EwMTRlODcwNDVjYjI0OWU0ZDcwYWIxOTc2YjY0MzAxMzY3OTQ0MDMyZDEyNTM5ODM1M2U0YjY3ZjM5OTI2ODU3MmQ1OTYzNWYwNThjMzQ5MzUxYjdiZmI3OTg5NmJlOTU5ZDAxMjZhNmQxMTk5NDEwY2IxY2ZmMTM5YWMwZWEzYmUxZDI3YWRmM2NiOTEyZDYyYTk1MjZlOTIzMjlkZWJkYjU0YTY0ZDQxZDAzYmZiZjY0YmMwM2RkMjIwZTIxY2RjM2NlMjk3MmI5N2I2NmZhZjQwY2IzNmRlMTAzZWVlNTliMTU3NTFiOWUxMmRkZjUyYjRjMjA1YTI4ZmIxZjgwMGJmZWE2ODU1Y2I1M2JjNzQ2NjJmZjlmZGRmZGMyZGM1MDUwZjM1YzUwNWM2MzJlNzlcIn0iLCJzaWduYXR1cmUiOiI1NmE0MDg4M2VjODY0M2Y2NTEzY2ViZjA0M2FiMjllMjRmN2Y1YzI4MjI1MjhlNjU1MzBiMWE3ZjczZGQ2YjQ0ZmZkODBkNzI3YWM3YTJiMTllMGI0ZGI2MTRhZmIxZDVkMjM1MDlkMjU5YzhlY2EyOWViODJkMGQ5NzkwNjZmMWRjMWQyNjY5NjgwN2Y1OTNjMDgyN2VkNmEyOGI3MTE0NDZiMTZlMmQ3YThjNGQwMTk5YjBmZmMxOGIwNjgzZGVhMWExNWQ4NDBmOGI5MWRhMDEwZTFhOWNmOTkyNDcxZmJjZTY1YmMxZmZlZTZmYTRhYTQ4ZjNlOThjNjU1Yzc5NDdhMjI0ODY3MDkwMjc5ZWZjYmFiNWE3MDRmZjg3OThkNWUzNWFhNGQyYTAyNTlkNDJlZGIxODFkZTE2OWMxYjIyYmUxYzE2OTAxMGIxNzQyNmQwMGRhMDNhOTU5NDIxNDQ3M2M0YzMxZTcxMjg1YTJlNTE0YTY1NjAwYTA1NDM3NjA5YjU2Yzc4ZmI3MmQ3MzliZDFlMTUxODYzNWY2OTNlMTc0YmFjYmEwODE5MzEyMDZlZjJmNDUxNjAyODFiMjllZDVmYzY5ZDgzOTk3NzQ4MjgzN2NlOTkxOWM3NjkzNDI4NGZmZDRkOTkwZjFhZDAxNTBjMDM0NzIwODVjZCJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-21 14:44:54 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiZTAxMGE3MWM2OWU3Y2U0ZDI4YjRhNGFkYWMxZmM0MzkwM2UyMWJjZmU1MGU5MzgxZTQ5MmQwODQxZDJkNTc5MGNlNmNmNjUwMTc1OTBiMmY5NDA2MzY3ZTcxYjM4YjY0NDEwMGNmMzc4MDU0ZWM1MGQ5ZTY2NjQ3MzFiNmNhYTllZDY2M2JmMjI5Y2ZmOWVmZGE1MTRjMjZjOWUwZDY2NzhiMTlmZDgxODg0YzBmYTJiZDRjOGI3Y2IxNjY1NzBjYWMxZmRkNDlhMGI2ZjRlOTYwMjQzMTk4OTE4ODY1MDZhYWRhNzZkMzhlZmE2NDA0MTIzNzNiOWYxOTAyMTI0NWFlNjU3ZTMwNGM0M2M3NWNhNzhiNDViMDEyMGZjMTVjNDdhZWZlYjY4OGU5MjE3NTEwYTU3YzM3NjhlYmM4ZTNcIixcImVudmtleVwiOlwiNDFmODFlNjgwNGNlMzMxNmJkNzY0MjVmYzkwOWEwZmUwOWI3MmY3YWRhM2JlMGY2NTY1MzcxNGRlMzJhNTM4ZmZlYjE2ZDM0ZDAwYTQ1NTcwYWFiODM4M2EzNDFjNTEyNjUwYTg3NzQwZDM3YmY4NzkwYzk4OWYxMWE4ZGJkYzA4ODQxNzAyNjkxZDBhYWYwODhiZjkwMzYwNWVkODJiMjA5OWFkOTBlMDBiZDJlN2E3OTQ1YmY2MjI2YzM4MDg4ODUyMmI5Yjk5NzgyNDM0Y2ZiYzhkZTBhMTA0Mzk2NjM4OGU4OWVjNTI4YzkxZTgzMTZhZWZkMDQ1NjIzMzhiY2VkOTQ4NThhY2E5OWY1MzJkYmYzMjA4MDNlYTA0ZTJlZjg2ZGUyMzc1MTQ1MmJiODA0YmI3ZDQwODVmNjg1MmU1ZjZjNDc5MTQ3MGZjYmY3ZGM4MDMxMWNiOWU5NmNhN2MxZmNlOGUyOThmZGU3YTY4YWE0NTllYjFkOTAyNWQyYzY2YjAzOGQxYWY3MzY2ODVlM2Y5Nzk4ZDNhOTU1ZGYzZDE0YzM2NDA5YWMwOGRkOGY5Y2RjY2EzODk5NjUwYWZlMzhiN2FhZTI1NTVjMDIxZmY4MDk4MGYzMTUzYzU5Njk0ZGU2YjMzNGEyOGQ5MDM1MzRkZThmYTJkNjc2MmVcIn0iLCJzaWduYXR1cmUiOiIxZmM4MjJmNTdlYTM4M2EzMDg4MmVmOGY0NjNlMGI1NzlmN2EwNDU2YTYxMDNlNjhhZWRiYzY1NTc5ZTc5YmYwODAxYjk0NWY5ZGUwZmFiYzYwNGZiZjhmMDU5ZmZmY2MwN2QzZWJhNWRjMjY4NWIzZGM4ZTFkNDM3ZGJlNzQ2ZDNlMzdhNWQ4ZTE3MWE0MWJhM2U2YmRhNTY1ZjRjNWRjNGNiOWZkOWExOThjYzgwNmNkNWMyYjNmM2Q1YTZjZTY3MmZlYzIzMzdlNDAxMmIwYjVkNjc2YTkyNDg3MWUyYWRiYjUwOTdkYmQ5YWVjNGIzYjBhYTU5NGFmNDY4YTE2MTIxNWQyZTM0NWU0MzY3OWU2OGZkZDY5NWEwY2IyOGJmYzNlYTA0N2ZkZTNmNmNjYWI0NGZmZGI0NDdiNGU1YmMwNzU2N2FmMWEzNzA3YWI2ODI0NmU5ZWJmOTc5ZjQzYjBhMjgxZjQxNjFhOTg3MThiNjkwMTQzYzViYmQxNjExNmEzMDNkYjYyNzUxOGJkZjhjZmQwNTRhODhiNDAwYmVkNDUwMTI5MDZiMDQyYTAyMjJlMmQxOTM5YmNjYTE2NzdiMzg4ZGNlYjQ0Yjg5MWUxNzViM2I0ZTQzYmI5ZThiMzU1NjM0YTI0MDY3NDZiZDhkZGYzYmFkNjU5N2E4YSJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(71): Service->getService(Array, '2')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-21 14:44:56 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiYTY0ZDQ2N2YxYTI5NWQxZWM2ZGI2YmMyMzZjYWYzZmJmOTk4YWIyY2NkYTkxNjZiYTQ3MmYwMzc4NjZkYTAyM2YxNTczY2YzMjRjMzYzOWU5MmU5N2NkN2Y2OTA4NWFjYWRlOTljZTc4ZWViYjNlY2I5MTllYjBhMGE1YjA3OGUxMWZlMDE0OWZlYWEwOTViNjkzZjRkOTY5NGRiMDQ4YWJhMmRmZTAzZmVmZmM2NWQ1NDAzY2M3YjdhZTkzMTBiMTY1YjgwODQ2YjNiN2RkYjYyZWUyZmMzZjVmMTcwZWZmZTM5ZTE1MTYzNTdhNTczYTAyYzFkNjVkMTI4ZmRiMTExYjllMjczMjBkOWFhMDdkZWNkNmE3ZWIyOGUwMzk1NzQ1N2I0N2JhMmQyOGQwMzIyMDQ4NTk0ZmM0NDg0ZmFcIixcImVudmtleVwiOlwiOTkzNGRkMGRmNWE1ZGJjMDA2OWM0NWIyNjJlMzk0NGQyNzIzMDljZjE3ZTk2ZDc3ZWRmZTMzMGRlZWE0Zjg0ZDkzOWRiMjg3ZGVmMzM4MjYyNmFmMDU0ZWY5NTYwMjBmNjQ2ZDUzMGQ3MDk0MDcxMjI2NjJkMDZlODY0ODA0MWVhMTg3MGI3ZmFlNmE3MzIxMmRiM2Q0Y2M1NDY1ZGIyNWQ2MGI0ZTQxYTk1YWNiY2RkODcyOTBmOTZhYzA5NzlkY2YxNDI1YWFmYWE2OWEwODEwYTNmZTZiOTRhNWJiY2VlYWIyNDcwZWZhODZhMmZiMTAxYzdmNTRjYTM5OTE4MTdiM2Q1YTNjYmJiOGQ1NWRhMWYwNTgxMzhiNzY5ODljMTZkZGI2NDA0MjIzYWY3NGZhY2QwOTQyNWQ5MzU1NGMyYjk5MmE4NTBmYTQyYmVmYzc2ZmU4MzcxZDhmZjM3N2Q1YWRkNGIwZTgzMDNlNWQ1MWVkYzliYWI0Mjg0N2RiNTQ2NTE4YjU1MDZkNGFlNWI2Njg2NzVkNTkzZTI5ZGM1YmNiMzlmMTgyZTgzNzhkYTY1NTliMzkwNWU3NzA5ZGY1MGEyMjBkY2M4OWNjYWM5NWE0MmE2NWEyN2JlY2YxY2Y5NDQzYjAwOTc1NjkzYmM1NzFjYzQyNmRkNTQ4NTlcIn0iLCJzaWduYXR1cmUiOiI5ZjM5M2VlNDM4YTI4ZTg4OTc4ZjI0MmMyYWU1MTI1ZDFhZWZlNTZlNjA3MTlkMzFmNDhiMGFhZjA0N2QwMmVkYTVhYTljMTA2MGJkM2RmM2I0NDEyMmVhMmY4NTFhMmE3YzUzYWQ2MDU3MDUxMWFmNTEzNTJmNGFhODBjNWMzMTlkY2U4NWMyNTBkNWQ1NDNhZDA4NzJmNDQ3MzgzMDcwY2MyZGRkMjdkNjIyMzkyYTY1YTJiNTQ1YjhhZWE2NDdhNGIwNjdkNGI3ZjZmYTY4NDBjYjczZjgwYWY2NDhkOTE5ZTNkNGIyZmU5OGQ2MTE5YmNmYTFjYmRmYzhmOTRiODVhYzc3ODQxN2RlZDU3ZGJlMjc2MDdmYzdmMTZhMGJmNzZjOTJjNTNmYTQ3YmE1M2Y4ZTU4YTA4OWFiYTE2MjVjYzUwYThhZTZmMTUzMTAzZjM4ZDlkM2Q3ZTQ4YjFiMDlmOGVjZDJhYjdjYjRhMTQ0YTBhYjg3MWE2OTZkODkxZGM1NTg4NGUyMjQzYThjMzZlN2I4MTEyODc2ODc1ZmFhMDdiZTk5OThhZmRjMGNjNjhjYTY5ZTdkNTNlNGQyNTdiMDhlMDdiYTM4YTYwNDY2YmUyOWQ4MzEwMjc5MmY3MDZhNzEyYWYyMTBkMzlkYzUyOTViOTcyOGIyOTg5ZCJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(71): Service->getService(Array, '2')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-21 14:46:03 Error: Borrando los registros expirados
+2013-12-21 14:46:34 Error: Borrando los registros expirados
+2013-12-21 14:52:21 Error: Borrando los registros expirados
+2013-12-21 14:59:33 Error: Borrando los registros expirados
+2013-12-21 21:14:58 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiYTQ2NjExOGE1ZmMyYjRjZjEwNmNiNDg4NzNkMzg4OTc4ZWRiOTkyNWU2MzczYzM5Y2M0N2ZhZGVlNDM2NjU5MGM4MjhkMTk5OWEyYjg3MDFlNTM0OWVjNDg3NzA1MmVmNTQyOTViZjUzYTY3NTczNjlhNjZiNjVmYjEyYWE0NTVhY2E1ZjgwNGZkZTA0MjQ4NTFkOWVhODU2ZjNiZTZjNzU4Y2ViZTczZGVjNzhkYmE2YjRkYWY3MDU2NDdlMTQwZGZmNWM3YjJhNTZiZjg4Njg1NjZhNTcyZjU2YzI3M2E4MjEwODhhMzNkMTIxYTU2MWNhMTA2ODdlNGUxMTc0NGJhNTIwZWQzMGYzNzAwZThlYzk0Mzg5YmU0MWQ3YzIzZTgwMzJiMzY0ODIzOTcwZjA1NDE4OTdmZTA3ZGQ5ZDNcIixcImVudmtleVwiOlwiNDViMmU2MGU3MjUzZTViY2NkODdlMTU4ODRmOTMwZDdhMzEyZDViNWQ5MDRlMWUyYjVhOTE4YjhmNDAyZGUwNDQ0OTZjN2I4ODY2YjlhOGNlMDY1N2UwY2U0ZWQ3MmU4MTQ1ZDU5ZGJiOTc0ZjYxYmY1YjZmNjE4ZTJiNjIzMGZlZjRkNjRhYmJiMzFlMzFkYjAwZTI5YTBkNmNkMzhkZjVkYzdkY2RlZWIyYzViZjIwZWRmODhiY2Q5ZDM5NGY3Zjc1YWNkZjlhNjljNzBiY2NlZTVhZmFiNDQ1OTA5ZjIwMzA0YTkwYTA2OTk5MzhiOWFhZmFmZDY1NTk3OTI4OTc3MTA5ZDJjZjgyMmE2NzIxOTJlNzYzNTBhMzg1NjFjOGM2OTRjMjY1M2NlODYxMTljODg1YjdmN2IwOGQ4ZGM4Nzg4N2ZiMTZlMDc2ZjYwZmZjNTMxMTZjMTE1YmM1MTVhNWRiMzhkYzU0MDNkYWVjODhmNTkxNThmN2ZhODhlNDQwZTcyYmExYjc1MWVlNzA2OWQ1ODkzMjY3YTNlZGVlZDBjMDc2ODFjODZkNjAwZjA5MDI5NWNiMzA0MmZhMjcxNzYwOWNkNWFlNzdlYzEzZDViYTIzMGEwMmU3NDVmZmEzZDQ4YmJkYWQyMTIzYmNmN2I4YjMyZWYyZTBhYjZcIn0iLCJzaWduYXR1cmUiOiIxOGJmYjViNDY5ZjJkNGRkYzI2MzA2ZTdiNWRhMWI0OTUwZDkyMjFkNzU1NDZhN2IwODgwM2VlMTQ4OWI0MjVjMDhiYTg1NWU2ZGRkNTRkNzZmYmRlMjg2NjZiYTNjY2ZlODlmOTQzMTIyY2Y2OWI4MjFmMzQwNDA0OTQ3YjhlNzYzYjRlNWZjMzk0YzBkM2M4ZDQwZTMzYzkxMzk3ZjhkNGIzMWMwMmVmYWMxZjNjMjFhMjhjNzhhNjQwMmE5M2JkOWZhODk2Yjg5Nzg3NGYzOGY3M2FkYjgwNWU2NjdhYmM5MTYwY2JlY2VmYzBiYjQ4ZjNhZmIzNzNkMWYyMGUxMjkyNWYyYzk5MjI4MGEyN2NhMjZkMjIwNWUzMTYzMWIwMjY2ZjFlMzM2ODVlZjE3N2FkZmQ4ZWFhZWRlMjc0MDMyM2RhNzlkMWQ0OGU5NGIyMjVmNTkyZjc3Yzg5NDZhZDhkZjA3YzVjMDIzNWJkZWYwM2M3ZjZmMWVjM2Y0NzJmNmUzMWU0OWU4ZTI2NmRjOWE5ZjRjMjE1NWFjOTE0M2VmNWNjM2Y2YzgxYTM1ZDk4OWM4NTk5NDI3ZTAwYmVjNzBhMWExZjdhNjE3YmQxNjljMGE3MDZjNzJhMDNkMDk1YTJhNjMzNDE4N2YwMGZhMGNjOWRlODU4ZTYyMzBmYiJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-21 21:15:04 Error: Borrando los registros expirados
+2013-12-21 21:28:15 Error: Borrando los registros expirados
+2013-12-21 21:28:42 Error: Borrando los registros expirados
+2013-12-21 22:09:53 Error: Borrando los registros expirados
+2013-12-21 22:10:16 Error: Borrando los registros expirados
+2013-12-21 22:21:21 Error: Borrando los registros expirados
+2013-12-21 22:53:16 Error: Borrando los registros expirados
+2013-12-21 22:57:50 Error: Borrando los registros expirados
+2013-12-21 23:08:19 Error: Borrando los registros expirados
+2013-12-21 23:10:20 Error: Borrando los registros expirados
+2013-12-21 23:33:28 Error: Borrando los registros expirados
+2013-12-21 23:33:37 Error: Borrando los registros expirados

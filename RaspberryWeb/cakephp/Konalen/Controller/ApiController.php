@@ -37,6 +37,17 @@ class ApiController extends AppController {
         
     }
     
+    public function check(){
+
+        //Registrar el numero de intentos fallidos y bloquear la ip
+        
+        $this->autoLayout = false;
+        $this->autoRender = false;
+
+        echo json_encode(array('valid' => true));
+        
+    }
+    
     public function register(){
         
         $this->autoLayout = false;
@@ -125,6 +136,10 @@ class ApiController extends AppController {
             
             if($response['success'] === true){
 
+                $timeout = 60;
+                $checkurl = 'http://konalen.dev/api/check';
+                $id = mt_rand();
+                
                 /*
                  * Creamos un mensajero seguro para enviar la data del usuario de acceso exitoso
                  */
@@ -132,7 +147,7 @@ class ApiController extends AppController {
                 $sps->setRecipientPublicKey($service['Partner']['public_key']);
                 $sps->setSenderPrivateKey(Configure::read('KonalenPrivateKey'));
 
-                $packet = new LoginPacket($response);
+                $packet = new LoginPacket($response, $timeout, $checkurl, $id);
                 
                 /*
                  * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada

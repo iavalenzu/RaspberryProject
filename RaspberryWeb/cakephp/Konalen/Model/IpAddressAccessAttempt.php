@@ -87,8 +87,13 @@ class IpAddressAccessAttempt extends AppModel {
             if($access){
                 
                 if($access['IpAddressAccessAttempt']['access_attempts'] >= $max_access_attempts){
+                    
+                    $blocked_period = $blocked_period * ($access['IpAddressAccessAttempt']['max_access_attempts'] + 1);
+                    
+                    $access['IpAddressAccessAttempt']['max_access_attempts']++;
                     $access['IpAddressAccessAttempt']['blocked_until'] = date('Y-m-d H:i:s', $now + $blocked_period);
                     $access['IpAddressAccessAttempt']['access_attempts'] = 0;
+                    
                 }else{
                     $access['IpAddressAccessAttempt']['access_attempts']++;
                 }
