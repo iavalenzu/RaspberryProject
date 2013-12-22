@@ -1,5 +1,28 @@
 <?php
 App::uses('AppModel', 'Model');
+
+
+
+
+class Login{
+    
+    public $loginSuccess = false;
+    public $loginMsg = '';
+    public $captchaMsg = '';
+    
+    
+    function __construct($login_success = false, $login_msg = '', $catpcha_msg = '') {
+
+        $this->loginSuccess = $login_success;
+        $this->loginMsg = $login_msg;
+        $this->captchaMsg = $catpcha_msg;
+        
+    }
+    
+    
+}
+
+
 /**
  * Account Model
  *
