@@ -126,6 +126,8 @@ class ServiceForm extends AppModel {
                 }
             }
 
+            $this->log('Fallé al crear un id de formulario unico en el modelo "ServiceForm", el numero de intentos de creacion se excedió!!');
+            
             return false;
             
         }      

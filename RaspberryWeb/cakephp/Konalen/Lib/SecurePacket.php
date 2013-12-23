@@ -18,7 +18,7 @@ class SecurePacket {
     var $expires = null;
     var $created = null;
     
-    function __construct($data = null, $session_timeout = 60) {
+    function __construct($data = null, $session_timeout = 60, $id = null) {
         
         //Definimos la data del paquete
         $this->data = $data;
@@ -28,6 +28,11 @@ class SecurePacket {
         $this->created = time();
         //Por defecto la duracion es de una hora
         $this->expires = $this->created;        
+        
+        
+        if($id){
+            $this->id = $id;
+        }
         
         if($session_timeout){
             $this->expires = $this->created + $session_timeout;
@@ -79,16 +84,14 @@ class HelloPacket extends SecurePacket {
     
 }
 
-class LoginPacket extends SecurePacket {
+class OneTimeSecurePacket extends SecurePacket {
     
     var $checkUrl = null;
 
-    function __construct($data = null, $session_timeout = null, $check_url = null, $id = null) {
+    function __construct($data = null, $session_timeout = null, $id = null, $check_url = null) {
 
-        parent::__construct($data, $session_timeout);
-        
+        parent::__construct($data, $session_timeout, $id);
         $this->checkUrl = $check_url;
-        $this->id = $id;
         
     }   
     

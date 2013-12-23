@@ -442,6 +442,11 @@ J0MuvOJkZCmijNsFRzVTrxB0
 
 Configure::write('HmacHashKey', 'ZG1vy29cTv1ZYY3SA01183H8K');
 Configure::write('FormIdCodeBitsLength', 4096);
+
+Configure::write('AccessAccountSessionIdBitsLength', 2048);
+
+Configure::write('LoginSecurePacketCheckUrl', 'http://konalen.dev/api/check');
+
 /*
  * Indice [0,100]
  */

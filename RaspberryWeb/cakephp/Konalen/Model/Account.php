@@ -6,16 +6,55 @@ App::uses('AppModel', 'Model');
 
 class Login{
     
+    static public $ERROR = false;
+    static public $SUCCESS = true;
+    
     public $loginSuccess = false;
+    public $loginAccess = false;
+    public $loginUser = null;
+    public $loginErrors = array();
+    
     public $loginMsg = '';
-    public $captchaMsg = '';
     
     
-    function __construct($login_success = false, $login_msg = '', $catpcha_msg = '') {
+    function __construct($login_success = false, $login_errors = array(), $login_user = null, $login_access = null) {
 
+        $this->loginUser = $login_user;
+        $this->loginAccess = $login_access;
         $this->loginSuccess = $login_success;
-        $this->loginMsg = $login_msg;
-        $this->captchaMsg = $catpcha_msg;
+        $this->loginErrors = $login_errors;
+        
+        if($this->loginSuccess){
+            $this->loginMsg = 'LOGIN SUCCESS';
+        }else{
+            $this->loginMsg = 'LOGIN ERROR';
+        }
+        
+    }
+    
+    public function isSuccess(){
+        return $this->loginSuccess;
+    }
+    
+    public function getUser(){
+        return $this->loginUser;
+    } 
+    
+    public function getAccess(){
+        return $this->loginAccess;
+    }
+
+    public function getErrors(){
+        return $this->loginErrors;
+    } 
+
+    public function getMsg($field_name = false){
+        
+        if(empty($field_name) || !isset($this->loginErrors[$field_name])){
+            return '';
+        }
+        
+        return $this->loginErrors[$field_name];
         
     }
     
@@ -56,8 +95,8 @@ class Account extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'UserAccess' => array(
-			'className' => 'UserAccess',
+		'AccountAccess' => array(
+			'className' => 'AccountAccess',
 			'foreignKey' => 'account_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -101,12 +140,7 @@ class Account extends AppModel {
         public function login($service = null, $user_id = null, $user_pass = null){
 
             if(empty($service) || empty($user_id) || empty($user_pass)){
-                return array(
-                    'success' => false,
-                    'error' => array(
-                        'msg' => 'Login Error'
-                    )
-                );
+                return new Login(Login::$ERROR);
             }
             
             $identity = $this->AccountIdentity->getIdentity($user_id);
@@ -125,36 +159,25 @@ class Account extends AppModel {
                     'Account.service_id' => $service['Service']['id'],
                     'Account.user_password' => sha1($user_pass)
                 ),
-                'recursive' => -1
+                'recursive' => 0
             ));
 
             if(empty($account)){
-                return array(
-                    'success' => false,
-                    'error' => array(
-                        'msg' => 'Login Error'
-                    )
-                );
+                return new Login(Login::$ERROR);
             }
             
             $account_identity = $this->AccountIdentity->check($account, $identity);
             
             if(empty($account_identity)){
-                return array(
-                    'success' => false,
-                    'error' => array(
-                        'msg' => 'Login Error'
-                    )
-                );
+                return new Login(Login::$ERROR);
             }
             
-            //TODO Ver que info se envia al usuario
-            
-            return array(
-                'success' => true,
-                'user' => $account_identity,
-                'error' => ''
-            );
+            /*
+             * Se crea un registro  de acceso de usuario
+             */
+            $this->AccountAccess->createAccess($account);
+
+            return new Login(Login::$SUCCESS, false, $account_identity);
             
         }
         

@@ -24,7 +24,7 @@ class ApiController extends AppController {
      *
      * @var array
      */
-    public $uses = array('User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account');
+    public $uses = array('User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account', 'AccountAccess', 'OneTimePacket');
 
     public function beforeFilter() {
         parent::beforeFilter();
@@ -32,7 +32,9 @@ class ApiController extends AppController {
         
         //debug($partner);
         
-        
+    }
+    
+    public function test(){
         
         
     }
@@ -132,14 +134,11 @@ class ApiController extends AppController {
              * en caso de exito se redirecciona a la url de login success del partner
              */
 
-            $response = $this->Account->login($service, $user_id, $user_pass);
+            $login = $this->Account->login($service, $user_id, $user_pass);
             
-            if($response['success'] === true){
+            if($login->isSuccess()){
 
-                $timeout = 60;
-                $checkurl = 'http://konalen.dev/api/check';
-                $id = mt_rand();
-                
+                $timeout = $service['Service']['session_timeout'];
                 /*
                  * Creamos un mensajero seguro para enviar la data del usuario de acceso exitoso
                  */
@@ -147,7 +146,11 @@ class ApiController extends AppController {
                 $sps->setRecipientPublicKey($service['Partner']['public_key']);
                 $sps->setSenderPrivateKey(Configure::read('KonalenPrivateKey'));
 
-                $packet = new LoginPacket($response, $timeout, $checkurl, $id);
+                /*
+                 * TODO Ver lo que que sigue
+                 */
+                
+                $packet = $this->OneTimePacket->createPacket($login->getUser(), $timeout);
                 
                 /*
                  * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada
@@ -158,7 +161,7 @@ class ApiController extends AppController {
                 
                 $service_form['ServiceForm']['data'] = array(
                     'message' => "Fecha: " . date("Y-m-d H:i:s"),
-                    'error' => $response['error']
+                    'error' => $login->getErrors()
                 );
 
                 if(!$this->ServiceForm->save($service_form)){

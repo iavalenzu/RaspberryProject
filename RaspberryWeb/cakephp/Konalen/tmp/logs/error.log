@@ -1238,3 +1238,100 @@ Stack Trace:
 2013-12-21 23:33:37 Error: Borrando los registros expirados
 2013-12-22 00:32:55 Error: Borrando los registros expirados
 2013-12-22 00:32:56 Error: Borrando los registros expirados
+2013-12-22 15:25:51 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMzc5ZmQxZmM1ZThmZmZjZTFmZDBiOGI2NGVhNDQ2NmNiZjdlMTkzMGEyNTZjNjBhYThlNmE2ZjI0Yjc3YjNmZjAzOTE3ZjJlNzYwNmVjNTI2ZmJhNzUzNWEwZjg3N2MxYjJiYWE3ODY4Nzg2NzI3ZDk0ZmY5MjcxZGU0NWRhNDJjMjE4Y2I0NDlhYjM0ZTdhMTllNDY5ZjgyYWNlYmQ0ZDdlN2IxYTBlY2U2MmQxYWYwZjgwNzZjOWNiOGQxM2NiY2MwNjEyZDdmODZiMmQ0YTcyNzM5OTcxMzllM2E3MDNiYWY1Y2FlNGNlOWUzNjcyNjFhNTljOGQ3YTA0N2Q5MmY3MTI2MjMzMmJjYzM3MGQ2NTVmMzI1NWE1ZTIxNTQ1ZTc0MmQwZTA0ZTI2MjYzODNkNWNlMzc5YWQ4MmNlMTFcIixcImVudmtleVwiOlwiNmZlZTc1ZWJlNGM4MjEyNGI1YmRjN2NhZGQxYzQyOWNlNGRmZjQwZmNlYjQxNjBjNTU5NGU0MjI4OWQ4ZjI1MTE2OGQ3YWViNWYzOTUwY2YwYTZiYjQzZWEyODUxYzQ1ZjYxN2VlZTVlYjU4MGUyNTIyOTIwY2YxY2MwZmJlODFhNDlmM2JhMjA0NmQ0YTg5NjgxOGYwMzgzZGViZDIyYTYxZjRiOTVjNjAyMmI2YTA2ZTgzZjZmZWRlY2U1ZDUxMDA4YWRmYTViNDFiNzdiYjgxOGJkZWRiMWM4ZGVlNzVhZWVhNjFjNWNiNmI0MTE2MjdmZGY2OTEzODQ3NDA1OGU2ZmY1MGZhYjllZjVkZGYzYmEzM2QzZWJmY2E5ODk1ZGQ2YWRmY2NjZTE1NGViZDUwNzA4ODA0Y2RlNjJiODc2Mjg3ZDI5ZjY3YWFiZjA1MDA0MzgzYjNjYmRlZDQ3OGFiMDY5Y2M1OTgyNThhYjExZDVhNzFlNzAxYmJmMzZlYjI2NzZjNWNjMDkyMDNlNmI2NzAzNmYwNjc3MTFlYTg5MjZiMjAyMzNkY2E2MDAzNDEyMzE4Y2YyZjExNjM3YzNhZjAyNzFjOWJhMWZkODUyZmNhN2RhMjRjMjU4OTcyNDQ1YWZkYjFjMzM2YmI4MTM4ODcwYWJiNzZiMTdmZTdcIn0iLCJzaWduYXR1cmUiOiI5NzI4ZjViOTc5ZjgyNDQ2ODZmODk3ZGJmNzIzOWFjMGU5N2IzZGIzYjI2ZTU1MjdjZmMyZjBlMTY4N2Y5YmVhZjJkNDI4ZDcwN2I0MDBmZDE1NzkzMTZhNTYwMzY5NWZmY2ZiY2NkZGMzZTZkNzUzZGQwZmEyMDg5OTFjNDZhOGQ3OTI0NWM1MDlhMGE5M2UyNjYyZGFiMzRiZjUxMzY2MmZjOGZiMmVlMDRlNDNhNWQ4NGQ3NjEwOTE0MTgxZTE1MmNlNzY0M2YzODkyNmFiMGI5NDY0ODNmNGYyNjVhZTExOGM5ZjUwZTQwYmYxN2NjYTdkZDBjOThkYmZhYzQ1MDI0MDI4ZDNmYzQ5MzRmMmYxM2RlOTBiMzE3NmIwNjBlY2Y1OTAwNTlkMTJjZjU3MTNjOTlhOTQ0ZjZlYTExMzI0ZGY2ZDM0MmUxMTgyNGIyODg0OTA3OTdiN2Y5ZTM0NGVjZmJlZWRkZGE2YTk2ZjdiYmVkZWVkMjIyMjc2N2JlMjdjM2IzNjZjZGNmZDM2YmZlZGYwMDYzNmJkMDVkODljOWYyZDhjNzgwMzQwM2ZiMjdjMzVjMmRlM2Q4MTkzN2EyZjFkZmUzNTM4OTA2OGE1ODIyOWNlOGYwYmI5MTg1MjAzZmM2ZGFhYmNkYjQ3YWMwZGNjZTAzMmQ3ZjM1ZiJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(71): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-22 15:26:02 Error: Borrando los registros expirados
+2013-12-22 16:20:51 Error: Fatal Error (1): Cannot use object of type Login as array in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php, line 137]
+2013-12-22 16:20:51 Error: [FatalErrorException] Cannot use object of type Login as array
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Cannot use obje...', '/home/ivalenzu/...', 137)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', '/home/ivalenzu/...', 137, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', '/home/ivalenzu/...', 137, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-22 18:08:43 Error: Borrando los registros expirados
+2013-12-22 18:09:19 Error: Borrando los registros expirados
+2013-12-22 18:10:16 Error: Borrando los registros expirados
+2013-12-22 18:10:30 Error: Borrando los registros expirados
+2013-12-22 18:10:44 Error: Borrando los registros expirados
+2013-12-22 18:11:15 Error: Borrando los registros expirados
+2013-12-22 18:17:50 Error: Borrando los registros expirados
+2013-12-22 18:21:58 Error: Borrando los registros expirados
+2013-12-22 18:22:27 Error: Borrando los registros expirados
+2013-12-22 19:06:00 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMThmODMzNTA1ZmY3ODlmOTg2NzNlMmY4MmI2YjQ2Y2FkY2I0YjZkNTVhYjBhM2VmZDY4MzJlNWZjYmQ0MmY2NTUwODI2ZWFjMmQxNmRkMDNkMGM3MTRhZmUzNzMwODM3NTUzMjUwODUwNWY4MjU4YjI3YTYwYThhOWFiMzY2OTRjMWYzNzkyMTUyYTg2ZThhNGE0YzliZjQ2YTliZGM4ZDQ5ZGZjZTBjZDFhMmZiOTA4ZmY1NmE2NjQ1MGRlNGFlODg4Njk5NGM2NzkyNGMyMjNjMjk4MjE5YTg5ZDNmOWEzNGExYWVhYmI5YmVhNWNkMTA2YjFjMzgxYWI2ZjAxMTM1ZDZjMjQyM2UxY2FkZDYzNmQ1YmUxOWMyZGRhZDUyMjViNWEwNjFiNmM0MGEwYjBhMmQ0NmU5NDkzMmFhMzVcIixcImVudmtleVwiOlwiMTQwZDYwODk5NjRlN2EyOTY3YThlZWE0NjU2MmU2YzdhZWZkNDM2YjIzN2UxOWI0ZDQ4ZmU0MzgyYzYyOTEwNDgzZDFhZWVhM2I4MzlhYzVmNDRlMjU1YzcwYWY0MGUyNTUxYmViNTQ0NzRhMDllMzVjNDUzOGEwZDg0NjY2MTYyNjIyYjVlNTBkNDA0ZDNlNjRlZDRjMTQ3MjJkMjRkNzRhMDBlZTcwMzA4YjBlM2ZkYjM0OTIwZTJhY2JhZmI2NWQ2MThhMWI0ZDNlNDM0ODZlZTdiNjZmNTQ3NzU2OWE5NzJkN2E0ZTNmYzNhNTlhMTE4MWE4ZGI3ZTcyNDRhZDVhN2EwNzE4ZDc3ZDg3MjNkOTI1ZDhhMmQ2ZWJhNGZjMTc1YmQwY2ZiMTY2ZDY0NzQ4NjM4OWQ4MzRjNTBmMjA1MWZkNzc0NzMwMDQ1YjFkNjkyNjU2NTE0N2VjNjllMGIzZGMyNTkxYTU4YzE1N2YxY2ZlZDM5M2ZmNzBmNzY5YmY1M2E4NzM0MDg1Mjg3M2ViYTA1NDhhNjdiNjI3ZWZhYzI0OGFlNjY3Y2UzZTkwYjRhYTRiOWMyNTJjMDBkZmI4NDQzOWI0MjM5ZjBiMWUzNWI0ODU1ODY3MWI5OGI5YTJkMWEyMjYwOWNjNjUyOGQ1YjFjNjRlOGVmMGVkZWJcIn0iLCJzaWduYXR1cmUiOiI0MTc2M2Q5OTEyZTdmODU4NTRhMTNlZWNlYmQ4ZjBhZTdkZDZmNjUzMjA2YjUwMjc0ZjgxODFiZTc1ZDk5M2Y0NDYzZTQ1MDIyM2I1MzA1MTdmMzQ1NmMyMzVjNTM2YWZlNDM3MDE3YjQ1NDQ3NDFkMDYyY2RhNTg1NDFiODI1YjEwZDFmYTJjNDA2YWZkOTc4M2JkYTUxOWIzZWJmNjc1OGQ2YTcwZjAyYzkzZDZkNjE0N2FhOTFhZmIyMTRhNWFkZjdkNzY5OTczZDU3ZjUzOGZjMzAzZDNlNTUyNGEzZTQ3NzEwOTkyZDZiNjZlNDE2NjM4ZWIyMGVlMjViMmQ1NDEyNDc0ZTE5N2EzZTZiODViZTMwYmQ4YzViNzhhMDU0MDk3YjUxYWYwYjAyYzQ4MmJkNGU0YzZjMTFlMmM3NDE3M2RkNGFiN2FmMGZhNTQwM2QzNDljMDUwMjA3OWY1ZjQ4Y2FlMDhlYWYyMmNiMDM0NjJjOGU0YzU5ODUxNzExOTU3MmU5MTdmNDBiMjUxOTQ0ZjI5YTk5ZTJmNmY3ZDJjNGI5ZDgyZDhjMTQ4MTBjMTc2MjY1N2U1M2NhYjMzOTdkNWYxZDk2ZDMwNjFkZmFjMzY2M2NjNzc5ZjA3Njk4ZDNjMTZjZDZiODM1ZGQ0NTE4MjhhN2FjM2MxNzc3NyJ9&Service=2&FormId=0c731aa8b3f84a249a38e3f78fb6c7564aa6a519a094d5bfa8c5f92e245a196a14598f9a62c132716ead322303119e4383f3d8aeb079d5d59698068f2329455ed970207264774690810dfcab17786387242b10310af7bd105d9f71495d91aaaf3f0892a130152dbf51a11f79d08ba8110df5f891f42c01d874d726286bc5a8dcd70923131efa3908d25d3821c6c4245f7e078bac89233cd2bb5fb50d677a39884b84d196da94db4a7e3c77415aafd4727784247712227e64eb9216c730464d0911ebc39e54de1d486d69c4912d56dcfb7f4fdba0385ae5d76f92368332a6ca40dd1907408ac2dcee554fb50d3414b087d30d8c5abc9f3115cdf20dd93c102667fdd873285152b59332d0a68ca0f1437ba21bb02c8fe0e940e2e093f2bb7676449e5b63971ebc6c93823470b9ef76f5cf1f3e03845961d4f65577d33a8927fa756040531880e1d109afa7e0e5f970d0578a51255d15ee59c5fbc3eac5b2f5912b69a9eb3d4fc1d7f69b8d39aa3da25c48c63c2a9f92fa8f03df18edaf413eac53d2a713a2092e22674fa874ce0c96ace0b9ae84462bb2c48405ba3126a17614e63a5120bf8ae9fec5e5af468b737052746a3b48a649e2de39869e22f1403d28480abb11414a4937836158fbab80551885dca0c534f4cce09dde8c3b946e22ff6bf01649731144585ad2205c6eb59bdb1bfb3aae2467a34d9e9a65fd3f85764569
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(71): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-22 19:06:26 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNzk1YjY5NjNlMzMxMzBjYjk3OGUzNTE0MWJmMDA2ZDgzMGYyM2YwOGRiNDQ1NTgxMGQyZmZiZTJlODNiZDRjODg3ZTk5OGZiYjAwY2U3NTc2NDk2NDcyYTg3MjEzYzQxZjM4OWU1YzExZGU4OWQzYzdjZjNjODEyOTg2OWVlZGJmMmJiYTQyZjk3ZGI4ZWU4YmZlZTE3ZmQxMDg1OWNmYTVkOWNkYTUxOWMwMWNmNjQxNmUxYWIxMDIxYmIzMzA2YzFiZWNjMDM3OWMxZGZhZjkyM2I0NjBjOGZlNzcxM2FmNDhhNGZlZGRkZGU2MmRjNGFlNjJmZTIyYTVlNGIyMTUwZjI4ZWY1ZDU1YjBkYTUzYTdmNTM1NmQ5YTRlMTkxNWRkMjg2M2VjOTc4NzNlZjg2MjIzNzIwNTI5NmFhZWVcIixcImVudmtleVwiOlwiYzZkZTkyMWU4NjU0M2Q4ODRmNDJiOTk5ZTNiYzZlYmFhZjgyZWJkZDJmNjk5MDkxYzA5NGM3YmQ4MDRlNWFiNmI1NjJhZWM2OTRmNDJhNmRmOWY1NWUzYTczMjI4ZGRjOWUwYTdhODNmZTE0MGEwZTZiMzJkMTBmNDkzYWE3ODkzZGZkMDViMWEwZmI5YmZhZWMwNDU0M2M0M2M0M2E5NjcyOGMyN2UzM2RlMmU1OWYzZDkyNWQzOGRiYTA1YTdjOTdkMzA1YmZkYTRiNTZjOTYwNzAyYTRkZWI4NTI5ZTM2YzE1NmUwMjMyYzllZTBjY2YzNzJkODMxNzZkMWQyNjVmNjY5ZDIyMDI1NWExOGM4NTEzNGI5ODBlNTIwNWNiOGM0ZWI1MzY0ZWUzNWRhZWVlMGRlNTA1NTQxYmEyNWY5ODYzOWYxYjgwNWRjZTc4Nzc3YWZlYjI2NGFmOWMxNTIwMWMyODljNWUwMjg1MzU4MTk0Nzc2OTY4MzY2N2M2N2I0OWM3ZDIyNjM4ZjgzMWM1ZjlmMjM4NTE4NmE3OGE2ZWRlZmIwMmJkMmFkZGQzN2QzZDY4YTVhODIwNmNkZTdmZTIxYzBlODY3ODhlZjMwZmQ4MjAwMjQ5NWExYjZlOThkNjljZjRhMjVmZWM3YWMxMWFmOGUyZjdhMzQ0YjNcIn0iLCJzaWduYXR1cmUiOiIwYmI2OGY2ZjgyZTI3NjhjNjMwZWQ3ZWYyNjMyOWZjZTZjYjc1OWYxYmFiZWZjNzk3NzMwYTczM2UxYmQ2NDAwMDQzMWM3NjA3NWYzNDkxYTRhY2Y1ZWUzNDAwMDY4N2FlZTk5NjI2NDY1MTgxZWY3ZGE2NGQ2OTFiM2E5NmNkNWEzYTYzMjFkMTExMjhlOTIzYjFmZmJjMDNiMGU4ODUwOTUxNzE5OWMxOTExN2Y2ZjlmNTcwMjA0NzZmOTgyOTlmNWNhY2QxMDljODllYTU1NDJiMDhmMDg0ZTk0M2JiMWViMmViMWZkNTQ3NTc0MzhjNmQ3YzQ0ZWI0NTRjOGZlYWU5ZTA0MzYxYjVlMWJlYjAzYjRjMGUxODc1MGI1NzlkNDBiNTM3NWRhNTBlMDc2ZmFiODY3NTY2Zjc4ZTkxZWQyZTVlNDAyNDdhZjRhZTE4OTA0ZGE1NjQzNjZlNWMwOGVkODRkYjI3NDk4MjE5NzVhYzU0MTNmODk2NTk2Yjg4ZDg3NDgzZGViODdjMTBkZDM5MDk5MTEyNTIzY2UzYzQ1NmQ5ZTQxMmE5YTJlNGU3ZGU2NGRjOWQ1NjRkMmVmZDRkMmY2YjcyZGRmNDZkMTA0ZjA0YmJkY2EyYjZiYzAzZWY3MGViNjdjOWRmNWUwMzhjMDhjZDgwNzFhZTI3ZiJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(71): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-22 19:06:30 Error: Borrando los registros expirados
+2013-12-22 20:12:00 Error: Borrando los registros expirados
+2013-12-22 20:12:39 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/loginform?User=Raspberry&Key=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiZTQzZGQyYTkxYzYxMmEyMjMzY2JiZmRkMzQ0YmIzZmEwMGU5ZGNhNWU0ZWQ3YmNkMjVmZjg0NDNkMWI1M2Q0ZTllMGRkZjBlYjFiZWZhMDAzNjVlMjc5MWVjOGE3ZjE0M2ZjMjUyODFhY2ZmN2YyMzNjZTNkNDY1MjUzMzFhYzM4NTYzNmI5YzQzNzFkN2RiOTdlZTllZjEzMTBhYzU3NDBlYjAxZTQ3YjhiN2FkNDI4ZGFiZTE4OGM3NWMwZjhiYjhmNGNhOTNmYzA3MmI0NWNkYzQ1MWY2MWNlNDE2ZjQyMTEzNTI0ZWU4ZmUxOTkzMmFiOTQzYjRjYTY4MzQ5NTgzNDNjOGU5YzczNjk0NmNkNmMyYTFjNmI2NzBlNDFmNDY3NmQ2YjFhNDlmNWY2NTMwMTkwY2FhMzg4ZWY4NjlcIixcImVudmtleVwiOlwiMjNiMjE2MThhZjNkMzE3NzFkYWVmODQ4YTYzYzlkYjRmMTk1NWE5NjZlMGJkODExZmIwYjE1OWFmMzk0ZWMxNzcyZTE3NzQ3NWMyNGUxMzVlNWIyMjY1YzA0OTUxOTYwMzY4MDgxZjRmOThjYWVlMDEyMmRmODRhYzBhMzEwYzliN2ZlNzI2MjE3YTNlNGRhZDAyY2FkYmYzMjhiZGQ4MmE5ZDMxN2VhNzQ0M2E5Nzk1NjkwODZmMDBiMTg4Yjg3MjgzMmE4ODllOGRlYzFiZjY4ZDZiNWNmZjI1ZTdmYzM2MjU1NTE1NDdiYTQxZjNiY2I3NGY0YWVlM2FlMDFhOWRhNGJlZDFmZGJhZjdhMDljNzMwY2JjMThmODRhMjEzOGYyNTc0Y2RlZTRhZTkyNjNhMzQ3YzYyODRiYWFhNGU0ZWZkNjBkN2EyNWI2ZmM1ODgxZDVmOTM2NzJhYzY2YTg1ZmJmZGMzYWY2NWY4ZGUwNGExZDFjMjhmMTg3ZGVlZjUzNjg4OGYyYzNlOGQ0ZTM2YmJkYzQ5ODcwYTViNTJjMDY1ZWI2MTEzZjYzYzk5NmQ2ZWU2NTE2NTY3YzY4N2QwYmVkYzIyNDc4ZTQ5ZjdiZTczY2I2MzRiMzg1ZjU4ODBjMmFhMjFkNjk3MmY0ZTlmYzFlYTcxNDYzMGQ4NThcIn0iLCJzaWduYXR1cmUiOiIwYjIyNWQ3YWE2NDRlMjY0NjA0N2M2ZjAyNTg2OTk2MzZhNzA1MDk1ZjUyZjBhMjEwNjZkMmNmOTdkMGRkOTYzYjc0YTUzZDMxYjk0ODFiOWI3YmU3YjhmN2FiN2YzZGM0NzJjMTI5OWY1OGY1YzJiYjM0OTkyZThmZTNjNDM1M2UwMDk2NDUxNWY4NTc2YjNlMmMwYjIyNTdjMGI2OWY0ZGEyNjMwMDhmYjI5Y2FhNzVjYjQ5ZGI4Nzc3ZjIyMTFiYzYyZThjNTQxY2I3YTkxMjllN2VjMjRkMGY4YmQzN2NkODFiNDUxMGJkOGNiZDllMjU2YjcyNTAxZWNmODM3YmJhZWI4NGU0OGMyYzEwNjA4MDhmODI5NDJmYWU4MDQzNjRjN2I0YmExZWEyZDZiZDUxM2MyNGJhYjlkZjFhMjE2MTFmYmJiNDljODRlZjI4MDRkMDM4YzI1MTY5ZDIxZDEyMzU0OTAzMDM0NjRiOWI0NGM0MjFiODMzOWQ1OGFiYzI0MzdlM2MxNzYwN2Q2YzY5ZjNlZjg2ZjRlZmZiODY0YjFmOGU0N2FiMWJiOGQ1YmUzMzk0ZjVmOGJkOGYwMDEwNzA3OWE1NDNmYjFlMjk4YjUyNGVjODM3MTFmYzJmYzg5OTMwM2Q2Mjc2YWQ3YWM0MjZlN2E5ZTQ1MGU3NSJ9&Service=2&FormId=
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(71): Partner->checkCredentials('Raspberry', 'eyJkYXRhIjoie1w...')
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2013-12-22 20:12:49 Error: Borrando los registros expirados
+2013-12-22 21:10:13 Error: Fatal Error (1): Call to undefined method OneTimeSecurePacket::createPacket() in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php, line 39]
+2013-12-22 21:10:13 Error: [FatalErrorException] Call to undefined method OneTimeSecurePacket::createPacket()
+Request URL: /api/test
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/ivalenzu/...', 39)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/ivalenzu/...', 39, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/ivalenzu/...', 39, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-22 21:12:11 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp',
+)
+Request URL: /api/test
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-22 21:13:17 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp',
+)
+Request URL: /api/test
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
