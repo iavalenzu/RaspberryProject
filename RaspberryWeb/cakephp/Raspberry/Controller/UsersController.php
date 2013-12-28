@@ -1,6 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
-App::import('Lib', 'SecurePacket');
+App::import('Lib', 'Packet');
 App::import('Lib', 'SecureSender');
 App::import('Lib', 'SecureReceiver');
 
@@ -12,6 +12,8 @@ App::import('Lib', 'SecureReceiver');
  */
 class UsersController extends AppController {
 
+     public $components = array('Session');
+    
     public function doCurlRequest($url, $get = array(), $post = array(), $headers = array()){
         
 
@@ -94,6 +96,9 @@ class UsersController extends AppController {
         $this->autoLayout = false;
         $this->autoRender = false;
         
+        debug($_SERVER);
+        
+        
         $data = $this->request->query['data'];
         
         
@@ -110,24 +115,35 @@ class UsersController extends AppController {
     }
     
     public function login(){
-        
+
+        session_start();
+
         $MyPrivateKey = Configure::read('MyPrivateKey');
         $KonalenPublicKey = Configure::read('KonalenPublicKey');
+        
+        print_r(session_id());
         
         $sps = new SecureSender();
         $sps->setRecipientPublicKey($KonalenPublicKey);
         $sps->setSenderPrivateKey($MyPrivateKey);
 
-        $hello = new HelloPacket();
+        //$hello = new HelloPacket();
+
         
+        $transaction_id = 'trx_' . mt_rand();
         
+        $_SESSION['TransactionId'] = $transaction_id;
+        
+        $data = array(
+            'ServiceId' => 2,
+            'FormId' => isset($_GET['FormId']) ? $_GET['FormId'] : '',
+            'TransactionId' => $transaction_id,
+        );
         
         $get = array(
             'User' => 'Raspberry',
-            'Key' => $sps->encrypt($hello) . '',
-            'Service' => 2,
-            'FormId' => isset($_GET['FormId']) ? $_GET['FormId'] : ''
-                
+            'Format' => 'ARRAY',
+            'Data' => $sps->encrypt($data),
         );
  
         $this->set('get', $get);

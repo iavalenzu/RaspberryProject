@@ -456,3 +456,23 @@ Stack Trace:
 #3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-12-27 09:29:31 Error: Fatal Error (1): Class 'HelloPacket' not found in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 126]
+2013-12-27 09:29:31 Error: [FatalErrorException] Class 'HelloPacket' not found
+Request URL: /users/login
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'HelloPac...', '/home/ivalenzu/...', 126)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'HelloPac...', '/home/ivalenzu/...', 126, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'HelloPac...', '/home/ivalenzu/...', 126, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2013-12-27 09:32:05 Error: Fatal Error (1): Class 'HelloPacket' not found in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 126]
+2013-12-27 09:32:05 Error: [FatalErrorException] Class 'HelloPacket' not found
+Request URL: /users/login
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'HelloPac...', '/home/ivalenzu/...', 126)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'HelloPac...', '/home/ivalenzu/...', 126, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'HelloPac...', '/home/ivalenzu/...', 126, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

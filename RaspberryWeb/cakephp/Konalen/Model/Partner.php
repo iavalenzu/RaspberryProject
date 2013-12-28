@@ -66,6 +66,50 @@ class Partner extends AppModel {
             
         }    
         
+        public function checkAccess($name = null, $data = null, &$plain_data = null){
+            
+            //Si la ip del request esta bloqueada, denegamos el acceso
+            if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
+                throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
+            }
+            
+            if(empty($name) || empty($data)){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+
+            //Se busca al usuario correspondiente al nombre de usuario
+            $this->recursive = 0;
+            $partner = $this->findByName($name);
+            
+            //Si es vacio registramos un intento acceso, y denegamos el acceso
+            if(empty($partner)){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+
+            //Se crea un recibidor seguro de mensaje y desencriptamos el saludo con la llave publica del partner
+            $spr = new SecureReceiver();
+            $spr->setSenderPublicKey($partner['Partner']['public_key']);
+            $spr->setRecipientPrivateKey(Configure::read('KonalenPrivateKey'));
+        
+            //Desencriptamos el mensaje
+            $plain_data = $spr->decrypt($data);
+            
+            if(empty($plain_data)){
+                $this->IpAddressAccessAttempt->attempt();
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+
+            //Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
+            $this->IpAddressAccessAttempt->reset();
+            //Registramos la info del acceso
+            $this->PartnerAccess->access($partner);
+            
+            return $partner;
+            
+        }
+        
         public function checkCredentials($name = null, $key = null){
             
             //Si la ip del request esta bloqueada, denegamos el acceso

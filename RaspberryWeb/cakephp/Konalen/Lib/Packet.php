@@ -6,56 +6,34 @@
  * and open the template in the editor.
  */
 
-/**
- * Description of SecurePacket
- *
- * @author ivalenzu
- */
-class SecurePacket {
+
+class Packet{
     
     var $data = null;
     var $id = null;
-    var $expires = null;
     var $created = null;
     
-    function __construct($data = null, $session_timeout = 60, $id = null) {
+    function __construct($data = null, $id = null) {
         
         //Definimos la data del paquete
         $this->data = $data;
         //Identificador del paquete
-        $this->id = sha1(mt_rand());
+        $this->id = (empty($id)) ? sha1(mt_rand()) : $id;
         //Fecha de creacion del paquete
         $this->created = time();
-        //Por defecto la duracion es de una hora
-        $this->expires = $this->created;        
-        
-        
-        if($id){
-            $this->id = $id;
-        }
-        
-        if($session_timeout){
-            $this->expires = $this->created + $session_timeout;
-        }
         
     }    
     
-    public function __wakeup(){
-        
-        if($this->isExpired()){
-            $this->reset();
-        }
-    }    
+    public function __wakeup(){}    
     
     public function reset(){
         $this->data = null;
         $this->id = null;
         $this->created = null;
-        $this->expires = null;      
     }
     
-    private function isExpired(){
-        return $this->expires < time();
+    public function getId(){
+        return $this->id;
     }
     
     public function setData($data = null){
@@ -69,28 +47,53 @@ class SecurePacket {
     public function isEmpty(){
         return empty($this->data);
     }
-    
+        
+}
 
+/**
+ * Description of SecurePacket
+ *
+ * @author ivalenzu
+ */
+class TimeOutPacket extends Packet {
+    
+    var $expires = null;
+    
+    function __construct($data = null, $timeout = 60, $id = null) {
+        
+        parent::__construct($data, $id);
+        
+        $this->expires = (empty($timeout)) ? $this->created : $this->created + $timeout;
+        
+    }    
+    
+    public function __wakeup(){
+        
+        if($this->isExpired()){
+            $this->reset();
+        }
+    }    
+    
+    public function reset(){
+        parent::reset();
+        $this->expires = null;      
+    }
+    
+    private function isExpired(){
+        return $this->expires < time();
+    }
     
 }
 
-class HelloPacket extends SecurePacket {
 
-    public static $DATA = 'HELLO';
-    
-    function __construct() {
-        parent::__construct(HelloPacket::$DATA, 5);
-    }   
-    
-}
 
-class OneTimeSecurePacket extends SecurePacket {
+class OneUsePacket extends Packet {
     
     var $checkUrl = null;
 
-    function __construct($data = null, $session_timeout = null, $id = null, $check_url = null) {
+    function __construct($data = null, $id = null, $check_url = null) {
 
-        parent::__construct($data, $session_timeout, $id);
+        parent::__construct($data, $id);
         $this->checkUrl = $check_url;
         
     }   
@@ -116,7 +119,6 @@ class OneTimeSecurePacket extends SecurePacket {
             return false;
         }
         
-        
         $url = parse_url($this->checkUrl);
         
         if(empty($url)){
@@ -130,7 +132,7 @@ class OneTimeSecurePacket extends SecurePacket {
             return false;
         }          
 
-        $fp = @fsockopen($host, 80, $errno, $errstr);
+        $fp = @fsockopen($host, 80);
 
         if(empty($fp)){
             return false;
@@ -183,3 +185,17 @@ class OneTimeSecurePacket extends SecurePacket {
 }
 
 
+
+class LoginPacket extends OneUsePacket {
+    
+}
+
+class HelloPacket extends TimeOutPacket {
+
+    public static $DATA = 'HELLO';
+    
+    function __construct() {
+        parent::__construct(HelloPacket::$DATA, 10);
+    }   
+    
+}

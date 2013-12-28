@@ -3,7 +3,7 @@
 App::uses('AppController', 'Controller');
 App::import('Lib', 'Utilities');
 
-App::import('Lib', 'SecurePacket');
+App::import('Lib', 'Packet');
 App::import('Lib', 'SecureSender');
 
 /**
@@ -24,8 +24,10 @@ class ApiController extends AppController {
      *
      * @var array
      */
-    public $uses = array('User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account', 'AccountAccess', 'OneTimePacket');
+    public $uses = array('User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account', 'AccountAccess', 'OneUsePacketInfo');
 
+    public $components = array('Session');
+    
     public function beforeFilter() {
         parent::beforeFilter();
         
@@ -41,12 +43,13 @@ class ApiController extends AppController {
     
     public function check(){
 
-        //Registrar el numero de intentos fallidos y bloquear la ip
-        
         $this->autoLayout = false;
         $this->autoRender = false;
-
-        echo json_encode(array('valid' => true));
+        
+        
+        $id = Utilities::exists($this->request->data, 'id', true, true, false);
+        
+        echo json_encode(array('valid' => $this->OneUsePacketInfo->isValidPacket($id)));
         
     }
     
@@ -62,16 +65,34 @@ class ApiController extends AppController {
         $this->Components->unload('DebugKit.Toolbar');
 
         $this->layout = 'api';
-        
-        //Se obtienen las credenciales de autentificacion de konalen
+
         $konalen_user = Utilities::exists($this->request->query, 'User', true, true, false);
-        $konalen_key = Utilities::exists($this->request->query, 'Key', true, true, false);
-        $konalen_service_id = Utilities::exists($this->request->query, 'Service', true, true, false);
-        $form_id = Utilities::exists($this->request->query, 'FormId', true, true, false);
-
+        $konalen_format = Utilities::exists($this->request->query, 'Format', true, true, false);
+        $konalen_data = Utilities::exists($this->request->query, 'Data', true, true, false);
         
-        $partner = $this->Partner->checkCredentials($konalen_user, $konalen_key);
+        $partner = $this->Partner->checkAccess($konalen_user, $konalen_data, $plain_data);
 
+        debug($plain_data);
+        
+        switch ($konalen_format) {
+            
+            case 'ARRAY':
+                $konalen_service_id = $plain_data['ServiceId'];
+                $form_id = $plain_data['FormId'];
+                $transaction_id = $plain_data['TransactionId'];
+                break;
+
+            case 'OBJECT':
+                $konalen_service_id = false;
+                $form_id = false;
+                break;
+            
+            default:
+                $konalen_service_id = false;
+                $form_id = false;
+                break;
+        }
+        
         $service = $this->Service->getService($partner, $konalen_service_id);
         
         /*
@@ -86,7 +107,7 @@ class ApiController extends AppController {
         $service_id =  $service['Service']['id'];
         $form_id = $service_form['ServiceForm']['form_id'];
         $form_data = $service_form['ServiceForm']['data'];
-        $form_checksum = Utilities::checksum(array($form_id, $service_id));
+        $form_checksum = Utilities::sign(array($form_id, $service_id, $transaction_id));
       
         $this->set('form_id', $form_id);
         $this->set('form_data', $form_data);
@@ -100,8 +121,11 @@ class ApiController extends AppController {
         $this->autoLayout = false;
         $this->autoRender = false;
         
+        $this->log("CheckLogin Session Id: " .session_id());
+        
         $service_id = Utilities::exists($this->request->data, 'service_id', true, true, false);
         $form_id = Utilities::exists($this->request->data, 'form_id', true, true, false);
+        $session_id = Utilities::exists($this->request->data, 'session_id', true, true, false);
         $form_checksum = Utilities::exists($this->request->data, 'form_checksum', true, true, false);
         $user_id = Utilities::exists($this->request->data, 'user_id', true, true, false);
         $user_pass = Utilities::exists($this->request->data, 'user_pass', true, true, false);
@@ -109,8 +133,16 @@ class ApiController extends AppController {
         /*
          * Se verifica si el checksum es correcto
          */
-        if(Utilities::checksum(array($form_id, $service_id)) != $form_checksum){
+        if(Utilities::checksum(array($form_id, $service_id, $session_id)) != $form_checksum){
             throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
+        
+        /*
+         * Cheaqueamos que el identificador de sesion sea el mismo
+         */
+
+        if(strcasecmp($session_id, session_id()) !== 0){
+            $this->log("Los ids de session no coinciden!!!");
         }
         
         $service = $this->Service->findById($service_id);
@@ -150,7 +182,8 @@ class ApiController extends AppController {
                  * TODO Ver lo que que sigue
                  */
                 
-                $packet = $this->OneTimePacket->createPacket($login->getUser(), $timeout);
+                
+                $packet = $this->OneUsePacketInfo->createPacket($login->getUser(), $timeout);
                 
                 /*
                  * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada

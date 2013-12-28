@@ -451,3 +451,6 @@ Configure::write('LoginSecurePacketCheckUrl', 'http://konalen.dev/api/check');
  * Indice [0,100]
  */
 Configure::write('ServiceFormGarbageCollectorIndex', 25); 
+
+
+Configure::write('OneUsePacketInfoGarbageCollectorIndex', 25);

@@ -393,13 +393,23 @@ class Utilities {
         
     }    
     
-    public function checksum($data = array()){
+    public function sign($data = array()){
         
-        $imploded_data = implode('-', $data);
+        $imploded_data = implode(',', $data);
 
-        $key = Configure::read('HmacHashKey');
+        $konalen_public_key_id = openssl_get_publickey(Configure::read('KonalenPublicKey'));
         
-        return hash_hmac("sha256", $imploded_data , $key);
+        if(empty($konalen_public_key_id)){
+            return false;
+        }        
+      
+        $signature = false;
+        
+        if(!openssl_sign($imploded_data, $signature, $konalen_public_key_id, OPENSSL_ALGO_SHA1) || !$signature){
+            return false;
+        }
+        
+        return $signature;
         
     }
     

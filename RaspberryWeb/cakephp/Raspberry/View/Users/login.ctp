@@ -13,4 +13,4 @@ debug($url);
 ?>
 
 
-<iframe scrolling="no" width="400" height="300" frameborder="0" src="<?php echo $url; ?>"></iframe>
+<iframe scrolling="yes" width="400" height="300" frameborder="0" src="<?php echo $url; ?>"></iframe>
