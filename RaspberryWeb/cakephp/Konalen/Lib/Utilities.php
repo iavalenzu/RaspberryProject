@@ -393,23 +393,11 @@ class Utilities {
         
     }    
     
-    public function sign($data = array()){
+    public function hash_array($data = array()){
         
         $imploded_data = implode(',', $data);
 
-        $konalen_public_key_id = openssl_get_publickey(Configure::read('KonalenPublicKey'));
-        
-        if(empty($konalen_public_key_id)){
-            return false;
-        }        
-      
-        $signature = false;
-        
-        if(!openssl_sign($imploded_data, $signature, $konalen_public_key_id, OPENSSL_ALGO_SHA1) || !$signature){
-            return false;
-        }
-        
-        return $signature;
+        return sha1($imploded_data);
         
     }
     

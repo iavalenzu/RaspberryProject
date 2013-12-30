@@ -476,3 +476,13 @@ Stack Trace:
 #3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
 #4 [internal function]: App::shutdown()
 #5 {main}
+2013-12-30 00:05:48 Error: Fatal Error (1): Call to undefined function hash_array() in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 135]
+2013-12-30 00:05:48 Error: [FatalErrorException] Call to undefined function hash_array()
+Request URL: /users/login
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/home/ivalenzu/...', 135)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/home/ivalenzu/...', 135, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/home/ivalenzu/...', 135, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

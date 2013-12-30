@@ -66,6 +66,22 @@ class ApiController extends AppController {
 
         $this->layout = 'api';
 
+        $data = array(
+            'ServiceId' => $service_id,
+            'FormId' => $form_id,
+            'TransactionId' => $transaction_id,
+            'CheckSum' => $checksum
+        );        
+        
+        $service_id = Utilities::exists($this->request->query, 'ServiceId', true, true, false);
+        $form_id = Utilities::exists($this->request->query, 'FormId', true, true, false);
+        $transaction_id = Utilities::exists($this->request->query, 'TransactionId', true, true, false);
+        $checksum = Utilities::exists($this->request->query, 'CheckSum', true, true, false);
+        
+        
+        
+        
+/*        
         $konalen_user = Utilities::exists($this->request->query, 'User', true, true, false);
         $konalen_format = Utilities::exists($this->request->query, 'Format', true, true, false);
         $konalen_data = Utilities::exists($this->request->query, 'Data', true, true, false);
@@ -94,10 +110,12 @@ class ApiController extends AppController {
         }
         
         $service = $this->Service->getService($partner, $konalen_service_id);
-        
+   */     
         /*
          * Se obtiene el form asociado al id
          */
+        
+        /*
         $service_form = $this->ServiceForm->getForm($form_id);
         
         if(empty($service_form)){
@@ -113,7 +131,7 @@ class ApiController extends AppController {
         $this->set('form_data', $form_data);
         $this->set('service_id', $service_id);
         $this->set('form_checksum', $form_checksum);
-       
+       */
     }
 
     public function checklogin(){

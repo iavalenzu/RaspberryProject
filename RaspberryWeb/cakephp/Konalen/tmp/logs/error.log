@@ -2930,3 +2930,50 @@ Stack Trace:
 #6 {main}
 2013-12-28 13:07:15 Error: Borrando los registros expirados
 2013-12-28 13:10:11 Error: Borrando los registros expirados
+2013-12-29 11:43:30 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp',
+)
+Request URL: /api/test
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-29 11:43:36 Error: Borrando los registros expirados
+2013-12-29 15:39:34 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp',
+)
+Request URL: /api/test
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-29 22:59:20 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Api/test.ctp',
+)
+Request URL: /api/test
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2013-12-30 00:06:31 Error: [BadRequestException] MISSING_PARAMETERS
+Request URL: /api/loginform?ServiceId=2&FormId=&TransactionId=trx_2002978191&CheckSum=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjhlMmZjNWY0MDUzNDA2Mzg3MDZlYzIxY2YxZjc0NjNlZmE0ZWVjM2JjZmQwMjZlMmRmZGMxOWMyMTcxMjlkZmFiMGE1OWFmMThlMzBmY2I4Y2VlYTBjOWE4MDRiZWJjNmZhYzFiOGJhOWMwNDAxNjkyZjQ3OWY0YzQ0MjA5NTdcIixcImVudmtleVwiOlwiZGY5NmY2ZWU5OGYxODc2MzYwZjJkZWI5ZjAwZDY2NTRjYzZmYmQ3NzQ5OTNhMWE0NjAyZGEwM2ZjZjhjODY4YjBmYmZiZmU0ZDhiNDkyNmVhYjk0MDliZDMxOWEwM2NiMmEzZDAxYmRiODQ5YTQ2Y2U4ZjcyNGYxYjJjMDM0OTg5YjRkZDMzODhiZGUwYjNmYTkwMWI0NmY3Y2I4ZmJjMmIxMDRjYzRjMjY4ZTgxMGUyMzRiYTBlZDkzMjc4ZjgyMzAyMWE2NzcwMWQ4ODk0YWM1ODdkM2E0MmU5NWRlOTg5NWU2ZWIzZTE1NjYxYTYyNGQ0NWRlNDY3ZGJlZDg0OTRjZWVjNjdhNzk5YTU0NDJmMDJhZjc2MTM3MDU3MGE2Y2ZlNTJjODIwNTMxMTZiZDY2YjRmMDIzMTlkMzM3MmY2MTgxNWI5NzQ3OWFjNTkxZWZkMmE0OGI5ZWU0MzE0N2M5NGUxNTMwMTRkYjY1YWQzMmZiOTk3NGJhYjFiYmRkMjc5Y2VjODllMmIzMjNlMWM2ZTMzZWRmZDBlYmY3YTMyYWVmOTEyZWMyNWU3YjYyYWUyYzQ5NTQzZmE2NjRkMjM0YzI0YzhkZWQzZDEwN2IyYTg2OTdhNTNhNWEzZWU5NTNiMjljNDJlYWNhYzA5OGUwYmYxMDgxNGNkNWFkYzNcIn0iLCJzaWduYXR1cmUiOiI1M2QwNDc4MjRlMDk5OTRiOGRkMWVkODk2YzdiMWUxYzllMzZkN2E4OGUwOTcyMmJmMGRhZGY4OTE4NTU3ZGZkOTk1OWFmMzkyMjczMTk5OGQwNmZhZGY0Yzg0NGQxYjVkMzE1ZmMwNDVmMDdkYmRiNThjYjY2OWM1MGZlNWJjYmRjODZlOGE1M2M3MDQxMjg2YzdlMjliYjBkMmQzOGJjMjdhMmYxNzM2YWFjOTI4MDYzYTNjOTU1ZGVhMzIxNWUzZjI2NTk0NGRiODMyNjM5YjFiMjM4ZDNhYzViNDNmNmIwMjYzY2MwZjEwMWIyYjZiMzEzNmEzN2I4NDkwOTExZGUzNWMxOTg0MzI1MmRlZjU1MjI5YTk3ZjBmZGFkOGM0MTZiNThjYzU0OWJlNDliZjMzZmQxNzRjZTEyY2E0NjAyZjc5NmM1ZDdkMGQ2Mzc3ZDVmMGI4NGEzMzE4ZWNhYzRjMmY3YzMwNGQwYTUyMTNjZmI4NGMwZmE4NjM5MGZiOGVjMjE1MjgwZTAwZDY3MTI2MTc0N2Q5ODkwZDI1MDI1YmI4YzQ2MDFlMDkxMWNhMjk3MDBiMmQwMDI3ZTMzMzczNjk3ODNiZmNjZTRhODJiODUwMWY0NDllYWQ2MjAyZmZlOWFiY2EwMjMzZjIxZjUzMjc2MjhhZGQwOTJkZiJ9
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(69): Utilities->exists(Array, 'User', true, true, false)
+#1 [internal function]: ApiController->loginform()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}

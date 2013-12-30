@@ -4,6 +4,14 @@ App::import('Lib', 'Packet');
 App::import('Lib', 'SecureSender');
 App::import('Lib', 'SecureReceiver');
 
+
+function hash_array($data = array()) {
+
+    $imploded_data = implode(',', $data);
+
+    return sha1($imploded_data);
+}
+
 /**
  * Users Controller
  *
@@ -129,15 +137,18 @@ class UsersController extends AppController {
 
         //$hello = new HelloPacket();
 
-        
+        $service_id = 2;
+        $form_id = isset($_GET['FormId']) ? $_GET['FormId'] : '';
         $transaction_id = 'trx_' . mt_rand();
+        $checksum = $sps->encrypt(hash_array(array($service_id, $form_id, $transaction_id)));
         
         $_SESSION['TransactionId'] = $transaction_id;
         
         $data = array(
-            'ServiceId' => 2,
-            'FormId' => isset($_GET['FormId']) ? $_GET['FormId'] : '',
+            'ServiceId' => $service_id,
+            'FormId' => $form_id,
             'TransactionId' => $transaction_id,
+            'CheckSum' => $checksum
         );
         
         $get = array(
@@ -146,7 +157,7 @@ class UsersController extends AppController {
             'Data' => $sps->encrypt($data),
         );
  
-        $this->set('get', $get);
+        $this->set('get', $data);
         
     }
     
