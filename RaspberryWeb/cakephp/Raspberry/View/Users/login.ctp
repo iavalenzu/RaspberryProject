@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-$url = "http://konalen.dev/api/loginform" . "?" .  http_build_query($get);
+$url = "http://konalen.dev/forms/login" . "?" .  http_build_query($get);
 
 debug($url);
 

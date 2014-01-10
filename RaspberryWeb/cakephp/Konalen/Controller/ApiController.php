@@ -3,7 +3,7 @@
 App::uses('AppController', 'Controller');
 App::import('Lib', 'Utilities');
 
-App::import('Lib', 'Packet');
+//App::import('Lib', 'Packet');
 App::import('Lib', 'SecureSender');
 
 /**
@@ -24,151 +24,184 @@ class ApiController extends AppController {
      *
      * @var array
      */
-    public $uses = array('User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account', 'AccountAccess', 'OneUsePacketInfo');
+    public $uses = array('PartnerAccess', 'IpAddressAccessAttempt', 'User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account', 'AccountAccess', 'OneUsePacketInfo', 'Notification');
 
     public $components = array('Session');
     
     public function beforeFilter() {
         parent::beforeFilter();
         
-        
-        //debug($partner);
-        
-    }
-    
-    public function test(){
-        
+        //Si la ip del request esta bloqueada, denegamos el acceso
+        if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
+            throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
+        }        
         
     }
+
     
-    public function check(){
+    public function checksession(){
 
         $this->autoLayout = false;
         $this->autoRender = false;
         
-        
-        $id = Utilities::exists($this->request->data, 'id', true, true, false);
-        
-        echo json_encode(array('valid' => $this->OneUsePacketInfo->isValidPacket($id)));
-        
-    }
-    
-    public function register(){
-        
-        $this->autoLayout = false;
-        $this->autoRender = false;
-        
-    }
-    
-    public function loginform(){
-        
-        $this->Components->unload('DebugKit.Toolbar');
-
-        $this->layout = 'api';
-
-        $data = array(
-            'ServiceId' => $service_id,
-            'FormId' => $form_id,
-            'TransactionId' => $transaction_id,
-            'CheckSum' => $checksum
-        );        
-        
-        $service_id = Utilities::exists($this->request->query, 'ServiceId', true, true, false);
-        $form_id = Utilities::exists($this->request->query, 'FormId', true, true, false);
-        $transaction_id = Utilities::exists($this->request->query, 'TransactionId', true, true, false);
-        $checksum = Utilities::exists($this->request->query, 'CheckSum', true, true, false);
-        
-        
-        
-        
-/*        
-        $konalen_user = Utilities::exists($this->request->query, 'User', true, true, false);
-        $konalen_format = Utilities::exists($this->request->query, 'Format', true, true, false);
-        $konalen_data = Utilities::exists($this->request->query, 'Data', true, true, false);
-        
-        $partner = $this->Partner->checkAccess($konalen_user, $konalen_data, $plain_data);
-
-        debug($plain_data);
-        
-        switch ($konalen_format) {
-            
-            case 'ARRAY':
-                $konalen_service_id = $plain_data['ServiceId'];
-                $form_id = $plain_data['FormId'];
-                $transaction_id = $plain_data['TransactionId'];
-                break;
-
-            case 'OBJECT':
-                $konalen_service_id = false;
-                $form_id = false;
-                break;
-            
-            default:
-                $konalen_service_id = false;
-                $form_id = false;
-                break;
-        }
-        
-        $service = $this->Service->getService($partner, $konalen_service_id);
-   */     
-        /*
-         * Se obtiene el form asociado al id
-         */
-        
-        /*
-        $service_form = $this->ServiceForm->getForm($form_id);
-        
-        if(empty($service_form)){
-            $service_form = $this->ServiceForm->createForm($service);
-        }
-
-        $service_id =  $service['Service']['id'];
-        $form_id = $service_form['ServiceForm']['form_id'];
-        $form_data = $service_form['ServiceForm']['data'];
-        $form_checksum = Utilities::sign(array($form_id, $service_id, $transaction_id));
-      
-        $this->set('form_id', $form_id);
-        $this->set('form_data', $form_data);
-        $this->set('service_id', $service_id);
-        $this->set('form_checksum', $form_checksum);
-       */
-    }
-
-    public function checklogin(){
-        
-        $this->autoLayout = false;
-        $this->autoRender = false;
-        
-        $this->log("CheckLogin Session Id: " .session_id());
-        
-        $service_id = Utilities::exists($this->request->data, 'service_id', true, true, false);
         $form_id = Utilities::exists($this->request->data, 'form_id', true, true, false);
-        $session_id = Utilities::exists($this->request->data, 'session_id', true, true, false);
-        $form_checksum = Utilities::exists($this->request->data, 'form_checksum', true, true, false);
-        $user_id = Utilities::exists($this->request->data, 'user_id', true, true, false);
-        $user_pass = Utilities::exists($this->request->data, 'user_pass', true, true, false);
+        
+        
+    }
 
-        /*
-         * Se verifica si el checksum es correcto
-         */
-        if(Utilities::checksum(array($form_id, $service_id, $session_id)) != $form_checksum){
-            throw new UnauthorizedException(ResponseStatus::$access_denied);
-        }
+    
+    public function checkcode(){
+        
+        $this->autoLayout = false;
+        $this->autoRender = false;
+        
+        $account_identity_id = Utilities::exists($this->request->data, 'account_identity_id', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        $service_id = Utilities::exists($this->request->data, 'service_id', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        $transaction_id = Utilities::exists($this->request->data, 'transaction_id', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        
+        $checksum = Utilities::exists($this->request->data, 'checksum', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        $checksum_key = Utilities::exists($this->request->data, 'checksum_key', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        
+        $code = Utilities::exists($this->request->data, 'code', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        
         
         /*
-         * Cheaqueamos que el identificador de sesion sea el mismo
+         * Se obtiene el servicio asociado
          */
-
-        if(strcasecmp($session_id, session_id()) !== 0){
-            $this->log("Los ids de session no coinciden!!!");
-        }
-        
         $service = $this->Service->findById($service_id);
 
         if(empty($service)){
+            $this->IpAddressAccessAttempt->attempt();
             throw new UnauthorizedException(ResponseStatus::$access_denied);
         }
         
+        /*
+         * Se crea un recibidor seguro de mensajes y desencriptamos el checksum
+         */
+        $spr = new SecureReceiver();
+        $spr->setSenderPublicKey($service['Partner']['public_key']);
+        $spr->setRecipientPrivateKey(Configure::read('KonalenPrivateKey'));
+
+        $checksum_key_decrypted = $spr->decrypt($checksum_key);        
+ 
+        if(empty($checksum_key_decrypted)){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
+        
+        
+        /*
+         * Se verifica que el checksum corresponda a la data enviada
+         */
+        if(hash_hmac('sha256', implode('.', array($account_identity_id, $service_id, $transaction_id)), $checksum_key_decrypted) !== $checksum){
+            $this->log("El checksum no coincide!!");
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);   
+        }        
+        
+        $notification = $this->Notification->find('first', array(
+            'conditions' => array(
+                'Notification.account_identity_id' => $account_identity_id,
+                'Notification.data' => $code,
+                'Notification.status' => Notification::$STATUS_DELIVERED,
+                'Notification.action' => Notification::$ACTION_LOGIN,
+                'AccountIdentity.authenticated' => 1
+            )
+        ));
+        
+        if(empty($notification)){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
+        
+        $account = $this->Account->find('first', array(
+            'conditions' => array(
+                'Account.id' => $notification['AccountIdentity']['account_id'],
+                'Account.active' => 1,
+                'Account.service_id' => $service_id
+            ),
+            'recursive' => 0
+        ));
+        
+        if(empty($account)){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }        
+        
+        /*
+         * El acceso es exitoso por lo tanto se crea un registro  de acceso de usuario
+         */
+        $account_access = $this->AccountAccess->createAccess($account);
+
+        //Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
+        $this->IpAddressAccessAttempt->reset();        
+
+        /*
+         * Creamos un mensajero seguro para enviar la data del usuario de acceso exitoso
+         */
+        $sps = new SecureSender();
+        $sps->setRecipientPublicKey($service['Partner']['public_key']);
+        $sps->setSenderPrivateKey(Configure::read('KonalenPrivateKey'));
+
+        $data = array(
+            'user' => $account_access,
+            'transaction_id' => $transaction_id
+        );
+
+        /*
+         * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada
+         */
+        $this->redirect($service['Service']['login_success'] . '?' . http_build_query(array('data' => $sps->encrypt($data))));
+                    
+    }
+    
+    public function checklogin(){
+        
+        $this->autoLayout = false;
+        //$this->autoRender = false;
+        
+        $form_id = Utilities::exists($this->request->data, 'form_id', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, false);
+        $service_id = Utilities::exists($this->request->data, 'service_id', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, false);
+        $transaction_id = Utilities::exists($this->request->data, 'transaction_id', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, false);
+
+        $checksum = Utilities::exists($this->request->data, 'checksum', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, false);
+        $checksum_key = Utilities::exists($this->request->data, 'checksum_key', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, false);
+
+        $user_id = Utilities::exists($this->request->data, 'user_id', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        $user_pass = Utilities::exists($this->request->data, 'user_pass', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+
+        /*
+         * Se obtiene el servicio asociado
+         */
+        $service = $this->Service->findById($service_id);
+
+        if(empty($service)){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
+        
+        /*
+         * Se crea un recibidor seguro de mensajes y desencriptamos el checksum
+         */
+        $spr = new SecureReceiver();
+        $spr->setSenderPublicKey($service['Partner']['public_key']);
+        $spr->setRecipientPrivateKey(Configure::read('KonalenPrivateKey'));
+
+        $checksum_key_decrypted = $spr->decrypt($checksum_key);        
+ 
+        if(empty($checksum_key_decrypted)){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
+
+        /*
+         * Se verifica que el checksum corresponda a la data enviada
+         */
+        if(hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $checksum_key_decrypted) !== $checksum){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);   
+        }
+                
         $service_form = $this->ServiceForm->getForm($form_id);
   
         if(empty($service_form)){
@@ -184,40 +217,81 @@ class ApiController extends AppController {
              * en caso de exito se redirecciona a la url de login success del partner
              */
 
-            $login = $this->Account->login($service, $user_id, $user_pass);
+            $account_identity = $this->Account->login($service, $user_id, $user_pass);
             
-            if($login->isSuccess()){
+            if($account_identity){
+                
+                
+                if($service['Service']['two_step_auth'] == 1){
+                    
+                    /*
+                     * Si esta activado la verificacion de dos pasos
+                     */
 
-                $timeout = $service['Service']['session_timeout'];
-                /*
-                 * Creamos un mensajero seguro para enviar la data del usuario de acceso exitoso
-                 */
-                $sps = new SecureSender();
-                $sps->setRecipientPublicKey($service['Partner']['public_key']);
-                $sps->setSenderPrivateKey(Configure::read('KonalenPrivateKey'));
+                    /*
+                     * Se debe obtener el tipo de la notificacion, en particular el canal por el cual sera enviada la notificacion
+                     * si esta asociado un 
+                     * 
+                     */
+                    
+                    
+                    $account_identity = $this->AccountIdentity->getTwoStepIdentity($account_identity['AccountIdentity']['account_id']);
+                    
+                    if($account_identity){
+                    
+                        $code = mt_rand(10000, 99999);
 
-                /*
-                 * TODO Ver lo que que sigue
-                 */
+                        $this->Notification->createNotification($account_identity, $code, Notification::$STATUS_PENDING, Notification::$ACTION_LOGIN);
+
+                        $this->set('account_identity_id', $account_identity['AccountIdentity']['id']);
+                        $this->set('service_id', $service_id);
+                        $this->set('transaction_id', $transaction_id);
+                        $this->set('checksum', hash_hmac('sha256', implode('.', array($account_identity['AccountIdentity']['id'], $service_id, $transaction_id)), $checksum_key_decrypted));
+                        $this->set('checksum_key', $checksum_key);
+
+                    }
+                    
+                }else{
+                    
+                    
+                    /*
+                     * El acceso es exitoso por lo tanto se crea un registro  de acceso de usuario
+                     */
+                    $account_access = $this->AccountAccess->createAccess($service);
+
+                    /*
+                     * Creamos un mensajero seguro para enviar la data del usuario de acceso exitoso
+                     */
+                    $sps = new SecureSender();
+                    $sps->setRecipientPublicKey($service['Partner']['public_key']);
+                    $sps->setSenderPrivateKey(Configure::read('KonalenPrivateKey'));
+
+                    $data = array(
+                        'user' => false,
+                        'transaction_id' => $transaction_id
+                    );
+
+                    /*
+                     * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada
+                     */
+                    $this->redirect($service['Service']['login_success'] . '?' . http_build_query(array('data' => $sps->encrypt($data))));
+                    
+                    
+                }
                 
-                
-                $packet = $this->OneUsePacketInfo->createPacket($login->getUser(), $timeout);
-                
-                /*
-                 * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada
-                 */
-                $this->redirect($service['Service']['login_success'] . '?' . http_build_query(array('data' => $sps->encrypt($packet))));
-                
+
+                         
             }else{
                 
                 $service_form['ServiceForm']['data'] = array(
                     'message' => "Fecha: " . date("Y-m-d H:i:s"),
-                    'error' => $login->getErrors()
+                    'error' => 'Login Error'
                 );
 
                 if(!$this->ServiceForm->save($service_form)){
                     $this->log("Error al guardar en la BD");
                 }
+                
                 
                 /*
                  * Se hace un redirect indicando el id del formulario
@@ -225,15 +299,10 @@ class ApiController extends AppController {
 
                 $this->redirect($service['Service']['login_url'] . '?' . http_build_query(array('FormId' => $form_id)));
                 
-                
             }
-            
-            
             
         }
         
-        
     }
-    
 
 }

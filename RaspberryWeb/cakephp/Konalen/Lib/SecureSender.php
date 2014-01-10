@@ -115,13 +115,19 @@ class SecureSender {
             return false;
         }
         
+        return base64_encode($signeddata_encoded);
+        
+    }
+    
+    public function destroy(){
+        
         openssl_free_key($recipientpublickeyid);        
         openssl_free_key($senderprivatekeyid);        
         
         unset($this->recipientPublicKey);
         unset($this->senderPrivateKey);
         
-        return base64_encode($signeddata_encoded);
-        
-    }    
+    }
+    
+    
 }

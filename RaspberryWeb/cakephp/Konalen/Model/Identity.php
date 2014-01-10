@@ -9,6 +9,20 @@ App::uses('AppModel', 'Model');
 class Identity extends AppModel {
 
 
+    
+        /**
+         * Define los tipos de identidad disponible
+         * 
+         * @static 
+         * @var array
+         */
+    
+        static public $TYPE_EMAIL = 1;
+        static public $TYPE_PHONE = 2;    
+        static public $TYPE_GCM = 3;    
+        static public $TYPE_APPLE = 4;    
+        static public $TYPE_NAME = 5;    
+    
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
 
 /**

@@ -131,11 +131,11 @@ class OneUsePacketInfo extends AppModel {
          * @throws InternalErrorException
          */
         
-        public function createPacket($data = null, $timeout = null){
+        public function createPacket($data = null, $timeout = null, $transaction_id = null){
 
-            $checkurl = Configure::read('LoginSecurePacketCheckUrl');
+            //$checkurl = Configure::read('LoginSecurePacketCheckUrl');
             
-            if(empty($data) || empty($timeout)){
+            if(empty($data) || empty($timeout) || empty($transaction_id)){
                 return null;
             }
             
@@ -155,7 +155,7 @@ class OneUsePacketInfo extends AppModel {
 
             if($key && $this->save($one_time_secure_packet)){
                 if($dataSource->commit()){
-                    return new LoginPacket($data, $key, $checkurl);
+                    return new LoginPacket($data, $key, $transaction_id);
                 }
             }else{
                 $dataSource->rollback();

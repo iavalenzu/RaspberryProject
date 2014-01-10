@@ -39,6 +39,10 @@ class Packet{
     public function setData($data = null){
         $this->data = $data;
     }
+
+    public function getData(){
+        return $this->data;
+    }
     
     public function isData($data = null){
         return strcasecmp($this->data, $data) === 0;
@@ -186,7 +190,37 @@ class OneUsePacket extends Packet {
 
 
 
-class LoginPacket extends OneUsePacket {
+class LoginPacket extends Packet {
+    
+    var $transactionId = null;
+    
+    function __construct($user = null, $transaction_id = null, $id = null) {
+        parent::__construct($user, $id);
+        $this->transactionId = $transaction_id;
+        
+    }     
+    
+    public function getUser(){
+        return parent::getData();
+    }
+
+
+    public function reset(){
+        parent::reset();
+        $this->transactionId = null;
+    }        
+    
+    public function __wakeup(){
+        parent::__wakeup();
+        
+        if(!isset($_SESSION['TransactionId']) || $_SESSION['TransactionId'] !== $this->transactionId){
+            $this->reset();
+        }else{
+            unset($_SESSION['TransactionId']);
+        }
+
+    }
+    
     
 }
 

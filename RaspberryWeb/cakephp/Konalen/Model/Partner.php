@@ -65,25 +65,24 @@ class Partner extends AppModel {
             parent::__construct($id, $table, $ds);
             
         }    
+
+        public function validCheckSum($service_id = null, $form_id = null, $transaction_id = null, $checksum = null){
+            
+            
+            
+            
+            
+        }
         
-        public function checkAccess($name = null, $data = null, &$plain_data = null){
+        
+        public function checkAccess($partner = null, $data = null, &$plain_data = null){
             
             //Si la ip del request esta bloqueada, denegamos el acceso
             if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
                 throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
             }
             
-            if(empty($name) || empty($data)){
-                $this->IpAddressAccessAttempt->attempt();
-                throw new UnauthorizedException(ResponseStatus::$access_denied);
-            }
-
-            //Se busca al usuario correspondiente al nombre de usuario
-            $this->recursive = 0;
-            $partner = $this->findByName($name);
-            
-            //Si es vacio registramos un intento acceso, y denegamos el acceso
-            if(empty($partner)){
+            if(empty($partner) || empty($data)){
                 $this->IpAddressAccessAttempt->attempt();
                 throw new UnauthorizedException(ResponseStatus::$access_denied);
             }
@@ -106,7 +105,7 @@ class Partner extends AppModel {
             //Registramos la info del acceso
             $this->PartnerAccess->access($partner);
             
-            return $partner;
+            return true;
             
         }
         

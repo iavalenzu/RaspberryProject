@@ -11,6 +11,13 @@ App::import('Lib', 'ResponseStatus');
 
 class Utilities {
 
+    
+    static public $REQUIRED = true;
+    static public $NOT_REQUIRED = false;
+    
+    static public $EMPTY = true;
+    static public $NOT_EMPTY = true;
+    
     /**
      * 
      * @param string $name
@@ -98,8 +105,9 @@ class Utilities {
     
     public function exists($values = array(), $name = null, $require = true, $empty = false, $default = false){
 
-        if(empty($values) || empty($name))
+        if(empty($values) || empty($name)){
             throw new BadRequestException();
+        }
             
         if(isset($values[$name])){
 
@@ -109,13 +117,14 @@ class Utilities {
             if(empty($value)){
                 
                 //Si el valor es vacio y no es posible que sea vacio lanzamos una excepcion
-                if(!$empty)
+                if(!$empty){
                     throw new BadRequestException(ResponseStatus::$missing_parameters);
+                }
 
-                return $default;
+                return trim($default);
             }
             
-            return $value;
+            return trim($value);
         }
 
         //Si en este punto no hemos retornado y el valor es requerido retornamos una excepcion

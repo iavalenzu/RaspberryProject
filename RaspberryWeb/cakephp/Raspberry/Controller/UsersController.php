@@ -101,11 +101,12 @@ class UsersController extends AppController {
 
     public function login_success(){
         
+        session_start();
+        
         $this->autoLayout = false;
         $this->autoRender = false;
         
         debug($_SERVER);
-        
         
         $data = $this->request->query['data'];
         
@@ -116,9 +117,31 @@ class UsersController extends AppController {
         $spr->setRecipientPrivateKey(Configure::read('MyPrivateKey'));
 
         //Desencriptamos el mensaje
-        $packet = $spr->decrypt($data);        
+        $login = $spr->decrypt($data);  
         
-        debug($packet);
+        debug($login);
+        
+        if(isset($login['transaction_id'])){
+            
+            $transaction_id = $login['transaction_id'];
+            
+            if(isset($_SESSION['TransactionId']) && $_SESSION['TransactionId'] === $transaction_id){
+
+                unset($_SESSION['TransactionId']);
+                
+                if(isset($login['user'])){
+                    debug($login['user']);
+                }else{
+                    $this->redirect(array('action'=>'login'));
+                }
+                    
+            }else{
+                throw new UnauthorizedException();
+            }           
+            
+        }else{
+            throw new UnauthorizedException();
+        }
         
     }
     
@@ -129,34 +152,27 @@ class UsersController extends AppController {
         $MyPrivateKey = Configure::read('MyPrivateKey');
         $KonalenPublicKey = Configure::read('KonalenPublicKey');
         
-        print_r(session_id());
-        
         $sps = new SecureSender();
         $sps->setRecipientPublicKey($KonalenPublicKey);
         $sps->setSenderPrivateKey($MyPrivateKey);
 
-        //$hello = new HelloPacket();
-
         $service_id = 2;
         $form_id = isset($_GET['FormId']) ? $_GET['FormId'] : '';
-        $transaction_id = 'trx_' . mt_rand();
-        $checksum = $sps->encrypt(hash_array(array($service_id, $form_id, $transaction_id)));
+        $transaction_id = 'trx_' . hash('sha256', microtime(true));
         
         $_SESSION['TransactionId'] = $transaction_id;
         
-        $data = array(
-            'ServiceId' => $service_id,
-            'FormId' => $form_id,
-            'TransactionId' => $transaction_id,
-            'CheckSum' => $checksum
-        );
+        $checksum_key = hash('sha256', microtime(true) . mt_rand());
         
-        $get = array(
-            'User' => 'Raspberry',
-            'Format' => 'ARRAY',
-            'Data' => $sps->encrypt($data),
+        $data = array(
+            'FormId' => $form_id,
+            'ServiceId' => $service_id,
+            'TransactionId' => $transaction_id,
+            
+            'CheckSum' => hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $checksum_key),
+            'CheckSumKey' => $sps->encrypt($checksum_key)
         );
- 
+     
         $this->set('get', $data);
         
     }

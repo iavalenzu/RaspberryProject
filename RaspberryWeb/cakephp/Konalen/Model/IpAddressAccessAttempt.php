@@ -55,6 +55,7 @@ class IpAddressAccessAttempt extends AppModel {
             if($access){
                 
                 $access['IpAddressAccessAttempt']['access_attempts'] = 0;
+                $access['IpAddressAccessAttempt']['max_access_attempts'] = 0;
                 $access['IpAddressAccessAttempt']['blocked_until'] = null;
                 
                 return $this->save($access);

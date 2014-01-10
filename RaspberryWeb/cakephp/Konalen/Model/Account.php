@@ -120,65 +120,56 @@ class Account extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		),
-		'Notification' => array(
-			'className' => 'Notification',
-			'foreignKey' => 'account_id',
-			'dependent' => false,
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'exclusive' => '',
-			'finderQuery' => '',
-			'counterQuery' => ''
 		)
-	);
-        
+        );
         
         public function login($service = null, $user_id = null, $user_pass = null){
 
             if(empty($service) || empty($user_id) || empty($user_pass)){
-                return new Login(Login::$ERROR);
+                return false; //new Login(Login::$ERROR);
             }
             
             $identity = $this->AccountIdentity->getIdentity($user_id);
             
             if(empty($identity)){
-                return array(
-                    'success' => false,
-                    'error' => array(
-                        'msg' => 'Login Error'
-                    )
-                );
+                return false;
             }
             
             $account = $this->find('first', array(
                 'conditions' => array(
                     'Account.service_id' => $service['Service']['id'],
-                    'Account.user_password' => sha1($user_pass)
+                    'Account.user_password' => sha1($user_pass),
+                    'Account.active' => 1
                 ),
                 'recursive' => 0
             ));
 
             if(empty($account)){
-                return new Login(Login::$ERROR);
+                return false;
+                //return new Login(Login::$ERROR);
             }
             
             $account_identity = $this->AccountIdentity->check($account, $identity);
             
             if(empty($account_identity)){
-                return new Login(Login::$ERROR);
+                return false;
+                //return new Login(Login::$ERROR);
             }
             
-            /*
-             * Se crea un registro  de acceso de usuario
-             */
-            $this->AccountAccess->createAccess($account);
-
-            return new Login(Login::$SUCCESS, false, $account_identity);
+            return $account_identity;
             
+            
+/*            
+            $user = array(
+                'user_name' => $account_identity['Identity']['identificator'],
+                'user_data' => $account_identity['Account']['user_data'],
+                'created' => $account_identity['Account']['created'],
+                'session_id' => $account_access['AccountAccess']['session_id'], 
+                'session_expire' => $account_access['AccountAccess']['session_expire'], 
+            );
+
+            return new Login(Login::$SUCCESS, false, $user);
+  */          
         }
         
 

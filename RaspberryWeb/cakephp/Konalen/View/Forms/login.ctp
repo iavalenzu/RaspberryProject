@@ -12,8 +12,11 @@ echo $this->Form->input(null, array('name' => 'user_id', 'label' => 'User', 'val
 echo $this->Form->input(null, array('name' => 'user_pass', 'label' => 'Password', 'type' => 'password', 'value'=>'password'));
 echo $this->Form->hidden(null, array('name' => 'form_id', 'value' => $form_id));
 echo $this->Form->hidden(null, array('name' => 'service_id', 'value' => $service_id));
-echo $this->Form->hidden(null, array('name' => 'session_id', 'value' => $session_id));
-echo $this->Form->hidden(null, array('name' => 'form_checksum', 'value' => $form_checksum));
+echo $this->Form->hidden(null, array('name' => 'transaction_id', 'value' => $transaction_id));
+
+echo $this->Form->hidden(null, array('name' => 'checksum', 'value' => $checksum));
+echo $this->Form->hidden(null, array('name' => 'checksum_key', 'value' => $checksum_key));
+
 echo $this->Form->end('Acceder');
 
 ?>
