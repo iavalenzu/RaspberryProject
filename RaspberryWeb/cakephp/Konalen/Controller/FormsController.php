@@ -45,7 +45,18 @@ class FormsController extends AppController {
         /*
          * Se verifica que la ip que hace la peticion no se encuentre bloqueada
          */
-        if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
+        
+        
+        $IpAddressAccessAttempt = $this->IpAddressAccessAttempt->isIpAddressBlocked();
+        
+        if($IpAddressAccessAttempt){
+            
+            /*
+             * Si esta bloqueada se debe generar un codigo de desbloqueo que puede ser un captcha
+             */
+            $this->set('captcha_code', true);  
+            
+            
             throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
         }        
         

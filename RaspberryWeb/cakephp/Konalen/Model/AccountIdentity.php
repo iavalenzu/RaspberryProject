@@ -62,7 +62,7 @@ class AccountIdentity extends AppModel {
                     'conditions' => array(
                         'AccountIdentity.account_id' => $account_id,
                         'Identity.type' => $type,
-                        'Identity.authenticated' => 1
+                        'AccountIdentity.authenticated' => 1
                     )
                 ));
                 

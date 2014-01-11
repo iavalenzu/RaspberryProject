@@ -24,7 +24,7 @@ class ApiController extends AppController {
      *
      * @var array
      */
-    public $uses = array('PartnerAccess', 'IpAddressAccessAttempt', 'User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account', 'AccountAccess', 'OneUsePacketInfo', 'Notification');
+    public $uses = array('PartnerAccess', 'IpAddressAccessAttempt', 'User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account', 'AccountAccess', 'OneUsePacketInfo', 'Notification', 'AccountIdentity');
 
     public $components = array('Session');
     
@@ -234,8 +234,11 @@ class ApiController extends AppController {
                      * 
                      */
                     
+                    $account_id = $account_identity['AccountIdentity']['account_id'];
                     
-                    $account_identity = $this->AccountIdentity->getTwoStepIdentity($account_identity['AccountIdentity']['account_id']);
+                    $account_identity = $this->AccountIdentity->getTwoStepIdentity($account_id);
+                    
+                    $this->log($account_identity);
                     
                     if($account_identity){
                     
@@ -249,6 +252,8 @@ class ApiController extends AppController {
                         $this->set('checksum', hash_hmac('sha256', implode('.', array($account_identity['AccountIdentity']['id'], $service_id, $transaction_id)), $checksum_key_decrypted));
                         $this->set('checksum_key', $checksum_key);
 
+                    }else{
+                        $this->log("No existe medio para enviar el codigo de autorizacion en la cuenta de id: " . $account_id);
                     }
                     
                 }else{
