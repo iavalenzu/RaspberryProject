@@ -33,7 +33,7 @@ class SimpleCaptcha {
      * directory to another location outise the web server
      *
      */
-    public $resourcesPath = 'resources';
+    public $resourcesPath = '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SimpleCaptcha/resources';
 
     /** Min word length (for non-dictionary random text generation) */
     public $minWordLength = 5;
@@ -128,14 +128,15 @@ class SimpleCaptcha {
         return $this->captcha_checksum;
     }
     
-    public function CreateImage() {
+    public function CreateImage($captcha_text = false) {
         $ini = microtime(true);
 
         /** Initialization */
         $this->ImageAllocate();
         
         /** Text insertion */
-        $text = $this->GetCaptchaText();
+        $text = empty($captcha_text) ? $this->GetCaptchaText() : $captcha_text;
+        
         $fontcfg  = $this->fonts[array_rand($this->fonts)];
         $this->WriteText($text, $fontcfg);
 

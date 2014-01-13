@@ -2,8 +2,10 @@
 
 App::uses('AppController', 'Controller');
 App::import('Lib', 'Utilities');
+App::import('Lib', 'SimpleCaptcha/SimpleCaptcha');
 
 App::import('Lib', 'SecureSender');
+App::import('Lib', 'SecureReceiver');
 
 /**
  * Users Controller
@@ -20,7 +22,7 @@ class FormsController extends AppController {
 
   public $uses = array('PartnerAccess', 'IpAddressAccessAttempt', 'User', 'Partner', 'Identity', 'Service', 'ServiceForm', 'Account', 'AccountAccess', 'OneUsePacketInfo');
     
-  
+  public $helpers = array('Captcha');
   
   public function register(){
 
@@ -28,6 +30,41 @@ class FormsController extends AppController {
     $this->autoRender = false;
     
   }  
+  
+  
+  public function captcha($code){
+      
+      $this->autoLayout = false;
+      $this->autoRender = false;
+      
+        if(empty($code)){
+            return; 
+        }
+      
+        $KonalenPrivateKey = Configure::read('KonalenPrivateKey');
+        $KonalenPublicKey = Configure::read('KonalenPublicKey');
+        
+        if(empty($KonalenPrivateKey) || empty($KonalenPublicKey)){
+            return "";
+        }      
+      
+    /*
+     * Se crea un recibidor seguro de mensajes y desencriptamos el checksum
+     */
+      $spr = new SecureReceiver();
+      $spr->setSenderPublicKey($KonalenPublicKey);
+      $spr->setRecipientPrivateKey($KonalenPrivateKey);
+      
+      $code_decrypted = $spr->decrypt($code);   
+
+      $this->response->type('jpeg');
+
+      $sc = new SimpleCaptcha();
+      $sc->CreateImage($code_decrypted);
+      $sc->WriteImage();
+      
+  }
+  
   
   public function login(){
         
@@ -54,10 +91,8 @@ class FormsController extends AppController {
             /*
              * Si esta bloqueada se debe generar un codigo de desbloqueo que puede ser un captcha
              */
-            $this->set('captcha_code', true);  
+            $this->set('captcha_code', $IpAddressAccessAttempt['IpAddressAccessAttempt']['unblocking_code']);  
             
-            
-            throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
         }        
         
         /*
@@ -106,7 +141,7 @@ class FormsController extends AppController {
         /*
          * Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
          */
-        $this->IpAddressAccessAttempt->reset();
+        //$this->IpAddressAccessAttempt->reset();
         
         /*
          * Registramos la info del acceso

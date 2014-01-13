@@ -127,7 +127,7 @@ class IpAddressAccessAttempt extends AppModel {
          * @return boolean
          */
         
-        public function isIpAddressBlocked(){
+        public function isIpAddressBlocked($change = true){
             
             $now = time();
             $ip_address = Utilities::clientIp();
@@ -140,7 +140,7 @@ class IpAddressAccessAttempt extends AppModel {
                 'order' => array('IpAddressAccessAttempt.created DESC')
             ));
             
-            if($blocked){
+            if($blocked && $change){
                 $blocked['IpAddressAccessAttempt']['unblocking_code'] = Utilities::getRandomCode(32);
                 
                 if(!$this->save($blocked)){
@@ -153,6 +153,33 @@ class IpAddressAccessAttempt extends AppModel {
             
         }
         
+        public function unblock($unblocking_code = false){
+            
+            if(empty($unblocking_code)){
+                return false;
+            }
+            
+            $this->log($unblocking_code);
+            
+            $ip_address = Utilities::clientIp();
+            
+            $blocked = $this->find('first', array(
+                'conditions' => array(
+                    'IpAddressAccessAttempt.ip_address' => $ip_address,
+                    'IpAddressAccessAttempt.unblocking_code' => $unblocking_code
+                )
+            ));
+
+            $this->log($blocked);
+            
+            
+            if(empty($blocked)){
+                return false;
+            }
+            
+            return $this->reset();
+            
+        }
         
         
 }

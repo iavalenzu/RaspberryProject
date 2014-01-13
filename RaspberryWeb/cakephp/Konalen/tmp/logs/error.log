@@ -3445,3 +3445,375 @@ Stack Trace:
 #3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
 #4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-01-12 20:36:24 Error: [BadRequestException] Bad Request
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(163): Utilities->exists(Array, 'form_id', true, true, false)
+#1 [internal function]: ApiController->checklogin()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-12 23:33:39 Error: [BadRequestException] Bad Request
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(163): Utilities->exists(Array, 'form_id', true, true, false)
+#1 [internal function]: ApiController->checklogin()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-12 23:33:46 Error: Borrando los registros expirados
+2014-01-12 23:33:49 Error: Borrando los registros expirados
+2014-01-13 16:15:58 Error: Borrando los registros expirados
+2014-01-13 17:16:23 Error: Borrando los registros expirados
+2014-01-13 17:16:25 Error: Borrando los registros expirados
+2014-01-13 17:16:26 Error: Borrando los registros expirados
+2014-01-13 17:17:38 Error: [MissingActionException] Action FormsController::captcha() could not be found.
+Exception Attributes: array (
+  'controller' => 'FormsController',
+  'action' => 'captcha',
+)
+Request URL: /forms/captcha/24bcf6db
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-01-13 17:18:45 Error: Borrando los registros expirados
+2014-01-13 17:18:45 Error: [MissingActionException] Action FormsController::captcha() could not be found.
+Exception Attributes: array (
+  'controller' => 'FormsController',
+  'action' => 'captcha',
+)
+Request URL: /forms/captcha/7d1043d7
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-01-13 17:18:48 Error: [MissingActionException] Action FormsController::captcha() could not be found.
+Exception Attributes: array (
+  'controller' => 'FormsController',
+  'action' => 'captcha',
+)
+Request URL: /forms/captcha/312b506d
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-01-13 17:18:49 Error: [MissingActionException] Action FormsController::captcha() could not be found.
+Exception Attributes: array (
+  'controller' => 'FormsController',
+  'action' => 'captcha',
+)
+Request URL: /forms/captcha/a4a06df4
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-01-13 17:19:12 Error: [MissingActionException] Action FormsController::captcha() could not be found.
+Exception Attributes: array (
+  'controller' => 'FormsController',
+  'action' => 'captcha',
+)
+Request URL: /forms/captcha/220064e9
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-01-13 17:19:16 Error: [UnauthorizedException] IP_ADDRESS_BLOCKED
+Request URL: /api/checklogin
+Stack Trace:
+#0 [internal function]: ApiController->beforeFilter(Object(CakeEvent))
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(674): CakeEventManager->dispatch(Object(CakeEvent))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-13 17:35:40 Error: [MissingActionException] Action FormsController::captcha() could not be found.
+Exception Attributes: array (
+  'controller' => 'FormsController',
+  'action' => 'captcha',
+)
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiMDNlNGEwY2QwYzgxMzE5NzQyOGVlNWE5MTJmMWU3NTQ4YzlmZjE1YTZmMTBmZWQzMDRiMTc1MTgzNWFhMGY0Y1wiLFwiZW52a2V5XCI6XCJiYzZkNWYxZTg4Zjg5NGMxNjBjMGY4ZTVmNjEzNzFjZWJkMGRhNmE0OGRhOTMyMjM1MzFkOTE0MzlmZTJlNzNjMzRlZDRiMTRkYTE0Yjc2ZWMwOTI1YTE2NTk1NzI3OWU2YTNiMTlmYjNkNjI4Y2M4NGE0OWRjMDIwZTFhMjlkMDVjMGZiOTMzNTFmZGUxNTFhNWE4MGVkMDkwYTM4OTAzZDI2YjU1MDZhYjEwMDE0YTRlZmVkYzIzMzg5MTk3MWVkMmY2OWVlNzJmNjc5MmEyNGFhNDQwMmI3MWQ3ODE0MzdlZDI0OWYzMDViYThiZjgxMmI5Yzg5MTMwMjk4ZGIwNWIwZGZiYjJlNjg3YjQwY2I3OWNmNDlmMDhkYmE1MmU5YmMyYjhjMWJhODNhOTJiZjAxNGRhMWQ3OWExOTE2ZmM3MDBjOTQxNjJiNThmYWU5ZWNlNTE0OTVlNmE3OWIxOWM4NDE3ZjE4MTU2NGY4ZDA2OTVhODYyYzI0YmNhMGUwZDljOWZlZTEzOTkyYTA2YTRlZTk4ZmU3Yzk4OWY1YjU5NzVkNTA5NGIxZDIxNjM0Y2U4YmY5ZGY2N2MxNmM5NTJjYmQ5MzA5NTY4ZjM5MzM1YjdjZjM5NGEyODNmMzM4NDYzNTQ5NDRiMWJjYWJhZGIwZGM3MjA5NzczOTQ5Y1wifSIsInNpZ25hdHVyZSI6IjBjYzAyZGM3MThmY2E0NTJmZGZkN2VhMTU1ZWI4NjEwNDA5OGVjYmE0NTc1ZDhjMmFhMWJiZGJjNjhmNjBhOTdlYzBhYzlhOTIxZWQ5NGZkYzZlM2M5NzcyZGVkMGE4ZWU2ZGE1MTJmZWI5ZGEzZWM0MGY2ZWVjNmZmMzdjMzNlNmZiZDZlOTQ2OGEwODQ3YzIzNzI1NWRjZDBmZWM3ZWQ3NGZjNGEyMjYzMjg1MWM3N2Y0YmNlYWY0NTQ4ZGM1Y2QwZDEzYmQ4MDljOTQyOGYyMjU0NTE2NTUzMGZhMjEyMTE1MGNlYmY4MDE2OGMwMGU3MjYzMTk2ZGZhODRmOTk5OGUyMDFkZWM0MmQ5OTBiNmU5NmNlZTIwYjA0Y2E4MWFhYTc1ZWVlZmQ3MTJlNzY0NTFmYmI1N2JkZjk1MzA1NjRkY2I0YTFhMDk5NThkNTg3MjMwYjM1ODdiNDhiODI2ZmM1MTNlM2E1YTRjYTIxNmY2YmMyY2E2MmVjNmU2OTEwMTQ3M2Y4YzQ4MmExNDYwYjkyZDg3M2ZlMThjZmNlMTFmNDdjY2U3YmUwNzFkOGY3YjY0ODQ0ZDQzODFhODA4OTUwOGI4MTQ2ODlkMzVkYWU4ODkyNGI2NGUzNTJkNGFmZDdlZWJjYzYyMDA3ZjczNjFiMTkxZjk2NzZiZmM1In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-01-13 17:36:44 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp',
+)
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjQ0Zjc3NTE4ODdjZWM1NDFjYmJjZmFlNTExMmFmNGIzMmE0NTEyM2YyM2RlNDMzNDNmNGQ3YjljYmU1OGM2ZVwiLFwiZW52a2V5XCI6XCI2OGUxMDAxYjZkMDMzZGU3MjJkNWQ5ODJjNDE5MzBlZWE4MzYyNjg2ODA4YzBlMTZiZDg5ZmE1MGE5ZmJlZGJkZGY1NTQ1NGQxZjJkNWEwYjQwMmMxNmQ1N2NlMzhiNTE3ZjhhNTA2YjU5ZjUyYWUyMDFlMjM4Y2VkMDMwMjg3Y2U3NTFjMDZhMWI0NWY2YzlkOTdkYzJiNmVhOThmN2YxY2Q0ZDU2MjNjMWRiY2UzNzQ1NjI5MzE4MjZjNzkxOGNhYmFkZWY1YmQ1MWEyZTAwYzZkM2Q2YWExNzIyMWQ5ZWY0YjVhODgzN2MyMWRlNGRlZjc4MDEyMGZhMjdkMjk0MjIyYTM4NGM1NmZmOTE1OTc4ODgzNDZmNjAyMTViNjMwYzQ0NGJhZTA4ZmVmN2ZlZWQ3OGQ5NTU3YjA4MGZhZmRhMzM1NjUxZDg3Njg0ZDQxYmE2Y2QzNDIzYzUwYmU5MTY0YzBmMzgyOGJiM2MzZjg5YWRiM2Y0ZDVmMzU0ZjVlYzY3YjM1NmE2NmJkNTczNzdlM2NkNWE2ZmQ0ZjU4OTU4NzFmOTIxNTAzZTZmOTZmMTEyZGZmYWM4MmE3MTI4ODY3OTI2NzZjMjUwODAxMWM1NzAxYWE2Mjg2ZmMzMWU0MWMyNzBkYmM4MTM2MGUyZWVhYTFmZDU4MGY5OWY4ZVwifSIsInNpZ25hdHVyZSI6ImMyMTcyYWE3NmQ5YmFhZDdjZDc1NTcxNWM4YzIzNDc3YjYzOTM5NmNhODk0ZDU0NWM1N2IyZTExNzk1MTQ5MDY0ZmQ3YThlMzMzYmNkYzcxYTQ4Zjk0MDFlMmQyZmMxNDEzZmJmYjRlNGJhY2FiYmI4MWUwMGY5YzVhZDAyZWQ0YTNmOTlmZTkyNDQ4YzY2MjdlZTk0ZDY3YmJmYjRjODQ1M2FiZTVjZmRhMjNiODQ5MWY2YWFmMjBlNzBkNDhjZDkxZjBmYzRlYWM5MGNiYTNkY2RmYTA4YThhNGY3N2NlMThiNWE4NzZmNTkyMWNlN2ViOGE3OWViMWI3M2U3OTgxOGZjOTgxZmRhNDliODM0MGVhMGY0NmM0NTMwZTIzMjVlMjI0MzE5YmI3N2FiMzdkYWMzMDdkMzdjM2FlZDRkMjhkNzQwZmQ3N2Y3YTkwNjZmYmIwMzA2OGZlNzAwNGJkMjM0YThjYTg0M2FjM2NkMjkyNjA5NGZhYzQ4ZTdlY2FhOTBiZjQzZDg3YTk5NzEwODk1NGYyYmE2MTgwNDQyM2YzZjYzMDA4MGQyODQwNTEwMzE4NTRiZmZmYmUzZjEwYjdlYThmNGZhOWNlY2E0YWQ0OWZhZDk3ODY3YTkzYjMzZDhhMmQ3NjRjZjczZWVkNTQ4ODUzMGIxZmViMDk0In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 17:36:51 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp',
+)
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjQ0Zjc3NTE4ODdjZWM1NDFjYmJjZmFlNTExMmFmNGIzMmE0NTEyM2YyM2RlNDMzNDNmNGQ3YjljYmU1OGM2ZVwiLFwiZW52a2V5XCI6XCI2OGUxMDAxYjZkMDMzZGU3MjJkNWQ5ODJjNDE5MzBlZWE4MzYyNjg2ODA4YzBlMTZiZDg5ZmE1MGE5ZmJlZGJkZGY1NTQ1NGQxZjJkNWEwYjQwMmMxNmQ1N2NlMzhiNTE3ZjhhNTA2YjU5ZjUyYWUyMDFlMjM4Y2VkMDMwMjg3Y2U3NTFjMDZhMWI0NWY2YzlkOTdkYzJiNmVhOThmN2YxY2Q0ZDU2MjNjMWRiY2UzNzQ1NjI5MzE4MjZjNzkxOGNhYmFkZWY1YmQ1MWEyZTAwYzZkM2Q2YWExNzIyMWQ5ZWY0YjVhODgzN2MyMWRlNGRlZjc4MDEyMGZhMjdkMjk0MjIyYTM4NGM1NmZmOTE1OTc4ODgzNDZmNjAyMTViNjMwYzQ0NGJhZTA4ZmVmN2ZlZWQ3OGQ5NTU3YjA4MGZhZmRhMzM1NjUxZDg3Njg0ZDQxYmE2Y2QzNDIzYzUwYmU5MTY0YzBmMzgyOGJiM2MzZjg5YWRiM2Y0ZDVmMzU0ZjVlYzY3YjM1NmE2NmJkNTczNzdlM2NkNWE2ZmQ0ZjU4OTU4NzFmOTIxNTAzZTZmOTZmMTEyZGZmYWM4MmE3MTI4ODY3OTI2NzZjMjUwODAxMWM1NzAxYWE2Mjg2ZmMzMWU0MWMyNzBkYmM4MTM2MGUyZWVhYTFmZDU4MGY5OWY4ZVwifSIsInNpZ25hdHVyZSI6ImMyMTcyYWE3NmQ5YmFhZDdjZDc1NTcxNWM4YzIzNDc3YjYzOTM5NmNhODk0ZDU0NWM1N2IyZTExNzk1MTQ5MDY0ZmQ3YThlMzMzYmNkYzcxYTQ4Zjk0MDFlMmQyZmMxNDEzZmJmYjRlNGJhY2FiYmI4MWUwMGY5YzVhZDAyZWQ0YTNmOTlmZTkyNDQ4YzY2MjdlZTk0ZDY3YmJmYjRjODQ1M2FiZTVjZmRhMjNiODQ5MWY2YWFmMjBlNzBkNDhjZDkxZjBmYzRlYWM5MGNiYTNkY2RmYTA4YThhNGY3N2NlMThiNWE4NzZmNTkyMWNlN2ViOGE3OWViMWI3M2U3OTgxOGZjOTgxZmRhNDliODM0MGVhMGY0NmM0NTMwZTIzMjVlMjI0MzE5YmI3N2FiMzdkYWMzMDdkMzdjM2FlZDRkMjhkNzQwZmQ3N2Y3YTkwNjZmYmIwMzA2OGZlNzAwNGJkMjM0YThjYTg0M2FjM2NkMjkyNjA5NGZhYzQ4ZTdlY2FhOTBiZjQzZDg3YTk5NzEwODk1NGYyYmE2MTgwNDQyM2YzZjYzMDA4MGQyODQwNTEwMzE4NTRiZmZmYmUzZjEwYjdlYThmNGZhOWNlY2E0YWQ0OWZhZDk3ODY3YTkzYjMzZDhhMmQ3NjRjZjczZWVkNTQ4ODUzMGIxZmViMDk0In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 17:40:22 Error: Fatal Error (1): Class 'SecureReceiver' not found in [/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php, line 49]
+2014-01-13 17:40:22 Error: [FatalErrorException] Class 'SecureReceiver' not found
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjQ0Zjc3NTE4ODdjZWM1NDFjYmJjZmFlNTExMmFmNGIzMmE0NTEyM2YyM2RlNDMzNDNmNGQ3YjljYmU1OGM2ZVwiLFwiZW52a2V5XCI6XCI2OGUxMDAxYjZkMDMzZGU3MjJkNWQ5ODJjNDE5MzBlZWE4MzYyNjg2ODA4YzBlMTZiZDg5ZmE1MGE5ZmJlZGJkZGY1NTQ1NGQxZjJkNWEwYjQwMmMxNmQ1N2NlMzhiNTE3ZjhhNTA2YjU5ZjUyYWUyMDFlMjM4Y2VkMDMwMjg3Y2U3NTFjMDZhMWI0NWY2YzlkOTdkYzJiNmVhOThmN2YxY2Q0ZDU2MjNjMWRiY2UzNzQ1NjI5MzE4MjZjNzkxOGNhYmFkZWY1YmQ1MWEyZTAwYzZkM2Q2YWExNzIyMWQ5ZWY0YjVhODgzN2MyMWRlNGRlZjc4MDEyMGZhMjdkMjk0MjIyYTM4NGM1NmZmOTE1OTc4ODgzNDZmNjAyMTViNjMwYzQ0NGJhZTA4ZmVmN2ZlZWQ3OGQ5NTU3YjA4MGZhZmRhMzM1NjUxZDg3Njg0ZDQxYmE2Y2QzNDIzYzUwYmU5MTY0YzBmMzgyOGJiM2MzZjg5YWRiM2Y0ZDVmMzU0ZjVlYzY3YjM1NmE2NmJkNTczNzdlM2NkNWE2ZmQ0ZjU4OTU4NzFmOTIxNTAzZTZmOTZmMTEyZGZmYWM4MmE3MTI4ODY3OTI2NzZjMjUwODAxMWM1NzAxYWE2Mjg2ZmMzMWU0MWMyNzBkYmM4MTM2MGUyZWVhYTFmZDU4MGY5OWY4ZVwifSIsInNpZ25hdHVyZSI6ImMyMTcyYWE3NmQ5YmFhZDdjZDc1NTcxNWM4YzIzNDc3YjYzOTM5NmNhODk0ZDU0NWM1N2IyZTExNzk1MTQ5MDY0ZmQ3YThlMzMzYmNkYzcxYTQ4Zjk0MDFlMmQyZmMxNDEzZmJmYjRlNGJhY2FiYmI4MWUwMGY5YzVhZDAyZWQ0YTNmOTlmZTkyNDQ4YzY2MjdlZTk0ZDY3YmJmYjRjODQ1M2FiZTVjZmRhMjNiODQ5MWY2YWFmMjBlNzBkNDhjZDkxZjBmYzRlYWM5MGNiYTNkY2RmYTA4YThhNGY3N2NlMThiNWE4NzZmNTkyMWNlN2ViOGE3OWViMWI3M2U3OTgxOGZjOTgxZmRhNDliODM0MGVhMGY0NmM0NTMwZTIzMjVlMjI0MzE5YmI3N2FiMzdkYWMzMDdkMzdjM2FlZDRkMjhkNzQwZmQ3N2Y3YTkwNjZmYmIwMzA2OGZlNzAwNGJkMjM0YThjYTg0M2FjM2NkMjkyNjA5NGZhYzQ4ZTdlY2FhOTBiZjQzZDg3YTk5NzEwODk1NGYyYmE2MTgwNDQyM2YzZjYzMDA4MGQyODQwNTEwMzE4NTRiZmZmYmUzZjEwYjdlYThmNGZhOWNlY2E0YWQ0OWZhZDk3ODY3YTkzYjMzZDhhMmQ3NjRjZjczZWVkNTQ4ODUzMGIxZmViMDk0In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SecureRe...', '/home/ivalenzu/...', 49)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SecureRe...', '/home/ivalenzu/...', 49, Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SecureRe...', '/home/ivalenzu/...', 49, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-01-13 17:40:34 Error: 32a3c71f
+2014-01-13 17:40:34 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp',
+)
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjQ0Zjc3NTE4ODdjZWM1NDFjYmJjZmFlNTExMmFmNGIzMmE0NTEyM2YyM2RlNDMzNDNmNGQ3YjljYmU1OGM2ZVwiLFwiZW52a2V5XCI6XCI2OGUxMDAxYjZkMDMzZGU3MjJkNWQ5ODJjNDE5MzBlZWE4MzYyNjg2ODA4YzBlMTZiZDg5ZmE1MGE5ZmJlZGJkZGY1NTQ1NGQxZjJkNWEwYjQwMmMxNmQ1N2NlMzhiNTE3ZjhhNTA2YjU5ZjUyYWUyMDFlMjM4Y2VkMDMwMjg3Y2U3NTFjMDZhMWI0NWY2YzlkOTdkYzJiNmVhOThmN2YxY2Q0ZDU2MjNjMWRiY2UzNzQ1NjI5MzE4MjZjNzkxOGNhYmFkZWY1YmQ1MWEyZTAwYzZkM2Q2YWExNzIyMWQ5ZWY0YjVhODgzN2MyMWRlNGRlZjc4MDEyMGZhMjdkMjk0MjIyYTM4NGM1NmZmOTE1OTc4ODgzNDZmNjAyMTViNjMwYzQ0NGJhZTA4ZmVmN2ZlZWQ3OGQ5NTU3YjA4MGZhZmRhMzM1NjUxZDg3Njg0ZDQxYmE2Y2QzNDIzYzUwYmU5MTY0YzBmMzgyOGJiM2MzZjg5YWRiM2Y0ZDVmMzU0ZjVlYzY3YjM1NmE2NmJkNTczNzdlM2NkNWE2ZmQ0ZjU4OTU4NzFmOTIxNTAzZTZmOTZmMTEyZGZmYWM4MmE3MTI4ODY3OTI2NzZjMjUwODAxMWM1NzAxYWE2Mjg2ZmMzMWU0MWMyNzBkYmM4MTM2MGUyZWVhYTFmZDU4MGY5OWY4ZVwifSIsInNpZ25hdHVyZSI6ImMyMTcyYWE3NmQ5YmFhZDdjZDc1NTcxNWM4YzIzNDc3YjYzOTM5NmNhODk0ZDU0NWM1N2IyZTExNzk1MTQ5MDY0ZmQ3YThlMzMzYmNkYzcxYTQ4Zjk0MDFlMmQyZmMxNDEzZmJmYjRlNGJhY2FiYmI4MWUwMGY5YzVhZDAyZWQ0YTNmOTlmZTkyNDQ4YzY2MjdlZTk0ZDY3YmJmYjRjODQ1M2FiZTVjZmRhMjNiODQ5MWY2YWFmMjBlNzBkNDhjZDkxZjBmYzRlYWM5MGNiYTNkY2RmYTA4YThhNGY3N2NlMThiNWE4NzZmNTkyMWNlN2ViOGE3OWViMWI3M2U3OTgxOGZjOTgxZmRhNDliODM0MGVhMGY0NmM0NTMwZTIzMjVlMjI0MzE5YmI3N2FiMzdkYWMzMDdkMzdjM2FlZDRkMjhkNzQwZmQ3N2Y3YTkwNjZmYmIwMzA2OGZlNzAwNGJkMjM0YThjYTg0M2FjM2NkMjkyNjA5NGZhYzQ4ZTdlY2FhOTBiZjQzZDg3YTk5NzEwODk1NGYyYmE2MTgwNDQyM2YzZjYzMDA4MGQyODQwNTEwMzE4NTRiZmZmYmUzZjEwYjdlYThmNGZhOWNlY2E0YWQ0OWZhZDk3ODY3YTkzYjMzZDhhMmQ3NjRjZjczZWVkNTQ4ODUzMGIxZmViMDk0In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 17:40:49 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp',
+)
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjQ0Zjc3NTE4ODdjZWM1NDFjYmJjZmFlNTExMmFmNGIzMmE0NTEyM2YyM2RlNDMzNDNmNGQ3YjljYmU1OGM2ZVwiLFwiZW52a2V5XCI6XCI2OGUxMDAxYjZkMDMzZGU3MjJkNWQ5ODJjNDE5MzBlZWE4MzYyNjg2ODA4YzBlMTZiZDg5ZmE1MGE5ZmJlZGJkZGY1NTQ1NGQxZjJkNWEwYjQwMmMxNmQ1N2NlMzhiNTE3ZjhhNTA2YjU5ZjUyYWUyMDFlMjM4Y2VkMDMwMjg3Y2U3NTFjMDZhMWI0NWY2YzlkOTdkYzJiNmVhOThmN2YxY2Q0ZDU2MjNjMWRiY2UzNzQ1NjI5MzE4MjZjNzkxOGNhYmFkZWY1YmQ1MWEyZTAwYzZkM2Q2YWExNzIyMWQ5ZWY0YjVhODgzN2MyMWRlNGRlZjc4MDEyMGZhMjdkMjk0MjIyYTM4NGM1NmZmOTE1OTc4ODgzNDZmNjAyMTViNjMwYzQ0NGJhZTA4ZmVmN2ZlZWQ3OGQ5NTU3YjA4MGZhZmRhMzM1NjUxZDg3Njg0ZDQxYmE2Y2QzNDIzYzUwYmU5MTY0YzBmMzgyOGJiM2MzZjg5YWRiM2Y0ZDVmMzU0ZjVlYzY3YjM1NmE2NmJkNTczNzdlM2NkNWE2ZmQ0ZjU4OTU4NzFmOTIxNTAzZTZmOTZmMTEyZGZmYWM4MmE3MTI4ODY3OTI2NzZjMjUwODAxMWM1NzAxYWE2Mjg2ZmMzMWU0MWMyNzBkYmM4MTM2MGUyZWVhYTFmZDU4MGY5OWY4ZVwifSIsInNpZ25hdHVyZSI6ImMyMTcyYWE3NmQ5YmFhZDdjZDc1NTcxNWM4YzIzNDc3YjYzOTM5NmNhODk0ZDU0NWM1N2IyZTExNzk1MTQ5MDY0ZmQ3YThlMzMzYmNkYzcxYTQ4Zjk0MDFlMmQyZmMxNDEzZmJmYjRlNGJhY2FiYmI4MWUwMGY5YzVhZDAyZWQ0YTNmOTlmZTkyNDQ4YzY2MjdlZTk0ZDY3YmJmYjRjODQ1M2FiZTVjZmRhMjNiODQ5MWY2YWFmMjBlNzBkNDhjZDkxZjBmYzRlYWM5MGNiYTNkY2RmYTA4YThhNGY3N2NlMThiNWE4NzZmNTkyMWNlN2ViOGE3OWViMWI3M2U3OTgxOGZjOTgxZmRhNDliODM0MGVhMGY0NmM0NTMwZTIzMjVlMjI0MzE5YmI3N2FiMzdkYWMzMDdkMzdjM2FlZDRkMjhkNzQwZmQ3N2Y3YTkwNjZmYmIwMzA2OGZlNzAwNGJkMjM0YThjYTg0M2FjM2NkMjkyNjA5NGZhYzQ4ZTdlY2FhOTBiZjQzZDg3YTk5NzEwODk1NGYyYmE2MTgwNDQyM2YzZjYzMDA4MGQyODQwNTEwMzE4NTRiZmZmYmUzZjEwYjdlYThmNGZhOWNlY2E0YWQ0OWZhZDk3ODY3YTkzYjMzZDhhMmQ3NjRjZjczZWVkNTQ4ODUzMGIxZmViMDk0In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 17:40:50 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp',
+)
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjQ0Zjc3NTE4ODdjZWM1NDFjYmJjZmFlNTExMmFmNGIzMmE0NTEyM2YyM2RlNDMzNDNmNGQ3YjljYmU1OGM2ZVwiLFwiZW52a2V5XCI6XCI2OGUxMDAxYjZkMDMzZGU3MjJkNWQ5ODJjNDE5MzBlZWE4MzYyNjg2ODA4YzBlMTZiZDg5ZmE1MGE5ZmJlZGJkZGY1NTQ1NGQxZjJkNWEwYjQwMmMxNmQ1N2NlMzhiNTE3ZjhhNTA2YjU5ZjUyYWUyMDFlMjM4Y2VkMDMwMjg3Y2U3NTFjMDZhMWI0NWY2YzlkOTdkYzJiNmVhOThmN2YxY2Q0ZDU2MjNjMWRiY2UzNzQ1NjI5MzE4MjZjNzkxOGNhYmFkZWY1YmQ1MWEyZTAwYzZkM2Q2YWExNzIyMWQ5ZWY0YjVhODgzN2MyMWRlNGRlZjc4MDEyMGZhMjdkMjk0MjIyYTM4NGM1NmZmOTE1OTc4ODgzNDZmNjAyMTViNjMwYzQ0NGJhZTA4ZmVmN2ZlZWQ3OGQ5NTU3YjA4MGZhZmRhMzM1NjUxZDg3Njg0ZDQxYmE2Y2QzNDIzYzUwYmU5MTY0YzBmMzgyOGJiM2MzZjg5YWRiM2Y0ZDVmMzU0ZjVlYzY3YjM1NmE2NmJkNTczNzdlM2NkNWE2ZmQ0ZjU4OTU4NzFmOTIxNTAzZTZmOTZmMTEyZGZmYWM4MmE3MTI4ODY3OTI2NzZjMjUwODAxMWM1NzAxYWE2Mjg2ZmMzMWU0MWMyNzBkYmM4MTM2MGUyZWVhYTFmZDU4MGY5OWY4ZVwifSIsInNpZ25hdHVyZSI6ImMyMTcyYWE3NmQ5YmFhZDdjZDc1NTcxNWM4YzIzNDc3YjYzOTM5NmNhODk0ZDU0NWM1N2IyZTExNzk1MTQ5MDY0ZmQ3YThlMzMzYmNkYzcxYTQ4Zjk0MDFlMmQyZmMxNDEzZmJmYjRlNGJhY2FiYmI4MWUwMGY5YzVhZDAyZWQ0YTNmOTlmZTkyNDQ4YzY2MjdlZTk0ZDY3YmJmYjRjODQ1M2FiZTVjZmRhMjNiODQ5MWY2YWFmMjBlNzBkNDhjZDkxZjBmYzRlYWM5MGNiYTNkY2RmYTA4YThhNGY3N2NlMThiNWE4NzZmNTkyMWNlN2ViOGE3OWViMWI3M2U3OTgxOGZjOTgxZmRhNDliODM0MGVhMGY0NmM0NTMwZTIzMjVlMjI0MzE5YmI3N2FiMzdkYWMzMDdkMzdjM2FlZDRkMjhkNzQwZmQ3N2Y3YTkwNjZmYmIwMzA2OGZlNzAwNGJkMjM0YThjYTg0M2FjM2NkMjkyNjA5NGZhYzQ4ZTdlY2FhOTBiZjQzZDg3YTk5NzEwODk1NGYyYmE2MTgwNDQyM2YzZjYzMDA4MGQyODQwNTEwMzE4NTRiZmZmYmUzZjEwYjdlYThmNGZhOWNlY2E0YWQ0OWZhZDk3ODY3YTkzYjMzZDhhMmQ3NjRjZjczZWVkNTQ4ODUzMGIxZmViMDk0In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 17:40:51 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp',
+)
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjQ0Zjc3NTE4ODdjZWM1NDFjYmJjZmFlNTExMmFmNGIzMmE0NTEyM2YyM2RlNDMzNDNmNGQ3YjljYmU1OGM2ZVwiLFwiZW52a2V5XCI6XCI2OGUxMDAxYjZkMDMzZGU3MjJkNWQ5ODJjNDE5MzBlZWE4MzYyNjg2ODA4YzBlMTZiZDg5ZmE1MGE5ZmJlZGJkZGY1NTQ1NGQxZjJkNWEwYjQwMmMxNmQ1N2NlMzhiNTE3ZjhhNTA2YjU5ZjUyYWUyMDFlMjM4Y2VkMDMwMjg3Y2U3NTFjMDZhMWI0NWY2YzlkOTdkYzJiNmVhOThmN2YxY2Q0ZDU2MjNjMWRiY2UzNzQ1NjI5MzE4MjZjNzkxOGNhYmFkZWY1YmQ1MWEyZTAwYzZkM2Q2YWExNzIyMWQ5ZWY0YjVhODgzN2MyMWRlNGRlZjc4MDEyMGZhMjdkMjk0MjIyYTM4NGM1NmZmOTE1OTc4ODgzNDZmNjAyMTViNjMwYzQ0NGJhZTA4ZmVmN2ZlZWQ3OGQ5NTU3YjA4MGZhZmRhMzM1NjUxZDg3Njg0ZDQxYmE2Y2QzNDIzYzUwYmU5MTY0YzBmMzgyOGJiM2MzZjg5YWRiM2Y0ZDVmMzU0ZjVlYzY3YjM1NmE2NmJkNTczNzdlM2NkNWE2ZmQ0ZjU4OTU4NzFmOTIxNTAzZTZmOTZmMTEyZGZmYWM4MmE3MTI4ODY3OTI2NzZjMjUwODAxMWM1NzAxYWE2Mjg2ZmMzMWU0MWMyNzBkYmM4MTM2MGUyZWVhYTFmZDU4MGY5OWY4ZVwifSIsInNpZ25hdHVyZSI6ImMyMTcyYWE3NmQ5YmFhZDdjZDc1NTcxNWM4YzIzNDc3YjYzOTM5NmNhODk0ZDU0NWM1N2IyZTExNzk1MTQ5MDY0ZmQ3YThlMzMzYmNkYzcxYTQ4Zjk0MDFlMmQyZmMxNDEzZmJmYjRlNGJhY2FiYmI4MWUwMGY5YzVhZDAyZWQ0YTNmOTlmZTkyNDQ4YzY2MjdlZTk0ZDY3YmJmYjRjODQ1M2FiZTVjZmRhMjNiODQ5MWY2YWFmMjBlNzBkNDhjZDkxZjBmYzRlYWM5MGNiYTNkY2RmYTA4YThhNGY3N2NlMThiNWE4NzZmNTkyMWNlN2ViOGE3OWViMWI3M2U3OTgxOGZjOTgxZmRhNDliODM0MGVhMGY0NmM0NTMwZTIzMjVlMjI0MzE5YmI3N2FiMzdkYWMzMDdkMzdjM2FlZDRkMjhkNzQwZmQ3N2Y3YTkwNjZmYmIwMzA2OGZlNzAwNGJkMjM0YThjYTg0M2FjM2NkMjkyNjA5NGZhYzQ4ZTdlY2FhOTBiZjQzZDg3YTk5NzEwODk1NGYyYmE2MTgwNDQyM2YzZjYzMDA4MGQyODQwNTEwMzE4NTRiZmZmYmUzZjEwYjdlYThmNGZhOWNlY2E0YWQ0OWZhZDk3ODY3YTkzYjMzZDhhMmQ3NjRjZjczZWVkNTQ4ODUzMGIxZmViMDk0In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 18:09:58 Error: [MissingViewException] View file "/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/captcha.ctp',
+)
+Request URL: /forms/captcha/eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNjQ0Zjc3NTE4ODdjZWM1NDFjYmJjZmFlNTExMmFmNGIzMmE0NTEyM2YyM2RlNDMzNDNmNGQ3YjljYmU1OGM2ZVwiLFwiZW52a2V5XCI6XCI2OGUxMDAxYjZkMDMzZGU3MjJkNWQ5ODJjNDE5MzBlZWE4MzYyNjg2ODA4YzBlMTZiZDg5ZmE1MGE5ZmJlZGJkZGY1NTQ1NGQxZjJkNWEwYjQwMmMxNmQ1N2NlMzhiNTE3ZjhhNTA2YjU5ZjUyYWUyMDFlMjM4Y2VkMDMwMjg3Y2U3NTFjMDZhMWI0NWY2YzlkOTdkYzJiNmVhOThmN2YxY2Q0ZDU2MjNjMWRiY2UzNzQ1NjI5MzE4MjZjNzkxOGNhYmFkZWY1YmQ1MWEyZTAwYzZkM2Q2YWExNzIyMWQ5ZWY0YjVhODgzN2MyMWRlNGRlZjc4MDEyMGZhMjdkMjk0MjIyYTM4NGM1NmZmOTE1OTc4ODgzNDZmNjAyMTViNjMwYzQ0NGJhZTA4ZmVmN2ZlZWQ3OGQ5NTU3YjA4MGZhZmRhMzM1NjUxZDg3Njg0ZDQxYmE2Y2QzNDIzYzUwYmU5MTY0YzBmMzgyOGJiM2MzZjg5YWRiM2Y0ZDVmMzU0ZjVlYzY3YjM1NmE2NmJkNTczNzdlM2NkNWE2ZmQ0ZjU4OTU4NzFmOTIxNTAzZTZmOTZmMTEyZGZmYWM4MmE3MTI4ODY3OTI2NzZjMjUwODAxMWM1NzAxYWE2Mjg2ZmMzMWU0MWMyNzBkYmM4MTM2MGUyZWVhYTFmZDU4MGY5OWY4ZVwifSIsInNpZ25hdHVyZSI6ImMyMTcyYWE3NmQ5YmFhZDdjZDc1NTcxNWM4YzIzNDc3YjYzOTM5NmNhODk0ZDU0NWM1N2IyZTExNzk1MTQ5MDY0ZmQ3YThlMzMzYmNkYzcxYTQ4Zjk0MDFlMmQyZmMxNDEzZmJmYjRlNGJhY2FiYmI4MWUwMGY5YzVhZDAyZWQ0YTNmOTlmZTkyNDQ4YzY2MjdlZTk0ZDY3YmJmYjRjODQ1M2FiZTVjZmRhMjNiODQ5MWY2YWFmMjBlNzBkNDhjZDkxZjBmYzRlYWM5MGNiYTNkY2RmYTA4YThhNGY3N2NlMThiNWE4NzZmNTkyMWNlN2ViOGE3OWViMWI3M2U3OTgxOGZjOTgxZmRhNDliODM0MGVhMGY0NmM0NTMwZTIzMjVlMjI0MzE5YmI3N2FiMzdkYWMzMDdkMzdjM2FlZDRkMjhkNzQwZmQ3N2Y3YTkwNjZmYmIwMzA2OGZlNzAwNGJkMjM0YThjYTg0M2FjM2NkMjkyNjA5NGZhYzQ4ZTdlY2FhOTBiZjQzZDg3YTk5NzEwODk1NGYyYmE2MTgwNDQyM2YzZjYzMDA4MGQyODQwNTEwMzE4NTRiZmZmYmUzZjEwYjdlYThmNGZhOWNlY2E0YWQ0OWZhZDk3ODY3YTkzYjMzZDhhMmQ3NjRjZjczZWVkNTQ4ODUzMGIxZmViMDk0In0%3D
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 18:21:19 Error: Borrando los registros expirados
+2014-01-13 18:25:50 Error: Borrando los registros expirados
+2014-01-13 18:25:53 Error: Borrando los registros expirados
+2014-01-13 18:33:10 Error: [UnauthorizedException] IP_ADDRESS_BLOCKED
+Request URL: /api/checklogin
+Stack Trace:
+#0 [internal function]: ApiController->beforeFilter(Object(CakeEvent))
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(674): CakeEventManager->dispatch(Object(CakeEvent))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(184): Controller->startupProcess()
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-13 18:40:07 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/checklogin
+Stack Trace:
+#0 [internal function]: ApiController->checklogin()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 18:40:59 Error: Borrando los registros expirados
+2014-01-13 18:42:23 Error: Borrando los registros expirados
+2014-01-13 18:42:42 Error: 7daob491
+2014-01-13 18:42:42 Error: 7daob491
+2014-01-13 18:42:42 Error: Array
+(
+)
+
+2014-01-13 18:42:42 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/checklogin
+Stack Trace:
+#0 [internal function]: ApiController->checklogin()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-13 18:44:39 Error: a2107920
+2014-01-13 18:44:39 Error: a2107920
+2014-01-13 18:44:39 Error: Array
+(
+    [IpAddressAccessAttempt] => Array
+        (
+            [ip_address] => 127.0.0.1
+            [access_attempts] => 0
+            [max_access_attempts] => 0
+            [blocked_until] => 2014-01-14 00:00:00
+            [unblocking_code] => a2107920
+            [created] => 2014-01-11 10:26:38
+            [modified] => 2014-01-11 10:26:38
+        )
+
+    [AccessAttempt] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 22
+                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+                    [ip_address] => 127.0.0.1
+                    [created] => 2014-01-11 10:26:38
+                )
+
+            [1] => Array
+                (
+                    [id] => 23
+                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+                    [ip_address] => 127.0.0.1
+                    [created] => 2014-01-11 10:26:50
+                )
+
+            [2] => Array
+                (
+                    [id] => 24
+                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+                    [ip_address] => 127.0.0.1
+                    [created] => 2014-01-11 10:26:52
+                )
+
+            [3] => Array
+                (
+                    [id] => 25
+                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+                    [ip_address] => 127.0.0.1
+                    [created] => 2014-01-11 10:27:00
+                )
+
+            [4] => Array
+                (
+                    [id] => 26
+                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+                    [ip_address] => 127.0.0.1
+                    [created] => 2014-01-11 10:27:02
+                )
+
+            [5] => Array
+                (
+                    [id] => 27
+                    [user_agent] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/31.0.1650.63 Chrome/31.0.1650.63 Safari/537.36
+                    [ip_address] => 127.0.0.1
+                    [created] => 2014-01-11 10:27:11
+                )
+
+        )
+
+)
+
+2014-01-13 18:44:40 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 2
+            [identity_id] => 2
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2014-01-10 12:18:15
+            [modified] => 2014-01-10 12:18:15
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 2
+            [user_id] => 1
+            [identificator] => 95109539
+            [type] => 2
+            [created] => 2014-01-10 12:17:56
+            [modified] => 2014-01-10 12:17:56
+        )
+
+    [Notification] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [account_identity_id] => 2
+                    [data] => 20471
+                    [status] => 2
+                    [action] => 2
+                    [created] => 2014-01-10 12:20:26
+                    [modified] => 2014-01-10 12:20:26
+                )
+
+        )
+
+)
+
+2014-01-13 18:46:02 Error: Borrando los registros expirados
+2014-01-13 18:46:09 Error: rtertertert
+2014-01-13 18:46:09 Error: Array
+(
+)
+
+2014-01-13 18:46:09 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/checklogin
+Stack Trace:
+#0 [internal function]: ApiController->checklogin()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

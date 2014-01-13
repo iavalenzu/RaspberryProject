@@ -10,6 +10,11 @@ echo $this->Form->create(null, array(
 ));
 echo $this->Form->input(null, array('name' => 'user_id', 'label' => 'User', 'value'=>'iavalenzu'));
 echo $this->Form->input(null, array('name' => 'user_pass', 'label' => 'Password', 'type' => 'password', 'value'=>'password'));
+
+if(isset($captcha_code)){
+    echo $this->Captcha->image($captcha_code);
+    echo $this->Form->input(null, array('name' => 'captcha_code', 'label' => 'Captcha', 'value' => ''));
+}
 echo $this->Form->hidden(null, array('name' => 'form_id', 'value' => $form_id));
 echo $this->Form->hidden(null, array('name' => 'service_id', 'value' => $service_id));
 echo $this->Form->hidden(null, array('name' => 'transaction_id', 'value' => $transaction_id));

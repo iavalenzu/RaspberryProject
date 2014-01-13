@@ -31,11 +31,6 @@ class ApiController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         
-        //Si la ip del request esta bloqueada, denegamos el acceso
-        if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
-            throw new UnauthorizedException(ResponseStatus::$ip_address_blocked);
-        }        
-        
     }
 
     
@@ -169,7 +164,21 @@ class ApiController extends AppController {
 
         $user_id = Utilities::exists($this->request->data, 'user_id', Utilities::$REQUIRED, Utilities::$EMPTY, false);
         $user_pass = Utilities::exists($this->request->data, 'user_pass', Utilities::$REQUIRED, Utilities::$EMPTY, false);
-
+        $captcha_code = Utilities::exists($this->request->data, 'captcha_code', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        
+        /*
+         * Si la ip del request esta bloqueada, revisamos si el captcha coincide
+         * Pasamos como parametro el valor false para no modificar el captcha
+         */
+        if($this->IpAddressAccessAttempt->isIpAddressBlocked(false)){
+            
+            if(!$this->IpAddressAccessAttempt->unblock($captcha_code)){
+                throw new UnauthorizedException(ResponseStatus::$access_denied);
+            }
+            
+        }         
+        
+        
         /*
          * Se obtiene el servicio asociado
          */
