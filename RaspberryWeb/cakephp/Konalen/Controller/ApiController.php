@@ -167,19 +167,6 @@ class ApiController extends AppController {
         $captcha_code = Utilities::exists($this->request->data, 'captcha_code', Utilities::$REQUIRED, Utilities::$EMPTY, false);
         
         /*
-         * Si la ip del request esta bloqueada, revisamos si el captcha coincide
-         * Pasamos como parametro el valor false para no modificar el captcha
-         */
-        if($this->IpAddressAccessAttempt->isIpAddressBlocked(false)){
-            
-            if(!$this->IpAddressAccessAttempt->unblock($captcha_code)){
-                throw new UnauthorizedException(ResponseStatus::$access_denied);
-            }
-            
-        }         
-        
-        
-        /*
          * Se obtiene el servicio asociado
          */
         $service = $this->Service->findById($service_id);
@@ -188,6 +175,23 @@ class ApiController extends AppController {
             $this->IpAddressAccessAttempt->attempt();
             throw new UnauthorizedException(ResponseStatus::$access_denied);
         }
+        
+        
+        /*
+         * Si la ip del request esta bloqueada, revisamos si el captcha coincide
+         */
+        if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
+            
+            if(!$this->IpAddressAccessAttempt->unblock($captcha_code)){
+                /*
+                 * Hacemos un redirect a la pagina de login del partner
+                 */
+                $this->redirect($service['Service']['login_url']);
+            }
+            
+        }         
+                
+        
         
         /*
          * Se crea un recibidor seguro de mensajes y desencriptamos el checksum

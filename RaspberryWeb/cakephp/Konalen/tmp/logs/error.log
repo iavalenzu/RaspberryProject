@@ -3817,3 +3817,149 @@ Stack Trace:
 #3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
 #4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-01-14 07:24:49 Error: [BadRequestException] Bad Request
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(158): Utilities->exists(Array, 'form_id', true, true, false)
+#1 [internal function]: ApiController->checklogin()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-14 08:00:50 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 2
+            [identity_id] => 2
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2014-01-10 12:18:15
+            [modified] => 2014-01-10 12:18:15
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 2
+            [user_id] => 1
+            [identificator] => 95109539
+            [type] => 2
+            [created] => 2014-01-10 12:17:56
+            [modified] => 2014-01-10 12:17:56
+        )
+
+    [Notification] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [account_identity_id] => 2
+                    [data] => 20471
+                    [status] => 2
+                    [action] => 2
+                    [created] => 2014-01-10 12:20:26
+                    [modified] => 2014-01-10 12:20:26
+                )
+
+            [1] => Array
+                (
+                    [id] => 14
+                    [account_identity_id] => 2
+                    [data] => 45279
+                    [status] => 1
+                    [action] => 2
+                    [created] => 2014-01-13 18:44:40
+                    [modified] => 2014-01-13 18:44:40
+                )
+
+        )
+
+)
+
+2014-01-14 08:02:24 Error: Borrando los registros expirados
+2014-01-14 08:02:24 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 2
+            [identity_id] => 2
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2014-01-10 12:18:15
+            [modified] => 2014-01-10 12:18:15
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 2
+            [user_id] => 1
+            [identificator] => 95109539
+            [type] => 2
+            [created] => 2014-01-10 12:17:56
+            [modified] => 2014-01-10 12:17:56
+        )
+
+    [Notification] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 13
+                    [account_identity_id] => 2
+                    [data] => 20471
+                    [status] => 2
+                    [action] => 2
+                    [created] => 2014-01-10 12:20:26
+                    [modified] => 2014-01-10 12:20:26
+                )
+
+            [1] => Array
+                (
+                    [id] => 14
+                    [account_identity_id] => 2
+                    [data] => 45279
+                    [status] => 1
+                    [action] => 2
+                    [created] => 2014-01-13 18:44:40
+                    [modified] => 2014-01-13 18:44:40
+                )
+
+            [2] => Array
+                (
+                    [id] => 15
+                    [account_identity_id] => 2
+                    [data] => 43313
+                    [status] => 1
+                    [action] => 2
+                    [created] => 2014-01-14 08:00:50
+                    [modified] => 2014-01-14 08:00:50
+                )
+
+        )
+
+)
+

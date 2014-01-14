@@ -65,6 +65,13 @@ class FormsController extends AppController {
       
   }
   
+  public function two_step_verification(){
+      
+      
+      
+      
+  }
+
   
   public function login(){
         
@@ -83,15 +90,15 @@ class FormsController extends AppController {
          * Se verifica que la ip que hace la peticion no se encuentre bloqueada
          */
         
-        
-        $IpAddressAccessAttempt = $this->IpAddressAccessAttempt->isIpAddressBlocked();
-        
-        if($IpAddressAccessAttempt){
+        if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
             
             /*
              * Si esta bloqueada se debe generar un codigo de desbloqueo que puede ser un captcha
              */
-            $this->set('captcha_code', $IpAddressAccessAttempt['IpAddressAccessAttempt']['unblocking_code']);  
+            
+            $new_code = $this->IpAddressAccessAttempt->changeUnblockingCode();
+            
+            $this->set('captcha_code', $new_code);  
             
         }        
         
