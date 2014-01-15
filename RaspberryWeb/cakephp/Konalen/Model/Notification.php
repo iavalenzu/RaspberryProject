@@ -37,9 +37,9 @@ class Notification extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'AccountIdentity' => array(
-			'className' => 'AccountIdentity',
-			'foreignKey' => 'account_identity_id',
+		'Account' => array(
+			'className' => 'Account',
+			'foreignKey' => 'account_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
@@ -58,18 +58,19 @@ class Notification extends AppModel {
          * @return boolean
          */
         
-        public function createNotification($account_identity = null, $data = null, $status = null, $action = null){
+        public function createNotification($account = null, $data = null, $status = null, $action = null, $type = null){
             
-            if(empty($account_identity) || empty($data) || empty($status) || empty($action)){
+            if(empty($account) || empty($data) || empty($status) || empty($action) || empty($type)){
                 return false;
             }
             
             $notification = array(
                 'Notification' => array(
-                    'account_identity_id' => $account_identity['AccountIdentity']['id'],
+                    'account_id' => $account['Account']['id'],
                     'data' => $data,
                     'status' => $status,
-                    'action' => $action
+                    'action' => $action,
+                    'type' => $type
                 )
             );
             

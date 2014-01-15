@@ -120,8 +120,53 @@ class Account extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
+            'Notification' => array(
+                'className' => 'Notification',
+                'foreignKey' => 'account_id',
+                'dependent' => false,
+                'conditions' => '',
+                'fields' => '',
+                'order' => '',
+                'limit' => '',
+                'offset' => '',
+                'exclusive' => '',
+                'finderQuery' => '',
+                'counterQuery' => ''
+            )
+            
         );
+        
+        
+        
+        
+         public function getTwoStepNotificationType($account_id = null){
+
+            $types = array(
+                Identity::$TYPE_PHONE,
+                Identity::$TYPE_EMAIL
+            );
+            
+            foreach ($types as $type) {
+
+                $account_identity = $this->AccountIdentity->find('first', array(
+                    'conditions' => array(
+                        'AccountIdentity.account_id' => $account_id,
+                        'Identity.type' => $type,
+                        'AccountIdentity.authenticated' => 1
+                    )
+                ));
+                
+                if(!empty($account_identity)){
+                    return $type;
+                }
+                
+            }
+            
+            return null;             
+            
+        }        
+        
         
         public function login($service = null, $user_id = null, $user_pass = null){
 
@@ -158,18 +203,7 @@ class Account extends AppModel {
             
             return $account_identity;
             
-            
-/*            
-            $user = array(
-                'user_name' => $account_identity['Identity']['identificator'],
-                'user_data' => $account_identity['Account']['user_data'],
-                'created' => $account_identity['Account']['created'],
-                'session_id' => $account_access['AccountAccess']['session_id'], 
-                'session_expire' => $account_access['AccountAccess']['session_expire'], 
-            );
-
-            return new Login(Login::$SUCCESS, false, $user);
-  */          
+       
         }
         
 

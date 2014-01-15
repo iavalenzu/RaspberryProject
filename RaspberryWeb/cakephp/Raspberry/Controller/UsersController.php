@@ -145,6 +145,36 @@ class UsersController extends AppController {
         
     }
     
+    
+    public function two_step_verification(){
+        
+        $MyPrivateKey = Configure::read('MyPrivateKey');
+        $KonalenPublicKey = Configure::read('KonalenPublicKey');
+        
+        $sps = new SecureSender();
+        $sps->setRecipientPublicKey($KonalenPublicKey);
+        $sps->setSenderPrivateKey($MyPrivateKey);
+
+        $account_identity_id = $_GET['AccountIdentityId'];
+        $service_id = $_GET['ServiceId'];
+        $transaction_id = $_GET['TransactionId'];
+        
+        $checksum_key = hash('sha256', microtime(true) . mt_rand());
+        
+        $data = array(
+            'AccountIdentityId' => $account_identity_id,
+            'ServiceId' => $service_id,
+            'TransactionId' => $transaction_id,
+            
+            'CheckSum' => hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $checksum_key),
+            'CheckSumKey' => $sps->encrypt($checksum_key)
+        );
+     
+        $this->set('get', $data);        
+        
+        
+    }
+    
     public function login(){
 
         session_start();

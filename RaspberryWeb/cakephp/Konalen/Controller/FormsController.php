@@ -67,9 +67,68 @@ class FormsController extends AppController {
   
   public function two_step_verification(){
       
+        $this->Components->unload('DebugKit.Toolbar');
+
+        $this->layout = 'api';
+
+        $account_identity_id = Utilities::exists($this->request->query, 'AccountIdentityId', true, true, false);
+        $service_id = Utilities::exists($this->request->query, 'ServiceId', true, true, false);
+        $transaction_id = Utilities::exists($this->request->query, 'TransactionId', true, true, false);
+        
+        $checksum_key_encrypted = Utilities::exists($this->request->query, 'CheckSumKey', true, true, false);
+        $checksum = Utilities::exists($this->request->query, 'CheckSum', true, true, false);
       
-      
-      
+        /*
+         * Se verifica que la ip que hace la peticion no se encuentre bloqueada
+         */
+        
+        if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
+            
+            /*
+             * Si esta bloqueada denegamos el acceso
+             */
+            
+            throw new UnauthorizedException(ResponseStatus::$access_denied);            
+        }    
+        
+        /*
+         * Se obtiene el servicio asociado
+         */
+        $service = $this->Service->findById($service_id);
+
+        if(empty($service)){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
+        
+        /*
+         * Se crea un recibidor seguro de mensajes y desencriptamos el checksum
+         */
+        $spr = new SecureReceiver();
+        $spr->setSenderPublicKey($service['Partner']['public_key']);
+        $spr->setRecipientPrivateKey(Configure::read('KonalenPrivateKey'));
+
+        $checksum_key_decrypted = $spr->decrypt($checksum_key_encrypted);        
+ 
+        if(empty($checksum_key_decrypted)){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
+
+        /*
+         * Se verifica que el checksum corresponda a la data enviada
+         */
+        if(hash_hmac('sha256', implode('.', array($account_identity_id, $service_id, $transaction_id)), $checksum_key_decrypted) !== $checksum){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);   
+        }        
+        
+        $this->set('account_identity_id', $account_identity_id);
+        $this->set('service_id', $service_id);
+        $this->set('transaction_id', $transaction_id);
+        $this->set('checksum', hash_hmac('sha256', implode('.', array($account_identity_id, $service_id, $transaction_id)), $checksum_key_decrypted));
+        $this->set('checksum_key', $checksum_key_encrypted);
+
   }
 
   
@@ -144,6 +203,8 @@ class FormsController extends AppController {
             $service_form = $this->ServiceForm->createForm($service);
         }
 
+      
+        
         
         /*
          * Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
@@ -153,20 +214,32 @@ class FormsController extends AppController {
         /*
          * Registramos la info del acceso
          */
-        $this->PartnerAccess->access($service);        
+        //$this->PartnerAccess->access($service);        
 
-            
         $form_data = $service_form['ServiceForm']['data'];
         $form_id = $service_form['ServiceForm']['form_id'];
-
+        
         $this->set('form_data', $form_data);
         
+        /*
+         * Se chequea si el formulario esta en la verificacion de dos pasos
+         */
+        if($service_form['ServiceForm']['two_step_auth'] == 1){
+            
+            $this->set('two_step_auth_form', true);
+            
+        }        
+
         $this->set('form_id', $form_id);
         $this->set('service_id', $service_id);
         $this->set('transaction_id', $transaction_id);  
-        
+
         $this->set('checksum', hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $checksum_key_decrypted));        
-        $this->set('checksum_key', $checksum_key_encrypted);        
+        $this->set('checksum_key', $checksum_key_encrypted);            
+        
+
+        
+            
         
     }    
     

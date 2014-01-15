@@ -32,51 +32,7 @@ class AccountIdentity extends AppModel {
 		),
 	);
         
-        public $hasMany = array(
-            'Notification' => array(
-                'className' => 'Notification',
-                'foreignKey' => 'account_identity_id',
-                'dependent' => false,
-                'conditions' => '',
-                'fields' => '',
-                'order' => '',
-                'limit' => '',
-                'offset' => '',
-                'exclusive' => '',
-                'finderQuery' => '',
-                'counterQuery' => ''
-            )
-        );
 
-        public function getTwoStepIdentity($account_id = null){
-
-            
-            $types = array(
-                Identity::$TYPE_PHONE,
-                Identity::$TYPE_EMAIL
-            );
-            
-            foreach ($types as $type) {
-
-                $account_identity = $this->find('first', array(
-                    'conditions' => array(
-                        'AccountIdentity.account_id' => $account_id,
-                        'Identity.type' => $type,
-                        'AccountIdentity.authenticated' => 1
-                    )
-                ));
-                
-                if(!empty($account_identity)){
-                    return $account_identity;
-                }
-                
-            }
-            
-            return null;             
-            
-        }        
-        
-        
         public function getIdentity($user_id = null){
             
             if(empty($user_id)){

@@ -3963,3 +3963,280 @@ Stack Trace:
 
 )
 
+2014-01-14 20:42:39 Error: [BadRequestException] Bad Request
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(158): Utilities->exists(Array, 'form_id', true, true, false)
+#1 [internal function]: ApiController->checklogin()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-15 09:00:44 Error: [BadRequestException] Bad Request
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(158): Utilities->exists(Array, 'form_id', true, true, false)
+#1 [internal function]: ApiController->checklogin()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-15 11:25:57 Error: [BadRequestException] MISSING_PARAMETERS
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(167): Utilities->exists(Array, 'captcha_code', true, true, false)
+#1 [internal function]: ApiController->checklogin()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-15 11:26:29 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-01-15 11:26:29 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AccountIdentity.account_id' in 'where clause'
+Request URL: /api/checklogin
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Account...', Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Account...', Array, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Account...', false)
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Account), Array)
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Account.php(158): Model->find('first', Array)
+#7 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(258): Account->getTwoStepNotificationType('1')
+#8 [internal function]: ApiController->checklogin()
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#12 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2014-01-15 11:28:30 Error: Borrando los registros expirados
+2014-01-15 11:28:53 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-01-15 11:28:53 Error: Borrando los registros expirados
+2014-01-15 12:06:37 Error: Borrando los registros expirados
+2014-01-15 12:06:37 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-01-15 12:06:53 Error: Borrando los registros expirados
+2014-01-15 12:06:57 Error: [BadRequestException] MISSING_PARAMETERS
+Request URL: /api/checkcode
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(53): Utilities->exists(Array, 'account_identit...', true, true, false)
+#1 [internal function]: ApiController->checkcode()
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-15 12:11:32 Error: Borrando los registros expirados
+2014-01-15 12:11:32 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-01-15 12:12:00 Error: Borrando los registros expirados
+2014-01-15 12:12:00 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AccountIdentity.authenticated' in 'where clause'
+Request URL: /api/checkcode
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Notific...', Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Notific...', Array, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Notific...', false)
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Notification), Array)
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(116): Model->find('first', Array)
+#7 [internal function]: ApiController->checkcode()
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-01-15 12:13:35 Error: Borrando los registros expirados
+2014-01-15 12:14:08 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-01-15 12:14:34 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'AccountIdentity.authenticated' in 'where clause'
+Request URL: /api/checkcode
+Stack Trace:
+#0 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Notific...', Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Notific...', Array, Array)
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Notific...', false)
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Notification), Array)
+#5 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('first', Array)
+#6 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php(118): Model->find('first', Array)
+#7 [internal function]: ApiController->checkcode()
+#8 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#9 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2014-01-15 12:15:35 Error: Borrando los registros expirados
