@@ -58,6 +58,7 @@ class ApiController extends AppController {
         $checksum_key = Utilities::exists($this->request->data, 'checksum_key', Utilities::$REQUIRED, Utilities::$EMPTY, false);
         
         $code = Utilities::exists($this->request->data, 'code', Utilities::$REQUIRED, Utilities::$EMPTY, false);
+        $captcha_code = Utilities::exists($this->request->data, 'captcha_code', Utilities::$NOT_REQUIRED, Utilities::$EMPTY, false);
         
         
         /*
@@ -70,6 +71,21 @@ class ApiController extends AppController {
             throw new UnauthorizedException(ResponseStatus::$access_denied);
         }
         
+        /*
+         * Si la ip del request esta bloqueada, revisamos si el captcha coincide
+         */
+        if($this->IpAddressAccessAttempt->isIpAddressBlocked()){
+            
+            if(!$this->IpAddressAccessAttempt->unblock($captcha_code)){
+                /*
+                 * Se hace un redirect indicando el id del formulario
+                 */
+
+                $this->redirect($service['Service']['login_url'] . '?' . http_build_query(array('FormId' => $form_id)));
+            }
+            
+        }         
+                
         /*
          * Se crea un recibidor seguro de mensajes y desencriptamos el checksum
          */
@@ -107,6 +123,10 @@ class ApiController extends AppController {
             
             $account_id = $service_form['ServiceForm']['two_step_auth_account_id'];
             
+            /*
+             * Se verifica si existe una notificacion con el codigo entregado
+             */
+            
             $notification = $this->Notification->find('first', array(
                 'conditions' => array(
                     'Notification.account_id' => $account_id,
@@ -117,49 +137,68 @@ class ApiController extends AppController {
             ));
         
             if(empty($notification)){
+                
                 $this->IpAddressAccessAttempt->attempt();
-                throw new UnauthorizedException(ResponseStatus::$access_denied);
+                
+                
+                $service_form['ServiceForm']['data'] = array(
+                    'message' => "Fecha: " . date("Y-m-d H:i:s"),
+                    'error' => 'Codigo Incorrecto'
+                );
+
+                if(!$this->ServiceForm->save($service_form)){
+                    $this->log("Error al guardar en la BD");
+                }                
+                
+                /*
+                 * Se hace un redirect indicando el id del formulario
+                 */
+
+                $this->redirect($service['Service']['login_url'] . '?' . http_build_query(array('FormId' => $form_id)));
+                
+
+            }else{
+        
+                $account = $this->Account->find('first', array(
+                    'conditions' => array(
+                        'Account.id' => $account_id,
+                        'Account.active' => 1,
+                        'Account.service_id' => $service_id
+                    ),
+                    'recursive' => 0
+                ));
+
+                if(empty($account)){
+                    $this->IpAddressAccessAttempt->attempt();
+                    throw new UnauthorizedException(ResponseStatus::$access_denied);
+                }        
+
+                /*
+                 * El acceso es exitoso por lo tanto se crea un registro  de acceso de usuario
+                 */
+                $account_access = $this->AccountAccess->createAccess($account);
+
+                //Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
+                $this->IpAddressAccessAttempt->reset();        
+
+                /*
+                 * Creamos un mensajero seguro para enviar la data del usuario de acceso exitoso
+                 */
+                $sps = new SecureSender();
+                $sps->setRecipientPublicKey($service['Partner']['public_key']);
+                $sps->setSenderPrivateKey(Configure::read('KonalenPrivateKey'));
+
+                $data = array(
+                    'user' => $account_access,
+                    'transaction_id' => $transaction_id
+                );
+
+                /*
+                 * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada
+                 */
+                $this->redirect($service['Service']['login_success'] . '?' . http_build_query(array('data' => $sps->encrypt($data))));
+
             }
-        
-            $account = $this->Account->find('first', array(
-                'conditions' => array(
-                    'Account.id' => $account_id,
-                    'Account.active' => 1,
-                    'Account.service_id' => $service_id
-                ),
-                'recursive' => 0
-            ));
-
-            if(empty($account)){
-                $this->IpAddressAccessAttempt->attempt();
-                throw new UnauthorizedException(ResponseStatus::$access_denied);
-            }        
-        
-            /*
-             * El acceso es exitoso por lo tanto se crea un registro  de acceso de usuario
-             */
-            $account_access = $this->AccountAccess->createAccess($account);
-
-            //Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
-            $this->IpAddressAccessAttempt->reset();        
-
-            /*
-             * Creamos un mensajero seguro para enviar la data del usuario de acceso exitoso
-             */
-            $sps = new SecureSender();
-            $sps->setRecipientPublicKey($service['Partner']['public_key']);
-            $sps->setSenderPrivateKey(Configure::read('KonalenPrivateKey'));
-
-            $data = array(
-                'user' => $account_access,
-                'transaction_id' => $transaction_id
-            );
-
-            /*
-             * Redireccionamos a la pagina de login exitoso del partner enviando la data encryptada
-             */
-            $this->redirect($service['Service']['login_success'] . '?' . http_build_query(array('data' => $sps->encrypt($data))));
-
         }
       
     }

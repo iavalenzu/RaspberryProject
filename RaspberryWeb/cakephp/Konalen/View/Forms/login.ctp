@@ -2,6 +2,10 @@
 
 if(isset($two_step_auth_form) && $two_step_auth_form){
     
+    print_r($form_data['message']);
+    print_r($form_data['error']);
+    
+    
     echo $this->Form->create(null, array(
         'url' => array('controller' => 'api', 'action' => 'checkcode'),
         'type' => 'post',
@@ -13,6 +17,11 @@ if(isset($two_step_auth_form) && $two_step_auth_form){
      */
     
     echo $this->Form->input(null, array('name' => 'code', 'label' => 'Code', 'value'=>''));
+    
+    if(isset($captcha_code)){
+        echo $this->Captcha->image($captcha_code);
+        echo $this->Form->input(null, array('name' => 'captcha_code', 'label' => 'Captcha', 'value' => ''));
+    }
     
     /*
      * Identificadores

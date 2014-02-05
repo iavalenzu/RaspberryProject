@@ -4240,3 +4240,498 @@ Stack Trace:
 #11 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #12 {main}
 2014-01-15 12:15:35 Error: Borrando los registros expirados
+2014-01-28 20:34:33 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-01-28 20:34:37 Error: Borrando los registros expirados
+2014-01-28 20:34:37 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/checkcode
+Stack Trace:
+#0 [internal function]: ApiController->checkcode()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-28 20:35:10 Error: Borrando los registros expirados
+2014-01-28 20:35:56 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/checkcode
+Stack Trace:
+#0 [internal function]: ApiController->checkcode()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-01-28 20:38:07 Error: Borrando los registros expirados
+2014-01-28 20:38:13 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-01-28 20:38:13 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-01-28 20:38:16 Error: Borrando los registros expirados
+2014-01-28 20:38:16 Error: No existe el codigo!!
+2014-01-28 20:38:16 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/checkcode
+Stack Trace:
+#0 [internal function]: ApiController->checkcode()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-05 09:57:05 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 09:57:07 Error: Borrando los registros expirados
+2014-02-05 09:57:07 Error: No existe el codigo!!
+2014-02-05 09:57:07 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /api/checkcode
+Stack Trace:
+#0 [internal function]: ApiController->checkcode()
+#1 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(ApiController), Array)
+#2 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-05 09:59:28 Error: Borrando los registros expirados
+2014-02-05 09:59:33 Error: Borrando los registros expirados
+2014-02-05 09:59:33 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 10:00:47 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 10:00:49 Error: Borrando los registros expirados
+2014-02-05 10:05:32 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 10:05:40 Error: Borrando los registros expirados
+2014-02-05 10:05:50 Error: Borrando los registros expirados
+2014-02-05 10:51:21 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 10:51:21 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 10:51:30 Error: Borrando los registros expirados
+2014-02-05 11:28:55 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 11:28:55 Error: Borrando los registros expirados
+2014-02-05 11:28:57 Error: Borrando los registros expirados
+2014-02-05 11:29:08 Error: Borrando los registros expirados
+2014-02-05 11:58:45 Error: Borrando los registros expirados
+2014-02-05 11:58:45 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 11:58:45 Error: Borrando los registros expirados
+2014-02-05 11:58:49 Error: Borrando los registros expirados
+2014-02-05 11:58:53 Error: Borrando los registros expirados
+2014-02-05 11:58:55 Error: Borrando los registros expirados
+2014-02-05 11:59:59 Error: Array
+(
+    [AccountIdentity] => Array
+        (
+            [id] => 1
+            [identity_id] => 1
+            [account_id] => 1
+            [authenticated] => 1
+            [created] => 2013-12-23 20:28:06
+            [modified] => 2013-12-23 20:28:06
+        )
+
+    [Account] => Array
+        (
+            [id] => 1
+            [service_id] => 2
+            [user_password] => 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8
+            [user_data] => 
+            [active] => 1
+            [login_attempts] => 0
+            [created] => 2013-12-20 09:58:58
+            [modified] => 2013-12-20 09:58:58
+        )
+
+    [Identity] => Array
+        (
+            [id] => 1
+            [user_id] => 1
+            [identificator] => iavalenzu@gmail.com
+            [type] => 1
+            [created] => 2013-12-23 20:27:34
+            [modified] => 2013-12-23 20:27:34
+        )
+
+)
+
+2014-02-05 11:59:59 Error: Borrando los registros expirados
+2014-02-05 12:00:02 Error: Borrando los registros expirados
+2014-02-05 12:00:06 Error: Borrando los registros expirados
+2014-02-05 12:00:16 Error: Borrando los registros expirados
+2014-02-05 12:00:17 Error: Borrando los registros expirados
+2014-02-05 12:00:23 Error: Borrando los registros expirados
