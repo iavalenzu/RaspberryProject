@@ -6,42 +6,29 @@
 class ServiceFixture extends CakeTestFixture {
 
 /**
- * Fields
+ * Import
  *
  * @var array
  */
-	public $fields = array(
-		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'partner_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'index'),
-		'name' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 50, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'login_url' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'activation_url' => array('type' => 'string', 'null' => false, 'default' => null, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'session_timeout' => array('type' => 'integer', 'null' => false, 'default' => null),
-		'created' => array('type' => 'datetime', 'null' => false, 'default' => null),
-		'modified' => array('type' => 'datetime', 'null' => false, 'default' => null),
-		'indexes' => array(
-			'PRIMARY' => array('column' => 'id', 'unique' => 1),
-			'fk_applications_1_idx' => array('column' => 'partner_id', 'unique' => 0)
-		),
-		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'InnoDB')
-	);
-
-/**
- * Records
- *
- * @var array
- */
-	public $records = array(
-		array(
-			'id' => 1,
-			'partner_id' => 1,
-			'name' => 'Lorem ipsum dolor sit amet',
-			'login_url' => 'Lorem ipsum dolor sit amet',
-			'activation_url' => 'Lorem ipsum dolor sit amet',
-			'session_timeout' => 1,
-			'created' => '2013-12-11 11:52:20',
-			'modified' => '2013-12-11 11:52:20'
-		),
-	);
+    /*
+	public $import = array('model' => 'Service');
+        
+        public $records = array(
+            array(
+              'id' => 1,
+              'partner_id' => 1,
+              'name' => 'Service 1',  
+              'login_url' => 'http://localhost',
+              'login_success' => 'http://localhost',
+              'activation_url' => 'http://localhost',
+              'form_timeout' => '3600',
+              'session_timeout' => '3600',
+              'register_data' => '',
+              'two_step_auth' => '0',
+              'created' => '2007-03-18 10:39:23',
+              'modified' => '2007-03-18 10:41:31'
+            )
+        );
+      */  
 
 }

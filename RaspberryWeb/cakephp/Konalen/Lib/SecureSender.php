@@ -35,7 +35,7 @@ class SecureSender {
         $crypto_strong = false;
         
         /*Se genera la llave aleatoria*/
-        $randomkey = openssl_random_pseudo_bytes( 32, &$crypto_strong);
+        $randomkey = openssl_random_pseudo_bytes( 32, $crypto_strong);
         
         if(!$crypto_strong){
             return false;

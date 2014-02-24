@@ -4735,3 +4735,592 @@ Stack Trace:
 2014-02-05 12:00:16 Error: Borrando los registros expirados
 2014-02-05 12:00:17 Error: Borrando los registros expirados
 2014-02-05 12:00:23 Error: Borrando los registros expirados
+2014-02-21 10:10:29 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone.
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2014-02-21 08:3...')
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1392971955)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1392971955)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2014-02-21 10:10:29 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone.
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2014-02-21 08:3...')
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1392971955)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1392971955)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2014-02-21 10:10:29 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone.
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2014-02-21 08:3...')
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1392971955)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1392971955)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2014-02-21 10:10:30 Error: [Exception] DateTime::__construct() [<a href='http://php.net/datetime.--construct'>datetime.--construct</a>]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected the timezone 'UTC' for now, but please set date.timezone to select your timezone.
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Network/CakeResponse.php(1058): DateTime->__construct('2014-02-21 08:3...')
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Network/CakeResponse.php(962): CakeResponse->_getUTCDate(1392971955)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Filter/AssetDispatcher.php(63): CakeResponse->modified(1392971955)
+#3 [internal function]: AssetDispatcher->beforeDispatch(Object(CakeEvent))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Event/CakeEventManager.php(248): call_user_func(Array, Object(CakeEvent))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(142): CakeEventManager->dispatch(Object(CakeEvent))
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2014-02-22 17:40:43 Error: [MissingControllerException] Controller class KonalenController could not be found.
+Exception Attributes: array (
+  'class' => 'KonalenController',
+  'plugin' => NULL,
+)
+Request URL: /Konalen
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 17:40:52 Error: [MissingControllerException] Controller class Phpinfo.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Phpinfo.phpController',
+  'plugin' => NULL,
+)
+Request URL: /phpinfo.php
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 17:41:45 Error: [MissingControllerException] Controller class Phpinfo.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Phpinfo.phpController',
+  'plugin' => NULL,
+)
+Request URL: /phpinfo.php
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 17:43:59 Error: [MissingControllerException] Controller class Phpinfo.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Phpinfo.phpController',
+  'plugin' => NULL,
+)
+Request URL: /phpinfo.php
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 17:44:44 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php(268): Partner->getAuthorizedPartner()
+#1 [internal function]: UsersController->login()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-02-22 18:55:48 Error: [MissingControllerException] Controller class Phpinfo.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Phpinfo.phpController',
+  'plugin' => NULL,
+)
+Request URL: /phpinfo.php
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 18:56:11 Error: [MissingControllerException] Controller class IndexController could not be found.
+Exception Attributes: array (
+  'class' => 'IndexController',
+  'plugin' => NULL,
+)
+Request URL: /index
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 18:56:42 Error: [MissingControllerException] Controller class Index.htmlController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.htmlController',
+  'plugin' => NULL,
+)
+Request URL: /index.html
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 18:56:46 Error: [MissingControllerException] Controller class Index.html.enController could not be found.
+Exception Attributes: array (
+  'class' => 'Index.html.enController',
+  'plugin' => NULL,
+)
+Request URL: /index.html.en
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 18:57:21 Error: [MissingControllerException] Controller class Phpinfo.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Phpinfo.phpController',
+  'plugin' => NULL,
+)
+Request URL: /phpinfo.php
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 19:00:32 Error: [MissingControllerException] Controller class Phpinfo.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Phpinfo.phpController',
+  'plugin' => NULL,
+)
+Request URL: /phpinfo.php
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 19:03:18 Error: [MissingActionException] Action ApiController::loginform() could not be found.
+Exception Attributes: array (
+  'controller' => 'ApiController',
+  'action' => 'loginform',
+)
+Request URL: /api/loginform
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-02-22 19:49:18 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /forms/login?FormId=&ServiceId=2&TransactionId=trx_4d76496fb1590ba350dab105047b49fca49478be3122322f4657183f4204bb12&CheckSum=65e3ab1cfa0e696f803c4c8ba2e89444933411d7bc4f683c429a7e283a941e9f&CheckSumKey=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNDA2NTg1NTI3ODQwM2Q0ZjY0N2MwOGM5YmZlYTZkODkzZWYyNTViYTY0YmQwM2U0ZTFmNTEzNzBhZGEwMTE5MGMwODdkOGFmMDExNmE1NjhiNGQxZDJjYjc0NGU4NDliMzgyZDRmZTEzODY2NWVmYzM4MzY1MzNlNWQ2ZTcxYmNmYjMyM2I3MWI5YzMwNmRiY2ZmMzY4ODNhMjU1ZWE5ODRmYTk0YmQwOTIzYWUwYzc2MGM2NTkyNTAxN2FlZjljXCIsXCJlbnZrZXlcIjpcImNhZGYxZWMxZjA4MzdjN2E1NGU4ODk1NzAxYWEzODY4OWUyZGE2YzkzMzM1YWYyMjkyYjBjYjZhMmVlNDBjMzdhODBmZjg4Zjc2MWYxZWM4OTFlNDdhNmY5ZjhiM2FmNjcwZjc3YzQxZmRiNjM5NDMzZTY3YjdiMjY0ODNlZGE4YTE2N2RlYTZkN2FhYmQ1MDE3MDY4NDRkNTc0Zjg5YzBkZjNjMjRlY2UzZGU3NDYzMjdmZjM1MjU2ODQ0ZTE3ODkxYzgxMTVmNzJjOGZhMDhkMWFiMWNiNTQyNzA5YTlhM2I1NGQ3ZmJiNGI0ZDJkOWNmZTA0NjE4OGQ4YTM3Y2Q4NjA5YmJmMDc0NThkNzE0MTRiOWRmMjZiYmUwYzAzYmUyZTJiZTZlOGI1NDJkZDdjMTdhMTg5YzRjNDAxZjNlNDA0Y2NjZGQ0NjIxMzk0MjczMDRmZWJkZmRiYzQ0Njg4Mjg2MzFlMTlmZDViZjczNjUzZWE0OTNiOWI3MzM3ZDQyOGZkOGUxMzAyMjY2ODVjNTNhMmQyMTNjMGMzZjQ4MDAxZTZkYTI4OWY2MWQ1OGU0MmNiMjRlMTRhYzVkMjdhMzdmNmYyZDUzNDQ1NWFiYzI3OTgwMzc0MDJhMDAwYzU3YWNmYjk5NmZiODQwZjFjYjNlNTAwNmM5ZGM4NzA5XCJ9Iiwic2lnbmF0dXJlIjoiYTUxZWZjMWQ2ZjQ0Y2VhZGNmY2QzZGZiYTNlNWM1Yzg4Mzk2N2RlNjhkMmNhZmFhNmZhNDdhMzI4OTgwNGI4MDliZTUwYTc5OTExNThmNjhlMGMwMmU2MDU3NmJkNTBmMGYyZTJiOTlmNzA4OGIyMzA0NjdjNTRjYWIzOThkMjhiYjFkZWIxNTE2MGQ5Yjc4MzZhMWI5ZTU3OTE4NDRjMzA5YjE5YTYxNzhlZDQwYzE4ZmY2YjI5MTlhODdlM2U1ZGUyYWZjOWM4ZGZiOGRhYTZmNTA1YzA2Y2EwNTljYWZiNDBjNzg2MDkzN2FmM2NmNWJmMDdmYzNjZmFmZjczNTZkYzJjNDBhZTczNjljOGFmZjQ4M2JhZTAyMTM0NjI3YmI1ZDg3ZmY1NDBjZTgzMzM4N2YzNTlmNmFkOTQ4ZGRmY2U5ODM0NWUyZjZiZThjYjE4NmZjMTYyYmJkN2M3YTllZmEzYzcxNjdlMjQ5M2M3NzZmNzk1NzYwZDM2M2M3OWJkNDhhZDc5MTIxYWJmYWMzNjhmZmIzOTc0N2QwMTE5OTg3NDA1NDhiMWVmNTc1MzIwN2EwNTJiZTc5OGM3OGE1YzUxNzQ2YWNlM2RlODQxOWE4YzQxZWVkNzdiMmZjMjk5N2MwMDA2MDMwMzQyN2QwMTU5NjI4ZTcxOTIzMWUifQ%3D%3D
+Stack Trace:
+#0 [internal function]: FormsController->login()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-22 22:50:56 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /forms/login?FormId=&ServiceId=2&TransactionId=trx_4d76496fb1590ba350dab105047b49fca49478be3122322f4657183f4204bb12&CheckSum=65e3ab1cfa0e696f803c4c8ba2e89444933411d7bc4f683c429a7e283a941e9f&CheckSumKey=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNDA2NTg1NTI3ODQwM2Q0ZjY0N2MwOGM5YmZlYTZkODkzZWYyNTViYTY0YmQwM2U0ZTFmNTEzNzBhZGEwMTE5MGMwODdkOGFmMDExNmE1NjhiNGQxZDJjYjc0NGU4NDliMzgyZDRmZTEzODY2NWVmYzM4MzY1MzNlNWQ2ZTcxYmNmYjMyM2I3MWI5YzMwNmRiY2ZmMzY4ODNhMjU1ZWE5ODRmYTk0YmQwOTIzYWUwYzc2MGM2NTkyNTAxN2FlZjljXCIsXCJlbnZrZXlcIjpcImNhZGYxZWMxZjA4MzdjN2E1NGU4ODk1NzAxYWEzODY4OWUyZGE2YzkzMzM1YWYyMjkyYjBjYjZhMmVlNDBjMzdhODBmZjg4Zjc2MWYxZWM4OTFlNDdhNmY5ZjhiM2FmNjcwZjc3YzQxZmRiNjM5NDMzZTY3YjdiMjY0ODNlZGE4YTE2N2RlYTZkN2FhYmQ1MDE3MDY4NDRkNTc0Zjg5YzBkZjNjMjRlY2UzZGU3NDYzMjdmZjM1MjU2ODQ0ZTE3ODkxYzgxMTVmNzJjOGZhMDhkMWFiMWNiNTQyNzA5YTlhM2I1NGQ3ZmJiNGI0ZDJkOWNmZTA0NjE4OGQ4YTM3Y2Q4NjA5YmJmMDc0NThkNzE0MTRiOWRmMjZiYmUwYzAzYmUyZTJiZTZlOGI1NDJkZDdjMTdhMTg5YzRjNDAxZjNlNDA0Y2NjZGQ0NjIxMzk0MjczMDRmZWJkZmRiYzQ0Njg4Mjg2MzFlMTlmZDViZjczNjUzZWE0OTNiOWI3MzM3ZDQyOGZkOGUxMzAyMjY2ODVjNTNhMmQyMTNjMGMzZjQ4MDAxZTZkYTI4OWY2MWQ1OGU0MmNiMjRlMTRhYzVkMjdhMzdmNmYyZDUzNDQ1NWFiYzI3OTgwMzc0MDJhMDAwYzU3YWNmYjk5NmZiODQwZjFjYjNlNTAwNmM5ZGM4NzA5XCJ9Iiwic2lnbmF0dXJlIjoiYTUxZWZjMWQ2ZjQ0Y2VhZGNmY2QzZGZiYTNlNWM1Yzg4Mzk2N2RlNjhkMmNhZmFhNmZhNDdhMzI4OTgwNGI4MDliZTUwYTc5OTExNThmNjhlMGMwMmU2MDU3NmJkNTBmMGYyZTJiOTlmNzA4OGIyMzA0NjdjNTRjYWIzOThkMjhiYjFkZWIxNTE2MGQ5Yjc4MzZhMWI5ZTU3OTE4NDRjMzA5YjE5YTYxNzhlZDQwYzE4ZmY2YjI5MTlhODdlM2U1ZGUyYWZjOWM4ZGZiOGRhYTZmNTA1YzA2Y2EwNTljYWZiNDBjNzg2MDkzN2FmM2NmNWJmMDdmYzNjZmFmZjczNTZkYzJjNDBhZTczNjljOGFmZjQ4M2JhZTAyMTM0NjI3YmI1ZDg3ZmY1NDBjZTgzMzM4N2YzNTlmNmFkOTQ4ZGRmY2U5ODM0NWUyZjZiZThjYjE4NmZjMTYyYmJkN2M3YTllZmEzYzcxNjdlMjQ5M2M3NzZmNzk1NzYwZDM2M2M3OWJkNDhhZDc5MTIxYWJmYWMzNjhmZmIzOTc0N2QwMTE5OTg3NDA1NDhiMWVmNTc1MzIwN2EwNTJiZTc5OGM3OGE1YzUxNzQ2YWNlM2RlODQxOWE4YzQxZWVkNzdiMmZjMjk5N2MwMDA2MDMwMzQyN2QwMTU5NjI4ZTcxOTIzMWUifQ%3D%3D
+Stack Trace:
+#0 [internal function]: FormsController->login()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-22 22:55:26 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /forms/login?FormId=&ServiceId=2&TransactionId=trx_03ebc453eb13206eaa496ac316527f6b266e0a038e188954969f9c89b18c385b&CheckSum=4f352f6fa35f9eebcddc6f12b26283d44cbb3bdf53bcff8af9770b3121cc79ef&CheckSumKey=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNzMyYjc2MTczNGVhZWFiNjRmYWI4NjY1MjE2ZmJhOThiOGEwNTkyZjI0NGU0MzdiY2NhNjAzODM3OGRiOGVkMDNhYWE5NzVjNjc1ODlmMzYwNjY4NTE1Mzk2N2MwMDg1NGU1NzUyNDMwMGRiZmExMjBiOTMwN2UzMTU3ZDBhYmU4YTliNWJlMTllYWU1ZjEyYzYzZmIzYzkxNjA0ZDI0MWEwODcwMWEwNTRlNjlkNDRmZDFiYmUyMzRiNTA3MjY4XCIsXCJlbnZrZXlcIjpcIjk4YzJjMTcyMmIwNGZhNDFhYWI4YjQ3MmUwMjJhZjY3ZmU4NDk0MGJjNWJjZTk5NDJjMzU3YTE1ZjA2MjVlYTNmMzI4YjBkODAxZWQyZjFlMDMyZTZkZjhiYmVhZDJjZjM5ZWY3ODA5Y2U1ZDJkMjQ2NDk0YWZkODRjMjUzM2EyNzUwZmUwYmU0MDkwYzIwNTNlYWJiNjY0YTk0NWIxNzhiMDFjYWMyYWJhNTFhZmNiZDNiMDBhY2Q1Y2UxOGI1MzhkMmU3ODY1YTk3ZGFkODgwYjk0MzMzMzg5OGRiZTVjM2RiN2NhNWE0OWIyN2RhYjczNmUyNWFhYmYzYjZhZTdiOTA2OGU3YTkwZjgwYTVjNGM1MTY0OWU1ZDllNjBhNzNlNzBlM2NmNjI1MDQ0ZmNlMGE0ODQ0YjZmODkyZjRmNjVkNDM3NjkzYjhhYzZjMTYwNTMzZGU1ZTkyYWJkNDVmNzNkNjQxNGFlOTUzZmIzOTE4Y2JjOTE2NThmZTYyYzliYjM2MTUwY2UzOWQ3NzcxNTZhMDFiMDJkYzVkMDgxOTFiOWQxMzBjNmRiMDVlMTNkNmI5MzE0OGY5YzM1ZGZlZGM1ODQ1NGI5NDJiMDIwMDEwNGFmZDQyMWIwZjkxNzUxZmY4NTY0ZTYyZDg4ZjRlNjhiM2FiM2VkYTkwNmNjXCJ9Iiwic2lnbmF0dXJlIjoiNzY0MDE5YzI1Yzc1M2NjN2E2NDM3MTY2MGVlMGIxODdmZTU4MmMwZjFhY2VlZmEwNzViZWVlZTliODQxNTk2NzA5NmMzYzhiZGE3MzU0YjhiZTc3MTgyYThiYjM1Mzk2MWVhNjZhZTRmM2I1YWZiYzViYTgzZmJmM2VlMzBmZmFjNDI2ODQzMTAzNDU5YmYwOTI4NjEwNWQ1OTJiM2IxNzg0NDExZDFiZjFhNWQ0MzA3M2ZlM2YwODk0OTE5Mjg0ZjdiMzU1YWVlMDlkYzllYWI4NjA1NGU1MTAxYTBkNmZlZmNmOTNkNDFmMjNiN2Y5NTg1MDUyMWZiMjNkNjEzYTIzNmQ0ODdhYTg2ODQ5NTU2MDkxYzViYWMzNzM3Y2Y4MzhlZDdiNTFjNjlhMzlmZjg4NzE2OTdmOTZiOTJiYjJiOGE1NGY3YTYxYmNiN2Q3YjMyMjY5YzA3MTZlYWI5NjdkOGQwNDRiZDcxZDYwZTY0ZTg5YTI4YjMzMDU5YjExNTk0NGU0MjFlNDNmZDVkMzU4MjRiYmY5MGRmODUyZGM2Nzg5N2RjYzMxODdlMTNiMGM3MjEyM2EwMGZlM2MyZDQwYmQ2ZDdjNTVhNmIyYjMzZjUwMjUxMzM5MmE1ZWYwN2MxMjI5YTc1MzUxYTJlNTE2YjUyYmRkMjlkYTEzZGEifQ%3D%3D
+Stack Trace:
+#0 [internal function]: FormsController->login()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-22 22:57:22 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /forms/login?FormId=&ServiceId=2&TransactionId=trx_838bdc3b497cdc0a5be29fc9872f3eba62f76586ffbea8193557b0291d2e6492&CheckSum=07674fbb6138c314a16b0e89350434a0ee502f99d49c2fd43a7816379a7cdcd7&CheckSumKey=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNDI3YzViYzgxNjlkYWQxYTVjM2ZiMzU3OGI1NDc0NTczZGMxYTE0YmVlMGFjNTYxMDhlMDlmMWFkZGY4NjAwZTFiZGMxYzBlOGNkOTZlN2Q0ODc4OTM4MzdmNWQ0NzdmZGRkNzg3OTUxZjM1NmRkMmFlODRiNTZmOTkwMzM5ZDU2NTNhYWEwZTlmYjNjZGYwNDhlZTAwZGJiZGM5MmI3MWY5NTNhMzQwZTRiNzY5NmRjMjEwNmI5NmJhNWRkNGNlXCIsXCJlbnZrZXlcIjpcIjJkNzc4OGViMzdkM2UzYjE5NjM4NWE0MWMzNDFiMDM1NDllNmI1ODAzMTI1NDdmYWM4ODI0MmYxOTQzYjBkYjZlMjUwYTQ0OGMwMjNlYWFjMjlhNzFiMTE1MjAyM2EwNzYyMWJiOGUwOTZkODZkMDU2YzU4YzQzYTFkNDY5NzNlYjk5MTFlYjMxN2ZhYmU0NmViNTBkMGQ0NTZlNGU2MDBkMzA4MmYwZDZkZmM3YmE2OTFhZDcxZTAyOTQwNDJjMzdmNmEzYWJkMWVlMWQ0OGVjOGE1ZDg3NGFmNzQ3YzE5N2VhYjdjOTE4MGM4NzE0ZTQ0ZTQ5ODFjNzg1ODdiMjA4ZDZiYjBhNTIzNjMzN2JmNmFjZjEwNTk4YjhlZjUyNGE2ZjI2YWU4YTY5YjNjOGMxNzkzYTUwNzRkYmMzODA4ZWQ3YjU3ZmYyMzIxZWJhMjlmODg4ZmMwMTA2NjI1ZmRmYTgyOWViNDUxMDM1YmFiMTk5NjgzNDk2MGI5MTMyYWI5OWVkOGNlZDg3NTFiZmY4YTA1ZjhkYTNiMGU3YWIzNGIwNWZjMDI1ZWM0MzM1ZTg1NDliYjY1OWM5Yjk5NTNjYjEwM2M5NWRmYmRkNjUxOTdjYzlmZjY1OTBlYjk1NjE3MmQwNDY3YTBjMTljMmUzN2MyMDU0Nzg4NzFjYjE3XCJ9Iiwic2lnbmF0dXJlIjoiNDQyMzVmNDE2Y2FhNzkwMmNiNTAwZDBhMzQwNDM1YTUwZjA5OTljMjNhNmUyOWE1YjE1Y2E3Mjc0OThhYjkyZmU2OGE4Nzc0ODhhYjg2ZjkyODVmODI3NjE0NDI2ZTZhNjg0ZThiNzc5ZjZiNWQ0MjdjZTM5ODQ3MmE0YjgyYTdlYWJmMmNlZTFlNDA1ZWQwZmJjYWE3MDI0NzBmZGJjNDI0MGUyZmIzYzEwM2MxMmFjYjc2NTNlZjljOWRmYjFhMTcxMmNkNzQ0NDExNzFhZjdiNTlhZWNlZDQ5MTVkMzQ2NjQ1MDEwZjdmYjViNTAyZGQ3NDM0MmY4M2UyYmExNmNiYzMyNDM0MmU3NTI0ODc3NWU0MzhmYjBkMmM5MDA4YjM5NTU4MmE2YjIxODhlYmQ1YmY1ZjYxMmJmYTM5M2NhZGMyODVjNTY4Y2M4ZTFlMjdjY2Q4ZjIxYTk3OWU1MzE0YzAxNDJmODY4M2FlYzhiZjFjYjYyOWYzNWIxOWYzYmEwNTIxZDg1OWU3NThjNGMxYjYzZjcyZmZmZDU0MDIzZGEwMTJlMzM1ZTVlZjZhNGRjMWNiOGFlYmEwNzc4MWNmZTk4MmVkZmM0ZTk4OTk0Yjg4M2JmZWIwNDU1Njc0N2Y2NDllN2FhNDg0YmE5MTRkMDFmYjc3NDcxODE1OGMifQ%3D%3D
+Stack Trace:
+#0 [internal function]: FormsController->login()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-22 23:03:03 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /forms/login?FormId=&ServiceId=2&TransactionId=trx_59e2af37f4de2eb0c6f310129247ae89a5aa6258b747169a7fc95aeff27643c4&CheckSum=9108b00a75d3725717be647ddd8a2f87d3c02caebebb1ced5a4d2d80f7b949b8&CheckSumKey=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiYjQ0NmJiZTFlZmM3MDAxYWMzOTUzMmFiOWFkZDA1ZWViMDM4YTQzMzdlYzRkZWJmMzNhMmRlMTE2NDdkY2YwYTdjNTIwZTZkYjcwY2RhZTk4MDk4ZjE5Yzc3OGRkMTdjMGJjMmZhOTliOGQ4NTA3ZGU1ZjE3OWIxNmIzYjJjZjliNTlhZTU4N2I1YzQyNDM5OTJjZGE0M2RjMzQ5ZTcwMTVjN2I3ZTIwZTAwZmRiZDQ4NjlmNjk3NDk2ZjFjZWE0XCIsXCJlbnZrZXlcIjpcIjkyOWQ4NDNlNTM1ODMyMGIxNGI0NTYwZGRhNGE2MTFhMDRkOTI4NzFjMWQxODVmMDkzODJjMGIyYzBhYzA0NzlmNDVmNWI0ZDNiMTQ2NjVjOTBkMTgzZDM4MmJkNzA0OWQ0Mzc0NWY2M2Y1MTA2MmQyNDQ4MDczOTgzYTNiMmM5ZjkxMmI2ZTlhZGNkYzFmNzI3YmYwMjRhZDFmM2UyYTdjZjk4NDg2OWUzYmY2ZjA3ZTYzMDk5MThkNGYyZDJiYzY3Y2MzYTU2MjFjOGRmOGY5MWJlNWZhODg2ZTY3ZDcyNTMzNGE4N2VjYzdiN2RkNmZhZGU3NjBmNjM1M2Q2YjcxNTk1NmZmOGJiOWExZDA4YzNjYWY1YmMzYjRmNjkxODE0YWY1N2M5MGMxM2M3ODA0NDVhYjZmOTJmYjIxOGQzMDZmNTM2NzUzZmExZGUxZjZkOWU0MzNmOWNhZjQ2YzUzMDk3Yzc1ZDFiMjM0ZWU4Y2MyZGU5MTEwZGVmMjc1Mzg4ZjYyNmNlNTM5MTM2ZmNlNzgwYmI5YjM0MzgxYWRkNTgzOWUxODFmZWZhZmE1OTIyYmQxNTY3MGZkYWE2ZTY3MWI1Y2VhYzYwNGQ4OWMxMjFhNjI4MTBjZTdhMDhkNmFkYTJjNTg5YmZiMGUwMTQzMjMxMzFkNTcyMmU5ZjdiXCJ9Iiwic2lnbmF0dXJlIjoiYWRiMjEwMDBiNDY4MzFlZmJjYTYwNTY2M2UwZGI2YWFiMzE3OTQ5NmYyOTAwZTVhYTNhZTNjNjI4NTc2OTI3MGE0Mzk3MDgwNTBiYTViYWI5ZjU3NDJkYWMyYjhhYTM2NTBkZTI1NDkxZTkwNzgwZWY3Yzg5MjAyM2RiZGY3ZDI4OTdmMjE0ZDUyN2EwNzQxMGZhOTFhNzQ3ZWY2NTlkODIxMmQ5ZDc2YTdmZjU0OTcxODY0ZTFjMzM2MWVkYmYwNjJlZmIzMTg0ZTg5YzljNzUwNGNmZjMzMDc3NzFjZTY3NTBhYzllNjk2MzQwYTQzNGQwYWY2NWQyZTc4MGExZDBmZWI1NjUzYzhkZDNhOTRkZjliODE3MzRkZTQyZDQ5OGRhYzQ5NDZjOGFkMTUxZWQ0OWFmYmIyZGEyNWZmMTc5MmE0YzcyNmUxNTMwMThjZmY0ZmM2OTcyY2YyNTBjNjcyNWU3MDNjZTUyZmNlYjEzZWI1YjcxZjcwODY1ZGEzMjc3MGU4YWEzZTc4NDc4OWIwM2U4OWI0MDQwMzllNmY5MGIxMjY3NjEwM2IzM2E3MDUwOWEwMDZkNTMxMzFkYmM5NDNhNmMwZjM5MDZlZDk2MDQ2MDFjMTIyZTEyYWQ0MGFhYTFmMzk3YWJjN2M2ZWVjZjVmOWZkMGViZDljMmIifQ%3D%3D
+Stack Trace:
+#0 [internal function]: FormsController->login()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-22 23:13:43 Error: [MissingControllerException] Controller class PhpMyAdminController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdminController',
+  'plugin' => NULL,
+)
+Request URL: /phpMyAdmin
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 23:21:30 Error: [MissingControllerException] Controller class PhpMyAdminController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdminController',
+  'plugin' => NULL,
+)
+Request URL: /phpMyAdmin
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 23:22:17 Error: [MissingControllerException] Controller class PhpMyAdminController could not be found.
+Exception Attributes: array (
+  'class' => 'PhpMyAdminController',
+  'plugin' => NULL,
+)
+Request URL: /phpMyAdmin
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 23:22:25 Error: [MissingControllerException] Controller class KonalenController could not be found.
+Exception Attributes: array (
+  'class' => 'KonalenController',
+  'plugin' => NULL,
+)
+Request URL: /Konalen
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-22 23:22:45 Error: [MissingControllerException] Controller class RaspberryController could not be found.
+Exception Attributes: array (
+  'class' => 'RaspberryController',
+  'plugin' => NULL,
+)
+Request URL: /Raspberry/users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-02-23 02:57:30 Error: [MissingActionException] Action ApiController::loginform() could not be found.
+Exception Attributes: array (
+  'controller' => 'ApiController',
+  'action' => 'loginform',
+)
+Request URL: /api/loginform
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(ApiController), Object(CakeRequest), Object(CakeResponse))
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-02-23 02:57:42 Error: Borrando los registros expirados
+2014-02-23 03:11:38 Error: Borrando los registros expirados
+2014-02-23 14:19:25 Error: [BadRequestException] Bad Request
+Request URL: /forms/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php(141): Utilities::exists(Array, 'FormId', true, true, false)
+#1 [internal function]: FormsController->login()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-02-23 14:19:27 Error: [BadRequestException] Bad Request
+Request URL: /forms/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php(141): Utilities::exists(Array, 'FormId', true, true, false)
+#1 [internal function]: FormsController->login()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-02-23 14:20:41 Error: [BadRequestException] Bad Request
+Request URL: /forms/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php(141): Utilities::exists(Array, 'FormId', true, true, false)
+#1 [internal function]: FormsController->login()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-02-23 14:20:58 Error: Borrando los registros expirados
+2014-02-23 14:21:33 Error: [BadRequestException] Bad Request
+Request URL: /forms/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php(141): Utilities::exists(Array, 'FormId', true, true, false)
+#1 [internal function]: FormsController->login()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-02-23 14:22:31 Error: [BadRequestException] Bad Request
+Request URL: /forms/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php(141): Utilities::exists(Array, 'FormId', true, true, false)
+#1 [internal function]: FormsController->login()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-02-23 14:54:27 Error: [MissingDatasourceConfigException] The datasource configuration "test" was not found in database.php
+Exception Attributes: array (
+  'config' => 'test',
+)
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(93): ConnectionManager::_getConnectionObject('test')
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(94): ConnectionManager::getDataSource('test')
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(73): CakeFixtureManager->_initDb()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(58): CakeFixtureManager->fixturize(Object(FormsControllerTest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#9 {main}
+2014-02-23 14:54:43 Error: [MissingDatasourceConfigException] The datasource configuration "test" was not found in database.php
+Exception Attributes: array (
+  'config' => 'test',
+)
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(93): ConnectionManager::_getConnectionObject('test')
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(94): ConnectionManager::getDataSource('test')
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(73): CakeFixtureManager->_initDb()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(58): CakeFixtureManager->fixturize(Object(FormsControllerTest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#9 {main}
+2014-02-23 15:09:23 Error: [MissingDatasourceConfigException] The datasource configuration "test" was not found in database.php
+Exception Attributes: array (
+  'config' => 'test',
+)
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(93): ConnectionManager::_getConnectionObject('test')
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(94): ConnectionManager::getDataSource('test')
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(73): CakeFixtureManager->_initDb()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(58): CakeFixtureManager->fixturize(Object(FormsControllerTest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#9 {main}
+2014-02-23 15:12:27 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 15:12:27 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 15:13:17 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 15:13:17 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'Raspberry' for key 'name_UNIQUE'
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 15:15:29 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 15:24:23 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 20:33:40 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 20:33:40 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '2' for key 'PRIMARY'
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 20:37:15 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 20:37:15 Error: Fixture creation for "services" failed "SQLSTATE[42000]: Syntax error or access violation: 1101 BLOB/TEXT column 'two_step_auth' can't have a default value"
+2014-02-23 20:37:15 Error: [PDOException] SQLSTATE[HY093]: Invalid parameter number: number of bound variables does not match number of tokens
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('services', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 20:38:03 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 20:38:03 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 20:39:43 Error: [MissingDatasourceConfigException] The datasource configuration "test" was not found in database.php
+Exception Attributes: array (
+  'config' => 'test',
+)
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/ConnectionManager.php(93): ConnectionManager::_getConnectionObject('test')
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(94): ConnectionManager::getDataSource('test')
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(73): CakeFixtureManager->_initDb()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(58): CakeFixtureManager->fixturize(Object(FormsControllerTest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#9 {main}
+2014-02-23 20:40:15 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 20:40:15 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 20:41:23 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 20:41:23 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 20:48:16 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 20:48:16 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 20:54:22 Error: [PDOException] SQLSTATE[HY000]: General error: 1364 Field 'name' doesn't have a default value
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-23 21:03:27 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 21:03:27 Error: Fixture creation for "services" failed "SQLSTATE[42000]: Syntax error or access violation: 1101 BLOB/TEXT column 'two_step_auth' can't have a default value"
+2014-02-23 21:03:57 Error: Fixture creation for "partners" failed "SQLSTATE[42S01]: Base table or view already exists: 1050 Table 'partners' already exists"
+2014-02-23 21:03:57 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(2922): PDOStatement->execute()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeTestFixture.php(284): DboSource->insertMulti('partners', Array, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/Fixture/CakeFixtureManager.php(214): CakeTestFixture->insert(Object(Mysql))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestCase.php(82): CakeFixtureManager->load(Object(FormsControllerTest))
+#4 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(775): CakeTestCase->run(Object(PHPUnit_Framework_TestResult))
+#5 /Users/Ismael/pear/share/pear/PHPUnit/Framework/TestSuite.php(745): PHPUnit_Framework_TestSuite->runTest(Object(FormsControllerTest), Object(PHPUnit_Framework_TestResult))
+#6 /Users/Ismael/pear/share/pear/PHPUnit/TextUI/TestRunner.php(349): PHPUnit_Framework_TestSuite->run(Object(PHPUnit_Framework_TestResult), false, Array, Array, false)
+#7 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestRunner.php(63): PHPUnit_TextUI_TestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteCommand.php(97): CakeTestRunner->doRun(Object(PHPUnit_Framework_TestSuite), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(247): CakeTestSuiteCommand->run(Array)
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(100): CakeTestSuiteDispatcher->_runTestCase()
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/TestSuite/CakeTestSuiteDispatcher.php(117): CakeTestSuiteDispatcher->dispatch()
+#12 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/test.php(100): CakeTestSuiteDispatcher::run()
+#13 {main}
+2014-02-24 00:59:57 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /forms/login?FormId=&ServiceId=2&TransactionId=trx_ca4218f6544874ca0b045d50493dc314aa122a303ca9f05873a9b3db6ff3b505&CheckSum=24978a8399c747c264f6baa1f79e25d1696babfe6f3b40f3498942dfd76a4883&CheckSumKey=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNmRjNmYzZWJmMjY5YzU2ODU4ODVmMzlmOGZiNWEzMzNmMjI2ODhlMjYyYzIyMWNlOTY4N2JiYzMxMTVjZjIxY2QwOGMzMTNlNjk5ZmM2MGI1MGNhNjg1OTQxNTRmMmY4NjQzNTVhNmRkYWYyMzFjMjA0ODZmNTM2NTUwOGY3NDM0YTU2MzAyOTAxZGY5YjFlMGEwZTQwOGI0M2RjNDI0NDE3YmMzOGEzOWI2Y2RmZjQ5NDRkMWVkY2Y0ZGNkMzM0XCIsXCJlbnZrZXlcIjpcImJiMDViYWVkYWMwNDlhOTc0NGMyZmUzOTViZjU1Y2FmYTRmYzMzYjZlMzlkOWRjODNmZjg2NGUzMzQwMzk4OWU5OTgyMzAzNjdmMWM2NzNlOGQxY2NhMTNjYjhkZWYwNTk3ZGIzNDJiNDQ4NTg1ODljMTI4Y2IzNGM5NzE5Y2IwNzc1ZDljMzY4MmMzMjNkYWQ5Njk2MGI5MjNkNDUyOTcwMzIxNzVlOGZmZjBkMWUyNDBmNDQwNTJkNTZhNzg3MmNmODAxZTMwMDhiOTZjNGRhNjQ4MmQwMDY3OTI3M2MzM2UyY2U4Nzk5OGU5OWY0NzIyZjE2MjI0YzM4MDhmMGEzZTg5Zjk0MDM0MmY2M2U0ZjRlZTBhNjVjNjIwZWEyNDM0YmY0ODk2ZTU0ZWVhNzc4YzFiZmYyZmRkNjYzZGM0MmNkNTk4ZGZhNmQ4MTRmMTQwOTUwNzM2MzNmMjY4N2VkMDg1ODQ1YmMyOGMzNjkxYjhhOWU0MTc5NmY0ODM5OTZkMzAxYWM0YTkzYzgxNTU0MWY0MGQ0MzA3MTc4NTRiNzZjOTU3YjMxNjYxMjUxMjc3MzI5NGRmNzk5NGMxYzg2MjU3MmNkYmQyNzg0ZmYyYjg3MGUyYTM1YzA2ZDU2OWZiY2Y1NjM3M2NlNTQ1NWZmMjUxZTUzNDZiNDFhNzQ5XCJ9Iiwic2lnbmF0dXJlIjoiOTllMDFhY2NjNzM1MWY3YTRkNTBhMzQ1YWFhZWU5NjBjMWUwMjEyYjQ1MjYyYWViMzE2YzEyOTI1OGMxODAxZWZiYjUxNGQwOWQ1MjRiYmE2YjgyNDIzNjdlYjBlZjYxYjU1ZDczZjA4YjEwYjg0MzU2MWFlZDNkNmQ5M2ExYWU0NGZhMTZiMDNkOTNlZGVjYTE2ZmZmZjE1NjYyYjI3MzIwN2NjZDRkZGJjMDM1Nzg0NWRjNzZhOThkODA0NDkyMGJmMDkxMjdlNWUxMDZmOGU5ZWQzMmZjYWExNzNmZjhlOWJkZTYyYWE2YTk5NmVkOGVhZmJjMzc2YjM1M2FjY2MxN2IyMWNjYTA0Yzk1Zjg5YmI2NzZlYWU2ZGMzZTk2NmU3MjBmMTE5MjUyMWQ4MTUyMTA5OTM3YjU0YzllZGJhMTUxZTY1MGU5MTU4MzcxMzRhNzViY2YzMDFmNzFjM2RkZjA3ZDVhYzlhNzUyZmY3M2RkMjEzN2ViMTljZmRmMzdjY2RlYjczOTU4N2FkN2Q4NDEzZDliYmUyNTFlODE5NTRhMDQ2MmFiYzc4MzhkN2M3NmVkMTQ2MTY0ZjY2MWVhYjBkNzFmMzdkZTdmYTJmOGU3ZjIyMjZiMzlmN2M1NDBiZTdhYjU5ODcwMzhkMDFjZjNjZjNiMWU5NzMyZTQifQ%3D%3D
+Stack Trace:
+#0 [internal function]: FormsController->login()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-24 01:22:10 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /forms/login?FormId=&ServiceId=2&TransactionId=trx_eae23d2daddb23fceeaac1d3ebc0c4e3adeef284b30f62986dcade30101c9159&CheckSum=60a4eab89548763d4a79b7ef731ae08848acb9b44ebcc2d11d398f863a180bcc&CheckSumKey=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiODU5MzkzMjNiMmU0YjNiMmI2N2VkNjBmYTNiZmU5ZDA4NjE1NTgwY2E1MjczZjllNTZkYWYxNDg4NWY3MWU3ZDZjYmNhZDBlYWRiMDY2MGY2YjEzM2E5YzU5OWQ2NzE0Yjg1YTA0N2M3MTE5NTk4NmZlZTI4YmE0Nzg1ZmRlNGM4Y2RkZTU0ZGM3ZGQ5YTI2MmEwYWQ5ZTY5MzcxNjRmMGY5YjdkYWEwMzBiMWQ2OGFhZDBlNjdhZmY5M2U3YWFiXCIsXCJlbnZrZXlcIjpcIjQ2NTdkNzVhZWVhOGIwNzk1ODA4ODY1N2U5NWExZDdlYzhhYWE2ZDc4NDc0OGM4YTg0MzcwYWFhNjdmNDRkYzk4MDVjZjg4Y2VkOGY4ODU2ZGUyYTk1ZWQzYmMzMTJhZDA4OWI5YmY2ZGEwODNkYWYyNTM5NGI4N2E4YmM3NTI0NWMzYWFmMWE4ZTYxZjA2M2U5NDc0NTMzYTJkZmE5MTRkZTM1OTY1MTFmZjQxMGQzZTZhNzcxZDJlOTAxMGMxMjJlZmNmOTg5YThkYmY4NGEwZWU1ODFjMzA4YTc1ZDU4YWI0ZGE3N2QzMTllODE4YmIyN2E1YzI5ODNlYTlkOTBjNDdjYjIwMjhjNmU0ZjZlMmFjM2M4N2FlMDEzZTk4Y2I5NjZiY2IyNGFkZTcxNDMxM2UyMTNlMjdiMjgzMjk3ZWUzZjhmMWU4OTczODc0OWZhNjg2ZTgwM2M1NTZjNmRlOTE3NzMwYmMzMjA5MzM3YzU3OTMzNGViZGZhMGMyNWE4MGUwNWJkNjBkMjkzY2U2MjI3MzI5MWY5NjU4ZmUxZDVmMmFmNjJmYjFiNDE5NjEzNTUzZjVmY2U4ZDYyNjcxMGUxY2ViZDk5NjE5YWEyMDM1ZjRhNWJjNDdiZTVmMDA5ODBmYTBiZjQ1ZmNkZTY0MGFkMmY2MzhjNjQzZmIyXCJ9Iiwic2lnbmF0dXJlIjoiOGE1MDVmZDUyNjBmNmM0ZGQ2YjkwZjdmYWIzMWUwNzQxYjQyOTYwZWY3YjU1YzM4NzM5ODRlODg4ZDg5YjExNjg3MGMyZWMxNmU1NTBmNjk5M2IwM2Y1OWVkY2M5YTBhZmQxOTlhMjI5Y2FlMjRiMGZiNzkyNjdlYjgyMTUzYjAzZWQ1OTc0MWY5ZWI5NTdhZmJmYWNmNzA5MDk3YzFjZjBmMDIyMjkxM2E4NGFhZWE5MmM1ODVkY2UwYmYyYWUwOGY4ZjQwZGU4NjEzNzk2MjlmMzk0YTFmMTE3ZGQxZGI5MDE4ZGJkNDYzZDQxOTFhNjBiM2FlYjIyN2M1ZWU4NGFhNTQxYzNmYjNlZTMyYmJhZjc0NDA1Nzk3NjE3MWI3NTgwZTc1YmM0NWJkNzI3NjJkMGZjOWNhZjYyODVjMDkxMjE1ZWE4NDg3ZjdjN2RmOGNlNmE2YzkyMzA1ZGI0N2I0ZjQ4OGNmZWYxNzRhNGRiZDZjZmU4ZmUwNDNlNzU2ZTRiZjk3OTgwMjgyYjc0MDFiMGM2NWFiYzA1MDY2NzljNzhmYmY5MmRmYjFhMmUwODYxZWQ2MmNiNDhmNGZlMDBkZGU5N2JmNTk1MTU1MzdiODhjNDlhODkzMjg5ZTM5NGFhYjYyMTJmZjM5NTZlNmEwYzFmODk1YmM0MDAzMWUifQ%3D%3D
+Stack Trace:
+#0 [internal function]: FormsController->login()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-24 01:24:40 Error: [UnauthorizedException] ACCESS_DENIED
+Request URL: /forms/login?FormId=&ServiceId=2&TransactionId=trx_e0fe5446379a500f6b3d5de9e1a00bdbe54c220141f5ca27a575c8755f349d9a&CheckSum=12da21003446e07dfa98cbd20f1673e2e15940ed071dbbc7c734782bae0a0038&CheckSumKey=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiNDYzZmUxMDQ1YTgzN2FmZWVlNjg2NTY0MWViMWNmNWVjNjI0YjMxYmEwMzBlZjdiODdlNWNlODJjMWMzZTc2NjQwYmJmOGE2NzBlOWI2MTRmZWIyNDM4MDkyYmE0ZjdkMGQ1OGM3ZTMyNThhMjVkYzYyMDE2MmZjMzI0MThjMjQwOGUzZmQ0NmQwOGI0ZmIzOGIwNGY1OTJiMmJmMjIzMDYzMTdhZjgyNzhlMGY4ZmMwNTQ1ZWRjMjhmMjdkNWRlXCIsXCJlbnZrZXlcIjpcIjQ3MWFkMmE2MDUxMTllMDBjZTY0YWYzNjY1Y2FhMzVmM2MwZjUzZDVhZWEwZWY0Nzk4MThhZjNjYTBlZmNiNzEyZDAxY2M3NDliNjRmOGY5Y2M4MzA5YmY1NmY0NDI0NDc0YmQ3MTllMmUwZGYyMGMzMzRmMTQ5YWNiYWU5ZDVkNTcxNjE4ZjlmZmYxNmU2OWQ5MGY4NmIxOTUxNDJiZDBhOWI4MWRmOWFlOWI1Nzc4ODlkNjQwNTdlN2FhYzQ0MjFlMDk4NDE5YzVkN2JlODc5YmQ4ZTI4NDQ5M2Y0MzBjZmI3YjI0YTVjZWVhOGE3MzBiNTA5OTBhMjhkMzRhNmI1NjE0MGU3MmYwY2Y3MGJiZjQxMmRlY2M1YzIxYjJkNTk4ODY0NGEyMzBjMjhlZmQ2ZGU5OGIxZmEwNzI1ZjFlY2JlNTZhNmIwNWRkNmY5Y2IyOWQ3ZDkxNDdkYjkyMDU3NDRjNzdmYjIzZDIxZWRlMjQ4M2RhYjBhMzhkMDIwMmRkN2I5MGM2ZGM4YzA1MDQ4MDNiMjM2MDg1MTVjMTcyN2MwYTM2MTNlZmNhNDNiYzEzYzJjZjlmOTBkZGZmNDRiMTA3NDIyYTUzNWZiNzQ5ZDNjYzAxZGRlNTNmOWViZDg3MGI4ODMxMTdiMjVjMzBmYjEzMjExZWUxZTlmNmFkXCJ9Iiwic2lnbmF0dXJlIjoiNDUyY2Q0NDZiMmU3ODBlNmJlYTNkNGVkNzRmMDk5MjVlNmNiZGVhZDdkMmMwODJlMzk0NmZhODE1YzZhNzA2Y2ZiMGU2ZjY2YjdlZTFiNDUyZmZlN2EwMDE1MGM4YjM1ZjRlNzM5NmIxZmRiMDMwYTkyNzQ0MmUzN2JjMDk0NDExY2UxNjQ1MjE4MDk2YTJjZjlmN2M3ZjNjZjgyOGQyMzA5Nzk5YzUzZjQ5MmNlNmU4NjY1OGI0OTljMDBkNjgwMTI5ZGE5M2FlYzZjMTVlYjhiZmZjYzI2YTJkMzA1MTk2ODJmNTBmMGI0Yzg4ZWFkN2UwODdlYWNhMTg0NDQwOGVjOTBjZGMzOTMxY2FkMDgzN2VmNDY5YTA1MTk4NzY5NjY5YzExYTRkZTBiYzI4ODAyNzRhZmUyMGJhNzU2NjFkNTM3NGZjN2E3YmY3NWQ0ZDQ5MzE2ZmUyMGIwNWU5YmJlZmIxZDc4NzU5OWFiNDI5MTU0NWVhOTNlMDA4MWZlNWRkNWU3ODYzZjU0MDUwNWYwM2VhMzBlYTEzMGMwOWJkODVkNjdiMmRkOTdkNjBlNWJjNDI0ODEzY2ZmN2Y3YmNkYTc5NmU2N2Y2MDVlNGY0YWIwNzUxZDMwZTNhNWUzNGE1ZDY4N2UwYWIzMTYyOTU3NTI0MzA1NWFlNWMzOTgifQ%3D%3D
+Stack Trace:
+#0 [internal function]: FormsController->login()
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-02-24 02:23:22 Error: [BadRequestException] Bad Request
+Request URL: /forms/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php(141): Utilities::exists(Array, 'PartnerId', true, true, false)
+#1 [internal function]: FormsController->login()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-02-24 02:44:24 Error: Borrando los registros expirados
+2014-02-24 02:47:18 Error: Borrando los registros expirados
+2014-02-24 03:12:21 Error: [BadRequestException] MISSING_PARAMETERS
+Request URL: /forms/login?PartnerId=1&FormatData=JSON&EncData=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiN2QyMmZlMDg4MWQzZjJkNTk5MjMwOGExYjE1YzJkZWViMzczZjVhYzBkZDQxNTE5ZWNiMzBjYmI3ZmNkODJhYWVmNjg2MjQ0NGU2NTdmYjI0Mjg0ZmEyMWUxZmVjMzZmOGMzYWE3MjYyNzYxMjg1OTk2N2FiMjQxNmI0YTU4YzNmNmFlYzIzYzA1OWE1NzQ1OGI5YmM5MDM3ZGM3YmQwYzdkZmMwN2YxNWVjOWRhMmEyMTc1NTlkMGVkMTk2ODdlMjM3MzI4NGNlY2I1N2IzNzQ0NTBiMzJkNjhmMDEzMTJmMTkyNDQ5NGE2NmY1MGEzMmU3ZTIwZTZjMWIyYjE4YVwiLFwiZW52a2V5XCI6XCIxMzQ0OWJhNGUwNzUwNWE2ZTA2Y2RiMWE0ZjRkYjllODFhZTk0NGM3NmI0ODQ4MWMzZDhiYWJlN2YzMDdkMmQ1OTY5M2FmM2Q4NmFiYWE1NGQ5ZGRjOWVhNWQ4YmIwNmJhODI2MWU5NjNlMGU1Mjg5YmZkYjM4OTBlNWI2NDg2YzZlMGM1MDRlMmEyZmJhODE2OTU4Zjk0M2NkYjBkMGRmZjU2YjliNDMzYjljZWI5ZGNiYjg5OGEwYWJkYmJiYThmMTc5MTY4MTZlYTdjMDY4ZTAzNzc4MmE4M2ZmMDQxMmJlYTExZWRkN2E3OThjYmFjNmIxYzJkNjg1YTY5MDg5ODM5NGM1MDQ3NGEzZjZhNzU4N2RkYTBjMTZkMGE1ZjMyMjZhODdkZWViODU2NzE3NzU0N2VmYjU0MjUwMWIwNTZhMTM1ZWViMTdiZGMzOTliY2Y0ZDc2MTljMTg4YmVmN2FmZDE2ZDhiMTU0MjQ0NWFiZjYxNmIzOTZkZmJiYzlhNjYyODY1ZTdhZTBjMWNmZjI3MzQwYzBjNTVlMTZlNGZmMjMwM2RhOTFkNTk0YzRjNmExNzViYjJkMDU4NGQ2Njg3OGFlN2Q2N2QwNWRjYzAzNTIzMzkzNjE3NjJlMTRhZWVlZWVmYzMxNmI3ZGQ4NDY5MTEyZWU5YWM1MDYyOVwifSIsInNpZ25hdHVyZSI6IjNiNjY3ZTdmZmI3ZWIzYzUwMjkxMTk1ZGFhMTllMWViMTg2NDcxNDUyZmI1YTljZGI2ZDVkYjdlMDYxNjk1NWJkNDZkMDQ2Y2I1Nzk4ZTQ5OTVkM2QxNTViNGVhOTcwY2Y5NDk2NzIwNmU3ZmE3YWIzNmU4MmI1YjE3YjMwNmJhY2QyMDk4NjNhN2QzOTVjN2JjYjY1Mzk1Njg5MmU0OGYxYzlkNTQ5NDEwYTBlNTk3OWFiZWYzODY0ZDMzODA3OTMwODI2OTgwMGIwZmE1YzUwMTYwOTczZjJlNDY1YTQzYjQ4ODY2YzZiMDhiOTNmNmQwNTAyM2YyMWNjMGZkNzZkZTI5NWQzY2RkNzUyYTJjMDNhMDVlNzRmYzBjOWI4MjM5MTc0MTAxNGUwZWVkZjNmNDY4ZmVlMmZhNjAyNDBmNDc3YmU5NGFhNjFhYjI2YTg0MjRlMzQwNWZmODkyMzQ4MWI2MjliYTg2MmY4ZmI4ZGI1MzE5Y2NlOWU2MTJkYjJkMzJkMTgzZmU3OTA2NTRmYTJiYzVkNDgxODA0ODQ2MWVhNmIyYTcxY2EyODYwOGMxMzIyNjI2NWQyOWQ2NDNhYjM1MWEzYzQwZWI3MDFjYTMwNjMzMGJjZDEyYTcyZWVmOGVhY2ZkNTE2NTFjOWM4NjY1Y2MyMWRjNzJjNTNkIn0%3D
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php(189): Utilities::exists(Array, 'ServiceId', true, true, '')
+#1 [internal function]: FormsController->login()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(FormsController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(FormsController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-02-24 03:26:09 Error: Borrando los registros expirados

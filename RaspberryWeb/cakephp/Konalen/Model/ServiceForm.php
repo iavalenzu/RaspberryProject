@@ -87,7 +87,8 @@ class ServiceForm extends AppModel {
                 'ServiceForm' => array(
                     'service_id' => $service['Service']['id'],
                     'form_id' => $form_id,
-                    'form_expire' => date('Y-m-d H:i:s', time() + $form_timeout)
+                    'form_expire' => date('Y-m-d H:i:s', time() + $form_timeout),
+                    'checksum_key' => sha1(microtime(true))
                 )
             );
 

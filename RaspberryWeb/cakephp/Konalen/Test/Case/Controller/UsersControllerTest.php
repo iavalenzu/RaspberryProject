@@ -96,6 +96,8 @@ class UsersControllerTest extends MyControllerTestCase {
         
         public function testLogin(){
 
+            
+            /*
             $data = json_encode(array(
                 'email' => 'iavalenzu@gmail.com', 
                 'password' => 'chaossssssssssss', 
@@ -108,7 +110,7 @@ class UsersControllerTest extends MyControllerTestCase {
             $result = $this->myTestAction("http://localhost/sandbox/cakephp/Konalen/users/login.json", $data, $this->headers);
 
             debug($result);
-            
+            */
         }
 
         public function testRegister(){

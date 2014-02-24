@@ -6,37 +6,27 @@
 class PartnerFixture extends CakeTestFixture {
 
 /**
- * Fields
+ * Import
  *
  * @var array
  */
-	public $fields = array(
-		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
-		'name' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 45, 'key' => 'unique', 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'public_key' => array('type' => 'string', 'null' => false, 'default' => null, 'length' => 500, 'key' => 'unique', 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'created' => array('type' => 'datetime', 'null' => false, 'default' => null),
-		'modified' => array('type' => 'datetime', 'null' => false, 'default' => null),
-		'indexes' => array(
-			'PRIMARY' => array('column' => 'id', 'unique' => 1),
-			'public_key_UNIQUE' => array('column' => 'public_key', 'unique' => 1),
-			'name_UNIQUE' => array('column' => 'name', 'unique' => 1)
-		),
-		'tableParameters' => array('charset' => 'latin1', 'collate' => 'latin1_swedish_ci', 'engine' => 'InnoDB')
-	);
+	//public $import = array('model' => 'Partner');
 
 /**
  * Records
  *
  * @var array
  */
+    
+    /*
 	public $records = array(
 		array(
 			'id' => 1,
-			'name' => 'Lorem ipsum dolor sit amet',
-			'public_key' => 'Lorem ipsum dolor sit amet',
-			'created' => '2013-12-11 11:44:24',
-			'modified' => '2013-12-11 11:44:24'
+			'name' => 'Raspberry',
+			'public_key' => '-----BEGIN PUBLIC KEY----- MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtvIoJHV4R2oeDFgj1t/l V3Xt8j9pBvRmF/zmSmRxbkCNpkMI5IAt8+/VOZplXgcPNMQ1G/PSZLfWZwCKTK0y YLjF1Guj9uzxZNq7AEtxjKYmQzaLoFqasKdyPmkP/nYh5MnOslfdEoB4cm4X6NU/ quufb7lFX0aPbLY37NPrRQWyp7wpiHbSFubFFE4gWQA4+vo4tDsXSIyzC8137vLj 5K9w233IWOjqX3776SIaGXxumGwx6GxQIlruweouBqMdod/XUdnyJHZeNULBzafV 3Onz5OWegoY8C3qoz6LDUXSAhAxR7noxXesGBWQz1QoNqK/vNFh54sRUAKKpkyxZ TQIDAQAB -----END PUBLIC KEY-----',
+			'created' => '2007-03-18 10:39:23',
+			'modified' => '2007-03-18 10:41:31'
 		),
 	);
-
+*/
 }

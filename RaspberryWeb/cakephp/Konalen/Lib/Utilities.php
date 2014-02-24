@@ -25,7 +25,7 @@ class Utilities {
      * @return string
      */
     
-    public function getHeader($name = null){
+    static public function getHeader($name = null){
         
         $headers = apache_request_headers();
         
@@ -37,7 +37,7 @@ class Utilities {
         
     }
     
-    public function getPost($name = null){
+    static public function getPost($name = null){
         
         if(isset($_POST[$name])){
             return $_POST[$name];
@@ -46,7 +46,7 @@ class Utilities {
         return "";
     }
 
-    public function getGet($name = null){
+    static public function getGet($name = null){
         
         if(isset($_GET[$name])){
             return $_GET[$name];
@@ -64,7 +64,7 @@ class Utilities {
      * @throws BadRequestException
      */
     
-    public function getRawPostData($require = true) {
+    static public function getRawPostData($require = true) {
         
         $output = "";
         $raw_data = file_get_contents('php://input');
@@ -92,6 +92,16 @@ class Utilities {
         
     }
     
+    /*
+     * TODO Implementar esta funcion, decodes the data considering the format JSON or XML
+     */
+    
+    static function decode(){
+        
+        
+        
+    }
+    
     /**
      * 
      * @param array $values
@@ -103,7 +113,7 @@ class Utilities {
      * @throws BadRequestException
      */
     
-    public function exists($values = array(), $name = null, $require = true, $empty = false, $default = false){
+    static public function exists($values = array(), $name = null, $require = true, $empty = false, $default = false){
 
         if(empty($values) || empty($name)){
             throw new BadRequestException();
@@ -142,7 +152,7 @@ class Utilities {
      * @return string
      */
     
-    public function getCredentials() {
+    static public function getCredentials() {
         
         $authorization = Utilities::getHeader('Authorization');
 
@@ -179,7 +189,7 @@ class Utilities {
    *   header. Setting $safe = false will will also look at HTTP_X_FORWARDED_FOR
    * @return string The client IP.
    */
-      public function clientIp($safe = true) {
+  static public function clientIp($safe = true) {
           
           if (!$safe && env('HTTP_X_FORWARDED_FOR')) {
               $ipaddr = preg_replace('/(?:,.*)/', '', env('HTTP_X_FORWARDED_FOR'));
@@ -206,7 +216,7 @@ class Utilities {
        * @return string El user agent del partner.
         */
       
-      public function clientUserAgent() {
+       static public function clientUserAgent() {
           
           $user_agent = '';
           
@@ -230,7 +240,7 @@ class Utilities {
       * @return string La cadena aleatoria.
       */
      
-    public function getRandomCode($numBits = 1024){
+     static public function getRandomCode($numBits = 1024){
 
         $numBytes = $numBits / 8;
         
@@ -253,7 +263,7 @@ class Utilities {
      * @return string
      */
     
-    public function randUpperCase($source = false){
+    static public function randUpperCase($source = false){
         
         $out = "";
         for($i=0; $i<strlen($source); $i++)
@@ -331,7 +341,7 @@ class Utilities {
      * @return array
      */
     
-    public function doCurlRequest($url, $get = array(), $post = array(), $headers = array()){
+    static public function doCurlRequest($url, $get = array(), $post = array(), $headers = array()){
         
 
         if(!empty($post)){
@@ -384,7 +394,7 @@ class Utilities {
      */
     
     
-    function crypto_rand_secure($min, $max) {
+    static function crypto_rand_secure($min, $max) {
         
         $range = $max - $min;
         if ($range == 0){ return false; }
@@ -402,7 +412,7 @@ class Utilities {
         
     }    
     
-    public function hash_array($data = array()){
+    static public function hash_array($data = array()){
         
         $imploded_data = implode(',', $data);
 

@@ -138,12 +138,9 @@ class FormsController extends AppController {
 
         $this->layout = 'api';
 
-        $form_id = Utilities::exists($this->request->query, 'FormId', true, true, false);
-        $service_id = Utilities::exists($this->request->query, 'ServiceId', true, true, false);
-        $transaction_id = Utilities::exists($this->request->query, 'TransactionId', true, true, false);
-        
-        $checksum_key_encrypted = Utilities::exists($this->request->query, 'CheckSumKey', true, true, false);
-        $checksum = Utilities::exists($this->request->query, 'CheckSum', true, true, false);
+        $partner_id = Utilities::exists($this->request->query, 'PartnerId', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, '');
+        $format_data = Utilities::exists($this->request->query, 'FormatData', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, '');
+        $enc_data = Utilities::exists($this->request->query, 'EncData', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, '');
 
         /*
          * Se verifica que la ip que hace la peticion no se encuentre bloqueada
@@ -162,6 +159,39 @@ class FormsController extends AppController {
         }        
         
         /*
+         * Se obtiene el partner asociado
+         */
+        
+        $partner = $this->Partner->findById($partner_id);
+
+        if(empty($partner)){
+            $this->IpAddressAccessAttempt->attempt();
+            throw new UnauthorizedException(ResponseStatus::$access_denied);
+        }
+        
+        /*
+         * Se crea un recibidor seguro de mensajes y desencriptamos el checksum
+         */
+        $spr = new SecureReceiver();
+        $spr->setSenderPublicKey($partner['Partner']['public_key']);
+        $spr->setRecipientPrivateKey(Configure::read('KonalenPrivateKey'));
+
+        $dec_json_data = $spr->decrypt($enc_data);        
+
+        /*
+         * Se acuerdo al formato de la data decodeamos la data
+         */
+        
+        if(strcasecmp($format_data, 'JSON') == 0){
+            $data = json_decode($dec_json_data, true);
+            $data = $data['data'];
+        }
+        
+        $form_id = Utilities::exists($data, 'ServiceId', Utilities::$REQUIRED, Utilities::$EMPTY, '');
+        $service_id = Utilities::exists($data, 'ServiceId', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, '');
+        $transaction_id = Utilities::exists($data, 'TransactionId', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, '');
+        
+        /*
          * Se obtiene el servicio asociado
          */
         $service = $this->Service->findById($service_id);
@@ -172,27 +202,14 @@ class FormsController extends AppController {
         }
         
         /*
-         * Se crea un recibidor seguro de mensajes y desencriptamos el checksum
+         * Se verifica que el service pertenezca al partner
          */
-        $spr = new SecureReceiver();
-        $spr->setSenderPublicKey($service['Partner']['public_key']);
-        $spr->setRecipientPrivateKey(Configure::read('KonalenPrivateKey'));
-
-        $checksum_key_decrypted = $spr->decrypt($checksum_key_encrypted);        
- 
-        if(empty($checksum_key_decrypted)){
+        
+        if($service['Service']['partner_id'] != $partner_id){
             $this->IpAddressAccessAttempt->attempt();
             throw new UnauthorizedException(ResponseStatus::$access_denied);
         }
-
-        /*
-         * Se verifica que el checksum corresponda a la data enviada
-         */
-        if(hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $checksum_key_decrypted) !== $checksum){
-            $this->IpAddressAccessAttempt->attempt();
-            throw new UnauthorizedException(ResponseStatus::$access_denied);   
-        }
-        
+     
         /*
          * Se obtiene el form asociado al id
          */
@@ -203,9 +220,6 @@ class FormsController extends AppController {
             $service_form = $this->ServiceForm->createForm($service);
         }
 
-      
-        
-        
         /*
          * Dado que el ingreso fue exitoso, reseteamos los valores de intento de acceso
          */
@@ -218,6 +232,7 @@ class FormsController extends AppController {
 
         $form_data = $service_form['ServiceForm']['data'];
         $form_id = $service_form['ServiceForm']['form_id'];
+        $form_checksum_key = $service_form['ServiceForm']['checksum_key'];
         
         $this->set('form_data', $form_data);
         
@@ -234,16 +249,9 @@ class FormsController extends AppController {
         $this->set('service_id', $service_id);
         $this->set('transaction_id', $transaction_id);  
 
-        $this->set('checksum', hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $checksum_key_decrypted));        
-        $this->set('checksum_key', $checksum_key_encrypted);            
-        
-
-        
-            
-        
+        $this->set('checksum', hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $form_checksum_key));        
+                
     }    
-    
-    
     
 }
 

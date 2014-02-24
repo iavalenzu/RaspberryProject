@@ -70,7 +70,7 @@ class SecureReceiver {
         
         $randomkey = false;
         
-        if(!openssl_private_decrypt($env_key, &$randomkey , $priv_key_id, OPENSSL_PKCS1_PADDING) || !$randomkey){
+        if(!openssl_private_decrypt($env_key, $randomkey , $priv_key_id, OPENSSL_PKCS1_PADDING) || !$randomkey){
             return false;
         }
         

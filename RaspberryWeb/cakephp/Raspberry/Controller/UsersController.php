@@ -194,16 +194,24 @@ class UsersController extends AppController {
         
         $checksum_key = hash('sha256', microtime(true) . mt_rand());
         
-        $data = array(
-            'FormId' => $form_id,
-            'ServiceId' => $service_id,
-            'TransactionId' => $transaction_id,
-            
-            'CheckSum' => hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $checksum_key),
-            'CheckSumKey' => $sps->encrypt($checksum_key)
+        
+        $plain_data = array(
+            'data' => array(
+                'FormId' => $form_id,
+                'ServiceId' => $service_id,
+                'TransactionId' => $transaction_id
+            )
+        );
+        
+        $json_data = json_encode($plain_data);
+        
+        $get_data = array(
+            'PartnerId' => 1,
+            'FormatData' => 'JSON',
+            'EncData' => $sps->encrypt($json_data), 
         );
      
-        $this->set('get', $data);
+        $this->set('get', $get_data);
         
     }
     

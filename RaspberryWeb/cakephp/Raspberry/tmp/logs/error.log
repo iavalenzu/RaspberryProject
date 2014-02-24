@@ -579,3 +579,102 @@ Stack Trace:
 #3 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #4 /home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-02-22 16:45:04 Error: Fatal Error (1): Class 'SecureSender' not found in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 185]
+2014-02-22 16:45:04 Error: [FatalErrorException] Class 'SecureSender' not found
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SecureSe...', '/Users/Ismael/N...', 185)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SecureSe...', '/Users/Ismael/N...', 185, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SecureSe...', '/Users/Ismael/N...', 185, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-22 17:03:12 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureSender.php, line 38]
+2014-02-22 17:03:12 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 38)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 38, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 38, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-22 17:21:27 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureReceiver.php, line 73]
+2014-02-22 17:21:27 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 73)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 73, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 73, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-22 17:22:27 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureSender.php, line 38]
+2014-02-22 17:22:27 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 38)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 38, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 38, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-22 17:24:32 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureSender.php, line 38]
+2014-02-22 17:24:32 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 38)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 38, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 38, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-22 17:24:34 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureSender.php, line 38]
+2014-02-22 17:24:34 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 38)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 38, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 38, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-22 17:27:32 Error: Fatal Error (1): Call to undefined function mcrypt_create_iv() in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureSender.php, line 44]
+2014-02-22 17:27:32 Error: [FatalErrorException] Call to undefined function mcrypt_create_iv()
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/Ismael/N...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/Ismael/N...', 44, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/Ismael/N...', 44, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-22 19:05:05 Error: Fatal Error (1): Call to undefined function mcrypt_create_iv() in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureSender.php, line 44]
+2014-02-22 19:05:05 Error: [FatalErrorException] Call to undefined function mcrypt_create_iv()
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/Ismael/N...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/Ismael/N...', 44, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/Ismael/N...', 44, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-22 19:20:46 Error: Fatal Error (1): Call to undefined function mcrypt_create_iv() in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureSender.php, line 44]
+2014-02-22 19:20:46 Error: [FatalErrorException] Call to undefined function mcrypt_create_iv()
+Request URL: /users/login
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/Users/Ismael/N...', 44)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/Users/Ismael/N...', 44, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/Users/Ismael/N...', 44, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-02-23 03:32:47 Error: [MissingControllerException] Controller class TestController could not be found.
+Exception Attributes: array (
+  'class' => 'TestController',
+  'plugin' => NULL,
+)
+Request URL: /Test/
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
