@@ -196,19 +196,33 @@ class UsersController extends AppController {
         
         
         $plain_data = array(
-            'data' => array(
-                'FormId' => $form_id,
-                'ServiceId' => $service_id,
-                'TransactionId' => $transaction_id
-            )
+            'FormId' => $form_id,
+            'ServiceId' => $service_id,
+            'TransactionId' => $transaction_id
         );
         
-        $json_data = json_encode($plain_data);
+        $format_type = 'XML';
         
+        if(strcasecmp($format_type, 'JSON') == 0){
+            
+            $enc_data = array('data' => $plain_data);
+            $enc_data = json_encode($enc_data);
+            
+        }elseif(strcasecmp($format_type, 'XML') == 0){
+            
+            $enc_data = '<?xml version="1.0"?>';
+            $enc_data .= '<data>';
+            $enc_data .= '<FormId>' . $form_id . '</FormId>';
+            $enc_data .= '<ServiceId>' . $service_id . '</ServiceId>';
+            $enc_data .= '<TransactionId>' . $transaction_id . '</TransactionId>';
+            $enc_data .= '</data>';
+            
+        }
+
         $get_data = array(
             'PartnerId' => 1,
-            'FormatData' => 'JSON',
-            'EncData' => $sps->encrypt($json_data), 
+            'FormatData' => $format_type,
+            'EncData' => $sps->encrypt($enc_data), 
         );
      
         $this->set('get', $get_data);

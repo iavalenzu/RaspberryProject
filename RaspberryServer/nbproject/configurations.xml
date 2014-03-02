@@ -4,14 +4,26 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>ConnectionSSL.h</itemPath>
+      <itemPath>RaspiUtils.h</itemPath>
+      <itemPath>ServerSSL.h</itemPath>
+      <itemPath>cJSON.h</itemPath>
+      <itemPath>core.h</itemPath>
+      <itemPath>curl_handler.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>mycert.pem</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>ConnectionSSL.cpp</itemPath>
+      <itemPath>RaspiUtils.cpp</itemPath>
+      <itemPath>ServerSSL.cpp</itemPath>
+      <itemPath>cJSON.c</itemPath>
+      <itemPath>curl_handler.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -35,8 +47,35 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <linkerTool>
+          <commandLine>-lssl -lcrypto -lm -lcurl</commandLine>
+        </linkerTool>
       </compileType>
+      <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ConnectionSSL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ServerSSL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ServerSSL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cJSON.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cJSON.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="core.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="curl_handler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="curl_handler.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="mycert.pem" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -59,7 +98,31 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ConnectionSSL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ServerSSL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ServerSSL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cJSON.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cJSON.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="core.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="curl_handler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="curl_handler.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="mycert.pem" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

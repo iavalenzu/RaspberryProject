@@ -176,40 +176,46 @@ class FormsController extends AppController {
         $spr->setSenderPublicKey($partner['Partner']['public_key']);
         $spr->setRecipientPrivateKey(Configure::read('KonalenPrivateKey'));
 
-        $dec_json_data = $spr->decrypt($enc_data);        
+        $dec_data = $spr->decrypt($enc_data);        
 
         /*
          * Se acuerdo al formato de la data decodeamos la data
          */
         
         if(strcasecmp($format_data, 'JSON') == 0){
-            $data = json_decode($dec_json_data, true);
+            
+            $data = json_decode($dec_data, true);
             $data = $data['data'];
+            
+        }elseif(strcasecmp($format_data, 'XML') == 0){
+        
+            $xml = simplexml_load_string($dec_data);
+            
+            $data['FormId'] = (string)$xml->FormId;
+            $data['ServiceId'] = (string)$xml->ServiceId;
+            $data['TransactionId'] = (string)$xml->TransactionId;
+                        
         }
         
-        $form_id = Utilities::exists($data, 'ServiceId', Utilities::$REQUIRED, Utilities::$EMPTY, '');
+        $form_id = Utilities::exists($data, 'FormId', Utilities::$REQUIRED, Utilities::$EMPTY, '');
         $service_id = Utilities::exists($data, 'ServiceId', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, '');
         $transaction_id = Utilities::exists($data, 'TransactionId', Utilities::$REQUIRED, Utilities::$NOT_EMPTY, '');
         
         /*
          * Se obtiene el servicio asociado
          */
-        $service = $this->Service->findById($service_id);
+        $service = $this->Service->find('first', array(
+            'conditions' => array(
+                'Service.id' => $service_id,
+                'Service.partner_id' => $partner_id
+            )
+        ));
 
         if(empty($service)){
             $this->IpAddressAccessAttempt->attempt();
             throw new UnauthorizedException(ResponseStatus::$access_denied);
         }
         
-        /*
-         * Se verifica que el service pertenezca al partner
-         */
-        
-        if($service['Service']['partner_id'] != $partner_id){
-            $this->IpAddressAccessAttempt->attempt();
-            throw new UnauthorizedException(ResponseStatus::$access_denied);
-        }
-     
         /*
          * Se obtiene el form asociado al id
          */

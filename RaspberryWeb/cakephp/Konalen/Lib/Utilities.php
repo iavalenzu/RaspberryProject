@@ -55,6 +55,16 @@ class Utilities {
         return "";
     }
     
+    static public function xmlObjectToArray($xmlObject = null){
+        
+        if(is_null($xmlObject))
+            return false;
+        
+        
+        
+        
+    }
+    
     
     
     /**

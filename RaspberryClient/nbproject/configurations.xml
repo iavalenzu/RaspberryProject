@@ -4,6 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>RaspiUtils.h</itemPath>
+      <itemPath>cJSON.h</itemPath>
+      <itemPath>core.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,7 +15,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>main.c</itemPath>
+      <itemPath>RaspiUtils.cpp</itemPath>
+      <itemPath>cJSON.c</itemPath>
+      <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -35,8 +40,21 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <linkerTool>
+          <commandLine>-lssl -lcrypto -lm -lcurl</commandLine>
+        </linkerTool>
       </compileType>
-      <item path="main.c" ex="false" tool="0" flavor2="0">
+      <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cJSON.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cJSON.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="core.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -59,7 +77,17 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="main.c" ex="false" tool="0" flavor2="0">
+      <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="cJSON.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="cJSON.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="core.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>
