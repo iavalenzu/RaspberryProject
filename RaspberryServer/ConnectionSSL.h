@@ -10,7 +10,7 @@
 
 #include <signal.h>
 
-//#include "cJSON.h"
+
 
 #include "Notification.h"
 #include "curl_handler.h"

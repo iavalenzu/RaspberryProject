@@ -8,6 +8,10 @@
 #ifndef NOTIFICATION_H
 #define	NOTIFICATION_H
 
+#include <cstdlib>
+#include <unistd.h>
+#include <stdio.h>
+#include "cJSON.h"
 
 class Notification {
     

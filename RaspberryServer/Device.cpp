@@ -18,6 +18,8 @@ Notification* Device::connect() {
      * Conectamos con la BD y verifiacos el access token
      */
 
+    this->authenticated = true;
+    
     cJSON *json = cJSON_CreateObject();
 
     cJSON_AddItemToObject(json, "authenticate", cJSON_CreateString("OK"));
@@ -47,5 +49,5 @@ Notification* Device::readNotification() {
 }
 
 int Device::isAuthorized(){
-    return false;
+    return this->authenticated;
 }

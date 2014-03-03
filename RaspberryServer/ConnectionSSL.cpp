@@ -101,19 +101,10 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
 
     notification = this->readNotification();
 
-    /*
-    printf("%d > JSON Autentificacion recibido: %s\n", getpid(), cJSON_Print(notification->json));
-
-    cJSON *token_obj = cJSON_GetObjectItem(json, "token");
-
-    if (token_obj == NULL) {
-        printf("%d > cJSON_GetObjectItem: No encuentro 'token'\n", getpid());
-        abort();
-    }
-
-    char *token = token_obj->valuestring;
-*/
     
+    printf("%d > JSON Autentificacion recibido: %s\n", getpid(), notification->toString());
+
+  
     /*
      * Se obtiene el token de acceso de la notificacion
      */
@@ -166,7 +157,7 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
                 /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
                 this->last_activity = time(NULL);
 
-                printf("%d > JSON enviado: %s\n", getpid(), cJSON_Print(notification->getJSON()));
+                printf("%d > JSON enviado: %s\n", getpid(), notification->toString());
 
                 /*
                  * Se escribe la nueva notificacion en el socket para que el cliente la reciba
@@ -180,7 +171,7 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
                 
                 notification = this->readNotification();
                 
-                printf("%d > JSON recibido: %s\n", getpid(), cJSON_Print(notification->getJSON()));
+                printf("%d > JSON recibido: %s\n", getpid(), notification->toString());
 
                 delete notification;
                 
@@ -195,6 +186,8 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
          */
         
         this->writeNotification(notification);
+        
+        printf("%d > JSON enviado: %s\n", getpid(), notification->toString());
         
         delete notification;
         
