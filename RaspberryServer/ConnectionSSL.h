@@ -10,7 +10,9 @@
 
 #include <signal.h>
 
-#include "cJSON.h"
+//#include "cJSON.h"
+
+#include "Notification.h"
 #include "curl_handler.h"
 #include "RaspiUtils.h"
 #include "Device.h"
@@ -28,8 +30,8 @@ public:
     void manageInactiveConnection(int sig);
     void manageNotificationWaiting(int sig);
 
-    int writeJSON(cJSON *json);
-    cJSON* readJSON();
+    int writeNotification(Notification *notification);
+    Notification* readNotification();
 
 
 private:

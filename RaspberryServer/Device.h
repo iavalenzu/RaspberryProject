@@ -14,16 +14,17 @@
 #include <string>
 #include <time.h>
 
-#include "cJSON.h"
+#include "Notification.h"
 
 class Device {
     
 public:
     Device(char* token);
     virtual ~Device();
-    int connect();
+    Notification* connect();
     int disconnect();
-    cJSON* readNotification();
+    Notification* readNotification();
+    int isAuthorized();
 
 private:
 

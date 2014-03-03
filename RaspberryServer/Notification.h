@@ -12,12 +12,16 @@
 class Notification {
     
 public:
-    Notification(char* json);
+    Notification(cJSON* json);
     virtual ~Notification();
+    cJSON* getJSON();
+    char* toString();
+    char* getAccessToken();
 
 private:
 
-
+    cJSON* json;
+    
 };
 
 

@@ -52,12 +52,20 @@ void ConnectionSSL::closeConnection() {
 
 }
 
-int ConnectionSSL::writeJSON(cJSON* json) {
-    return RaspiUtils::writeJSON(this->ssl, json);
+int ConnectionSSL::writeNotification(Notification* notification) {
+    return RaspiUtils::writeJSON(this->ssl, notification->getJSON());
 }
 
-cJSON* ConnectionSSL::readJSON() {
-    return RaspiUtils::readJSON(this->ssl);
+Notification* ConnectionSSL::readNotification() {
+    
+    Notification* notification;
+    
+    cJSON* json = RaspiUtils::readJSON(this->ssl);
+    
+    notification = new Notification(json);
+    
+    return notification;
+    
 }
 
 void ConnectionSSL::service() { /* Serve the connection -- threadable */
@@ -89,11 +97,12 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
     /* start the timer*/
     alarm(CHECK_INACTIVE_INTERVAL);
 
-    cJSON *json;
+    Notification *notification;
 
-    json = this->readJSON();
+    notification = this->readNotification();
 
-    printf("%d > JSON Autentificacion recibido: %s\n", getpid(), cJSON_Print(json));
+    /*
+    printf("%d > JSON Autentificacion recibido: %s\n", getpid(), cJSON_Print(notification->json));
 
     cJSON *token_obj = cJSON_GetObjectItem(json, "token");
 
@@ -103,29 +112,36 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
     }
 
     char *token = token_obj->valuestring;
+*/
+    
+    /*
+     * Se obtiene el token de acceso de la notificacion
+     */
+    
+    char* access_token = notification->getAccessToken();
 
     /*
      * Creamos un nievo dispositivo asociado a la coneccion activa usando el token de autorizacion
      */
     
-    this->device = new Device(token);
+    
+    this->device = new Device(access_token);
 
     /*
      * Verificamos si es posible conectar 
      */
 
-    if (this->device->connect()) {
+    notification = this->device->connect();
+    
+    if (this->device->isAuthorized()) {
 
-        json = cJSON_CreateObject();
-        cJSON_AddItemToObject(json, "authenticate", cJSON_CreateString("OK"));
-        
         /*
          * Notificamos al cliente que la autentificacion ha sido exitosa
          */
 
-        this->writeJSON(json);
+        this->writeNotification(notification);
         
-        cJSON_Delete(json);
+        delete notification;
 
         /*
          * La autenticacion es exitosa, luego se inicia la conexion
@@ -145,45 +161,43 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
 
                 printf("%d > Getting a new notification!!\n", getpid());
 
-                json = this->device->readNotification();
+                notification = this->device->readNotification();
 
                 /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
                 this->last_activity = time(NULL);
 
-                printf("%d > JSON enviado: %s\n", getpid(), cJSON_Print(json));
+                printf("%d > JSON enviado: %s\n", getpid(), cJSON_Print(notification->getJSON()));
 
                 /*
                  * Se escribe la nueva notificacion en el socket para que el cliente la reciba
                  */
                 
-                this->writeJSON(json);
+                this->writeNotification(notification);
                 
                 /*
                  * Leemos la respuesta enviada por el cliente luego de recibir la notificacion
                  */
                 
-                json = this->readJSON();
+                notification = this->readNotification();
                 
-                printf("%d > JSON recibido: %s\n", getpid(), cJSON_Print(json));
+                printf("%d > JSON recibido: %s\n", getpid(), cJSON_Print(notification->getJSON()));
 
-                cJSON_Delete(json);
-
+                delete notification;
+                
             }
 
         }
 
     } else {
 
-        json = cJSON_CreateObject();
-        cJSON_AddItemToObject(json, "authenticate", cJSON_CreateString("FAIL"));
-        
         /*
          * En caso que la autentificacion falle, enviamos una notificacion 
          */
         
-        this->writeJSON(json);
+        this->writeNotification(notification);
         
-        cJSON_Delete(json);
+        delete notification;
+        
     }
 
 }

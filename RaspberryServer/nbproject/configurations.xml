@@ -23,6 +23,7 @@
                    projectFiles="true">
       <itemPath>ConnectionSSL.cpp</itemPath>
       <itemPath>Device.cpp</itemPath>
+      <itemPath>Notification.cpp</itemPath>
       <itemPath>RaspiUtils.cpp</itemPath>
       <itemPath>ServerSSL.cpp</itemPath>
       <itemPath>cJSON.c</itemPath>
@@ -61,6 +62,8 @@
       <item path="Device.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Notification.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -114,6 +117,8 @@
       <item path="Device.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Notification.h" ex="false" tool="3" flavor2="0">
       </item>

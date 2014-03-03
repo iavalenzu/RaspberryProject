@@ -12,18 +12,27 @@ Device::Device(char *token) {
 Device::~Device() {
 }
 
-int Device::connect() {
+Notification* Device::connect() {
 
+    /*
+     * Conectamos con la BD y verifiacos el access token
+     */
 
-    return true;
+    cJSON *json = cJSON_CreateObject();
+
+    cJSON_AddItemToObject(json, "authenticate", cJSON_CreateString("OK"));
+
+    Notification* notification = new Notification(json);
+
+    return notification;
 
 }
 
-int Device::disconnect(){
+int Device::disconnect() {
     return true;
 }
 
-cJSON* Device::readNotification() {
+Notification* Device::readNotification() {
 
     /* initialize random seed: */
     srand(time(NULL));
@@ -31,6 +40,12 @@ cJSON* Device::readNotification() {
     cJSON *json = cJSON_CreateObject();
     cJSON_AddItemToObject(json, "notification", cJSON_CreateNumber(rand()));
 
-    return json;
+    Notification* notification = new Notification(json);
 
+    return notification;
+
+}
+
+int Device::isAuthorized(){
+    return false;
 }
