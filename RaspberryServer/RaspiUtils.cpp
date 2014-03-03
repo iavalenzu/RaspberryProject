@@ -32,7 +32,7 @@ cJSON* RaspiUtils::readQueryMsgQueue(int msgid) {
                 case EINTR:
                     break;
                 default:
-                    printf("Msgrcv Error %d\n", errno);
+                    printf("%d > Msgrcv Error %d\n", getpid(), errno);
                     abort();
             }
             
@@ -43,7 +43,7 @@ cJSON* RaspiUtils::readQueryMsgQueue(int msgid) {
     tmpjson = cJSON_Parse(notification.data);
 
     if (tmpjson == 0) {
-        printf("Error before: [%s]\n", cJSON_GetErrorPtr());
+        printf("%d > Error before: [%s]\n", getpid(), cJSON_GetErrorPtr());
         printf("cJSON_Parse\n");
         abort();
     }

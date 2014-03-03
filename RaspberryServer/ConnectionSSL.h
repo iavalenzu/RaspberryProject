@@ -8,9 +8,12 @@
 #ifndef CONNECTIONSSL_H
 #define	CONNECTIONSSL_H
 
+#include <signal.h>
+
 #include "cJSON.h"
 #include "curl_handler.h"
 #include "RaspiUtils.h"
+#include "Device.h"
 
 #include "ServerSSL.h"
 
@@ -22,7 +25,7 @@ public:
     void closeConnection();
     void service();
     void manageCloseConnection(int sig);
-    void manageInactiveConnection(int sig);
+    //void manageInactiveConnection(int sig);
 
 
 private:

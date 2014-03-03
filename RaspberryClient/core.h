@@ -10,7 +10,7 @@
 
 #define BUFSIZE 2048    
     
-#define PORT_NUM 6749
+#define PORT_NUM 6759
     
 #endif	/* CORE_H */
 

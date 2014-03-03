@@ -157,7 +157,7 @@ SSL_CTX* ServerSSL::getSSLCTX(){
 
 void ServerSSL::manageCloseServer(int sig){
 
-    printf("Cerrando Server!! PID %d\n", getpid());
+    printf("%d > Cerrando Server!!\n", getpid());
 
     this->closeServer();
     

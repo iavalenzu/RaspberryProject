@@ -11,7 +11,7 @@
 #define BUFSIZE 2048    
     
 #define MAX_INACTIVE_TIME 2*60
-#define PORT_NUM 6749
+#define PORT_NUM 6759
 #define CERT_FILE "mycert.pem"
 #define CHECK_INACTIVE_INTERVAL 10    
 #define AUTHENTIFICATION_URL "http://localhost/raspi/index.php"    

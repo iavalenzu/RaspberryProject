@@ -92,13 +92,12 @@ void ShowCerts(SSL* ssl) {
 }
 
 
-int authenticates(SSL* ssl, char* username, char* userpass) {
+int authenticates(SSL* ssl, char* access_token) {
 
     cJSON *json;
 
     json = cJSON_CreateObject();
-    cJSON_AddItemToObject(json, "username", cJSON_CreateString(username));
-    cJSON_AddItemToObject(json, "userpass", cJSON_CreateString(userpass));
+    cJSON_AddItemToObject(json, "token", cJSON_CreateString(access_token));
 
     /*Se envia al servidor el objeto JSON*/
     RaspiUtils::writeJSON(ssl, json);
@@ -169,14 +168,11 @@ int main(int argc, char* argv[]) {
     printf("Connected with %s encryption\n", SSL_get_cipher(ssl));
 
     
-    char user[BUFSIZ];
-    strcpy(user, "user");
-
-    char pass[BUFSIZ];
-    strcpy(pass, "pass");
+    char access_token[BUFSIZ];
+    strcpy(access_token, "123456789qwertyuiop");
     
     /*Se realiza la autentificacion*/
-    if (!authenticates(ssl, user, pass)) {
+    if (!authenticates(ssl, access_token)) {
         /*Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine*/
         printf("Nombre de usuario o contraseña incorrecta.\n");
         

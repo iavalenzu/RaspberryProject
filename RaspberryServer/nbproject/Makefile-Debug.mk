@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/ConnectionSSL.o \
+	${OBJECTDIR}/Device.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/ServerSSL.o \
 	${OBJECTDIR}/cJSON.o \
@@ -71,6 +72,11 @@ ${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionSSL.o ConnectionSSL.cpp
+
+${OBJECTDIR}/Device.o: Device.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Device.o Device.cpp
 
 ${OBJECTDIR}/RaspiUtils.o: RaspiUtils.cpp 
 	${MKDIR} -p ${OBJECTDIR}

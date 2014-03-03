@@ -25,10 +25,10 @@ void manageCloseConnection(int sig) {
 }
 
 void manageInactiveConnection(int sig) {
-
+/*
     if (connection != NULL)
         connection->manageInactiveConnection(sig);
-
+*/
 }
 
 void manageCloseServer(int sig) {
@@ -100,7 +100,7 @@ int main(int argc, char** argv) {
 
         if (pid == 0) {
 
-            printf("Connection PID: %d\n", getpid());
+            printf("%d > New connection!!\n", getpid());
 
             connection = new ConnectionSSL(server);
 
