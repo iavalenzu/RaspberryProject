@@ -12,21 +12,24 @@ Device::Device(char *token) {
 Device::~Device() {
 }
 
-int Device::authenticate() {
+int Device::connect() {
 
 
     return true;
 
 }
 
+int Device::disconnect(){
+    return true;
+}
+
 cJSON* Device::readNotification() {
 
-    time_t t;
-
-    time(&t);
+    /* initialize random seed: */
+    srand(time(NULL));
 
     cJSON *json = cJSON_CreateObject();
-    cJSON_AddItemToObject(json, "notification_time", cJSON_CreateString(ctime(&t)));
+    cJSON_AddItemToObject(json, "notification", cJSON_CreateNumber(rand()));
 
     return json;
 

@@ -9,6 +9,7 @@
 #define	DEVICE_H
 
 #include <unistd.h>
+#include <cstdlib>
 #include <stdio.h>
 #include <string>
 #include <time.h>
@@ -20,7 +21,8 @@ class Device {
 public:
     Device(char* token);
     virtual ~Device();
-    int authenticate();
+    int connect();
+    int disconnect();
     cJSON* readNotification();
 
 private:

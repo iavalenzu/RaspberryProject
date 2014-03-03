@@ -187,6 +187,8 @@ int main(int argc, char* argv[]) {
             
             RaspiUtils::writeJSON(ssl, json);
 
+            printf("JSON enviado: %s\n", cJSON_Print(json));
+            
         }
 
     }

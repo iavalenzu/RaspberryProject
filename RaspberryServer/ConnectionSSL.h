@@ -25,7 +25,11 @@ public:
     void closeConnection();
     void service();
     void manageCloseConnection(int sig);
-    //void manageInactiveConnection(int sig);
+    void manageInactiveConnection(int sig);
+    void manageNotificationWaiting(int sig);
+
+    int writeJSON(cJSON *json);
+    cJSON* readJSON();
 
 
 private:
@@ -34,14 +38,11 @@ private:
     SSL_CTX *ctx;
     int fd;
 
-    int msgid;
-
-    pid_t pid;
-    char *cid;
-
     time_t last_activity;
 
-    int authenticated;
+    int can_read_notification;
+    
+    Device *device;    
 
 };
 

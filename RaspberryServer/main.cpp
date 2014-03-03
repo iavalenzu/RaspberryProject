@@ -20,21 +20,34 @@ ConnectionSSL *connection = NULL;
 
 void manageCloseConnection(int sig) {
 
-    if (connection != NULL)
+    if (connection != NULL) {
         connection->manageCloseConnection(sig);
+    }
 }
 
 void manageInactiveConnection(int sig) {
-/*
-    if (connection != NULL)
-        connection->manageInactiveConnection(sig);
-*/
+
+    if (connection != NULL) {
+
+        if (sig == SIGALRM) {
+            connection->manageInactiveConnection(sig);
+        }
+        
+        if(sig == SIGCONT) {
+            connection->manageNotificationWaiting(sig);
+        }
+
+
+    }
+
+
 }
 
 void manageCloseServer(int sig) {
 
-    if (server != NULL)
+    if (server != NULL) {
         server->manageCloseServer(sig);
+    }
 
 }
 
@@ -72,7 +85,7 @@ int main(int argc, char** argv) {
      */
 
     sigemptyset(&sigact_close_server.sa_mask);
-    sigact_close_server.sa_flags = SA_NOCLDSTOP;
+    sigact_close_server.sa_flags = SA_NOCLDSTOP | SA_NOCLDWAIT;
     sigact_close_server.sa_handler = manageCloseServer;
     sigaction(SIGTERM, &sigact_close_server, NULL);
     sigaction(SIGABRT, &sigact_close_server, NULL);
@@ -107,26 +120,32 @@ int main(int argc, char** argv) {
             struct sigaction sigact_close_conn;
             struct sigaction sigact_inactive_conn;
 
+            /*
+             * Se maneja el cierre de la coneccion en caso de recibir las señales SIGTERM, SIGABRT o SIGKILL
+             */
+
             sigemptyset(&sigact_close_conn.sa_mask);
             sigact_close_conn.sa_flags = 0;
             sigact_close_conn.sa_handler = manageCloseConnection;
             sigaction(SIGTERM, &sigact_close_conn, NULL);
             sigaction(SIGABRT, &sigact_close_conn, NULL);
             sigaction(SIGKILL, &sigact_close_conn, NULL);
-            
-            //sigaction(SIGINT, &sigact_close_conn, NULL);
 
+            /*
+             * En caso de recibir la señal SIGALRM manajamos el periodo de inactividad de la coneccion. 
+             */
 
             sigemptyset(&sigact_inactive_conn.sa_mask);
             sigact_inactive_conn.sa_flags = 0;
             sigact_inactive_conn.sa_handler = manageInactiveConnection;
             sigaction(SIGALRM, &sigact_inactive_conn, NULL);
+            sigaction(SIGCONT, &sigact_inactive_conn, NULL);
 
 
             /*
-             * Se inicia el servcio que se encarga de enviar las notificaciones
+             * Se inicia el servicio que se encarga de enviar las notificaciones
              */
-            
+
             connection->service();
 
             abort();

@@ -14,7 +14,6 @@
 #define PORT_NUM 6759
 #define CERT_FILE "mycert.pem"
 #define CHECK_INACTIVE_INTERVAL 10    
-#define AUTHENTIFICATION_URL "http://localhost/raspi/index.php"    
     
 #endif	/* CORE_H */
 

@@ -8,9 +8,6 @@
 
 #include "ConnectionSSL.h"
 
-void catcher_sigcont(int sig) {
-}
-
 ConnectionSSL::ConnectionSSL(ServerSSL *server) {
 
     this->fd = server->getLastConnectionAccepted();
@@ -18,10 +15,10 @@ ConnectionSSL::ConnectionSSL(ServerSSL *server) {
     this->ssl = SSL_new(this->ctx);
 
     this->last_activity = time(NULL);
-    this->cid = NULL;
-    this->pid = getpid();
 
-    this->authenticated = 0;
+    this->can_read_notification = false;
+    
+    this->device = NULL;
 
     /* Sets the file descriptor fd as the input/output facility for 
      * the TLS/SSL (encrypted) side of ssl. fd will typically be 
@@ -36,8 +33,15 @@ ConnectionSSL::~ConnectionSSL() {
 
 void ConnectionSSL::closeConnection() {
 
-    free(this->cid);
+    /*
+     * Desconectamos el dispositivo
+     */
 
+    if(this->device != NULL){
+        this->device->disconnect();
+    }
+    
+    
     /*
      * Cerramos la coneccion SSL y liberamos recursos    
      */
@@ -48,35 +52,48 @@ void ConnectionSSL::closeConnection() {
 
 }
 
+int ConnectionSSL::writeJSON(cJSON* json) {
+    return RaspiUtils::writeJSON(this->ssl, json);
+}
+
+cJSON* ConnectionSSL::readJSON() {
+    return RaspiUtils::readJSON(this->ssl);
+}
+
 void ConnectionSSL::service() { /* Serve the connection -- threadable */
+
+    sigset_t block_set;
 
     if (SSL_accept(this->ssl) <= 0) { /* do SSL-protocol accept */
         ERR_print_errors_fp(stderr);
         abort();
     }
 
-    struct sigaction sigact;
-    sigset_t block_set;
 
-    // Initializes a signal set set to the complete set of supported signals.
+    /*
+     * Initializes a signal set set to the complete set of supported signals.
+     */
+
     sigfillset(&block_set);
 
-    // Removes the specified signal from the list of signals recorded in set.
+    /* 
+     * Removes the specified signal from the list of signals recorded in set.
+     * Las siguientes instrucciones especifican las señales que despiertan el sigsuspend
+     */
+
     sigdelset(&block_set, SIGCONT);
     sigdelset(&block_set, SIGTERM);
+    sigdelset(&block_set, SIGALRM);
 
-    sigemptyset(&sigact.sa_mask);
-    sigact.sa_flags = 0;
-    sigact.sa_handler = catcher_sigcont;
-    sigaction(SIGCONT, &sigact, NULL);
 
     /* start the timer*/
-    //alarm(CHECK_INACTIVE_INTERVAL);
+    alarm(CHECK_INACTIVE_INTERVAL);
 
     cJSON *json;
-    json = RaspiUtils::readJSON(this->ssl);
 
-    printf("%d > JSON Autentificacion Recibido: %s\n", getpid(), cJSON_Print(json));
+    json = this->readJSON();
+
+    printf("%d > JSON Autentificacion recibido: %s\n", getpid(), cJSON_Print(json));
 
     cJSON *token_obj = cJSON_GetObjectItem(json, "token");
 
@@ -87,20 +104,36 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
 
     char *token = token_obj->valuestring;
 
-    Device *device = new Device(token);
+    /*
+     * Creamos un nievo dispositivo asociado a la coneccion activa usando el token de autorizacion
+     */
+    
+    this->device = new Device(token);
 
-    /*Verificamos que el nombre y la contraseña coincidan*/
-    if (device->authenticate()) {
+    /*
+     * Verificamos si es posible conectar 
+     */
+
+    if (this->device->connect()) {
 
         json = cJSON_CreateObject();
         cJSON_AddItemToObject(json, "authenticate", cJSON_CreateString("OK"));
-        RaspiUtils::writeJSON(this->ssl, json);
+        
+        /*
+         * Notificamos al cliente que la autentificacion ha sido exitosa
+         */
+
+        this->writeJSON(json);
+        
         cJSON_Delete(json);
 
-        /*La autenticacion es exitosa, luego se inicia la conexion*/
+        /*
+         * La autenticacion es exitosa, luego se inicia la conexion
+         */
+
         while (true) {
 
-            printf("%d > Esperando notificacion...\n", getpid());
+            printf("%d > Esperando señal para continuar...\n", getpid());
 
             //The signal mask indicates a set of signals that should be blocked.
             //Such signals do not “wake up” the suspended function. The SIGSTOP
@@ -108,20 +141,34 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
             //to the thread no matter what mask specifies.
             sigsuspend(&block_set);
 
-            json = device->readNotification();
+            if (this->can_read_notification) {
 
-            /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
-            this->last_activity = time(NULL);
+                printf("%d > Getting a new notification!!\n", getpid());
 
-            printf("%d > JSON notification: %s\n", getpid(), cJSON_Print(json));
+                json = this->device->readNotification();
 
-            RaspiUtils::writeJSON(this->ssl, json);
+                /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
+                this->last_activity = time(NULL);
 
-            json = RaspiUtils::readJSON(this->ssl);
+                printf("%d > JSON enviado: %s\n", getpid(), cJSON_Print(json));
 
-            printf("%d > JSON recibido: %s\n", getpid(), cJSON_Print(json));
+                /*
+                 * Se escribe la nueva notificacion en el socket para que el cliente la reciba
+                 */
+                
+                this->writeJSON(json);
+                
+                /*
+                 * Leemos la respuesta enviada por el cliente luego de recibir la notificacion
+                 */
+                
+                json = this->readJSON();
+                
+                printf("%d > JSON recibido: %s\n", getpid(), cJSON_Print(json));
 
-            cJSON_Delete(json);
+                cJSON_Delete(json);
+
+            }
 
         }
 
@@ -129,7 +176,13 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
 
         json = cJSON_CreateObject();
         cJSON_AddItemToObject(json, "authenticate", cJSON_CreateString("FAIL"));
-        RaspiUtils::writeJSON(this->ssl, json);
+        
+        /*
+         * En caso que la autentificacion falle, enviamos una notificacion 
+         */
+        
+        this->writeJSON(json);
+        
         cJSON_Delete(json);
     }
 
@@ -146,12 +199,21 @@ void ConnectionSSL::manageCloseConnection(int sig) {
 
 }
 
-/*
 void ConnectionSSL::manageInactiveConnection(int sig) {
+
+    /*
+     * Se procede a manejar si la coneccion esta inactiva, por lo tanto se impide una lectura de notificacion
+     */
+
+    this->can_read_notification = false;
+
+    /*
+     * Si el proceso ha estado inactivo por mas de MAX_INACTIVE_TIME, terminamos su ejecucion.
+     */
 
     int lapse = time(NULL) - this->last_activity;
 
-    printf("%d > Inactive time: %d\n", getpid(), lapse);
+    printf("%d > Shutdown in %d seconds\n", getpid(), MAX_INACTIVE_TIME - lapse);
 
     if (lapse >= MAX_INACTIVE_TIME) {
 
@@ -161,8 +223,15 @@ void ConnectionSSL::manageInactiveConnection(int sig) {
 
     }
 
-    // reset the timer so we get called again in 5 seconds
+    // Reset the timer so we get called again in CHECK_INACTIVE_INTERVAL seconds
     alarm(CHECK_INACTIVE_INTERVAL);
 
 }
- */
+
+void ConnectionSSL::manageNotificationWaiting(int sig) {
+
+    this->can_read_notification = true;
+
+}
+
+
