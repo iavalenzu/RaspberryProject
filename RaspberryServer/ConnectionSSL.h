@@ -10,10 +10,7 @@
 
 #include <signal.h>
 
-
-
 #include "Notification.h"
-#include "curl_handler.h"
 #include "RaspiUtils.h"
 #include "Device.h"
 
@@ -21,17 +18,17 @@
 
 class ConnectionSSL {
 public:
-    ConnectionSSL(ServerSSL *server);
+    ConnectionSSL();
     virtual ~ConnectionSSL();
-    int authenticateConnection(cJSON *json);
+    void setServer(ServerSSL server);
     void closeConnection();
     void service();
     void manageCloseConnection(int sig);
     void manageInactiveConnection(int sig);
     void manageNotificationWaiting(int sig);
 
-    int writeNotification(Notification *notification);
-    Notification* readNotification();
+    int writeNotification(Notification notification);
+    Notification readNotification();
 
 
 private:
@@ -44,7 +41,7 @@ private:
 
     int can_read_notification;
     
-    Device *device;    
+    Device device;    
 
 };
 

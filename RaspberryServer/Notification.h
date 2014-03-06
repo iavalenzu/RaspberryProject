@@ -11,24 +11,29 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <stdio.h>
-#include "cJSON.h"
+
+#include <libjson/libjson.h>
+
+#define AUTHORIZED "AUTHORIZED" 
+#define NOT_AUTHORIZED "NOT_AUTHORIZED" 
+
+using namespace libjson;
 
 class Notification {
     
 public:
-    Notification(cJSON* json);
+    Notification(JSONNode json);
+    Notification();
     virtual ~Notification();
-    cJSON* getJSON();
-    char* toString();
-    char* getAccessToken();
+    JSONNode getJSON();
+    std::string toString();
+    std::string getAccessToken();
 
 private:
 
-    cJSON* json;
+    JSONNode json;
     
 };
-
-
 
 #endif	/* NOTIFICATION_H */
 

@@ -1,32 +1,35 @@
 
 #include "Notification.h"
 
-Notification::Notification(cJSON* json) {
+Notification::Notification(JSONNode json) {
     this->json = json;
 }
 
-Notification::~Notification() {
-    cJSON_Delete(this->json);
+Notification::Notification(){
 
 }
 
-cJSON* Notification::getJSON() {
+Notification::~Notification() {
+}
+
+JSONNode Notification::getJSON() {
     return this->json;
 }
 
-char* Notification::toString() {
-    return cJSON_Print(this->json);
+std::string Notification::toString() {
+    return (this->json).write_formatted();
 }
 
-char* Notification::getAccessToken() {
+std::string Notification::getAccessToken() {
+    
+    JSONNode::const_iterator i = this->json.find("token");
 
-    cJSON *token_obj = cJSON_GetObjectItem(this->json, "token");
+    if (i != this->json.end()) {
+        
+        return i->as_string();
+        
+    }    
 
-    if (token_obj == NULL) {
-        printf("%d > cJSON_GetObjectItem: No encuentro 'token'\n", getpid());
-        abort();
-    }
-
-    return token_obj->valuestring;
+    return "";
 
 }

@@ -7,7 +7,9 @@
 #include <stdbool.h>
 #include <unistd.h>
 
-#include "cJSON.h"
+//#include "cJSON.h"
+
+
 
 #include "RaspiUtils.h"
 
@@ -15,13 +17,13 @@
 #include "core.h"
 
 #include <signal.h>
+#include <string>
 
 
 SSL_CTX *ctx;
 int server;
 SSL *ssl;
-cJSON *json;
-
+JSONNode json;
 
 int OpenConnection(const char *hostname, int port) {
 
@@ -91,24 +93,30 @@ void ShowCerts(SSL* ssl) {
 
 }
 
+int authenticates(SSL* ssl, string access_token) {
 
-int authenticates(SSL* ssl, char* access_token) {
+    JSONNode json(JSON_NODE);
+    json.push_back(JSONNode("token", access_token));
 
-    cJSON *json;
-
-    json = cJSON_CreateObject();
-    cJSON_AddItemToObject(json, "token", cJSON_CreateString(access_token));
-
+    printf("JSON enviado: %s\n", json.write_formatted().c_str());
+    
+    
     /*Se envia al servidor el objeto JSON*/
     RaspiUtils::writeJSON(ssl, json);
 
     json = RaspiUtils::readJSON(ssl);
 
-    printf("JSON recibido: %s\n", cJSON_Print(json));
+    printf("JSON recibido: %s\n", json.write_formatted().c_str());
 
-    char *authenticate = cJSON_GetObjectItem(json, "authenticate")->valuestring;
+    JSONNode::const_iterator i = json.find("Action");
 
-    return strcmp(authenticate, "OK") == 0;
+    if (i != json.end()) {
+
+        return i->as_string().compare("AUTHORIZED") == 0;
+
+    } else {
+        return false;
+    }
 
 }
 
@@ -122,20 +130,18 @@ void todo(char* action) {
 
 }
 
-void manage_close(int sig){
+void manage_close(int sig) {
 
     printf("Liberando SSL...\n");
-    
-    cJSON_Delete(json);
 
-    if(close(server) < 0){ /* close socket */
+    if (close(server) < 0) { /* close socket */
         printf("Falló close\n");
     }
 
     printf("SSL_shutdown: %d\n", SSL_shutdown(ssl));
     SSL_free(ssl); /* release connection state */
-    
-    
+
+
     SSL_CTX_free(ctx); /* release context */
 
     exit(sig);
@@ -146,10 +152,10 @@ int main(int argc, char* argv[]) {
 
     printf("Argc: %d\n", argc);
     printf("Argv: %s\n", argv[0]);
-    
+
     char hostname[BUFSIZ];
     strcpy(hostname, "localhost");
-    
+
     signal(SIGINT, manage_close);
 
     SSL_library_init();
@@ -167,39 +173,37 @@ int main(int argc, char* argv[]) {
     ShowCerts(ssl);
     printf("Connected with %s encryption\n", SSL_get_cipher(ssl));
 
-    
-    char access_token[BUFSIZ];
-    strcpy(access_token, "123456789qwertyuiop");
+
+    string access_token = "123456789qwertyuiop";
     
     /*Se realiza la autentificacion*/
     if (!authenticates(ssl, access_token)) {
         /*Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine*/
         printf("Nombre de usuario o contraseña incorrecta.\n");
-        
-    }else{
+
+    } else {
 
         /*Comienza el intercambio de mensajes*/
         while (true) {
 
             json = RaspiUtils::readJSON(ssl);
 
-            printf("JSON recibido: %s\n", cJSON_Print(json));
-            
+            printf("JSON recibido: %s\n", json.write_formatted().c_str());
+
             RaspiUtils::writeJSON(ssl, json);
 
-            printf("JSON enviado: %s\n", cJSON_Print(json));
-            
+            printf("JSON enviado: %s\n", json.write_formatted().c_str());
+
         }
 
     }
-    
-    cJSON_Delete(json);
+
     SSL_free(ssl); /* release connection state */
 
     close(server); /* close socket */
     SSL_CTX_free(ctx); /* release context */
 
     return 0;
-    
+
 }
 

@@ -5,8 +5,6 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>RaspiUtils.h</itemPath>
-      <itemPath>cJSON.h</itemPath>
-      <itemPath>core.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -16,7 +14,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>RaspiUtils.cpp</itemPath>
-      <itemPath>cJSON.c</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -40,19 +37,21 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>/usr/include</pElem>
+          </incDir>
+        </ccTool>
         <linkerTool>
+          <linkerLibItems>
+            <linkerLibFileItem>/usr/lib/libjson.a</linkerLibFileItem>
+          </linkerLibItems>
           <commandLine>-lssl -lcrypto -lm -lcurl</commandLine>
         </linkerTool>
       </compileType>
       <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="cJSON.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="cJSON.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="core.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -80,12 +79,6 @@
       <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="cJSON.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="cJSON.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="core.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

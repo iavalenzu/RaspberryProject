@@ -1,32 +1,36 @@
 
 #include "Device.h"
 
-Device::Device(char *token) {
+Device::Device() {
 
     this->last_activity = time(NULL);
     this->authenticated = 0;
-    this->token = token;
+    this->token = "";
 
 }
 
 Device::~Device() {
 }
 
-Notification* Device::connect() {
+void Device::setToken(string token){
+    this->token = token;
+}
+
+Notification Device::connect() {
 
     /*
      * Conectamos con la BD y verifiacos el access token
      */
 
     this->authenticated = true;
-    
-    cJSON *json = cJSON_CreateObject();
 
-    cJSON_AddItemToObject(json, "authenticate", cJSON_CreateString("OK"));
+    JSONNode n(JSON_NODE);
+    n.push_back(JSONNode("Action", AUTHORIZED));
+    JSONNode c(JSON_NODE);
+    c.set_name("Data");
+    n.push_back(c);
 
-    Notification* notification = new Notification(json);
-
-    return notification;
+    return Notification(n);
 
 }
 
@@ -34,20 +38,18 @@ int Device::disconnect() {
     return true;
 }
 
-Notification* Device::readNotification() {
+Notification Device::readNotification() {
 
     /* initialize random seed: */
     srand(time(NULL));
 
-    cJSON *json = cJSON_CreateObject();
-    cJSON_AddItemToObject(json, "notification", cJSON_CreateNumber(rand()));
+    JSONNode n(JSON_NODE);
+    n.push_back(JSONNode("Notification", rand()));
 
-    Notification* notification = new Notification(json);
-
-    return notification;
+    return Notification(n);
 
 }
 
-int Device::isAuthorized(){
+int Device::isAuthorized() {
     return this->authenticated;
 }

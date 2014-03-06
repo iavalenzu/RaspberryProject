@@ -36,12 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/ConnectionSSL.o \
+	${OBJECTDIR}/DatabaseAdapter.o \
 	${OBJECTDIR}/Device.o \
 	${OBJECTDIR}/Notification.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/ServerSSL.o \
-	${OBJECTDIR}/cJSON.o \
-	${OBJECTDIR}/curl_handler.o \
 	${OBJECTDIR}/main.o
 
 
@@ -74,6 +73,11 @@ ${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionSSL.o ConnectionSSL.cpp
 
+${OBJECTDIR}/DatabaseAdapter.o: DatabaseAdapter.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DatabaseAdapter.o DatabaseAdapter.cpp
+
 ${OBJECTDIR}/Device.o: Device.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -93,16 +97,6 @@ ${OBJECTDIR}/ServerSSL.o: ServerSSL.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ServerSSL.o ServerSSL.cpp
-
-${OBJECTDIR}/cJSON.o: cJSON.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cJSON.o cJSON.c
-
-${OBJECTDIR}/curl_handler.o: curl_handler.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/curl_handler.o curl_handler.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

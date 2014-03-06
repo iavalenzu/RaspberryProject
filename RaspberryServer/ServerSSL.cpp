@@ -119,7 +119,7 @@ void ServerSSL::acceptConnection() {
         abort();
     }
 
-    printf("Connection: %s:%d\n", inet_ntoa(addr.sin_addr), ntohs(addr.sin_port));
+    cout << "Connection: " << inet_ntoa(addr.sin_addr) << ":" << ntohs(addr.sin_port) << endl;
 
 }
 
@@ -138,17 +138,17 @@ void ServerSSL::showCerts(SSL* ssl) {
     cert = SSL_get_peer_certificate(ssl); /* Get certificates (if available) */
 
     if (cert != NULL) {
-        printf("Server certificates:\n");
+        cout << "Server certificates:" << endl;
         line = X509_NAME_oneline(X509_get_subject_name(cert), 0, 0);
-        printf("Subject: %s\n", line);
+        cout << "Subject: " << line << endl;
         free(line);
         line = X509_NAME_oneline(X509_get_issuer_name(cert), 0, 0);
-        printf("Issuer: %s\n", line);
+        cout << "Issuer: " << line << endl;
         free(line);
         X509_free(cert);
 
     } else
-        printf("No certificates.\n");
+        cout << "No certificates." << endl;
 }
 
 SSL_CTX* ServerSSL::getSSLCTX(){
@@ -157,7 +157,7 @@ SSL_CTX* ServerSSL::getSSLCTX(){
 
 void ServerSSL::manageCloseServer(int sig){
 
-    printf("%d > Cerrando Server!!\n", getpid());
+    cout << getpid() << " > Cerrando Server!!" << endl;
 
     this->closeServer();
     

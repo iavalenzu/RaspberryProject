@@ -14,23 +14,30 @@
 #include <string>
 #include <time.h>
 
+#include <libjson/libjson.h>
+
 #include "Notification.h"
+#include "DatabaseAdapter.h"
+
+using namespace libjson;
+using namespace std;
 
 class Device {
     
 public:
-    Device(char* token);
+    Device();
     virtual ~Device();
-    Notification* connect();
+    void setToken(string token);
+    Notification connect();
     int disconnect();
-    Notification* readNotification();
+    Notification readNotification();
     int isAuthorized();
 
 private:
 
     time_t last_activity;
     int authenticated;
-    char *token;
+    string token;
 
 };
 

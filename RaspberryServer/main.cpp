@@ -7,47 +7,43 @@
 
 #include <cstdlib>
 #include <signal.h>
+#include <string>
 #include "ConnectionSSL.h"
 #include "ServerSSL.h"
+#include "DatabaseAdapter.h"
 
 using namespace std;
 /*
  * 
  */
 
-ServerSSL *server = NULL;
-ConnectionSSL *connection = NULL;
+ServerSSL server;
+ConnectionSSL connection;
 
 void manageCloseConnection(int sig) {
 
-    if (connection != NULL) {
-        connection->manageCloseConnection(sig);
-    }
+    connection.manageCloseConnection(sig);
 }
 
 void manageInactiveConnection(int sig) {
 
-    if (connection != NULL) {
 
-        if (sig == SIGALRM) {
-            connection->manageInactiveConnection(sig);
-        }
-        
-        if(sig == SIGCONT) {
-            connection->manageNotificationWaiting(sig);
-        }
-
-
+    if (sig == SIGALRM) {
+        connection.manageInactiveConnection(sig);
     }
+
+    if (sig == SIGCONT) {
+        connection.manageNotificationWaiting(sig);
+    }
+
+
 
 
 }
 
 void manageCloseServer(int sig) {
 
-    if (server != NULL) {
-        server->manageCloseServer(sig);
-    }
+    server.manageCloseServer(sig);
 
 }
 
@@ -57,7 +53,6 @@ void manageCloseServer(int sig) {
 
 
 int main(int argc, char** argv) {
-
 
     srand(time(NULL));
 
@@ -94,15 +89,13 @@ int main(int argc, char** argv) {
     sigaction(SIGCHLD, &sigact_close_server, NULL);
 
 
-    server = new ServerSSL();
-
-    printf("Server PID: %d\n", getpid());
+    cout << "Server PID: " << getpid() <<endl;
 
     RaspiUtils::writePid("serverpid");
 
     while (true) {
 
-        server->acceptConnection();
+        server.acceptConnection();
 
         int pid = fork();
 
@@ -113,9 +106,9 @@ int main(int argc, char** argv) {
 
         if (pid == 0) {
 
-            printf("%d > New connection!!\n", getpid());
+            cout << getpid() << " > New connection!!" << endl;
 
-            connection = new ConnectionSSL(server);
+            connection.setServer(server);
 
             struct sigaction sigact_close_conn;
             struct sigaction sigact_inactive_conn;
@@ -146,12 +139,12 @@ int main(int argc, char** argv) {
              * Se inicia el servicio que se encarga de enviar las notificaciones
              */
 
-            connection->service();
+            connection.service();
 
             abort();
 
         } else {
-            server->closeLastConnectionAccepted();
+            server.closeLastConnectionAccepted();
         }
 
     }

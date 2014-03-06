@@ -14,6 +14,17 @@
 #define PORT_NUM 6759
 #define CERT_FILE "mycert.pem"
 #define CHECK_INACTIVE_INTERVAL 10    
+
+
+/*
+ * Database definition
+ */
+
+#define DATABASE_HOST "localhost"
+#define DATABASE_USER "root"
+#define DATABASE_PASS "pezticut84343128"
+#define DATABASE_NAME "raspberry"
+
     
 #endif	/* CORE_H */
 

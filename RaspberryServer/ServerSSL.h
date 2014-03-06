@@ -15,8 +15,12 @@
 #include <arpa/inet.h>
 #include <sys/types.h>  
 #include <unistd.h>
+#include <stdlib.h>
+#include <iostream>
 
 #include "core.h"
+
+using namespace std;
 
 class ServerSSL {
 public:

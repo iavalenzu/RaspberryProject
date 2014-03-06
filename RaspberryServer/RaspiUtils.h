@@ -13,12 +13,16 @@
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>    
-    
-#include "cJSON.h"
+
+#include <libjson/libjson.h>
+
 #include "openssl/ssl.h"
 #include "openssl/err.h"
 
 #include "core.h"
+
+using namespace libjson;
+using namespace std;
 
 typedef struct query {
     
@@ -31,13 +35,9 @@ class RaspiUtils {
 public:
     RaspiUtils();
     virtual ~RaspiUtils();
-    static cJSON* readQueryMsgQueue(int msgid);
-    static int writeJSON(SSL *ssl, cJSON *json);
-    static cJSON* readJSON(SSL *ssl);
+    static int writeJSON(SSL *ssl, JSONNode json);
+    static JSONNode readJSON(SSL *ssl);
     static void writePid(const char *file_name);
-    static char* makeMessage(const char *fmt, ...);
-    static char* concatStr(const char *src1, const char *src2);
-    static char* copyStr(const char *src);
 
 private:
 
