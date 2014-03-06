@@ -174,7 +174,7 @@ int main(int argc, char* argv[]) {
     printf("Connected with %s encryption\n", SSL_get_cipher(ssl));
 
 
-    string access_token = "123456789qwertyuiop";
+    string access_token = "93246038d91f02b45aefd4b883edff31b67a00ce";
     
     /*Se realiza la autentificacion*/
     if (!authenticates(ssl, access_token)) {

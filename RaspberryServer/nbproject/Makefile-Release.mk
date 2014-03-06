@@ -39,6 +39,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/DatabaseAdapter.o \
 	${OBJECTDIR}/Device.o \
 	${OBJECTDIR}/Notification.o \
+	${OBJECTDIR}/NotificationAuthorized.o \
+	${OBJECTDIR}/NotificationNotAuthorized.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/ServerSSL.o \
 	${OBJECTDIR}/main.o
@@ -87,6 +89,16 @@ ${OBJECTDIR}/Notification.o: Notification.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Notification.o Notification.cpp
+
+${OBJECTDIR}/NotificationAuthorized.o: NotificationAuthorized.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationAuthorized.o NotificationAuthorized.cpp
+
+${OBJECTDIR}/NotificationNotAuthorized.o: NotificationNotAuthorized.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationNotAuthorized.o NotificationNotAuthorized.cpp
 
 ${OBJECTDIR}/RaspiUtils.o: RaspiUtils.cpp 
 	${MKDIR} -p ${OBJECTDIR}

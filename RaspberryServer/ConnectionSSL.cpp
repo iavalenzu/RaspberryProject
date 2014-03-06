@@ -209,8 +209,6 @@ void ConnectionSSL::manageInactiveConnection(int sig) {
 
     int lapse = time(NULL) - this->last_activity;
 
-    cout << getpid() << " > Shutdown in " << MAX_INACTIVE_TIME - lapse << " seconds" << endl;
-
     if (lapse >= MAX_INACTIVE_TIME) {
 
         cout << getpid() << " > Timeout process!!" << endl;
@@ -218,6 +216,8 @@ void ConnectionSSL::manageInactiveConnection(int sig) {
         this->manageCloseConnection(sig);
 
     }
+
+    cout << getpid() << " > Shutdown in " << MAX_INACTIVE_TIME - lapse << " seconds" << endl;
 
     // Reset the timer so we get called again in CHECK_INACTIVE_INTERVAL seconds
     alarm(CHECK_INACTIVE_INTERVAL);

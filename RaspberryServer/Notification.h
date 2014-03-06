@@ -8,9 +8,12 @@
 #ifndef NOTIFICATION_H
 #define	NOTIFICATION_H
 
+
+
 #include <cstdlib>
 #include <unistd.h>
 #include <stdio.h>
+#include <string>
 
 #include <libjson/libjson.h>
 
@@ -23,13 +26,14 @@ class Notification {
     
 public:
     Notification(JSONNode json);
+    Notification(std::string str_json);
     Notification();
     virtual ~Notification();
     JSONNode getJSON();
     std::string toString();
     std::string getAccessToken();
 
-private:
+protected:
 
     JSONNode json;
     

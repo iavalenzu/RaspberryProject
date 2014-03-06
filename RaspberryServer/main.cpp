@@ -27,7 +27,6 @@ void manageCloseConnection(int sig) {
 
 void manageInactiveConnection(int sig) {
 
-
     if (sig == SIGALRM) {
         connection.manageInactiveConnection(sig);
     }
@@ -35,9 +34,6 @@ void manageInactiveConnection(int sig) {
     if (sig == SIGCONT) {
         connection.manageNotificationWaiting(sig);
     }
-
-
-
 
 }
 
@@ -70,8 +66,16 @@ int main(int argc, char** argv) {
         }
 
     }
-
-
+/*
+    DatabaseAdapter dba;
+    
+    sql::ResultSet* user = dba.getUserByAccessToken("93246038d91f02b45aefd4b883edff31b67a00ce");
+    
+    cout << user->getString("token") << endl;
+    
+    
+    abort();
+*/
     struct sigaction sigact_close_server;
 
     /*  

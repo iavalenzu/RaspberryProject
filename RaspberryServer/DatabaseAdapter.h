@@ -34,7 +34,8 @@ class DatabaseAdapter {
 public:
     DatabaseAdapter();
     virtual ~DatabaseAdapter();
-    void getUserByAccessToken(string token);
+    sql::ResultSet* getUserByAccessToken(string token);
+    sql::ResultSet* getLastNotificationByAccessToken(string token);
 
 private:
 

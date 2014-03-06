@@ -8,6 +8,8 @@
       <itemPath>DatabaseAdapter.h</itemPath>
       <itemPath>Device.h</itemPath>
       <itemPath>Notification.h</itemPath>
+      <itemPath>NotificationAuthorized.h</itemPath>
+      <itemPath>NotificationNotAuthorized.h</itemPath>
       <itemPath>RaspiUtils.h</itemPath>
       <itemPath>ServerSSL.h</itemPath>
       <itemPath>core.h</itemPath>
@@ -25,6 +27,8 @@
       <itemPath>DatabaseAdapter.cpp</itemPath>
       <itemPath>Device.cpp</itemPath>
       <itemPath>Notification.cpp</itemPath>
+      <itemPath>NotificationAuthorized.cpp</itemPath>
+      <itemPath>NotificationNotAuthorized.cpp</itemPath>
       <itemPath>RaspiUtils.cpp</itemPath>
       <itemPath>ServerSSL.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -80,6 +84,14 @@
       </item>
       <item path="Notification.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="NotificationAuthorized.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NotificationAuthorized.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NotificationNotAuthorized.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NotificationNotAuthorized.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
@@ -132,6 +144,14 @@
       <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Notification.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NotificationAuthorized.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NotificationAuthorized.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NotificationNotAuthorized.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NotificationNotAuthorized.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
       </item>
