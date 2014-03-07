@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/DatabaseAdapter.o \
 	${OBJECTDIR}/Device.o \
+	${OBJECTDIR}/Logger.o \
 	${OBJECTDIR}/Notification.o \
 	${OBJECTDIR}/NotificationAuthorized.o \
 	${OBJECTDIR}/NotificationNotAuthorized.o \
@@ -88,6 +89,11 @@ ${OBJECTDIR}/Device.o: Device.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Device.o Device.cpp
+
+${OBJECTDIR}/Logger.o: Logger.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Logger.o Logger.cpp
 
 ${OBJECTDIR}/Notification.o: Notification.cpp 
 	${MKDIR} -p ${OBJECTDIR}

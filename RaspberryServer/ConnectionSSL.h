@@ -38,6 +38,7 @@ private:
     int fd;
 
     time_t last_activity;
+    time_t created;
 
     int can_read_notification;
     

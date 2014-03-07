@@ -19,7 +19,7 @@
 #include "openssl/ssl.h"
 #include "openssl/err.h"
 
-#include "core.h"
+#include "Core.h"
 
 using namespace libjson;
 using namespace std;

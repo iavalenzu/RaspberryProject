@@ -9,7 +9,7 @@
 #define	DATABASEADAPTER_H
 
  
-#include "core.h"
+#include "Core.h"
 
 #include "mysql_connection.h"
 #include "mysql_driver.h"
@@ -36,6 +36,9 @@ public:
     virtual ~DatabaseAdapter();
     sql::ResultSet* getUserByAccessToken(string token);
     sql::ResultSet* getLastNotificationByAccessToken(string token);
+    sql::ResultSet* getLastNotificationByConnectionId(string connection_id);
+    static void showColumns(sql::ResultSet* set);
+    sql::ResultSet* createNewConnection(string user_id, int process_pid);
 
 private:
 

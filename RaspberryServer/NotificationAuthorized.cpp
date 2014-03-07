@@ -14,7 +14,7 @@ NotificationAuthorized::NotificationAuthorized(JSONNode json) : Notification() {
 NotificationAuthorized::NotificationAuthorized() : Notification() {
     
     JSONNode json_sucess(JSON_NODE);
-    json_sucess.push_back(JSONNode("Action", AUTHORIZED));
+    json_sucess.push_back(JSONNode("Action", ACTION_ACCESS_AUTHORIZED));
     JSONNode data(JSON_NODE);
     data.set_name("Data");
     json_sucess.push_back(data);

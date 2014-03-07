@@ -8,7 +8,7 @@
 
 #include "ConnectionSSL.h"
 
-ConnectionSSL::ConnectionSSL(){
+ConnectionSSL::ConnectionSSL() {
 }
 
 void ConnectionSSL::setServer(ServerSSL server) {
@@ -18,9 +18,10 @@ void ConnectionSSL::setServer(ServerSSL server) {
     this->ssl = SSL_new(this->ctx);
 
     this->last_activity = time(NULL);
+    this->created = time(NULL);
 
     this->can_read_notification = false;
-    
+
 
     /* Sets the file descriptor fd as the input/output facility for 
      * the TLS/SSL (encrypted) side of ssl. fd will typically be 
@@ -39,9 +40,9 @@ void ConnectionSSL::closeConnection() {
      * Desconectamos el dispositivo
      */
 
-     this->device.disconnect();
-    
-    
+    this->device.disconnect();
+
+
     /*
      * Cerramos la coneccion SSL y liberamos recursos    
      */
@@ -57,11 +58,7 @@ int ConnectionSSL::writeNotification(Notification notification) {
 }
 
 Notification ConnectionSSL::readNotification() {
-    
-    JSONNode json = RaspiUtils::readJSON(this->ssl);
-    
-    return Notification(json);
-    
+    return Notification( RaspiUtils::readJSON(this->ssl) );
 }
 
 void ConnectionSSL::service() { /* Serve the connection -- threadable */
@@ -96,21 +93,21 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
     Notification notification;
 
     notification = this->readNotification();
-    
-    cout << getpid() <<  " > JSON Autentificacion recibido: " << notification.toString() << endl;
 
-  
+    cout << getpid() << " > JSON Autentificacion recibido: " << notification.toString() << endl;
+
+
     /*
      * Se obtiene el token de acceso de la notificacion
      */
-    
-     std::string access_token = notification.getAccessToken();
+
+    std::string access_token = notification.getAccessToken();
 
     /*
      * Creamos un nievo dispositivo asociado a la coneccion activa usando el token de autorizacion
      */
-    
-    
+
+
     this->device.setToken(access_token);
 
     /*
@@ -118,7 +115,7 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
      */
 
     notification = this->device.connect();
-    
+
     if (this->device.isAuthorized()) {
 
         /*
@@ -126,7 +123,7 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
          */
 
         this->writeNotification(notification);
-        
+
         /*
          * La autenticacion es exitosa, luego se inicia la conexion
          */
@@ -147,24 +144,32 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
 
                 notification = this->device.readNotification();
 
-                /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
-                this->last_activity = time(NULL);
-
-                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
                 /*
-                 * Se escribe la nueva notificacion en el socket para que el cliente la reciba
+                 * Si la notifcacion no es vacia la enviamos
                  */
-                
-                this->writeNotification(notification);
-                
-                /*
-                 * Leemos la respuesta enviada por el cliente luego de recibir la notificacion
-                 */
-                
-                notification = this->readNotification();
-                
-                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
+
+                if (!notification.isEmpty()) {
+
+                    /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
+                    this->last_activity = time(NULL);
+
+                    cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+
+                    /*
+                     * Se escribe la nueva notificacion en el socket para que el cliente la reciba
+                     */
+
+                    this->writeNotification(notification);
+
+                    /*
+                     * Leemos la respuesta enviada por el cliente luego de recibir la notificacion
+                     */
+
+                    notification = this->readNotification();
+
+                    cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
+
+                }
 
             }
 
@@ -175,11 +180,11 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
         /*
          * En caso que la autentificacion falle, enviamos una notificacion 
          */
-        
+
         this->writeNotification(notification);
-        
+
         cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-        
+
     }
 
 }
@@ -205,19 +210,25 @@ void ConnectionSSL::manageInactiveConnection(int sig) {
 
     /*
      * Si el proceso ha estado inactivo por mas de MAX_INACTIVE_TIME, terminamos su ejecucion.
+     * Si el proceso ha estado vivo mas de MAX_ALIVE_TIME, terminanos su ejecucion
      */
 
-    int lapse = time(NULL) - this->last_activity;
+    int now = time(NULL);
+    
+    int inactive_lapse = now - this->last_activity;
+    int alive_lapse = now - this->created;
 
-    if (lapse >= MAX_INACTIVE_TIME) {
+    if (inactive_lapse >= MAX_INACTIVE_TIME || alive_lapse >= MAX_ALIVE_TIME) {
 
         cout << getpid() << " > Timeout process!!" << endl;
 
         this->manageCloseConnection(sig);
 
+    } else {
+        cout << getpid() << " > Shutdown in ";
+        cout << "[ Inactive: " << (MAX_INACTIVE_TIME - inactive_lapse) << " secs ] ";
+        cout << "[ Alive: " << (MAX_ALIVE_TIME - alive_lapse) << " secs ]" << endl;
     }
-
-    cout << getpid() << " > Shutdown in " << MAX_INACTIVE_TIME - lapse << " seconds" << endl;
 
     // Reset the timer so we get called again in CHECK_INACTIVE_INTERVAL seconds
     alarm(CHECK_INACTIVE_INTERVAL);

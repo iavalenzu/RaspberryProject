@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <iostream>
 
-#include "core.h"
+#include "Core.h"
 
 using namespace std;
 

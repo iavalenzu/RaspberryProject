@@ -17,8 +17,8 @@
 
 #include <libjson/libjson.h>
 
-#define AUTHORIZED "AUTHORIZED" 
-#define NOT_AUTHORIZED "NOT_AUTHORIZED" 
+#define ACTION_ACCESS_AUTHORIZED "AUTHORIZED" 
+#define ACTION_ACCESS_NOT_AUTHORIZED "NOT_AUTHORIZED" 
 
 using namespace libjson;
 
@@ -32,6 +32,7 @@ public:
     JSONNode getJSON();
     std::string toString();
     std::string getAccessToken();
+    int isEmpty();
 
 protected:
 

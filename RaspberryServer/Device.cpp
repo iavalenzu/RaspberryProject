@@ -3,17 +3,24 @@
 
 Device::Device() {
 
-    this->last_activity = time(NULL);
-    this->authenticated = false;
-    this->token = "";
+    this->reset();
 
 }
 
 Device::~Device() {
 }
 
+void Device::reset() {
+
+    this->authenticated = false;
+    this->user_token = "";
+    this->user_id = "";
+    this->connection_id = "";
+
+}
+
 void Device::setToken(string token) {
-    this->token = token;
+    this->user_token = token;
 }
 
 Notification Device::connect() {
@@ -22,38 +29,38 @@ Notification Device::connect() {
      * Conectamos con la BD y verificamos el access token
      */
 
-    if (this->token.empty()) {
+    if (!this->user_token.empty()) {
 
-        this->authenticated = false;
-        this->token = "";
+        DatabaseAdapter dba;
 
-        return NotificationNotAuthorized();
+        sql::ResultSet* user = dba.getUserByAccessToken(this->user_token);
 
+        if (user != NULL) {
+
+            this->authenticated = true;
+            this->user_token = user->getString("token");
+            this->user_id = user->getString("id");
+
+            sql::ResultSet* connection = dba.createNewConnection(this->user_id, getpid());
+
+            if (connection != NULL) {
+
+                this->connection_id = connection->getString("id");
+
+                return NotificationAuthorized();
+
+            }
+
+        }
     }
 
-    DatabaseAdapter dba;
+    /*
+     * Borramos los valores asociados al dispositivo
+     */
+    this->reset();
 
-    sql::ResultSet* user = dba.getUserByAccessToken(this->token);
+    return NotificationNotAuthorized();
 
-    if (user == NULL) {
-
-        /*
-         * No existe usuario para ese token de acceso
-         */
-
-        this->authenticated = false;
-        this->token = "";
-
-        return NotificationNotAuthorized();
-
-    } else {
-
-        this->authenticated = true;
-        this->token = user->getString("token");
-
-        return NotificationAuthorized();
-
-    }
 
 }
 
@@ -65,47 +72,17 @@ Notification Device::readNotification() {
 
     DatabaseAdapter dba;
 
-    sql::ResultSet* notification = dba.getLastNotificationByAccessToken(this->token);
+    sql::ResultSet* notification = dba.getLastNotificationByConnectionId(this->connection_id);
 
     if (notification != NULL) {
 
-        sql::ResultSetMetaData *res_meta;
+        std::string str_noti = notification->getString("data");
 
-        res_meta = notification -> getMetaData();
-
-        int numcols = res_meta -> getColumnCount();
-        cout << "\nNumber of columns in the result set = " << numcols << endl;
-
-        cout.width(20);
-        cout << "Column Name/Label";
-
-        cout.width(20);
-        cout << "Column Type";
-
-        cout.width(20);
-        cout << "Column Size" << endl;
-
-        for (int i = 0; i < numcols; ++i) {
-            cout.width(20);
-            cout << res_meta -> getColumnLabel(i + 1);
-
-            cout.width(20);
-            cout << res_meta -> getColumnTypeName(i + 1);
-
-            cout.width(20);
-            cout << res_meta -> getColumnDisplaySize(i + 1) << endl;
-        }
-
-        std::string noti = notification->getString("notification");
-
-        return Notification(noti);
+        return Notification(str_noti);
 
     } else {
 
-        srand(time(NULL));
-
-        JSONNode n(JSON_NODE);
-        n.push_back(JSONNode("Notification", rand()));
+        JSONNode n(JSON_NULL);
 
         return Notification(n);
 
@@ -118,5 +95,5 @@ Notification Device::readNotification() {
  */
 
 int Device::isAuthorized() {
-    return !this->token.empty() && this->authenticated;
+    return !this->user_token.empty() && this->authenticated;
 }

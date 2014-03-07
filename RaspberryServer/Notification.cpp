@@ -6,8 +6,11 @@ Notification::Notification(JSONNode json) {
 }
 
 Notification::Notification(std::string str_json) {
+    
     try{
+        
          this->json = libjson::parse(str_json);
+         
     }catch(std::exception &e){
         
         JSONNode empty_node (JSON_NULL);
@@ -26,6 +29,10 @@ Notification::~Notification() {
 
 JSONNode Notification::getJSON() {
     return this->json;
+}
+
+int Notification::isEmpty(){
+    return this->json.type() == JSON_NULL;
 }
 
 std::string Notification::toString() {

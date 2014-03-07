@@ -34,12 +34,14 @@ public:
     int disconnect();
     Notification readNotification();
     int isAuthorized();
+    void reset();
 
 private:
 
-    time_t last_activity;
     int authenticated;
-    string token;
+    string user_token;
+    string user_id;
+    string connection_id;
 
 };
 
