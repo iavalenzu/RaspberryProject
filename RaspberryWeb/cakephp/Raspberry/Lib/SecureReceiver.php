@@ -1,1 +1,1 @@
-/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SecureReceiver.php
+/Library/WebServer/Documents/Konalen/Lib/SecureReceiver.php
