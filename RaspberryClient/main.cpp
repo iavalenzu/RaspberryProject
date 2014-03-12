@@ -12,6 +12,7 @@
 
 
 #include "RaspiUtils.h"
+#include "NotificationRequestAccess.h"
 
 
 #include "core.h"
@@ -96,13 +97,23 @@ void ShowCerts(SSL* ssl) {
 int authenticates(SSL* ssl, string access_token) {
 
     JSONNode json(JSON_NODE);
-    json.push_back(JSONNode("token", access_token));
+    /*
+    JSONNode json_sucess(JSON_NODE);
+    json_sucess.push_back(JSONNode("Action", ACTION_REQUEST_ACCESS));
+    JSONNode data(JSON_NODE);
+    data.set_name("Data");
+    data.push_back(JSONNode("token", access_token));
+    json_sucess.push_back(data);    
+    */
+    
+    NotificationRequestAccess request_access;
+    request_access.addToken(access_token);
 
-    printf("JSON enviado: %s\n", json.write_formatted().c_str());
+    printf("JSON enviado: %s\n", request_access.toString().c_str());
     
     
     /*Se envia al servidor el objeto JSON*/
-    RaspiUtils::writeJSON(ssl, json);
+    RaspiUtils::writeJSON(ssl, request_access.getJSON());
 
     json = RaspiUtils::readJSON(ssl);
 

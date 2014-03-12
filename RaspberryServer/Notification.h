@@ -9,9 +9,8 @@
 #define	NOTIFICATION_H
 
 
-
-#include <cstdlib>
 #include <unistd.h>
+#include <cstdlib>
 #include <stdio.h>
 #include <string>
 
@@ -19,16 +18,22 @@
 
 #define ACTION_ACCESS_AUTHORIZED "AUTHORIZED" 
 #define ACTION_ACCESS_NOT_AUTHORIZED "NOT_AUTHORIZED" 
+#define ACTION_REQUEST_ACCESS "REQUEST_ACCESS" 
 
 using namespace libjson;
+using namespace std;
 
 class Notification {
     
 public:
     Notification(JSONNode json);
+    Notification(const Notification& orig);
     Notification(std::string str_json);
+    Notification(std::string _action, JSONNode _data);
     Notification();
     virtual ~Notification();
+    void addData(JSONNode new_item);
+    std::string getData(std::string name);
     JSONNode getJSON();
     std::string toString();
     std::string getAccessToken();
@@ -36,6 +41,7 @@ public:
 
 protected:
 
+    std::string action;
     JSONNode json;
     
 };

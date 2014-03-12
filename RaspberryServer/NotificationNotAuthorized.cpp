@@ -7,19 +7,10 @@
 
 #include "NotificationNotAuthorized.h"
 
-NotificationNotAuthorized::NotificationNotAuthorized() : Notification() {
-
-    JSONNode json_denied(JSON_NODE);
-    json_denied.push_back(JSONNode("Action", ACTION_ACCESS_NOT_AUTHORIZED));
-    JSONNode data(JSON_NODE);
-    data.set_name("Data");
-    json_denied.push_back(data);
-
-    this->json = json_denied;
-
+NotificationNotAuthorized::NotificationNotAuthorized() : Notification(ACTION_ACCESS_NOT_AUTHORIZED, JSONNode(JSON_NULL)) {
 }
 
-NotificationNotAuthorized::NotificationNotAuthorized(JSONNode json) : Notification() {
+NotificationNotAuthorized::NotificationNotAuthorized(std::string str_json) : Notification(str_json) {
 }
 
 NotificationNotAuthorized::NotificationNotAuthorized(const NotificationNotAuthorized& orig) {

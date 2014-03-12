@@ -11,6 +11,8 @@
 #include <signal.h>
 
 #include "Notification.h"
+#include "NotificationRequestAccess.h"
+
 #include "RaspiUtils.h"
 #include "Device.h"
 

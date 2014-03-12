@@ -7,22 +7,11 @@
 
 #include "NotificationAuthorized.h"
 
-NotificationAuthorized::NotificationAuthorized(JSONNode json) : Notification() {
-    
+NotificationAuthorized::NotificationAuthorized() : Notification(ACTION_ACCESS_AUTHORIZED, JSONNode(JSON_NULL)) {    
 }
 
-NotificationAuthorized::NotificationAuthorized() : Notification() {
-    
-    JSONNode json_sucess(JSON_NODE);
-    json_sucess.push_back(JSONNode("Action", ACTION_ACCESS_AUTHORIZED));
-    JSONNode data(JSON_NODE);
-    data.set_name("Data");
-    json_sucess.push_back(data);
-    
-    this->json = json_sucess;
-    
+NotificationAuthorized::NotificationAuthorized(std::string str_json) : Notification(str_json) {    
 }
-
 
 NotificationAuthorized::NotificationAuthorized(const NotificationAuthorized& orig) {
 }

@@ -17,7 +17,7 @@ using namespace libjson;
 class NotificationAuthorized : public Notification {
 public:
     NotificationAuthorized();
-    NotificationAuthorized(JSONNode json);
+    NotificationAuthorized(std::string str_json);
     NotificationAuthorized(const NotificationAuthorized& orig);
     virtual ~NotificationAuthorized();
 private:

@@ -93,7 +93,12 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
     Notification notification;
 
     notification = this->readNotification();
+    
+    NotificationRequestAccess& nra = notification;
 
+    cout << getpid() << " > Notification Token: " << nra.getToken() << endl;
+
+    
     cout << getpid() << " > JSON Autentificacion recibido: " << notification.toString() << endl;
 
 
