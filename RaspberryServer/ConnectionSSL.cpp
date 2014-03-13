@@ -7,6 +7,7 @@
  */
 
 #include "ConnectionSSL.h"
+#include "ActionFactory.h"
 
 ConnectionSSL::ConnectionSSL() {
 }
@@ -58,7 +59,11 @@ int ConnectionSSL::writeNotification(Notification notification) {
 }
 
 Notification ConnectionSSL::readNotification() {
-    return Notification( RaspiUtils::readJSON(this->ssl) );
+    return Notification(RaspiUtils::readJSON(this->ssl));
+}
+
+Device ConnectionSSL::getDevice() {
+    return this->device;
 }
 
 void ConnectionSSL::service() { /* Serve the connection -- threadable */
@@ -91,35 +96,32 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
     alarm(CHECK_INACTIVE_INTERVAL);
 
     Notification notification;
+    Action *action;
+
+    /*
+     * Se obtiene la notificacion
+     */
 
     notification = this->readNotification();
-    
-    NotificationRequestAccess& nra = notification;
 
-    cout << getpid() << " > Notification Token: " << nra.getToken() << endl;
-
-    
-    cout << getpid() << " > JSON Autentificacion recibido: " << notification.toString() << endl;
-
+    cout << getpid() << " > JSON Autorizacion recibido: " << notification.toString() << endl;
 
     /*
-     * Se obtiene el token de acceso de la notificacion
+     * Se crea una accion a partir de la notificacion
      */
 
-    std::string access_token = notification.getAccessToken();
+    action = ActionFactory::createFromNotification(notification, this->device);
+
+    if (action == NULL) {
+        abort();
+    }
 
     /*
-     * Creamos un nievo dispositivo asociado a la coneccion activa usando el token de autorizacion
+     * Se ejecuta la accion
      */
 
+    notification = action->toDo();
 
-    this->device.setToken(access_token);
-
-    /*
-     * Verificamos si es posible conectar 
-     */
-
-    notification = this->device.connect();
 
     if (this->device.isAuthorized()) {
 
@@ -149,32 +151,50 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
 
                 notification = this->device.readNotification();
 
+                if (notification.isEmpty()) {
+                    cout << getpid() << " > Notification is empty!!" << endl;
+                    continue;
+                }
+
                 /*
                  * Si la notifcacion no es vacia la enviamos
                  */
 
-                if (!notification.isEmpty()) {
+                /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
+                this->last_activity = time(NULL);
 
-                    /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
-                    this->last_activity = time(NULL);
+                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
 
-                    cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+                /*
+                 * Procesamos la notificacion
+                 */
 
-                    /*
-                     * Se escribe la nueva notificacion en el socket para que el cliente la reciba
-                     */
+                action = ActionFactory::createFromNotification(notification, this->device);
 
-                    this->writeNotification(notification);
-
-                    /*
-                     * Leemos la respuesta enviada por el cliente luego de recibir la notificacion
-                     */
-
-                    notification = this->readNotification();
-
-                    cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
-
+                if (action == NULL) {
+                    cout << getpid() << " > Action is not defined!!" << endl;
+                    continue;
                 }
+                
+                /*
+                 * Se realiza la accion definida en la notificacion
+                 */
+
+                action->toDo();
+
+                /*
+                 * Se escribe la nueva notificacion en el socket para que el cliente la reciba
+                 */
+
+                this->writeNotification(notification);
+
+                /*
+                 * Leemos la respuesta enviada por el cliente luego de recibir la notificacion
+                 */
+
+                notification = this->readNotification();
+
+                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
 
             }
 
@@ -219,7 +239,7 @@ void ConnectionSSL::manageInactiveConnection(int sig) {
      */
 
     int now = time(NULL);
-    
+
     int inactive_lapse = now - this->last_activity;
     int alive_lapse = now - this->created;
 

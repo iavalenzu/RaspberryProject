@@ -11,7 +11,6 @@
 #include <signal.h>
 
 #include "Notification.h"
-#include "NotificationRequestAccess.h"
 
 #include "RaspiUtils.h"
 #include "Device.h"
@@ -28,6 +27,8 @@ public:
     void manageCloseConnection(int sig);
     void manageInactiveConnection(int sig);
     void manageNotificationWaiting(int sig);
+    
+    Device getDevice();
 
     int writeNotification(Notification notification);
     Notification readNotification();

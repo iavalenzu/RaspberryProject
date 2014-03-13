@@ -23,7 +23,11 @@ void Device::setToken(string token) {
     this->user_token = token;
 }
 
-Notification Device::connect() {
+std::string Device::getToken(){
+    return this->user_token;
+}
+
+int Device::connect() {
 
     /*
      * Conectamos con la BD y verificamos el access token
@@ -47,7 +51,7 @@ Notification Device::connect() {
 
                 this->connection_id = connection->getString("id");
 
-                return NotificationAuthorized();
+                return true;
 
             }
 
@@ -59,7 +63,7 @@ Notification Device::connect() {
      */
     this->reset();
 
-    return NotificationNotAuthorized();
+    return false;
 
 
 }

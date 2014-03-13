@@ -12,10 +12,10 @@
 
 
 #include "RaspiUtils.h"
-#include "NotificationRequestAccess.h"
 
 
 #include "core.h"
+#include "Notification.h"
 
 #include <signal.h>
 #include <string>
@@ -97,17 +97,9 @@ void ShowCerts(SSL* ssl) {
 int authenticates(SSL* ssl, string access_token) {
 
     JSONNode json(JSON_NODE);
-    /*
-    JSONNode json_sucess(JSON_NODE);
-    json_sucess.push_back(JSONNode("Action", ACTION_REQUEST_ACCESS));
-    JSONNode data(JSON_NODE);
-    data.set_name("Data");
-    data.push_back(JSONNode("token", access_token));
-    json_sucess.push_back(data);    
-    */
     
-    NotificationRequestAccess request_access;
-    request_access.addToken(access_token);
+    Notification request_access("REQUEST_ACCESS");
+    request_access.addDataItem(JSONNode("Token", access_token));
 
     printf("JSON enviado: %s\n", request_access.toString().c_str());
     

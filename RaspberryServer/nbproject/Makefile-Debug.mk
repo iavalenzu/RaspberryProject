@@ -35,14 +35,14 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Action.o \
+	${OBJECTDIR}/ActionFactory.o \
+	${OBJECTDIR}/ActionRequestAccess.o \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/DatabaseAdapter.o \
 	${OBJECTDIR}/Device.o \
 	${OBJECTDIR}/Logger.o \
 	${OBJECTDIR}/Notification.o \
-	${OBJECTDIR}/NotificationAuthorized.o \
-	${OBJECTDIR}/NotificationNotAuthorized.o \
-	${OBJECTDIR}/NotificationRequestAccess.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/ServerSSL.o \
 	${OBJECTDIR}/main.o
@@ -76,6 +76,21 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryserver: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryserver ${OBJECTFILES} ${LDLIBSOPTIONS} -lssl -lcrypto -lm -lcurl
 
+${OBJECTDIR}/Action.o: Action.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Action.o Action.cpp
+
+${OBJECTDIR}/ActionFactory.o: ActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionFactory.o ActionFactory.cpp
+
+${OBJECTDIR}/ActionRequestAccess.o: ActionRequestAccess.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionRequestAccess.o ActionRequestAccess.cpp
+
 ${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -100,21 +115,6 @@ ${OBJECTDIR}/Notification.o: Notification.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Notification.o Notification.cpp
-
-${OBJECTDIR}/NotificationAuthorized.o: NotificationAuthorized.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationAuthorized.o NotificationAuthorized.cpp
-
-${OBJECTDIR}/NotificationNotAuthorized.o: NotificationNotAuthorized.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationNotAuthorized.o NotificationNotAuthorized.cpp
-
-${OBJECTDIR}/NotificationRequestAccess.o: NotificationRequestAccess.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationRequestAccess.o NotificationRequestAccess.cpp
 
 ${OBJECTDIR}/RaspiUtils.o: RaspiUtils.cpp 
 	${MKDIR} -p ${OBJECTDIR}

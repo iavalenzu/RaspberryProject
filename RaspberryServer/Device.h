@@ -17,8 +17,6 @@
 #include <libjson/libjson.h>
 
 #include "Notification.h"
-#include "NotificationAuthorized.h"
-#include "NotificationNotAuthorized.h"
 #include "DatabaseAdapter.h"
 
 using namespace libjson;
@@ -30,7 +28,8 @@ public:
     Device();
     virtual ~Device();
     void setToken(string token);
-    Notification connect();
+    std::string getToken();
+    int connect();
     int disconnect();
     Notification readNotification();
     int isAuthorized();
