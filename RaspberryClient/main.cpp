@@ -7,15 +7,14 @@
 #include <stdbool.h>
 #include <unistd.h>
 
-//#include "cJSON.h"
-
-
-
+//#include "Action.h"
 #include "RaspiUtils.h"
+#include "ActionFactory.h"
 
 
 #include "core.h"
 #include "Notification.h"
+#include "Action.h"
 
 #include <signal.h>
 #include <string>
@@ -97,13 +96,15 @@ void ShowCerts(SSL* ssl) {
 int authenticates(SSL* ssl, string access_token) {
 
     JSONNode json(JSON_NODE);
-    
+
+
     Notification request_access("REQUEST_ACCESS");
+    printf("JSON enviado: %s\n", request_access.toString().c_str());
     request_access.addDataItem(JSONNode("Token", access_token));
 
     printf("JSON enviado: %s\n", request_access.toString().c_str());
-    
-    
+
+
     /*Se envia al servidor el objeto JSON*/
     RaspiUtils::writeJSON(ssl, request_access.getJSON());
 
@@ -178,7 +179,7 @@ int main(int argc, char* argv[]) {
 
 
     string access_token = "93246038d91f02b45aefd4b883edff31b67a00ce";
-    
+
     /*Se realiza la autentificacion*/
     if (!authenticates(ssl, access_token)) {
         /*Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine*/
@@ -186,16 +187,28 @@ int main(int argc, char* argv[]) {
 
     } else {
 
+        Notification notification;
+        Action *action;
+        Device device;
+        
         /*Comienza el intercambio de mensajes*/
         while (true) {
 
-            json = RaspiUtils::readJSON(ssl);
+            notification = Notification(RaspiUtils::readJSON(ssl));
+            
+            printf("JSON recibido: %s\n", notification.toString().c_str());
 
-            printf("JSON recibido: %s\n", json.write_formatted().c_str());
+            action = ActionFactory::createFromNotification(notification, device);
 
-            RaspiUtils::writeJSON(ssl, json);
+            if (action == NULL) {
+                abort();
+            }
 
-            printf("JSON enviado: %s\n", json.write_formatted().c_str());
+            notification = action->toDo();
+
+            RaspiUtils::writeJSON(ssl, notification.getJSON());
+
+            printf("JSON enviado: %s\n", notification.toString().c_str());
 
         }
 

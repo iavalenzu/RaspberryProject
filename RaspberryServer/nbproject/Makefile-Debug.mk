@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Action.o \
 	${OBJECTDIR}/ActionFactory.o \
+	${OBJECTDIR}/ActionGetFortune.o \
 	${OBJECTDIR}/ActionRequestAccess.o \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/DatabaseAdapter.o \
@@ -85,6 +86,11 @@ ${OBJECTDIR}/ActionFactory.o: ActionFactory.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionFactory.o ActionFactory.cpp
+
+${OBJECTDIR}/ActionGetFortune.o: ActionGetFortune.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionGetFortune.o ActionGetFortune.cpp
 
 ${OBJECTDIR}/ActionRequestAccess.o: ActionRequestAccess.cpp 
 	${MKDIR} -p ${OBJECTDIR}

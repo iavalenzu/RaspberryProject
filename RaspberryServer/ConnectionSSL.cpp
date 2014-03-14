@@ -149,8 +149,11 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
 
                 cout << getpid() << " > Getting a new notification!!" << endl;
 
-                notification = this->device.readNotification();
+                //notification = this->device.readNotification();
 
+                notification = Notification(ACTION_GET_FORTUNE);
+                
+                
                 if (notification.isEmpty()) {
                     cout << getpid() << " > Notification is empty!!" << endl;
                     continue;
@@ -166,23 +169,6 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
                 cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
 
                 /*
-                 * Procesamos la notificacion
-                 */
-
-                action = ActionFactory::createFromNotification(notification, this->device);
-
-                if (action == NULL) {
-                    cout << getpid() << " > Action is not defined!!" << endl;
-                    continue;
-                }
-                
-                /*
-                 * Se realiza la accion definida en la notificacion
-                 */
-
-                action->toDo();
-
-                /*
                  * Se escribe la nueva notificacion en el socket para que el cliente la reciba
                  */
 
@@ -195,6 +181,9 @@ void ConnectionSSL::service() { /* Serve the connection -- threadable */
                 notification = this->readNotification();
 
                 cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
+                
+                
+                
 
             }
 

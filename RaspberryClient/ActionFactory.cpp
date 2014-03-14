@@ -18,15 +18,14 @@ ActionFactory::ActionFactory(const ActionFactory& orig) {
 ActionFactory::~ActionFactory() {
 }
 
-Action* ActionFactory::createFromNotification(Notification notification, Device& device){
+Action* ActionFactory::createFromNotification(Notification notification, Device& device) {
 
-    std:string action_name = notification.getAction();
-    
+std:
+    string action_name = notification.getAction();
+
     Action *action = NULL;
 
-    if(action_name.compare(ACTION_REQUEST_ACCESS) == 0){
-        action = new ActionRequestAccess(notification, device);
-    }else if(action_name.compare(ACTION_GET_FORTUNE) == 0){
+    if (action_name.compare(ACTION_GET_FORTUNE) == 0) {
         action = new ActionGetFortune(notification, device);
     }
 

@@ -9,7 +9,7 @@ Notification::Notification() {
 
     JSONNode _json(JSON_NODE);
     _json.push_back(JSONNode("Action", ""));
-    JSONNode _data(JSON_ARRAY);
+    JSONNode _data(JSON_NODE);
     _data.set_name("Data");
     _json.push_back(_data);
 
@@ -20,7 +20,7 @@ Notification::Notification(std::string _action) {
 
     JSONNode _json(JSON_NODE);
     _json.push_back(JSONNode("Action", _action));
-    JSONNode _data(JSON_ARRAY);
+    JSONNode _data(JSON_NODE);
     _data.set_name("Data");
     _json.push_back(_data);
 

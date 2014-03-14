@@ -35,6 +35,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Action.o \
+	${OBJECTDIR}/ActionFactory.o \
+	${OBJECTDIR}/ActionGetFortune.o \
+	${OBJECTDIR}/Device.o \
 	${OBJECTDIR}/Notification.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/main.o
@@ -63,6 +67,26 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Action.o: Action.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Action.o Action.cpp
+
+${OBJECTDIR}/ActionFactory.o: ActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionFactory.o ActionFactory.cpp
+
+${OBJECTDIR}/ActionGetFortune.o: ActionGetFortune.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionGetFortune.o ActionGetFortune.cpp
+
+${OBJECTDIR}/Device.o: Device.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Device.o Device.cpp
 
 ${OBJECTDIR}/Notification.o: Notification.cpp 
 	${MKDIR} -p ${OBJECTDIR}
