@@ -12,9 +12,9 @@ Action::Action() {
 }
 
 
-Action::Action(Notification _notification, Device& _device) {
+Action::Action(Notification _notification, ConnectionSSL* _connection) {
     this->notification = _notification;
-    this->device = &_device;
+    this->connection = _connection;
 }
 
 Action::Action(const Action& orig) {
@@ -24,4 +24,6 @@ Action::~Action() {
 }
 
 Notification Action::toDo(){
+    return this->notification;
 }
+

@@ -6,12 +6,23 @@
                    projectFiles="true">
       <logicalFolder name="f2" displayName="Actions" projectFiles="true">
         <itemPath>Action.h</itemPath>
+        <itemPath>IncomingAction.h</itemPath>
+        <itemPath>OutcomingAction.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Factory" projectFiles="true">
         <itemPath>ActionFactory.h</itemPath>
+        <itemPath>IncomingActionFactory.h</itemPath>
+        <itemPath>OutcomingActionFactory.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="IncomingActions" projectFiles="true">
+        <itemPath>ActionEcho.h</itemPath>
         <itemPath>ActionGetFortune.h</itemPath>
-        <itemPath>ActionRequestAccess.h</itemPath>
+        <itemPath>ActionPersistentConnection.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>Notification.h</itemPath>
+        <itemPath>NotificationReader.h</itemPath>
+        <itemPath>NotificationWriter.h</itemPath>
       </logicalFolder>
       <itemPath>ConnectionSSL.h</itemPath>
       <itemPath>Core.h</itemPath>
@@ -32,12 +43,23 @@
                    projectFiles="true">
       <logicalFolder name="f2" displayName="Actions" projectFiles="true">
         <itemPath>Action.cpp</itemPath>
+        <itemPath>IncomingAction.cpp</itemPath>
+        <itemPath>OutcomingAction.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Factory" projectFiles="true">
         <itemPath>ActionFactory.cpp</itemPath>
+        <itemPath>IncomingActionFactory.cpp</itemPath>
+        <itemPath>OutcomingActionFactory.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="IncomingActions" projectFiles="true">
+        <itemPath>ActionEcho.cpp</itemPath>
         <itemPath>ActionGetFortune.cpp</itemPath>
-        <itemPath>ActionRequestAccess.cpp</itemPath>
+        <itemPath>ActionPersistentConnection.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>Notification.cpp</itemPath>
+        <itemPath>NotificationReader.cpp</itemPath>
+        <itemPath>NotificationWriter.cpp</itemPath>
       </logicalFolder>
       <itemPath>ConnectionSSL.cpp</itemPath>
       <itemPath>DatabaseAdapter.cpp</itemPath>
@@ -63,7 +85,7 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <compilerSet>default</compilerSet>
+        <compilerSet>GNU|GNU</compilerSet>
         <dependencyChecking>true</dependencyChecking>
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
@@ -72,7 +94,7 @@
           <incDir>
             <pElem>/usr/include</pElem>
           </incDir>
-          <warningLevel>2</warningLevel>
+          <warningLevel>0</warningLevel>
         </ccTool>
         <linkerTool>
           <linkerLibItems>
@@ -86,6 +108,10 @@
       </item>
       <item path="Action.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ActionEcho.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ActionEcho.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ActionFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ActionFactory.h" ex="false" tool="3" flavor2="0">
@@ -94,9 +120,9 @@
       </item>
       <item path="ActionGetFortune.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ActionRequestAccess.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ActionPersistentConnection.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ActionRequestAccess.h" ex="false" tool="3" flavor2="0">
+      <item path="ActionPersistentConnection.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -112,6 +138,14 @@
       </item>
       <item path="Device.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="IncomingAction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingAction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Logger.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Logger.h" ex="false" tool="3" flavor2="0">
@@ -119,6 +153,22 @@
       <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Notification.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NotificationReader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NotificationReader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NotificationWriter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NotificationWriter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OutcomingAction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OutcomingAction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OutcomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OutcomingActionFactory.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -159,6 +209,10 @@
       </item>
       <item path="Action.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ActionEcho.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ActionEcho.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ActionFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ActionFactory.h" ex="false" tool="3" flavor2="0">
@@ -167,9 +221,9 @@
       </item>
       <item path="ActionGetFortune.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ActionRequestAccess.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ActionPersistentConnection.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ActionRequestAccess.h" ex="false" tool="3" flavor2="0">
+      <item path="ActionPersistentConnection.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -185,6 +239,14 @@
       </item>
       <item path="Device.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="IncomingAction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingAction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Logger.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Logger.h" ex="false" tool="3" flavor2="0">
@@ -192,6 +254,22 @@
       <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Notification.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NotificationReader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NotificationReader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="NotificationWriter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="NotificationWriter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OutcomingAction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OutcomingAction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OutcomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OutcomingActionFactory.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
       </item>

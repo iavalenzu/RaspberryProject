@@ -8,12 +8,11 @@
 #ifndef ACTIONGETFORTUNE_H
 #define	ACTIONGETFORTUNE_H
 
-#include "Action.h"
-#include "Notification.h"
+#include "IncomingAction.h"
 
-class ActionGetFortune : public Action {
+class ActionGetFortune : public IncomingAction {
 public:
-    ActionGetFortune(Notification notification, Device& device);
+    ActionGetFortune(Notification notification, ConnectionSSL* connection);
     ActionGetFortune(const ActionGetFortune& orig);
     virtual ~ActionGetFortune();
     Notification toDo();

@@ -24,11 +24,14 @@ public:
     void setServer(ServerSSL server);
     void closeConnection();
     void service();
+    SSL* getSSL();
     void manageCloseConnection(int sig);
     void manageInactiveConnection(int sig);
     void manageNotificationWaiting(int sig);
+    int canReadNotification();
+    void setLastActivity();
     
-    Device getDevice();
+    Device* getDevice();
 
     int writeNotification(Notification notification);
     Notification readNotification();
@@ -45,7 +48,7 @@ private:
 
     int can_read_notification;
     
-    Device device;    
+    Device* device;    
 
 };
 

@@ -36,14 +36,21 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Action.o \
+	${OBJECTDIR}/ActionEcho.o \
 	${OBJECTDIR}/ActionFactory.o \
 	${OBJECTDIR}/ActionGetFortune.o \
-	${OBJECTDIR}/ActionRequestAccess.o \
+	${OBJECTDIR}/ActionPersistentConnection.o \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/DatabaseAdapter.o \
 	${OBJECTDIR}/Device.o \
+	${OBJECTDIR}/IncomingAction.o \
+	${OBJECTDIR}/IncomingActionFactory.o \
 	${OBJECTDIR}/Logger.o \
 	${OBJECTDIR}/Notification.o \
+	${OBJECTDIR}/NotificationReader.o \
+	${OBJECTDIR}/NotificationWriter.o \
+	${OBJECTDIR}/OutcomingAction.o \
+	${OBJECTDIR}/OutcomingActionFactory.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/ServerSSL.o \
 	${OBJECTDIR}/main.o
@@ -80,62 +87,97 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryserver: ${OBJECTFILES}
 ${OBJECTDIR}/Action.o: Action.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Action.o Action.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Action.o Action.cpp
+
+${OBJECTDIR}/ActionEcho.o: ActionEcho.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionEcho.o ActionEcho.cpp
 
 ${OBJECTDIR}/ActionFactory.o: ActionFactory.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionFactory.o ActionFactory.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionFactory.o ActionFactory.cpp
 
 ${OBJECTDIR}/ActionGetFortune.o: ActionGetFortune.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionGetFortune.o ActionGetFortune.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionGetFortune.o ActionGetFortune.cpp
 
-${OBJECTDIR}/ActionRequestAccess.o: ActionRequestAccess.cpp 
+${OBJECTDIR}/ActionPersistentConnection.o: ActionPersistentConnection.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionRequestAccess.o ActionRequestAccess.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionPersistentConnection.o ActionPersistentConnection.cpp
 
 ${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionSSL.o ConnectionSSL.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionSSL.o ConnectionSSL.cpp
 
 ${OBJECTDIR}/DatabaseAdapter.o: DatabaseAdapter.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DatabaseAdapter.o DatabaseAdapter.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/DatabaseAdapter.o DatabaseAdapter.cpp
 
 ${OBJECTDIR}/Device.o: Device.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Device.o Device.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Device.o Device.cpp
+
+${OBJECTDIR}/IncomingAction.o: IncomingAction.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IncomingAction.o IncomingAction.cpp
+
+${OBJECTDIR}/IncomingActionFactory.o: IncomingActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IncomingActionFactory.o IncomingActionFactory.cpp
 
 ${OBJECTDIR}/Logger.o: Logger.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Logger.o Logger.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Logger.o Logger.cpp
 
 ${OBJECTDIR}/Notification.o: Notification.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Notification.o Notification.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Notification.o Notification.cpp
+
+${OBJECTDIR}/NotificationReader.o: NotificationReader.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationReader.o NotificationReader.cpp
+
+${OBJECTDIR}/NotificationWriter.o: NotificationWriter.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationWriter.o NotificationWriter.cpp
+
+${OBJECTDIR}/OutcomingAction.o: OutcomingAction.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OutcomingAction.o OutcomingAction.cpp
+
+${OBJECTDIR}/OutcomingActionFactory.o: OutcomingActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OutcomingActionFactory.o OutcomingActionFactory.cpp
 
 ${OBJECTDIR}/RaspiUtils.o: RaspiUtils.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RaspiUtils.o RaspiUtils.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RaspiUtils.o RaspiUtils.cpp
 
 ${OBJECTDIR}/ServerSSL.o: ServerSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ServerSSL.o ServerSSL.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ServerSSL.o ServerSSL.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -Wall -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -w -I/usr/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

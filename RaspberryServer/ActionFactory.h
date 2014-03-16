@@ -10,8 +10,9 @@
 
 #include "Action.h"
 #include "Device.h"
-#include "ActionRequestAccess.h"
 #include "ActionGetFortune.h"
+#include "ActionEcho.h"
+#include "ActionPersistentConnection.h"
 
 
 using namespace std;
@@ -20,7 +21,7 @@ class ActionFactory {
 public:
     ActionFactory();
     ActionFactory(const ActionFactory& orig);
-    static Action* createFromNotification(Notification notification, Device& device);
+    static Action* createFromNotification(Notification notification, Device* device);
     virtual ~ActionFactory();
 private:
 
