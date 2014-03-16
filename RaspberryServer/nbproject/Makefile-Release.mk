@@ -40,6 +40,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ActionFactory.o \
 	${OBJECTDIR}/ActionGetFortune.o \
 	${OBJECTDIR}/ActionPersistentConnection.o \
+	${OBJECTDIR}/ActionReportDelivery.o \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/DatabaseAdapter.o \
 	${OBJECTDIR}/Device.o \
@@ -104,6 +105,11 @@ ${OBJECTDIR}/ActionPersistentConnection.o: ActionPersistentConnection.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionPersistentConnection.o ActionPersistentConnection.cpp
+
+${OBJECTDIR}/ActionReportDelivery.o: ActionReportDelivery.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionReportDelivery.o ActionReportDelivery.cpp
 
 ${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}

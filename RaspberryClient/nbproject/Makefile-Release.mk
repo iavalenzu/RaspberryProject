@@ -35,7 +35,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Action.o \
+	${OBJECTDIR}/ActionFactory.o \
+	${OBJECTDIR}/ActionGetFortune.o \
+	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/Device.o \
+	${OBJECTDIR}/IncomingAction.o \
+	${OBJECTDIR}/IncomingActionFactory.o \
 	${OBJECTDIR}/Notification.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/main.o
@@ -65,10 +71,40 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Action.o: Action.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Action.o Action.cpp
+
+${OBJECTDIR}/ActionFactory.o: ActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionFactory.o ActionFactory.cpp
+
+${OBJECTDIR}/ActionGetFortune.o: ActionGetFortune.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionGetFortune.o ActionGetFortune.cpp
+
+${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionSSL.o ConnectionSSL.cpp
+
 ${OBJECTDIR}/Device.o: Device.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Device.o Device.cpp
+
+${OBJECTDIR}/IncomingAction.o: IncomingAction.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IncomingAction.o IncomingAction.cpp
+
+${OBJECTDIR}/IncomingActionFactory.o: IncomingActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IncomingActionFactory.o IncomingActionFactory.cpp
 
 ${OBJECTDIR}/Notification.o: Notification.cpp 
 	${MKDIR} -p ${OBJECTDIR}

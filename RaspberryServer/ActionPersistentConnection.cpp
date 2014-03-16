@@ -20,7 +20,14 @@ ActionPersistentConnection::~ActionPersistentConnection() {
 
 Notification ActionPersistentConnection::toDo(){
     
+    Device* device;
+    Notification notification;
+    NotificationWriter writer(this->connection);
     sigset_t block_set;
+    
+    /*
+     * Initializes a signal set set to the complete set of supported signals.
+     */
     
     sigfillset(&block_set);
 
@@ -39,32 +46,25 @@ Notification ActionPersistentConnection::toDo(){
 
     std::string access_token = this->notification.getDataItem("Token");
     
+    device = this->connection->getDevice();
+    
     /*
      * Asociamos al dispositivo el token de autorizacion
      */
 
-    this->connection->getDevice()->setToken(access_token);
+    device->setToken(access_token);
     
     /*
      * Verificamos si es posible conectar 
      */
 
     
-    if(this->connection->getDevice()->connect()){
+    if(device->connect()){
 
-        Notification notification;
-        NotificationWriter nw(this->connection);
-        NotificationReader nr(this->connection);
-
-        /*
-         * 
-         */
-        Notification response("RESPONSE");
-        response.addDataItem(JSONNode("Status", "SUCCESS"));
+        notification = Notification(ACTION_REPORT_DELIVERY);
+        notification.addDataItem(JSONNode("Access", "SUCCESS"));
         
-        notification = response;
-        
-        nw.write(notification);
+        writer.write(notification);
         
         while(true){
             
@@ -80,29 +80,29 @@ Notification ActionPersistentConnection::toDo(){
 
                 cout << getpid() << " > Getting a new notification!!" << endl;
 
-                notification = this->connection->getDevice()->readNotification();
+                notification = device->readNotification();
 
                 if (notification.isEmpty()) {
                     cout << getpid() << " > Notification is empty!!" << endl;
                     continue;
                 }
 
-                notification = nw.write(notification);
+                notification = writer.write(notification);
                 
                 this->connection->setLastActivity();
 
-                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
 
             }        
         
         }
         
-        return response;
+        return notification;
     
     }else{
     
-        Notification response("RESPONSE");
-        response.addDataItem(JSONNode("Status", "FAILED"));
+        Notification response(ACTION_REPORT_DELIVERY);
+        response.addDataItem(JSONNode("Access", "FAILED"));
         
         return response;
     }

@@ -25,6 +25,18 @@
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>Notification.cpp</itemPath>
       </logicalFolder>
+      <itemPath>Action.cpp</itemPath>
+      <itemPath>Action.h</itemPath>
+      <itemPath>ActionFactory.cpp</itemPath>
+      <itemPath>ActionFactory.h</itemPath>
+      <itemPath>ActionGetFortune.cpp</itemPath>
+      <itemPath>ActionGetFortune.h</itemPath>
+      <itemPath>ConnectionSSL.cpp</itemPath>
+      <itemPath>ConnectionSSL.h</itemPath>
+      <itemPath>IncomingAction.cpp</itemPath>
+      <itemPath>IncomingAction.h</itemPath>
+      <itemPath>IncomingActionFactory.cpp</itemPath>
+      <itemPath>IncomingActionFactory.h</itemPath>
       <itemPath>RaspiUtils.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -53,6 +65,7 @@
           <incDir>
             <pElem>/usr/include</pElem>
           </incDir>
+          <warningLevel>0</warningLevel>
         </ccTool>
         <linkerTool>
           <linkerLibItems>
@@ -61,9 +74,33 @@
           <commandLine>-lssl -lcrypto -lm -lcurl</commandLine>
         </linkerTool>
       </compileType>
+      <item path="Action.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Action.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ActionFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ActionGetFortune.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ActionGetFortune.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ConnectionSSL.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Device.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IncomingAction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingAction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -96,9 +133,33 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Action.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Action.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ActionFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ActionGetFortune.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ActionGetFortune.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ConnectionSSL.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Device.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IncomingAction.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingAction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
       </item>

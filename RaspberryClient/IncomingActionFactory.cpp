@@ -26,10 +26,6 @@ Action* IncomingActionFactory::createFromNotification(Notification notification,
 
     if(action_name.compare(ACTION_GET_FORTUNE) == 0){
         action = new ActionGetFortune(notification, connection);
-    }else if(action_name.compare(ACTION_ECHO) == 0){
-        action = new ActionEcho(notification, connection);
-    }else if(action_name.compare(ACTION_PERSISTENT_CONNECTION) == 0){
-        action = new ActionPersistentConnection(notification, connection);
     }
     
     return action;

@@ -26,8 +26,6 @@ void NotificationReader::read(){
     
     notification = action->toDo();
 
-    cout << "Notification: " << notification.toString() << endl;
-    
     RaspiUtils::writeJSON(this->connection->getSSL(), notification.getJSON());
     
 }

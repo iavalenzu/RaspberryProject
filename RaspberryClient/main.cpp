@@ -12,7 +12,8 @@
 
 #include "core.h"
 #include "Notification.h"
-//#include "Action.h"
+#include "Action.h"
+#include "IncomingActionFactory.h"
 
 #include <signal.h>
 #include <string>
@@ -103,35 +104,41 @@ int authenticates(SSL* ssl, string access_token) {
 
     printf("JSON enviado: %s\n", notification.toString().c_str());
 
-
-    /*Se envia al servidor el objeto JSON*/
     RaspiUtils::writeJSON(ssl, notification.getJSON());
 
     notification = Notification(RaspiUtils::readJSON(ssl));
-
+    
     printf("JSON recibido: %s\n", notification.toString().c_str());
     
-    /*
-     * 
-     */
+    if(notification.getAction().compare("REPORT_DELIVERY") == 0){
     
+        std::string access = notification.getDataItem("Access");
     
+        if(access.compare("SUCCESS") == 0){
+            
+            notification.setAction("REPORT_DELIVERY");
+            notification.clearData();
+            
+            RaspiUtils::writeJSON(ssl, notification.getJSON());
+            
+            printf("JSON enviado: %s\n", notification.toString().c_str());
 
-    RaspiUtils::writeJSON(ssl, notification.getJSON());
-    
-    
-    
-/*    
-    JSONNode::const_iterator i = json.find("Action");
+            return true;
+            
+        }else{
+            
+            notification.setAction("REPORT_DELIVERY");
+            notification.clearData();
+            
+            RaspiUtils::writeJSON(ssl, notification.getJSON());
+            
+            printf("JSON enviado: %s\n", notification.toString().c_str());
 
-    if (i != json.end()) {
-
-        return i->as_string().compare("AUTHORIZED") == 0;
-
-    } else {
-        return false;
+            return false;
+        }
+    
     }
-*/
+  
 }
 
 void todo(char* action) {
@@ -195,31 +202,25 @@ int main(int argc, char* argv[]) {
         /*Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine*/
         printf("Nombre de usuario o contraseña incorrecta.\n");
 
-    }
-    /*
-    
-    else {
+    }else {
 
         Notification notification;
-        Action *action;
-        Device device;
+        Action* action;
         
         /*Comienza el intercambio de mensajes*/
-    /*
+        
+        cout << "Comienza el intercambio de mensajes!!!" << endl;
+    
         while (true) {
 
             notification = Notification(RaspiUtils::readJSON(ssl));
             
             printf("JSON recibido: %s\n", notification.toString().c_str());
 
-            action = ActionFactory::createFromNotification(notification, device);
-
-            if (action == NULL) {
-                abort();
-            }
-
+            action = IncomingActionFactory::createFromNotification(notification, NULL);
+            
             notification = action->toDo();
-
+            
             RaspiUtils::writeJSON(ssl, notification.getJSON());
 
             printf("JSON enviado: %s\n", notification.toString().c_str());
@@ -227,7 +228,7 @@ int main(int argc, char* argv[]) {
         }
 
     }
-*/
+
     SSL_free(ssl); // release connection state 
 
     close(server); // close socket 

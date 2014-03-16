@@ -11,6 +11,9 @@
 #include "ActionFactory.h"
 #include "OutcomingAction.h"
 
+#include "ActionReportDelivery.h"
+
+
 class OutcomingActionFactory : public ActionFactory{
 public:
     OutcomingActionFactory();

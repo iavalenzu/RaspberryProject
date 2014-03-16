@@ -10,9 +10,7 @@
 
 #include "Action.h"
 #include "Device.h"
-#include "ActionGetFortune.h"
-#include "ActionEcho.h"
-#include "ActionPersistentConnection.h"
+
 
 
 using namespace std;

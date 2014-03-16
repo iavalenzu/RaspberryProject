@@ -12,8 +12,6 @@
 #include "IncomingAction.h"
 
 #include "ActionGetFortune.h"
-#include "ActionEcho.h"
-#include "ActionPersistentConnection.h"
 
 
 class IncomingActionFactory : public ActionFactory {

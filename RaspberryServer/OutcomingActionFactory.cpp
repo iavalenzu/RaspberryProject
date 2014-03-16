@@ -20,13 +20,16 @@ Action* OutcomingActionFactory::createFromNotification(Notification notification
 
     std:string action_name = notification.getAction();
     
-    cout << "Action: " << action_name << endl;
+    cout << getpid() << " > Creating outcoming action: " << action_name << endl;
     
     OutcomingAction *action = new OutcomingAction(notification, connection);    
 
     /*
      * De acuerdo al tipo de notification, elejimos la accion
      */
+    if(action_name.compare(ACTION_REPORT_DELIVERY) == 0){
+        action = new ActionReportDelivery(notification, connection);
+    }
     
     
     return action;

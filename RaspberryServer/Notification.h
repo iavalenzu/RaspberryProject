@@ -32,7 +32,7 @@ public:
     /*Setters*/
     
     void setAction(std::string _action);
-    void setData(JSONNode _new_data);
+    void clearData();
     void addDataItem(JSONNode _new_item);
     
     /*Getters*/

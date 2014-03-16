@@ -46,7 +46,7 @@ JSONNode Notification::getJSON() {
 }
 
 int Notification::isEmpty() {
-    return this->json.type() == JSON_NULL;
+    return getAction().empty();
 }
 
 void Notification::addDataItem(JSONNode new_item) {
@@ -54,8 +54,8 @@ void Notification::addDataItem(JSONNode new_item) {
     JSONNode::json_iterator i = this->json.find("Data");
 
     if (i == this->json.end()) return;
-
-    i->insert(i, new_item);
+    
+    i->push_back(new_item);
 
 }
 
@@ -99,12 +99,19 @@ void Notification::setAction(std::string _action) {
 
     JSONNode::json_iterator i = this->json.find("Action");
     
+    JSONNode action_node("Action", _action);
+    
+    i->swap(action_node);
+    
 }
 
-void Notification::setData(JSONNode _new_data) {
+void Notification::clearData() {
 
     JSONNode::json_iterator i = this->json.find("Data");
-
-    i->swap(_new_data);
+    
+    JSONNode data;
+    data.set_name("Data");
+    
+    i->swap(data);
 
 }

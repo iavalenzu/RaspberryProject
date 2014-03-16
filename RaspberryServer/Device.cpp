@@ -81,14 +81,14 @@ Notification Device::readNotification() {
     if (notification != NULL) {
 
         std::string str_noti = notification->getString("data");
+        
+        JSONNode json_noti = libjson::parse(str_noti);
 
-        return Notification(str_noti);
+        return Notification(json_noti);
 
     } else {
 
-        JSONNode n(JSON_NULL);
-
-        return Notification(n);
+        return Notification();
 
     }
 

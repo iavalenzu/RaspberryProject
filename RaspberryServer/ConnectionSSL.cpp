@@ -11,6 +11,14 @@
 #include "NotificationReader.h"
 
 ConnectionSSL::ConnectionSSL() {
+    
+    this->last_activity = time(NULL);
+    this->created = time(NULL);
+
+    this->can_read_notification = false;
+    
+    this->device = new Device();
+    
 }
 
 void ConnectionSSL::setServer(ServerSSL server) {
@@ -18,14 +26,14 @@ void ConnectionSSL::setServer(ServerSSL server) {
     this->fd = server.getLastConnectionAccepted();
     this->ctx = server.getSSLCTX();
     this->ssl = SSL_new(this->ctx);
-
+/*
     this->last_activity = time(NULL);
     this->created = time(NULL);
 
     this->can_read_notification = false;
     
     this->device = new Device();
-
+*/
 
     /* Sets the file descriptor fd as the input/output facility for 
      * the TLS/SSL (encrypted) side of ssl. fd will typically be 
@@ -81,172 +89,20 @@ SSL* ConnectionSSL::getSSL(){
     return this->ssl;
 }
 
-void ConnectionSSL::service() { /* Serve the connection -- threadable */
-
-    sigset_t block_set;
+void ConnectionSSL::service() { 
 
     if (SSL_accept(this->ssl) <= 0) { /* do SSL-protocol accept */
         ERR_print_errors_fp(stderr);
         abort();
     }
 
-
-    /*
-     * Initializes a signal set set to the complete set of supported signals.
-     */
-
-    sigfillset(&block_set);
-
-    /* 
-     * Removes the specified signal from the list of signals recorded in set.
-     * Las siguientes instrucciones especifican las señales que despiertan el sigsuspend
-     */
-
-    sigdelset(&block_set, SIGCONT);
-    sigdelset(&block_set, SIGTERM);
-    sigdelset(&block_set, SIGALRM);
-
-
     /* start the timer*/
     alarm(CHECK_INACTIVE_INTERVAL);
 
-    NotificationReader nr(this);
+    NotificationReader reader(this);
     
-    //NotificationReader nr(this->ssl, this->device);
+    reader.read();
     
-    nr.read();
-    
-    cout << "Token: " << this->device->getToken() << endl;
-    
-    
-/*    
-    Notification notification;
-
-
-
-
-
-
-
-
-    Action *action;
-
-    /*
-     * Se obtiene la notificacion
-     */
-/*
-    notification = this->readNotification();
-
-    cout << getpid() << " > JSON Autorizacion recibido: " << notification.toString() << endl;
-
-    /*
-     * Se crea una accion a partir de la notificacion
-     */
-/*
-    action = ActionFactory::createFromNotification(notification, this->device);
-
-    if (action == NULL) {
-        abort();
-    }
-
-    /*
-     * Se ejecuta la accion
-     */
-
-    //notification = action->afterReceiveNotification(notification);
-
-/*
-    if (this->device.isAuthorized()) {
-
-        
-        //notification = action->beforeSendNotification(notification);
-        
-        /*
-         * Notificamos al cliente que la autentificacion ha sido exitosa
-         */
-/*
-        this->writeNotification(notification);
-        
-        
-        /*
-         * La autenticacion es exitosa, luego se inicia la conexion
-         */
-/*
-        while (true) {
-
-            cout << getpid() << " > Esperando señal para continuar..." << endl;
-
-            //The signal mask indicates a set of signals that should be blocked.
-            //Such signals do not “wake up” the suspended function. The SIGSTOP
-            //and SIGKILL signals cannot be blocked or ignored; they are delivered
-            //to the thread no matter what mask specifies.
-            sigsuspend(&block_set);
-
-            if (this->can_read_notification) {
-
-                cout << getpid() << " > Getting a new notification!!" << endl;
-
-                //notification = this->device.readNotification();
-
-                notification = Notification(ACTION_GET_FORTUNE);
-                
-                
-                if (notification.isEmpty()) {
-                    cout << getpid() << " > Notification is empty!!" << endl;
-                    continue;
-                }
-
-                action = ActionFactory::createFromNotification(notification, this->device);
-                
-                if(action == NULL){
-                    cout << getpid() << " > Action is not defined!!" << endl;
-                    continue;
-                }
-                
-                //notification = action->beforeRequest();
-                
-                /*
-                 * Si la notifcacion no es vacia la enviamos
-                 */
-
-                /*Si logro leer una nueva notificacion, fijo el tiempo de la llegada de la notificacion*/
-/*    
-                this->last_activity = time(NULL);
-
-                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-                /*
-                 * Se escribe la nueva notificacion en el socket para que el cliente la reciba
-                 */
-/*
-                this->writeNotification(notification);
-
-                /*
-                 * Leemos la respuesta enviada por el cliente luego de recibir la notificacion
-                 */
-/*
-                notification = this->readNotification();
-
-                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
-                
-                //action->afterResponse(notification);
-                
-            }
-
-        }
-
-    } else {
-
-        /*
-         * En caso que la autentificacion falle, enviamos una notificacion 
-         */
-/*
-        this->writeNotification(notification);
-
-        cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-    }
-*/
 }
 
 void ConnectionSSL::manageCloseConnection(int sig) {
