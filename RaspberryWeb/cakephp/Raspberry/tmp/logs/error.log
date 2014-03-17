@@ -678,3 +678,207 @@ Request URL: /Test/
 Stack Trace:
 #0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-03-17 02:26:57 Error: [MissingViewException] View file "/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/send_notification.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/send_notification.ctp',
+)
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-03-17 02:27:07 Error: [MissingViewException] View file "/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/send_notification.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/send_notification.ctp',
+)
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-03-17 12:28:21 Error: Fatal Error (1): Call to a member function find() on a non-object in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 107]
+2014-03-17 12:28:21 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/Ismael/N...', 107)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/Ismael/N...', 107, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/Ismael/N...', 107, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 12:29:03 Error: Fatal Error (1): Call to a member function find() on a non-object in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 109]
+2014-03-17 12:29:03 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/Ismael/N...', 109)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/Ismael/N...', 109, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/Ismael/N...', 109, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 12:54:47 Error: Fatal Error (1): Call to a member function save() on a non-object in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 122]
+2014-03-17 12:54:47 Error: [FatalErrorException] Call to a member function save() on a non-object
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/Ismael/N...', 122)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/Ismael/N...', 122, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/Ismael/N...', 122, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:06:53 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 122]
+2014-03-17 13:06:53 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:07:06 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 122]
+2014-03-17 13:07:06 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:08:49 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 122]
+2014-03-17 13:08:49 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:09:53 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 122]
+2014-03-17 13:09:53 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:10:07 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 122]
+2014-03-17 13:10:07 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:10:11 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 122]
+2014-03-17 13:10:11 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:10:54 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 122]
+2014-03-17 13:10:54 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 122, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:17:59 Error: [MissingModelException] user
+Request URL: /users
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php(28): PaginatorComponent->paginate('user')
+#1 [internal function]: UsersController->index()
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-03-17 13:19:41 Error: Fatal Error (64): Call-time pass-by-reference has been removed in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php, line 121]
+2014-03-17 13:19:41 Error: [FatalErrorException] Call-time pass-by-reference has been removed
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(64, 'Call-time pass-...', '/Users/Ismael/N...', 121)
+#1 [internal function]: ErrorHandler::handleError(64, 'Call-time pass-...', '/Users/Ismael/N...', 121, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 64, 'Call-time pass-...', '/Users/Ismael/N...', 121, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-03-17 13:36:24 Error: [MissingViewException] View file "/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp',
+)
+Request URL: /users/testExec
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-03-17 13:38:31 Error: [MissingViewException] View file "/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp',
+)
+Request URL: /users/testExec/1063
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-03-17 13:38:58 Error: [MissingViewException] View file "/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp',
+)
+Request URL: /users/testExec/1063
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-03-17 13:39:29 Error: [MissingViewException] View file "/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp',
+)
+Request URL: /users/testExec/1063
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-03-17 13:52:39 Error: [MissingViewException] View file "/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/View/Users/test_exec.ctp',
+)
+Request URL: /users/testExec/1213
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/View/View.php(459): View->_getViewFileName(NULL)
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(952): View->render(NULL, NULL)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

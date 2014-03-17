@@ -27,6 +27,7 @@
 		<li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Connections'), array('controller' => 'connections', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Connection'), array('controller' => 'connections', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Send Notification'), array('controller' => 'users', 'action' => 'sendNotification', $user['User']['id'])); ?> </li>
 	</ul>
 </div>
 <div class="related">

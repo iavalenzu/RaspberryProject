@@ -26,14 +26,6 @@ void ConnectionSSL::setServer(ServerSSL server) {
     this->fd = server.getLastConnectionAccepted();
     this->ctx = server.getSSLCTX();
     this->ssl = SSL_new(this->ctx);
-/*
-    this->last_activity = time(NULL);
-    this->created = time(NULL);
-
-    this->can_read_notification = false;
-    
-    this->device = new Device();
-*/
 
     /* Sets the file descriptor fd as the input/output facility for 
      * the TLS/SSL (encrypted) side of ssl. fd will typically be 

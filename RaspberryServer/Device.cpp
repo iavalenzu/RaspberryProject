@@ -23,7 +23,7 @@ void Device::setToken(string token) {
     this->user_token = token;
 }
 
-std::string Device::getToken(){
+std::string Device::getToken() {
     return this->user_token;
 }
 
@@ -69,6 +69,15 @@ int Device::connect() {
 }
 
 int Device::disconnect() {
+
+    DatabaseAdapter dba;
+
+    sql::ResultSet* notification = dba.closeConnectionById(this->connection_id);
+
+
+
+
+
     return true;
 }
 
@@ -81,7 +90,7 @@ Notification Device::readNotification() {
     if (notification != NULL) {
 
         std::string str_noti = notification->getString("data");
-        
+
         JSONNode json_noti = libjson::parse(str_noti);
 
         return Notification(json_noti);

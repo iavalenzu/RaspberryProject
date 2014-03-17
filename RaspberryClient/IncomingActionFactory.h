@@ -12,6 +12,7 @@
 #include "IncomingAction.h"
 
 #include "ActionGetFortune.h"
+#include "ActionStopClient.h"
 
 
 class IncomingActionFactory : public ActionFactory {

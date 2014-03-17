@@ -39,6 +39,7 @@ public:
     sql::ResultSet* getLastNotificationByConnectionId(string connection_id);
     static void showColumns(sql::ResultSet* set);
     sql::ResultSet* createNewConnection(string user_id, int process_pid);
+    sql::ResultSet* closeConnectionById(string connection_id);
 
 private:
 

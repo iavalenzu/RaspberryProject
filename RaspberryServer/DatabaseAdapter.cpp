@@ -75,9 +75,10 @@ sql::ResultSet* DatabaseAdapter::createNewConnection(string user_id, int process
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("INSERT INTO connections(user_id, pid) VALUES(?,?)");
+        pstmt = this->con->prepareStatement("INSERT INTO connections(user_id, pid, status) VALUES(?,?,?)");
         pstmt->setString(1, user_id);
         pstmt->setInt(2, process_pid);
+        pstmt->setString(3, "ACTIVE");
 
         int update_count = pstmt->executeUpdate();
 
@@ -111,6 +112,50 @@ sql::ResultSet* DatabaseAdapter::createNewConnection(string user_id, int process
 
 }
 
+sql::ResultSet* DatabaseAdapter::closeConnectionById(string connection_id) {
+
+
+    try {
+
+        sql::PreparedStatement *pstmt;
+        sql::ResultSet *res;
+
+        pstmt = this->con->prepareStatement("UPDATE connections SET status = ? WHERE id = ?");
+        pstmt->setString(1, "INACTIVE");
+        pstmt->setString(2, connection_id);
+
+        int update_count = pstmt->executeUpdate();
+
+        /*
+         * Si no es posible insertar el nuevo registro retornamos NULL
+         */
+        if (update_count <= 0) {
+            return NULL;
+        }
+
+        pstmt = this->con->prepareStatement("SELECT * FROM connections WHERE id = ? LIMIT 1");
+        pstmt->setString(1, connection_id);
+
+        res = pstmt->executeQuery();
+
+        this->con->commit();
+
+        delete pstmt;
+
+        return (res->next()) ? res : NULL;
+
+    } catch (sql::SQLException &e) {
+
+        cout << "SQLException: " << e.what() << endl;
+        cout << "SQLException: code > " << e.getErrorCode() << endl;
+        cout << "SQLException: state > " << e.getSQLState() << endl;
+
+        return NULL;
+
+    }
+
+}
+
 sql::ResultSet* DatabaseAdapter::getLastNotificationByConnectionId(string connection_id) {
 
     try {
@@ -120,7 +165,7 @@ sql::ResultSet* DatabaseAdapter::getLastNotificationByConnectionId(string connec
 
         pstmt = this->con->prepareStatement("SELECT N.data FROM connection_notifications AS CN JOIN notifications AS N ON (CN.notification_id = N.id ) WHERE CN.connection_id = ? AND CN.status = 'PENDING' ORDER BY CN.id DESC LIMIT 1");
         pstmt->setString(1, connection_id);
-        
+
         res = pstmt->executeQuery();
 
         delete pstmt;
