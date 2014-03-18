@@ -44,9 +44,9 @@ void manageCloseServer(int sig) {
 }
 
 /*
- * TODO Implementar una clase de Logging
+ * sudo -u _www  ./dist/Debug/GNU-MacOSX/raspberryserver 2>&1
+ * 
  */
-
 
 int main(int argc, char** argv) {
 
@@ -66,16 +66,7 @@ int main(int argc, char** argv) {
         }
 
     }
-/*
-    DatabaseAdapter dba;
-    
-    sql::ResultSet* user = dba.getUserByAccessToken("93246038d91f02b45aefd4b883edff31b67a00ce");
-    
-    cout << user->getString("token") << endl;
-    
-    
-    abort();
-*/
+
     struct sigaction sigact_close_server;
 
     /*  

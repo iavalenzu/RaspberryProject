@@ -67,7 +67,7 @@ JSONNode RaspiUtils::readJSON(SSL *ssl) {
         buf[bytes] = 0;
 
         msg.append(buf);
-        
+
         //TODO PRobar lo siguiente
 
         try {
@@ -87,10 +87,16 @@ JSONNode RaspiUtils::readJSON(SSL *ssl) {
 
 void RaspiUtils::writePid(const char *file_name) {
 
-    FILE* fd;
+    ofstream writer;
+    
+    writer.open(file_name, ios::out | ios::trunc);
+    
+    if (writer.is_open()) {
+        writer <<  getpid() << endl;
+        writer.close();
+    }else{ 
+        cout << getpid() << " > Unable to open file!!" << endl;
+    }
 
-    fd = fopen(file_name, "w");
-    fprintf(fd, "%d", getpid());
-    fclose(fd);
 
 }

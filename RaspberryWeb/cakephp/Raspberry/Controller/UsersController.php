@@ -105,23 +105,6 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
-    public function testExec($pid) {
-
-        $cmd = "kill -SIGCONT " . $pid;
-        
-        debug($cmd);
-        
-        //$return = exec("ls .", $output, $return2);
-        //$return = exec($cmd, $output, $return2);
-        $return = system($cmd, $output);
-
-
-
-        debug($return);
-        debug($output);
-        debug($return2);
-    }
-
     public function sendSignals($active_connections = null) {
 
         if (empty($active_connections))
@@ -134,9 +117,7 @@ class UsersController extends AppController {
             if (!empty($pid)) {
                 //Se hace la llamada enviando SIGCONT a cada proceso
 
-                debug("Llamando: kill -SIGCONT " . $pid);
-
-                $return = exec("/bin/kill -SIGCONT " . $pid, $output, $return2);
+                $return = exec("kill -s CONT $pid 2>&1", $output, $return2);
 
                 debug($return);
                 debug($output);
