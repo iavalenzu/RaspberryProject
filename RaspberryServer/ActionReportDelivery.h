@@ -10,6 +10,8 @@
 
 #include "OutcomingAction.h"
 
+#define ACTION_REPORT_DELIVERY "REPORT_DELIVERY"
+
 class ActionReportDelivery : public OutcomingAction {
 public:
     ActionReportDelivery();

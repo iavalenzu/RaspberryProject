@@ -5,12 +5,80 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="Actions" projectFiles="true">
-        <itemPath>Device.h</itemPath>
+        <itemPath>Action.h</itemPath>
+        <itemPath>IncomingAction.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="Factory" projectFiles="true">
+        <itemPath>ActionFactory.h</itemPath>
+        <itemPath>IncomingActionFactory.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="IncomingsActions" projectFiles="true">
+        <itemPath>ActionGetFortune.h</itemPath>
+        <itemPath>ActionStopClient.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>Notification.h</itemPath>
       </logicalFolder>
+      <itemPath>Device.h</itemPath>
       <itemPath>RaspiUtils.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="libjson" displayName="libjson" projectFiles="true">
+      <logicalFolder name="_internal" displayName="_internal" projectFiles="true">
+        <logicalFolder name="Dependencies"
+                       displayName="Dependencies"
+                       projectFiles="true">
+          <logicalFolder name="libbase64++" displayName="libbase64++" projectFiles="true">
+            <itemPath>libjson/_internal/Dependencies/libbase64++/libbase64++.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="mempool++" displayName="mempool++" projectFiles="true">
+            <itemPath>libjson/_internal/Dependencies/mempool++/mempool.h</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <logicalFolder name="Source" displayName="Source" projectFiles="true">
+          <logicalFolder name="JSONDefs" displayName="JSONDefs" projectFiles="true">
+            <itemPath>libjson/_internal/Source/JSONDefs/GNU_C.h</itemPath>
+            <itemPath>libjson/_internal/Source/JSONDefs/Strings_Defs.h</itemPath>
+            <itemPath>libjson/_internal/Source/JSONDefs/Unknown_C.h</itemPath>
+            <itemPath>libjson/_internal/Source/JSONDefs/Visual_C.h</itemPath>
+          </logicalFolder>
+          <itemPath>libjson/_internal/Source/JSONAllocator.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONAllocator.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONChildren.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONChildren.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONDebug.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONDebug.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONDefs.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONGlobals.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONIterators.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONMemory.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONMemory.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONMemoryPool.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONNode.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONNode.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONNode_Mutex.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONPreparse.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONPreparse.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONSharedString.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONSingleton.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONStats.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONStream.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONStream.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONValidator.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONValidator.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONWorker.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSONWorker.h</itemPath>
+          <itemPath>libjson/_internal/Source/JSONWriter.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/JSON_Base64.h</itemPath>
+          <itemPath>libjson/_internal/Source/NumberToString.h</itemPath>
+          <itemPath>libjson/_internal/Source/internalJSONNode.cpp</itemPath>
+          <itemPath>libjson/_internal/Source/internalJSONNode.h</itemPath>
+          <itemPath>libjson/_internal/Source/libjson.cpp</itemPath>
+        </logicalFolder>
+      </logicalFolder>
+      <itemPath>libjson/Documentation.pdf</itemPath>
+      <itemPath>libjson/JSONOptions.h</itemPath>
+      <itemPath>libjson/License.txt</itemPath>
+      <itemPath>libjson/libjson.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -20,25 +88,19 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="Actions" projectFiles="true">
-        <itemPath>Device.cpp</itemPath>
+        <itemPath>Action.cpp</itemPath>
+        <itemPath>ActionFactory.cpp</itemPath>
+        <itemPath>ActionGetFortune.cpp</itemPath>
+        <itemPath>ActionStopClient.cpp</itemPath>
+        <itemPath>IncomingAction.cpp</itemPath>
+        <itemPath>IncomingActionFactory.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>Notification.cpp</itemPath>
       </logicalFolder>
-      <itemPath>Action.cpp</itemPath>
-      <itemPath>Action.h</itemPath>
-      <itemPath>ActionFactory.cpp</itemPath>
-      <itemPath>ActionFactory.h</itemPath>
-      <itemPath>ActionGetFortune.cpp</itemPath>
-      <itemPath>ActionGetFortune.h</itemPath>
-      <itemPath>ActionStopClient.cpp</itemPath>
-      <itemPath>ActionStopClient.h</itemPath>
       <itemPath>ConnectionSSL.cpp</itemPath>
       <itemPath>ConnectionSSL.h</itemPath>
-      <itemPath>IncomingAction.cpp</itemPath>
-      <itemPath>IncomingAction.h</itemPath>
-      <itemPath>IncomingActionFactory.cpp</itemPath>
-      <itemPath>IncomingActionFactory.h</itemPath>
+      <itemPath>Device.cpp</itemPath>
       <itemPath>RaspiUtils.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -54,6 +116,9 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>libjson</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -64,18 +129,32 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <incDir>
-            <pElem>/usr/include</pElem>
-          </incDir>
           <warningLevel>0</warningLevel>
         </ccTool>
         <linkerTool>
-          <linkerLibItems>
-            <linkerLibFileItem>/usr/lib/libjson.a</linkerLibFileItem>
-          </linkerLibItems>
           <commandLine>-lssl -lcrypto -lm -lcurl</commandLine>
         </linkerTool>
       </compileType>
+      <packaging>
+        <packType>RPM</packType>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+        <packInfoList>
+          <packInfoListElem name="Summary" value="Sumary..." mandatory="true"/>
+          <packInfoListElem name="Name" value="raspberryclient" mandatory="true"/>
+          <packInfoListElem name="Version" value="1.0" mandatory="true"/>
+          <packInfoListElem name="Release" value="1" mandatory="true"/>
+          <packInfoListElem name="Group" value="Applications/System" mandatory="true"/>
+          <packInfoListElem name="License" value="BSD-type" mandatory="true"/>
+          <packInfoListElem name="%description" value="Description..." mandatory="true"/>
+        </packInfoList>
+      </packaging>
       <item path="Action.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Action.h" ex="false" tool="3" flavor2="0">
@@ -115,6 +194,204 @@
       <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="libjson/Documentation.pdf" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="libjson/JSONOptions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="libjson/License.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="libjson/_internal/Dependencies/libbase64++/libbase64++.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Dependencies/mempool++/mempool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONAllocator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONAllocator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONChildren.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONChildren.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDebug.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDebug.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs/GNU_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs/Strings_Defs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs/Unknown_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs/Visual_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONGlobals.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONIterators.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONMemory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONMemory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONMemoryPool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONNode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONNode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONNode_Mutex.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONPreparse.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONPreparse.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONSharedString.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONSingleton.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONStats.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONStream.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONValidator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONValidator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONWorker.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONWorker.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONWriter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSON_Base64.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/NumberToString.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/internalJSONNode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/internalJSONNode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/libjson.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/libjson.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -139,6 +416,24 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <packaging>
+        <packType>Debian</packType>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+        <packInfoList>
+          <packInfoListElem name="Package" value="raspberryclient" mandatory="true"/>
+          <packInfoListElem name="Version" value="1.0" mandatory="true"/>
+          <packInfoListElem name="Architecture" value="amd64" mandatory="false"/>
+          <packInfoListElem name="Maintainer" value="Ismael" mandatory="false"/>
+          <packInfoListElem name="Description" value="..." mandatory="false"/>
+        </packInfoList>
+      </packaging>
       <item path="Action.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Action.h" ex="false" tool="3" flavor2="0">
@@ -178,6 +473,204 @@
       <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="libjson/Documentation.pdf" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="libjson/JSONOptions.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="libjson/License.txt" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="libjson/_internal/Dependencies/libbase64++/libbase64++.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Dependencies/mempool++/mempool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONAllocator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONAllocator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONChildren.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONChildren.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDebug.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDebug.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs/GNU_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs/Strings_Defs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs/Unknown_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONDefs/Visual_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONGlobals.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONIterators.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONMemory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONMemory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONMemoryPool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONNode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONNode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONNode_Mutex.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONPreparse.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONPreparse.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONSharedString.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONSingleton.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONStats.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONStream.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONStream.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONValidator.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONValidator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONWorker.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONWorker.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSONWriter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/JSON_Base64.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/NumberToString.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/internalJSONNode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/internalJSONNode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="libjson/_internal/Source/libjson.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="libjson/libjson.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

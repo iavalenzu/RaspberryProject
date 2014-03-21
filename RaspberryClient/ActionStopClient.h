@@ -10,6 +10,8 @@
 
 #include "IncomingAction.h"
 
+#define ACTION_STOP_CLIENT "STOP_CLIENT" 
+
 class ActionStopClient : public IncomingAction {
 public:
     ActionStopClient(Notification notification, ConnectionSSL* connection);

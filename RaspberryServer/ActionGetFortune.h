@@ -10,6 +10,9 @@
 
 #include "IncomingAction.h"
 
+#define ACTION_GET_FORTUNE "GET_FORTUNE" 
+
+
 class ActionGetFortune : public IncomingAction {
 public:
     ActionGetFortune(Notification notification, ConnectionSSL* connection);

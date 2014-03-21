@@ -11,6 +11,7 @@
 #include <signal.h>
 #include "IncomingAction.h"
 
+#define ACTION_PERSISTENT_CONNECTION "PERSISTENT_CONNECTION" 
 
 class ActionPersistentConnection : public IncomingAction {
 public:

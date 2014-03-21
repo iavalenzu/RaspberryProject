@@ -14,7 +14,8 @@
 #include <string>
 #include <time.h>
 
-#include <libjson/libjson.h>
+//#include <libjson/libjson.h>
+#include "libjson/libjson.h"
 
 #include "Notification.h"
 #include "DatabaseAdapter.h"

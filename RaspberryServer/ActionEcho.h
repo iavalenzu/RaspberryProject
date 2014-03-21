@@ -10,6 +10,8 @@
 
 #include "IncomingAction.h"
 
+#define ACTION_ECHO "ECHO" 
+
 class ActionEcho : public IncomingAction {
 public:
     ActionEcho();

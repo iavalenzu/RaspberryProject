@@ -54,6 +54,20 @@ OBJECTFILES= \
 	${OBJECTDIR}/OutcomingActionFactory.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/ServerSSL.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONAllocator.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONChildren.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONDebug.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONIterators.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONMemory.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONNode.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONNode_Mutex.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONPreparse.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONStream.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONValidator.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONWorker.o \
+	${OBJECTDIR}/libjson/_internal/Source/JSONWriter.o \
+	${OBJECTDIR}/libjson/_internal/Source/internalJSONNode.o \
+	${OBJECTDIR}/libjson/_internal/Source/libjson.o \
 	${OBJECTDIR}/main.o
 
 
@@ -175,6 +189,76 @@ ${OBJECTDIR}/ServerSSL.o: ServerSSL.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ServerSSL.o ServerSSL.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONAllocator.o: libjson/_internal/Source/JSONAllocator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONAllocator.o libjson/_internal/Source/JSONAllocator.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONChildren.o: libjson/_internal/Source/JSONChildren.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONChildren.o libjson/_internal/Source/JSONChildren.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONDebug.o: libjson/_internal/Source/JSONDebug.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONDebug.o libjson/_internal/Source/JSONDebug.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONIterators.o: libjson/_internal/Source/JSONIterators.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONIterators.o libjson/_internal/Source/JSONIterators.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONMemory.o: libjson/_internal/Source/JSONMemory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONMemory.o libjson/_internal/Source/JSONMemory.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONNode.o: libjson/_internal/Source/JSONNode.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONNode.o libjson/_internal/Source/JSONNode.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONNode_Mutex.o: libjson/_internal/Source/JSONNode_Mutex.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONNode_Mutex.o libjson/_internal/Source/JSONNode_Mutex.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONPreparse.o: libjson/_internal/Source/JSONPreparse.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONPreparse.o libjson/_internal/Source/JSONPreparse.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONStream.o: libjson/_internal/Source/JSONStream.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONStream.o libjson/_internal/Source/JSONStream.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONValidator.o: libjson/_internal/Source/JSONValidator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONValidator.o libjson/_internal/Source/JSONValidator.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONWorker.o: libjson/_internal/Source/JSONWorker.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONWorker.o libjson/_internal/Source/JSONWorker.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/JSONWriter.o: libjson/_internal/Source/JSONWriter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONWriter.o libjson/_internal/Source/JSONWriter.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/internalJSONNode.o: libjson/_internal/Source/internalJSONNode.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/internalJSONNode.o libjson/_internal/Source/internalJSONNode.cpp
+
+${OBJECTDIR}/libjson/_internal/Source/libjson.o: libjson/_internal/Source/libjson.cpp 
+	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/libjson.o libjson/_internal/Source/libjson.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

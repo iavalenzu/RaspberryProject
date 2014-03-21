@@ -12,13 +12,6 @@
 #include "Device.h"
 #include "ConnectionSSL.h"
 
-#define ACTION_GET_FORTUNE "GET_FORTUNE" 
-#define ACTION_ECHO "ECHO" 
-#define ACTION_PERSISTENT_CONNECTION "PERSISTENT_CONNECTION" 
-
-#define ACTION_REPORT_DELIVERY "REPORT_DELIVERY"
-
-
 class Action {
 public:
     Action();

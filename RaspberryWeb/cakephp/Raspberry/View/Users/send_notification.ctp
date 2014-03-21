@@ -18,8 +18,6 @@
         
     </fieldset>
     
-    <?php endif; ?>
-    
 <?php echo $this->Form->create(); ?>
 	<fieldset>
 		<legend><?php echo __('Send Notification'); ?></legend>
@@ -28,6 +26,13 @@
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
+
+    <?php else: ?>
+    
+    <h2>No hay coneciones activas!!</h2>
+    
+    <?php endif; ?>
+    
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>

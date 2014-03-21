@@ -12,16 +12,16 @@ CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
 CND_ARTIFACT_NAME_Debug=raspberryclient
 CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/raspberryclient
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=raspberryclient.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/raspberryclient.tar
+CND_PACKAGE_NAME_Debug=
+CND_PACKAGE_PATH_Debug=
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
 CND_ARTIFACT_NAME_Release=raspberryclient
 CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/raspberryclient
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=raspberryclient.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/raspberryclient.tar
+CND_PACKAGE_NAME_Release=raspberryclient.deb
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/raspberryclient.deb
 #
 # include compiler specific variables
 #
