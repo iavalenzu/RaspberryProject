@@ -1,0 +1,19 @@
+6036 > Iniciando Cliente!!
+6036 > Creating incoming action: PERSISTENT_CONNECTION
+6036 > Creating outcoming action: REPORT_DELIVERY
+6036 > Creating incoming action: REPORT_DELIVERY
+6036 > Esperando señal para continuar...
+6036 > Getting a new notification!!
+6036 > Creating outcoming action: GET_FORTUNE
+6036 > Creating incoming action: REPORT_DELIVERY
+6036 > JSON recibido: {
+	"Action" : "REPORT_DELIVERY",
+	"Data" : {
+		"Message" : "Weinberg's Second Law:\n\tIf builders built buildings the way programmers wrote programs,\n\tthen the first woodpecker that came along would destroy civilization.\n"
+	}
+}
+6036 > Esperando señal para continuar...
+6036 > Shutdown in [ Inactive: 3577 secs ] [ Alive: 17933 secs ]
+6036 > Esperando señal para continuar...
+6036 > Cerrando Cliente!!
+6036 > Cerrando Cliente!!

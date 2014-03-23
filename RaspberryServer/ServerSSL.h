@@ -29,15 +29,16 @@ public:
     SSL_CTX* initServerCTX();
     SSL_CTX* getSSLCTX();
     int openListener(int port);
-    void loadCertificates(SSL_CTX* ctx, char* CertFile, char* KeyFile);
+    void loadCertificates(SSL_CTX* ctx, const char* CertFile, const char* KeyFile);
     void acceptConnection();
     void closeServer();
     void showCerts(SSL* ssl);
     void manageCloseServer(int sig);
     void closeLastConnectionAccepted();
     int getLastConnectionAccepted();
-
-
+    
+    void closeAllChildProcess();
+    
 private:
     SSL_CTX *ctx;
     int socket_fd;

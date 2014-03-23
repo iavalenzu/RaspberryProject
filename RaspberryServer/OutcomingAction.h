@@ -17,6 +17,7 @@ public:
     OutcomingAction(const OutcomingAction& orig);
     virtual ~OutcomingAction();
     virtual Notification toDo();
+    virtual Notification processResponse(Notification _notification);
 
 private:
 

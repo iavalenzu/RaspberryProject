@@ -13,21 +13,19 @@ ServerSSL::ServerSSL() {
 
     this->ctx = this->initServerCTX(); /* initialize SSL */
 
-    char cert_file[BUFSIZE];
-    strcpy(cert_file, CERT_FILE);
+    this->loadCertificates(this->ctx, CERT_FILE.c_str(), CERT_FILE.c_str()); /* load certs */
 
-    this->loadCertificates(this->ctx, cert_file, cert_file); /* load certs */
-    
     this->socket_fd = this->openListener(PORT_NUM); /* create server socket */
-    
+
     this->last_connection_accepted_fd = -1;
-    
+
+
 }
 
 ServerSSL::~ServerSSL() {
 }
 
-int ServerSSL::getLastConnectionAccepted(){
+int ServerSSL::getLastConnectionAccepted() {
     return this->last_connection_accepted_fd;
 }
 
@@ -71,13 +69,13 @@ int ServerSSL::openListener(int port) {
         perror("setsockopt");
         abort();
     }
-    
+
     if (bind(sd, (struct sockaddr*) &addr, sizeof (addr)) != 0) {
         perror("can't bind port");
         abort();
     }
 
-    if (listen(sd, 10) != 0) {
+    if (listen(sd, SOMAXCONN) != 0) {
         perror("Can't configure listening port");
         abort();
     }
@@ -85,7 +83,7 @@ int ServerSSL::openListener(int port) {
 
 }
 
-void ServerSSL::loadCertificates(SSL_CTX* ctx, char* CertFile, char* KeyFile) {
+void ServerSSL::loadCertificates(SSL_CTX* ctx, const char* CertFile, const char* KeyFile) {
 
     /* set the local certificate from CertFile */
     if (SSL_CTX_use_certificate_file(ctx, CertFile, SSL_FILETYPE_PEM) <= 0) {
@@ -108,7 +106,7 @@ void ServerSSL::loadCertificates(SSL_CTX* ctx, char* CertFile, char* KeyFile) {
 }
 
 void ServerSSL::acceptConnection() {
-    
+
     struct sockaddr_in addr;
     socklen_t len = sizeof (addr);
 
@@ -119,7 +117,7 @@ void ServerSSL::acceptConnection() {
         abort();
     }
 
-    cout << "Connection: " << inet_ntoa(addr.sin_addr) << ":" << ntohs(addr.sin_port) << endl;
+    cout << getpid() << " > Accept new connection: " << inet_ntoa(addr.sin_addr) << ":" << ntohs(addr.sin_port) << endl;
 
 }
 
@@ -151,16 +149,36 @@ void ServerSSL::showCerts(SSL* ssl) {
         cout << "No certificates." << endl;
 }
 
-SSL_CTX* ServerSSL::getSSLCTX(){
+SSL_CTX* ServerSSL::getSSLCTX() {
     return this->ctx;
 }
 
-void ServerSSL::manageCloseServer(int sig){
+void ServerSSL::manageCloseServer(int sig) {
 
     cout << getpid() << " > Cerrando Server!!" << endl;
 
     this->closeServer();
-    
+
     exit(sig);
+
+}
+
+void ServerSSL::closeAllChildProcess() {
+
+    char *buff = NULL;
+    size_t len = 255;
+    char command[256] = {0};
+    pid_t serverpid = getpid();
     
+    sprintf(command, "kill -s TERM `ps -ef|awk '$3==%u {print $2}'`", serverpid);
+    
+    FILE *fp = popen(command, "r");
+    
+    while (getline(&buff, &len, fp) >= 0) {
+        cout << serverpid << " > " << buff << endl;
+    }
+    
+    free(buff);
+    fclose(fp);
+
 }

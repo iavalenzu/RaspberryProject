@@ -5,19 +5,19 @@
  * Created on 15 de marzo de 2014, 10:05 PM
  */
 
-#ifndef NOTIFICATIONWRITER_H
-#define	NOTIFICATIONWRITER_H
+#ifndef OUTCOMINGACTIONEXECUTOR_H
+#define	OUTCOMINGACTIONEXECUTOR_H
 
 #include "IncomingActionFactory.h"
 #include "RaspiUtils.h"
 #include "OutcomingActionFactory.h"
 #include "ConnectionSSL.h"
 
-class NotificationWriter {
+class OutcomingActionExecutor {
 public:
-    NotificationWriter(ConnectionSSL* _connection);
-    NotificationWriter(const NotificationWriter& orig);
-    virtual ~NotificationWriter();
+    OutcomingActionExecutor(ConnectionSSL* _connection);
+    OutcomingActionExecutor(const OutcomingActionExecutor& orig);
+    virtual ~OutcomingActionExecutor();
     Notification write(Notification notification); 
 private:
     ConnectionSSL* connection;
@@ -25,5 +25,5 @@ private:
 
 };
 
-#endif	/* NOTIFICATIONWRITER_H */
+#endif	/* OUTCOMINGACTIONEXECUTOR_H */
 

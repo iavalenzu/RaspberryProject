@@ -16,7 +16,7 @@ OutcomingActionFactory::OutcomingActionFactory(const OutcomingActionFactory& ori
 OutcomingActionFactory::~OutcomingActionFactory() {
 }
 
-Action* OutcomingActionFactory::createFromNotification(Notification notification, ConnectionSSL* connection){
+OutcomingAction* OutcomingActionFactory::createFromNotification(Notification notification, ConnectionSSL* connection){
 
     std:string action_name = notification.getAction();
     
@@ -29,8 +29,12 @@ Action* OutcomingActionFactory::createFromNotification(Notification notification
      */
     if(action_name.compare(ACTION_REPORT_DELIVERY) == 0){
         action = new ActionReportDelivery(notification, connection);
+    }else if(action_name.compare(ACTION_RESPONSE_TIME) == 0){
+        action = new ActionResponseTime(notification, connection);
     }
     
+        
+        
     
     return action;
 

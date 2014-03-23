@@ -22,3 +22,7 @@ OutcomingAction::~OutcomingAction() {
 Notification OutcomingAction::toDo(){
     return this->notification;
 }
+
+Notification OutcomingAction::processResponse(Notification _notification){
+    return _notification;
+}

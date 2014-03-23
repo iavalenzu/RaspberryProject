@@ -1,0 +1,22 @@
+6069 > Iniciando Cliente!!
+6069 > Creating incoming action: PERSISTENT_CONNECTION
+6069 > Creating outcoming action: REPORT_DELIVERY
+6069 > Creating incoming action: REPORT_DELIVERY
+6069 > Esperando señal para continuar...
+6069 > Shutdown in [ Inactive: 3372 secs ] [ Alive: 17772 secs ]
+6069 > Esperando señal para continuar...
+6069 > Getting a new notification!!
+6069 > Creating outcoming action: GET_FORTUNE
+6069 > Creating incoming action: REPORT_DELIVERY
+6069 > JSON recibido: {
+	"Action" : "REPORT_DELIVERY",
+	"Data" : {
+		"Message" : "I used to get high on life but lately I've built up a resistance.\n\u008CY\u00FF\u007F"
+	}
+}
+6069 > Esperando señal para continuar...
+6069 > Shutdown in [ Inactive: 3593 secs ] [ Alive: 17712 secs ]
+6069 > Esperando señal para continuar...
+6069 > Shutdown in [ Inactive: 3533 secs ] [ Alive: 17652 secs ]
+6069 > Esperando señal para continuar...
+6069 > Shutdown in [ Inactive: 3473 secs ] [ Alive: 17592 secs ]

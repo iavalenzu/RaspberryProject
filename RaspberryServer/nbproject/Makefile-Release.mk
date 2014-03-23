@@ -41,16 +41,17 @@ OBJECTFILES= \
 	${OBJECTDIR}/ActionGetFortune.o \
 	${OBJECTDIR}/ActionPersistentConnection.o \
 	${OBJECTDIR}/ActionReportDelivery.o \
+	${OBJECTDIR}/ActionResponseTime.o \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/DatabaseAdapter.o \
 	${OBJECTDIR}/Device.o \
 	${OBJECTDIR}/IncomingAction.o \
+	${OBJECTDIR}/IncomingActionExecutor.o \
 	${OBJECTDIR}/IncomingActionFactory.o \
 	${OBJECTDIR}/Logger.o \
 	${OBJECTDIR}/Notification.o \
-	${OBJECTDIR}/NotificationReader.o \
-	${OBJECTDIR}/NotificationWriter.o \
 	${OBJECTDIR}/OutcomingAction.o \
+	${OBJECTDIR}/OutcomingActionExecutor.o \
 	${OBJECTDIR}/OutcomingActionFactory.o \
 	${OBJECTDIR}/RaspiUtils.o \
 	${OBJECTDIR}/ServerSSL.o \
@@ -125,6 +126,11 @@ ${OBJECTDIR}/ActionReportDelivery.o: ActionReportDelivery.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionReportDelivery.o ActionReportDelivery.cpp
 
+${OBJECTDIR}/ActionResponseTime.o: ActionResponseTime.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionResponseTime.o ActionResponseTime.cpp
+
 ${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -145,6 +151,11 @@ ${OBJECTDIR}/IncomingAction.o: IncomingAction.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IncomingAction.o IncomingAction.cpp
 
+${OBJECTDIR}/IncomingActionExecutor.o: IncomingActionExecutor.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IncomingActionExecutor.o IncomingActionExecutor.cpp
+
 ${OBJECTDIR}/IncomingActionFactory.o: IncomingActionFactory.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -160,20 +171,15 @@ ${OBJECTDIR}/Notification.o: Notification.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Notification.o Notification.cpp
 
-${OBJECTDIR}/NotificationReader.o: NotificationReader.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationReader.o NotificationReader.cpp
-
-${OBJECTDIR}/NotificationWriter.o: NotificationWriter.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/NotificationWriter.o NotificationWriter.cpp
-
 ${OBJECTDIR}/OutcomingAction.o: OutcomingAction.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OutcomingAction.o OutcomingAction.cpp
+
+${OBJECTDIR}/OutcomingActionExecutor.o: OutcomingActionExecutor.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OutcomingActionExecutor.o OutcomingActionExecutor.cpp
 
 ${OBJECTDIR}/OutcomingActionFactory.o: OutcomingActionFactory.cpp 
 	${MKDIR} -p ${OBJECTDIR}

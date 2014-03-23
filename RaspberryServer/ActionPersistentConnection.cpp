@@ -6,8 +6,8 @@
  */
 
 #include "ActionPersistentConnection.h"
-#include "NotificationWriter.h"
-#include "NotificationReader.h"
+#include "OutcomingActionExecutor.h"
+#include "IncomingActionExecutor.h"
 
 ActionPersistentConnection::ActionPersistentConnection(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
 }
@@ -22,7 +22,7 @@ Notification ActionPersistentConnection::toDo(){
     
     Device* device;
     Notification notification;
-    NotificationWriter writer(this->connection);
+    OutcomingActionExecutor executor(this->connection);
     sigset_t block_set;
     
     /*
@@ -64,7 +64,7 @@ Notification ActionPersistentConnection::toDo(){
         notification = Notification(ACTION_REPORT_DELIVERY);
         notification.addDataItem(JSONNode("Access", "SUCCESS"));
         
-        writer.write(notification);
+        executor.write(notification);
         
         while(true){
             
@@ -87,7 +87,7 @@ Notification ActionPersistentConnection::toDo(){
                     continue;
                 }
 
-                notification = writer.write(notification);
+                notification = executor.write(notification);
                 
                 this->connection->setLastActivity();
 

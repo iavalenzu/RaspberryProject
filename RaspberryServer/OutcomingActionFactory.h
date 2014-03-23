@@ -12,6 +12,7 @@
 #include "OutcomingAction.h"
 
 #include "ActionReportDelivery.h"
+#include "ActionResponseTime.h"
 
 
 class OutcomingActionFactory : public ActionFactory{
@@ -19,7 +20,7 @@ public:
     OutcomingActionFactory();
     OutcomingActionFactory(const OutcomingActionFactory& orig);
     virtual ~OutcomingActionFactory();
-    static Action* createFromNotification(Notification notification, ConnectionSSL* connection);
+    static OutcomingAction* createFromNotification(Notification notification, ConnectionSSL* connection);
 private:
 
 };

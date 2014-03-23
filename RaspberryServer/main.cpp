@@ -12,6 +12,15 @@
 #include "ServerSSL.h"
 #include "DatabaseAdapter.h"
 
+#include <time.h>
+#include <sys/time.h>
+
+#ifdef __MACH__
+#include <mach/clock.h>
+#include <mach/mach.h>
+#endif
+
+
 using namespace std;
 /*
  * 
@@ -39,6 +48,8 @@ void manageInactiveConnection(int sig) {
 
 void manageCloseServer(int sig) {
 
+    server.closeAllChildProcess();
+    
     server.manageCloseServer(sig);
 
 }
@@ -49,8 +60,6 @@ void manageCloseServer(int sig) {
  */
 
 int main(int argc, char** argv) {
-
-    srand(time(NULL));
 
     int c;
 
@@ -83,10 +92,7 @@ int main(int argc, char** argv) {
     sigaction(SIGINT, &sigact_close_server, NULL);
     sigaction(SIGCHLD, &sigact_close_server, NULL);
 
-
-    cout << "Server PID: " << getpid() <<endl;
-
-    RaspiUtils::writePid("serverpid");
+    cout << getpid() << " > Starting server..." << endl;
 
     while (true) {
 
@@ -101,9 +107,7 @@ int main(int argc, char** argv) {
 
         if (pid == 0) {
 
-            cout << getpid() << " > New connection!!" << endl;
-
-            connection.setServer(server);
+            connection.setEncryptedSocket(server);
 
             struct sigaction sigact_close_conn;
             struct sigaction sigact_inactive_conn;
@@ -118,6 +122,8 @@ int main(int argc, char** argv) {
             sigaction(SIGTERM, &sigact_close_conn, NULL);
             sigaction(SIGABRT, &sigact_close_conn, NULL);
             sigaction(SIGKILL, &sigact_close_conn, NULL);
+            sigaction(SIGHUP, &sigact_close_conn, NULL);
+            sigaction(SIGINT, &sigact_close_conn, NULL);
 
             /*
              * En caso de recibir la señal SIGALRM manajamos el periodo de inactividad de la coneccion. 
@@ -134,7 +140,9 @@ int main(int argc, char** argv) {
              * Se inicia el servicio que se encarga de enviar las notificaciones
              */
 
-            connection.service();
+            cout << getpid() << " > Iniciando Cliente!!" << endl;
+
+            connection.processAction();
 
             abort();
 

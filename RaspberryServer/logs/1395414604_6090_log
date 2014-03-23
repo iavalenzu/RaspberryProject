@@ -1,0 +1,21 @@
+6090 > Iniciando Cliente!!
+6090 > Creating incoming action: PERSISTENT_CONNECTION
+6090 > Creating outcoming action: REPORT_DELIVERY
+6090 > Creating incoming action: REPORT_DELIVERY
+6090 > Esperando señal para continuar...
+6090 > Getting a new notification!!
+6090 > Creating outcoming action: GET_FORTUNE
+6090 > Creating incoming action: REPORT_DELIVERY
+6090 > JSON recibido: {
+	"Action" : "REPORT_DELIVERY",
+	"Data" : {
+		"Message" : "There was a young man from Dundee\nWho buggered an ape in a tree.\n\tThe results were quite horrid:\n\tAll ass and no forehead,\nThree balls and a purple goatee.\n\u00FF\u007F"
+	}
+}
+6090 > Esperando señal para continuar...
+6090 > Shutdown in [ Inactive: 3578 secs ] [ Alive: 17697 secs ]
+6090 > Esperando señal para continuar...
+6090 > Shutdown in [ Inactive: 3518 secs ] [ Alive: 17637 secs ]
+6090 > Esperando señal para continuar...
+6090 > Cerrando Cliente!!
+6090 > Cerrando Cliente!!

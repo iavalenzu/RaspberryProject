@@ -6,36 +6,76 @@
  * Created on 30 de junio de 2013, 05:31 PM
  */
 
+#include <sstream>
+
 #include "ConnectionSSL.h"
 #include "ActionFactory.h"
-#include "NotificationReader.h"
+#include "IncomingActionExecutor.h"
 
 ConnectionSSL::ConnectionSSL() {
-    
+
     this->last_activity = time(NULL);
     this->created = time(NULL);
 
     this->can_read_notification = false;
-    
+
     this->device = new Device();
-    
+
 }
 
-void ConnectionSSL::setServer(ServerSSL server) {
+void ConnectionSSL::setEncryptedSocket(ServerSSL server) {
 
     this->fd = server.getLastConnectionAccepted();
     this->ctx = server.getSSLCTX();
     this->ssl = SSL_new(this->ctx);
+
+    /*
+     * Abrimos el fichero de logs
+     */
+    
+    this->openLogger();
+
 
     /* Sets the file descriptor fd as the input/output facility for 
      * the TLS/SSL (encrypted) side of ssl. fd will typically be 
      * the socket file descriptor of a network connection. 
      */
     SSL_set_fd(this->ssl, this->fd);
+    
+    /* 
+     * Do SSL-protocol accept 
+     */
+    
+    if (SSL_accept(this->ssl) <= 0) { 
+        ERR_print_errors_fp(stderr);
+        abort();
+    }
+    
 
 }
 
 ConnectionSSL::~ConnectionSSL() {
+}
+
+void ConnectionSSL::openLogger() {
+
+    /*
+     * Creamos el nombre del fichero de logs <current-time>_<process-pid>_log
+     */
+    
+    std::string filename = "";
+    filename.append(LOG_DIR);
+    filename.append(DS);
+    filename.append(std::to_string((long long) time(NULL)));
+    filename.append("_");
+    filename.append(std::to_string(getpid()));
+    filename.append("_log");
+    
+    cout << getpid() << " > Logging output in " << filename << endl;
+
+    //this->logger.open(filename, ios::out | ios::trunc);
+    //cout.rdbuf(this->logger.rdbuf());  
+
 }
 
 void ConnectionSSL::closeConnection() {
@@ -45,7 +85,6 @@ void ConnectionSSL::closeConnection() {
      */
 
     this->device->disconnect();
-
 
     /*
      * Cerramos la coneccion SSL y liberamos recursos    
@@ -69,32 +108,34 @@ Device* ConnectionSSL::getDevice() {
     return this->device;
 }
 
-int ConnectionSSL::canReadNotification(){
+int ConnectionSSL::canReadNotification() {
     return this->can_read_notification;
 }
 
-void ConnectionSSL::setLastActivity(){
+void ConnectionSSL::setLastActivity() {
     this->last_activity = time(NULL);
 }
 
-SSL* ConnectionSSL::getSSL(){
+SSL* ConnectionSSL::getSSL() {
     return this->ssl;
 }
 
-void ConnectionSSL::service() { 
+void ConnectionSSL::processAction() {
 
-    if (SSL_accept(this->ssl) <= 0) { /* do SSL-protocol accept */
-        ERR_print_errors_fp(stderr);
-        abort();
-    }
-
-    /* start the timer*/
+    /* 
+     * Start the timer
+     */
+    
     alarm(CHECK_INACTIVE_INTERVAL);
 
-    NotificationReader reader(this);
-    
-    reader.read();
-    
+    IncomingActionExecutor executor(this);
+
+    /*
+     * Leemos la notificacion entrante y ejecutamos la accion asociada
+     */
+
+    executor.read();
+
 }
 
 void ConnectionSSL::manageCloseConnection(int sig) {

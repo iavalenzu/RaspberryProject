@@ -21,7 +21,7 @@ public:
     IncomingActionFactory();
     IncomingActionFactory(const IncomingActionFactory& orig);
     virtual ~IncomingActionFactory();
-    static Action* createFromNotification(Notification notification, ConnectionSSL* connection);
+    static IncomingAction* createFromNotification(Notification notification, ConnectionSSL* connection);
 private:
 
 };

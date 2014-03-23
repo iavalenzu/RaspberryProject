@@ -21,9 +21,9 @@ class ConnectionSSL {
 public:
     ConnectionSSL();
     virtual ~ConnectionSSL();
-    void setServer(ServerSSL server);
+    void setEncryptedSocket(ServerSSL server);
     void closeConnection();
-    void service();
+    void processAction();
     SSL* getSSL();
     void manageCloseConnection(int sig);
     void manageInactiveConnection(int sig);
@@ -35,7 +35,8 @@ public:
 
     int writeNotification(Notification notification);
     Notification readNotification();
-
+    
+    void openLogger();
 
 private:
     
@@ -49,6 +50,13 @@ private:
     int can_read_notification;
     
     Device* device;    
+    
+    /*
+     * Fichero de logs
+     */
+    
+    ofstream logger;
+   
 
 };
 

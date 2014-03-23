@@ -20,12 +20,13 @@
         <itemPath>ActionPersistentConnection.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
+        <itemPath>IncomingActionExecutor.h</itemPath>
         <itemPath>Notification.h</itemPath>
-        <itemPath>NotificationReader.h</itemPath>
-        <itemPath>NotificationWriter.h</itemPath>
+        <itemPath>OutcomingActionExecutor.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="OutcomingActions" projectFiles="true">
         <itemPath>ActionReportDelivery.h</itemPath>
+        <itemPath>ActionResponseTime.h</itemPath>
       </logicalFolder>
       <itemPath>ConnectionSSL.h</itemPath>
       <itemPath>Core.h</itemPath>
@@ -118,12 +119,13 @@
         <itemPath>ActionPersistentConnection.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
+        <itemPath>IncomingActionExecutor.cpp</itemPath>
         <itemPath>Notification.cpp</itemPath>
-        <itemPath>NotificationReader.cpp</itemPath>
-        <itemPath>NotificationWriter.cpp</itemPath>
+        <itemPath>OutcomingActionExecutor.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="OutcomingActions" projectFiles="true">
         <itemPath>ActionReportDelivery.cpp</itemPath>
+        <itemPath>ActionResponseTime.cpp</itemPath>
       </logicalFolder>
       <itemPath>ConnectionSSL.cpp</itemPath>
       <itemPath>DatabaseAdapter.cpp</itemPath>
@@ -191,6 +193,10 @@
       </item>
       <item path="ActionReportDelivery.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ActionResponseTime.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ActionResponseTime.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ConnectionSSL.h" ex="false" tool="3" flavor2="0">
@@ -209,6 +215,10 @@
       </item>
       <item path="IncomingAction.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="IncomingActionExecutor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingActionExecutor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
@@ -221,17 +231,13 @@
       </item>
       <item path="Notification.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="NotificationReader.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="NotificationReader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="NotificationWriter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="NotificationWriter.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="OutcomingAction.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="OutcomingAction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OutcomingActionExecutor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OutcomingActionExecutor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OutcomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -494,6 +500,10 @@
       </item>
       <item path="ActionReportDelivery.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ActionResponseTime.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ActionResponseTime.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ConnectionSSL.h" ex="false" tool="3" flavor2="0">
@@ -512,6 +522,10 @@
       </item>
       <item path="IncomingAction.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="IncomingActionExecutor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="IncomingActionExecutor.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
@@ -524,17 +538,13 @@
       </item>
       <item path="Notification.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="NotificationReader.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="NotificationReader.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="NotificationWriter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="NotificationWriter.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="OutcomingAction.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="OutcomingAction.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OutcomingActionExecutor.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OutcomingActionExecutor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OutcomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>

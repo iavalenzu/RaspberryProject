@@ -16,7 +16,7 @@ IncomingActionFactory::IncomingActionFactory(const IncomingActionFactory& orig) 
 IncomingActionFactory::~IncomingActionFactory() {
 }
 
-Action* IncomingActionFactory::createFromNotification(Notification notification, ConnectionSSL* connection){
+IncomingAction* IncomingActionFactory::createFromNotification(Notification notification, ConnectionSSL* connection){
 
     std:string action_name = notification.getAction();
     
