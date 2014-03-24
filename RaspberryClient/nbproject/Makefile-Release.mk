@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ActionFactory.o \
 	${OBJECTDIR}/ActionGetFortune.o \
 	${OBJECTDIR}/ActionStopClient.o \
+	${OBJECTDIR}/ActionUpdateClient.o \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/Device.o \
 	${OBJECTDIR}/IncomingAction.o \
@@ -105,6 +106,11 @@ ${OBJECTDIR}/ActionStopClient.o: ActionStopClient.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionStopClient.o ActionStopClient.cpp
+
+${OBJECTDIR}/ActionUpdateClient.o: ActionUpdateClient.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionUpdateClient.o ActionUpdateClient.cpp
 
 ${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}

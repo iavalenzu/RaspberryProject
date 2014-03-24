@@ -21,44 +21,39 @@ ActionResponseTime::~ActionResponseTime() {
 
 Notification ActionResponseTime::toDo() {
 
+    OutcomingActionExecutor executor(this->connection);
+    Notification response;
+    struct timespec ini;
+    struct timespec end;
+    
+    long total = 0;
+    
+    int iterations = 1000;
+    
+    
+    Notification echo("ACTION_ECHO");
+    
+    for(int i=0; i<iterations; i++){
+    
+        ini = RaspiUtils::getTime();
 
-#ifdef __MACH__ // OS X does not have clock_gettime, use clock_get_time
-    clock_serv_t cclock;
-    mach_timespec_t mts;
-    host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
-    clock_get_time(cclock, &mts);
-    mach_port_deallocate(mach_task_self(), cclock);
-    this->ts.tv_sec = mts.tv_sec;
-    this->ts.tv_nsec = mts.tv_nsec;
-
-#else
-    clock_gettime(CLOCK_REALTIME, &this->ts);
-#endif    
-
-    return this->notification;
+        response = executor.write(echo);
+    
+        end = RaspiUtils::getTime();
+  
+        total += (end.tv_sec * 1000000000 + end.tv_nsec) - (ini.tv_sec * 1000000000 + ini.tv_nsec);
+        
+    }
+    
+    cout << getpid() << " > Tiempo promedio (nsec): " << total/iterations << endl; 
+    
+    
+    return response;
 
 
 }
 
 Notification ActionResponseTime::processResponse(Notification _notification) {
-
-    struct timespec ts;
-
-#ifdef __MACH__ // OS X does not have clock_gettime, use clock_get_time
-    clock_serv_t cclock;
-    mach_timespec_t mts;
-    host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
-    clock_get_time(cclock, &mts);
-    mach_port_deallocate(mach_task_self(), cclock);
-    ts.tv_sec = mts.tv_sec;
-    ts.tv_nsec = mts.tv_nsec;
-
-#else
-    clock_gettime(CLOCK_REALTIME, &ts);
-#endif    
-
-    cout << "Diff Sec: " << ts.tv_sec - this->ts.tv_sec << endl;
-    cout << "Diff Nsec: " << ts.tv_nsec - this->ts.tv_nsec << endl;
 
     return _notification;
 

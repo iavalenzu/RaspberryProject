@@ -71,7 +71,7 @@ void ConnectionSSL::openLogger() {
     filename.append(std::to_string(getpid()));
     filename.append("_log");
     
-    cout << getpid() << " > Logging output in " << filename << endl;
+    //cout << getpid() << " > Logging output in " << filename << endl;
 
     //this->logger.open(filename, ios::out | ios::trunc);
     //cout.rdbuf(this->logger.rdbuf());  
@@ -175,8 +175,8 @@ void ConnectionSSL::manageInactiveConnection(int sig) {
 
     } else {
         cout << getpid() << " > Shutdown in ";
-        cout << "[ Inactive: " << (MAX_INACTIVE_TIME - inactive_lapse) << " secs ] ";
-        cout << "[ Alive: " << (MAX_ALIVE_TIME - alive_lapse) << " secs ]" << endl;
+        cout << "[ Inactive: " << RaspiUtils::humanTime(MAX_INACTIVE_TIME - inactive_lapse) << " ] ";
+        cout << "[ Alive: " << RaspiUtils::humanTime(MAX_ALIVE_TIME - alive_lapse) << " ]" << endl;
     }
 
     // Reset the timer so we get called again in CHECK_INACTIVE_INTERVAL seconds

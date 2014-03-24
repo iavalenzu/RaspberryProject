@@ -17,12 +17,19 @@
 #include <iostream>
 #include <fstream>
 
-//#include <libjson/libjson.h>
 #include "libjson/libjson.h"
 
 
 #include "openssl/ssl.h"
 #include "openssl/err.h"
+
+#include <time.h>
+#include <sys/time.h>
+
+#ifdef __MACH__
+#include <mach/clock.h>
+#include <mach/mach.h>
+#endif
 
 #include "Core.h"
 
@@ -43,6 +50,9 @@ public:
     static int writeJSON(SSL *ssl, JSONNode json);
     static JSONNode readJSON(SSL *ssl);
     static void writePid(const char *file_name);
+    
+    static timespec getTime();
+    static std::string humanTime(int seconds); 
 
 private:
 

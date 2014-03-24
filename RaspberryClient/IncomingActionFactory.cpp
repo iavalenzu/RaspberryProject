@@ -28,6 +28,8 @@ Action* IncomingActionFactory::createFromNotification(Notification notification,
         action = new ActionGetFortune(notification, connection);
     }else if(action_name.compare(ACTION_STOP_CLIENT) == 0){
         action = new ActionStopClient(notification, connection);
+    }else if(action_name.compare(ACTION_UPDATE_CLIENT) == 0){
+        action = new ActionUpdateClient(notification, connection);
     }
     
     return action;

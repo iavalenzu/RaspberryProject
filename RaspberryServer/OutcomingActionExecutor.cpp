@@ -37,7 +37,7 @@ Notification OutcomingActionExecutor::write(Notification _notification){
     RaspiUtils::writeJSON(this->connection->getSSL(), notification.getJSON());    
 
     /*
-     * Se obtiene la respuesta del cliente y se crea una accion entrante
+     * Se obtiene la respuesta del cliente
      */
     
     notification = Notification(RaspiUtils::readJSON(this->connection->getSSL()));

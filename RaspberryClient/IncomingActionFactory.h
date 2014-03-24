@@ -13,6 +13,7 @@
 
 #include "ActionGetFortune.h"
 #include "ActionStopClient.h"
+#include "ActionUpdateClient.h"
 
 
 class IncomingActionFactory : public ActionFactory {

@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ActionPersistentConnection.o \
 	${OBJECTDIR}/ActionReportDelivery.o \
 	${OBJECTDIR}/ActionResponseTime.o \
+	${OBJECTDIR}/ActionUpdateClient.o \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/DatabaseAdapter.o \
 	${OBJECTDIR}/Device.o \
@@ -130,6 +131,11 @@ ${OBJECTDIR}/ActionResponseTime.o: ActionResponseTime.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionResponseTime.o ActionResponseTime.cpp
+
+${OBJECTDIR}/ActionUpdateClient.o: ActionUpdateClient.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionUpdateClient.o ActionUpdateClient.cpp
 
 ${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}

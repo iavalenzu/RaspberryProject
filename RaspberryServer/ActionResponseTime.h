@@ -18,6 +18,8 @@
 #include <mach/mach.h>
 #endif
 
+#include "OutcomingActionExecutor.h"
+
 #define ACTION_RESPONSE_TIME "RESPONSE_TIME"
 
 class ActionResponseTime  : public OutcomingAction {

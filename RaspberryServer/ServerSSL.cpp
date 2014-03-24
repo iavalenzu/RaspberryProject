@@ -165,20 +165,38 @@ void ServerSSL::manageCloseServer(int sig) {
 
 void ServerSSL::closeAllChildProcess() {
 
-    char *buff = NULL;
     size_t len = 255;
-    char command[256] = {0};
-    pid_t serverpid = getpid();
     
-    sprintf(command, "kill -s TERM `ps -ef|awk '$3==%u {print $2}'`", serverpid);
+    char line[len];
+    std::string command;
+    std::string result;
+    pid_t serverpid;
+    FILE *fp; 
     
-    FILE *fp = popen(command, "r");
-    
-    while (getline(&buff, &len, fp) >= 0) {
-        cout << serverpid << " > " << buff << endl;
+    serverpid = getpid();
+    command = "";
+    result = "";
+
+    command.append("kill -s TERM `ps -ef|awk '$3==");
+    command.append(std::to_string(serverpid));
+    command.append(" {print $2}'`");
+
+    fp = popen(command.c_str(), "r");
+
+    if (fp == NULL) {
+        cout << serverpid << " > Problemas al terminar la ejecucion de los procesos hijos." << endl;
+    } else {
+
+        while (fgets(line, len, fp)){
+            result.append(line);
+        }
+
+        if(!result.empty()){
+                cout << serverpid << " > " << result << endl;  
+        }
+
+        fclose(fp);
+        
     }
-    
-    free(buff);
-    fclose(fp);
 
 }
