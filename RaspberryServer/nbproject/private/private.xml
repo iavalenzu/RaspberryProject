@@ -6,20 +6,6 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/IncomingActionExecutor.h</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ConnectionSSL.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionResponseTime.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/RaspiUtils.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/OutcomingActionExecutor.h</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/IncomingAction.h</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/main.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionResponseTime.h</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/Notification.h</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/OutcomingActionExecutor.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/IncomingActionExecutor.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentConnection.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentConnection.h</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

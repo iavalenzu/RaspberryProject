@@ -5,22 +5,25 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="Actions" projectFiles="true">
-        <itemPath>Action.h</itemPath>
-        <itemPath>IncomingAction.h</itemPath>
+        <itemPath>src/Action.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f4" displayName="Factory" projectFiles="true">
-        <itemPath>ActionFactory.h</itemPath>
-        <itemPath>IncomingActionFactory.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.h</itemPath>
+        <itemPath>src/IncomingActionFactory.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="IncomingsActions" projectFiles="true">
-        <itemPath>ActionGetFortune.h</itemPath>
-        <itemPath>ActionStopClient.h</itemPath>
+        <itemPath>src/ActionGetFortune.h</itemPath>
+        <itemPath>src/ActionStopClient.h</itemPath>
+        <itemPath>src/ActionUpdateClient.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
-        <itemPath>Notification.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.h</itemPath>
       </logicalFolder>
-      <itemPath>Device.h</itemPath>
-      <itemPath>RaspiUtils.h</itemPath>
+      <itemPath>src/ConnectionSSL.h</itemPath>
+      <itemPath>src/Device.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.h</itemPath>
+      <itemPath>src/core.h</itemPath>
     </logicalFolder>
     <logicalFolder name="libjson" displayName="libjson" projectFiles="true">
       <logicalFolder name="_internal" displayName="_internal" projectFiles="true">
@@ -28,83 +31,86 @@
                        displayName="Dependencies"
                        projectFiles="true">
           <logicalFolder name="libbase64++" displayName="libbase64++" projectFiles="true">
-            <itemPath>libjson/_internal/Dependencies/libbase64++/libbase64++.h</itemPath>
+            <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Dependencies/libbase64++/libbase64++.h</itemPath>
           </logicalFolder>
           <logicalFolder name="mempool++" displayName="mempool++" projectFiles="true">
-            <itemPath>libjson/_internal/Dependencies/mempool++/mempool.h</itemPath>
+            <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Dependencies/mempool++/mempool.h</itemPath>
           </logicalFolder>
         </logicalFolder>
         <logicalFolder name="Source" displayName="Source" projectFiles="true">
           <logicalFolder name="JSONDefs" displayName="JSONDefs" projectFiles="true">
-            <itemPath>libjson/_internal/Source/JSONDefs/GNU_C.h</itemPath>
-            <itemPath>libjson/_internal/Source/JSONDefs/Strings_Defs.h</itemPath>
-            <itemPath>libjson/_internal/Source/JSONDefs/Unknown_C.h</itemPath>
-            <itemPath>libjson/_internal/Source/JSONDefs/Visual_C.h</itemPath>
+            <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/GNU_C.h</itemPath>
+            <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Strings_Defs.h</itemPath>
+            <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Unknown_C.h</itemPath>
+            <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Visual_C.h</itemPath>
           </logicalFolder>
-          <itemPath>libjson/_internal/Source/JSONAllocator.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONAllocator.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONChildren.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONChildren.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONDebug.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONDebug.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONDefs.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONGlobals.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONIterators.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONMemory.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONMemory.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONMemoryPool.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONNode.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONNode.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONNode_Mutex.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONPreparse.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONPreparse.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONSharedString.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONSingleton.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONStats.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONStream.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONStream.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONValidator.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONValidator.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONWorker.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSONWorker.h</itemPath>
-          <itemPath>libjson/_internal/Source/JSONWriter.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/JSON_Base64.h</itemPath>
-          <itemPath>libjson/_internal/Source/NumberToString.h</itemPath>
-          <itemPath>libjson/_internal/Source/internalJSONNode.cpp</itemPath>
-          <itemPath>libjson/_internal/Source/internalJSONNode.h</itemPath>
-          <itemPath>libjson/_internal/Source/libjson.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONAllocator.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONAllocator.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONChildren.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONChildren.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDebug.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDebug.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONGlobals.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONIterators.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemory.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemory.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemoryPool.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode_Mutex.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONPreparse.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONPreparse.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONSharedString.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONSingleton.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStats.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStream.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStream.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONValidator.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONValidator.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWorker.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWorker.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWriter.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSON_Base64.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/NumberToString.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/internalJSONNode.cpp</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/internalJSONNode.h</itemPath>
+          <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/libjson.cpp</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>libjson/Documentation.pdf</itemPath>
-      <itemPath>libjson/JSONOptions.h</itemPath>
-      <itemPath>libjson/License.txt</itemPath>
-      <itemPath>libjson/libjson.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/Documentation.pdf</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/JSONOptions.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/License.txt</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/libjson.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/updater.bash</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="f2" displayName="Actions" projectFiles="true">
-        <itemPath>Action.cpp</itemPath>
-        <itemPath>ActionFactory.cpp</itemPath>
-        <itemPath>ActionGetFortune.cpp</itemPath>
-        <itemPath>ActionStopClient.cpp</itemPath>
-        <itemPath>ActionUpdateClient.cpp</itemPath>
-        <itemPath>ActionUpdateClient.h</itemPath>
-        <itemPath>IncomingAction.cpp</itemPath>
-        <itemPath>IncomingActionFactory.cpp</itemPath>
+        <itemPath>src/Action.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Factory" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp</itemPath>
+        <itemPath>src/IncomingActionFactory.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="IncomingsActions" projectFiles="true">
+        <itemPath>src/ActionGetFortune.cpp</itemPath>
+        <itemPath>src/ActionStopClient.cpp</itemPath>
+        <itemPath>src/ActionUpdateClient.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
-        <itemPath>Notification.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.cpp</itemPath>
       </logicalFolder>
-      <itemPath>ConnectionSSL.cpp</itemPath>
-      <itemPath>ConnectionSSL.h</itemPath>
-      <itemPath>Device.cpp</itemPath>
-      <itemPath>RaspiUtils.cpp</itemPath>
-      <itemPath>main.cpp</itemPath>
+      <itemPath>src/ConnectionSSL.cpp</itemPath>
+      <itemPath>src/Device.cpp</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.cpp</itemPath>
+      <itemPath>src/main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -120,6 +126,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>libjson</Elem>
+    <Elem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/libjson</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -157,249 +164,292 @@
           <packInfoListElem name="%description" value="Description..." mandatory="true"/>
         </packInfoList>
       </packaging>
-      <item path="Action.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Action.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionFactory.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionGetFortune.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionGetFortune.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionStopClient.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionStopClient.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionUpdateClient.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionUpdateClient.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ConnectionSSL.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Device.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Device.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IncomingAction.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IncomingAction.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Notification.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libjson/Documentation.pdf" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libjson/JSONOptions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libjson/License.txt" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libjson/_internal/Dependencies/libbase64++/libbase64++.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Dependencies/mempool++/mempool.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONAllocator.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONAllocator.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONChildren.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONChildren.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONDebug.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONDebug.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONDefs.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONDefs/GNU_C.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONDefs/Strings_Defs.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONDefs/Unknown_C.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONDefs/Visual_C.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONGlobals.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONIterators.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONMemory.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/updater.bash"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/Documentation.pdf"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/JSONOptions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/License.txt"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Dependencies/libbase64++/libbase64++.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Dependencies/mempool++/mempool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONAllocator.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONMemory.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONAllocator.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONMemoryPool.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONNode.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONChildren.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONNode.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONChildren.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONNode_Mutex.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDebug.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONPreparse.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDebug.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/GNU_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Strings_Defs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Unknown_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Visual_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONGlobals.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONIterators.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONPreparse.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONSharedString.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONSingleton.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONStats.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONStream.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemory.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONStream.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemory.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONValidator.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemoryPool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONValidator.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONWorker.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode_Mutex.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONWorker.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONWriter.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONPreparse.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSON_Base64.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONPreparse.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/NumberToString.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONSharedString.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/internalJSONNode.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONSingleton.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStats.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStream.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/internalJSONNode.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStream.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/libjson.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONValidator.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/libjson.h" ex="false" tool="3" flavor2="0">
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONValidator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWorker.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWorker.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWriter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSON_Base64.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/NumberToString.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/internalJSONNode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/internalJSONNode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/libjson.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/libjson.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/Action.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Action.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ActionGetFortune.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ActionGetFortune.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ActionStopClient.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ActionStopClient.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ActionUpdateClient.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ActionUpdateClient.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ConnectionSSL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Device.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/core.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -440,249 +490,292 @@
           <packInfoListElem name="Description" value="..." mandatory="false"/>
         </packInfoList>
       </packaging>
-      <item path="Action.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Action.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionFactory.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionGetFortune.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionGetFortune.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionStopClient.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionStopClient.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionUpdateClient.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionUpdateClient.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ConnectionSSL.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Device.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Device.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IncomingAction.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IncomingAction.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Notification.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Notification.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="RaspiUtils.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="RaspiUtils.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libjson/Documentation.pdf" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libjson/JSONOptions.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libjson/License.txt" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="libjson/_internal/Dependencies/libbase64++/libbase64++.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Dependencies/mempool++/mempool.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONAllocator.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONAllocator.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONChildren.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONChildren.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONDebug.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONDebug.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONDefs.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONDefs/GNU_C.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONDefs/Strings_Defs.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONDefs/Unknown_C.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONDefs/Visual_C.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONGlobals.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONIterators.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONMemory.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/updater.bash"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/Documentation.pdf"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/JSONOptions.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/License.txt"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Dependencies/libbase64++/libbase64++.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Dependencies/mempool++/mempool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONAllocator.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONMemory.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONAllocator.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONMemoryPool.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONNode.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONChildren.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONNode.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONChildren.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONNode_Mutex.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDebug.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONPreparse.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDebug.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/GNU_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Strings_Defs.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Unknown_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDefs/Visual_C.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONGlobals.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONIterators.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONPreparse.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONSharedString.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONSingleton.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONStats.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONStream.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemory.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONStream.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemory.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONValidator.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemoryPool.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONValidator.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONWorker.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode_Mutex.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSONWorker.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="libjson/_internal/Source/JSONWriter.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONPreparse.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/JSON_Base64.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONPreparse.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/NumberToString.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONSharedString.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/internalJSONNode.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONSingleton.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStats.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStream.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/internalJSONNode.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStream.h"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="libjson/_internal/Source/libjson.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONValidator.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="libjson/libjson.h" ex="false" tool="3" flavor2="0">
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONValidator.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
-      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWorker.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWorker.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWriter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSON_Base64.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/NumberToString.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/internalJSONNode.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/internalJSONNode.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/libjson.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/libjson.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src/Action.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Action.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ActionGetFortune.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ActionGetFortune.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ActionStopClient.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ActionStopClient.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ActionUpdateClient.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ActionUpdateClient.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/ConnectionSSL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Device.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Device.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/core.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
   </confs>

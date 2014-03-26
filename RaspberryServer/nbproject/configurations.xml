@@ -98,6 +98,7 @@
                    displayName="Resource Files"
                    projectFiles="true">
       <itemPath>Readme</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/copyfiles.bash</itemPath>
       <itemPath>mycert.pem</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -171,6 +172,11 @@
           <commandLine>-lssl -lcrypto -lm -lcurl</commandLine>
         </linkerTool>
       </compileType>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/copyfiles.bash"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Action.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Action.h" ex="false" tool="3" flavor2="0">
@@ -482,6 +488,11 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/copyfiles.bash"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="Action.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Action.h" ex="false" tool="3" flavor2="0">

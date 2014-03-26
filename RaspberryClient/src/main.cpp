@@ -24,6 +24,10 @@ int server;
 SSL *ssl;
 JSONNode json;
 
+
+
+
+
 int OpenConnection(const char *hostname, int port) {
 
     int sd;

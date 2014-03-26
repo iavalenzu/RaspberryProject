@@ -35,32 +35,32 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Action.o \
-	${OBJECTDIR}/ActionFactory.o \
-	${OBJECTDIR}/ActionGetFortune.o \
-	${OBJECTDIR}/ActionStopClient.o \
-	${OBJECTDIR}/ActionUpdateClient.o \
-	${OBJECTDIR}/ConnectionSSL.o \
-	${OBJECTDIR}/Device.o \
-	${OBJECTDIR}/IncomingAction.o \
-	${OBJECTDIR}/IncomingActionFactory.o \
-	${OBJECTDIR}/Notification.o \
-	${OBJECTDIR}/RaspiUtils.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONAllocator.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONChildren.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONDebug.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONIterators.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONMemory.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONNode.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONNode_Mutex.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONPreparse.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONStream.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONValidator.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONWorker.o \
-	${OBJECTDIR}/libjson/_internal/Source/JSONWriter.o \
-	${OBJECTDIR}/libjson/_internal/Source/internalJSONNode.o \
-	${OBJECTDIR}/libjson/_internal/Source/libjson.o \
-	${OBJECTDIR}/main.o
+	${OBJECTDIR}/_ext/1604071451/ActionFactory.o \
+	${OBJECTDIR}/_ext/1604071451/IncomingAction.o \
+	${OBJECTDIR}/_ext/1604071451/Notification.o \
+	${OBJECTDIR}/_ext/1604071451/RaspiUtils.o \
+	${OBJECTDIR}/_ext/1293681001/JSONAllocator.o \
+	${OBJECTDIR}/_ext/1293681001/JSONChildren.o \
+	${OBJECTDIR}/_ext/1293681001/JSONDebug.o \
+	${OBJECTDIR}/_ext/1293681001/JSONIterators.o \
+	${OBJECTDIR}/_ext/1293681001/JSONMemory.o \
+	${OBJECTDIR}/_ext/1293681001/JSONNode.o \
+	${OBJECTDIR}/_ext/1293681001/JSONNode_Mutex.o \
+	${OBJECTDIR}/_ext/1293681001/JSONPreparse.o \
+	${OBJECTDIR}/_ext/1293681001/JSONStream.o \
+	${OBJECTDIR}/_ext/1293681001/JSONValidator.o \
+	${OBJECTDIR}/_ext/1293681001/JSONWorker.o \
+	${OBJECTDIR}/_ext/1293681001/JSONWriter.o \
+	${OBJECTDIR}/_ext/1293681001/internalJSONNode.o \
+	${OBJECTDIR}/_ext/1293681001/libjson.o \
+	${OBJECTDIR}/src/Action.o \
+	${OBJECTDIR}/src/ActionGetFortune.o \
+	${OBJECTDIR}/src/ActionStopClient.o \
+	${OBJECTDIR}/src/ActionUpdateClient.o \
+	${OBJECTDIR}/src/ConnectionSSL.o \
+	${OBJECTDIR}/src/Device.o \
+	${OBJECTDIR}/src/IncomingActionFactory.o \
+	${OBJECTDIR}/src/main.o
 
 
 # C Compiler Flags
@@ -87,135 +87,135 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient ${OBJECTFILES} ${LDLIBSOPTIONS} -lssl -lcrypto -lm -lcurl
 
-${OBJECTDIR}/Action.o: Action.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1604071451/ActionFactory.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Action.o Action.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionFactory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp
 
-${OBJECTDIR}/ActionFactory.o: ActionFactory.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1604071451/IncomingAction.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionFactory.o ActionFactory.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/IncomingAction.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp
 
-${OBJECTDIR}/ActionGetFortune.o: ActionGetFortune.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1604071451/Notification.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionGetFortune.o ActionGetFortune.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/Notification.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.cpp
 
-${OBJECTDIR}/ActionStopClient.o: ActionStopClient.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1604071451/RaspiUtils.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionStopClient.o ActionStopClient.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/RaspiUtils.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.cpp
 
-${OBJECTDIR}/ActionUpdateClient.o: ActionUpdateClient.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1293681001/JSONAllocator.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONAllocator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionUpdateClient.o ActionUpdateClient.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONAllocator.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONAllocator.cpp
 
-${OBJECTDIR}/ConnectionSSL.o: ConnectionSSL.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1293681001/JSONChildren.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONChildren.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionSSL.o ConnectionSSL.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONChildren.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONChildren.cpp
 
-${OBJECTDIR}/Device.o: Device.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1293681001/JSONDebug.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDebug.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Device.o Device.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONDebug.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONDebug.cpp
 
-${OBJECTDIR}/IncomingAction.o: IncomingAction.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1293681001/JSONIterators.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONIterators.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IncomingAction.o IncomingAction.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONIterators.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONIterators.cpp
 
-${OBJECTDIR}/IncomingActionFactory.o: IncomingActionFactory.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1293681001/JSONMemory.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IncomingActionFactory.o IncomingActionFactory.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONMemory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONMemory.cpp
 
-${OBJECTDIR}/Notification.o: Notification.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1293681001/JSONNode.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Notification.o Notification.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONNode.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode.cpp
 
-${OBJECTDIR}/RaspiUtils.o: RaspiUtils.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/_ext/1293681001/JSONNode_Mutex.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode_Mutex.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RaspiUtils.o RaspiUtils.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONNode_Mutex.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONNode_Mutex.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONAllocator.o: libjson/_internal/Source/JSONAllocator.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/_ext/1293681001/JSONPreparse.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONPreparse.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONAllocator.o libjson/_internal/Source/JSONAllocator.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONPreparse.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONPreparse.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONChildren.o: libjson/_internal/Source/JSONChildren.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/_ext/1293681001/JSONStream.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStream.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONChildren.o libjson/_internal/Source/JSONChildren.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONStream.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONStream.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONDebug.o: libjson/_internal/Source/JSONDebug.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/_ext/1293681001/JSONValidator.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONValidator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONDebug.o libjson/_internal/Source/JSONDebug.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONValidator.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONValidator.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONIterators.o: libjson/_internal/Source/JSONIterators.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/_ext/1293681001/JSONWorker.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWorker.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONIterators.o libjson/_internal/Source/JSONIterators.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONWorker.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWorker.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONMemory.o: libjson/_internal/Source/JSONMemory.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/_ext/1293681001/JSONWriter.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWriter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONMemory.o libjson/_internal/Source/JSONMemory.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/JSONWriter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/JSONWriter.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONNode.o: libjson/_internal/Source/JSONNode.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/_ext/1293681001/internalJSONNode.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/internalJSONNode.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONNode.o libjson/_internal/Source/JSONNode.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/internalJSONNode.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/internalJSONNode.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONNode_Mutex.o: libjson/_internal/Source/JSONNode_Mutex.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/_ext/1293681001/libjson.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/libjson.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1293681001
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONNode_Mutex.o libjson/_internal/Source/JSONNode_Mutex.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1293681001/libjson.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/libjson/_internal/Source/libjson.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONPreparse.o: libjson/_internal/Source/JSONPreparse.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/src/Action.o: src/Action.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONPreparse.o libjson/_internal/Source/JSONPreparse.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Action.o src/Action.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONStream.o: libjson/_internal/Source/JSONStream.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/src/ActionGetFortune.o: src/ActionGetFortune.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONStream.o libjson/_internal/Source/JSONStream.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ActionGetFortune.o src/ActionGetFortune.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONValidator.o: libjson/_internal/Source/JSONValidator.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/src/ActionStopClient.o: src/ActionStopClient.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONValidator.o libjson/_internal/Source/JSONValidator.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ActionStopClient.o src/ActionStopClient.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONWorker.o: libjson/_internal/Source/JSONWorker.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/src/ActionUpdateClient.o: src/ActionUpdateClient.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONWorker.o libjson/_internal/Source/JSONWorker.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ActionUpdateClient.o src/ActionUpdateClient.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/JSONWriter.o: libjson/_internal/Source/JSONWriter.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/src/ConnectionSSL.o: src/ConnectionSSL.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/JSONWriter.o libjson/_internal/Source/JSONWriter.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ConnectionSSL.o src/ConnectionSSL.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/internalJSONNode.o: libjson/_internal/Source/internalJSONNode.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/src/Device.o: src/Device.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/internalJSONNode.o libjson/_internal/Source/internalJSONNode.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/Device.o src/Device.cpp
 
-${OBJECTDIR}/libjson/_internal/Source/libjson.o: libjson/_internal/Source/libjson.cpp 
-	${MKDIR} -p ${OBJECTDIR}/libjson/_internal/Source
+${OBJECTDIR}/src/IncomingActionFactory.o: src/IncomingActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/libjson/_internal/Source/libjson.o libjson/_internal/Source/libjson.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/IncomingActionFactory.o src/IncomingActionFactory.cpp
 
-${OBJECTDIR}/main.o: main.cpp 
-	${MKDIR} -p ${OBJECTDIR}
+${OBJECTDIR}/src/main.o: src/main.cpp 
+	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/main.o src/main.cpp
 
 # Subprojects
 .build-subprojects:

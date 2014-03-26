@@ -11,6 +11,7 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>libjson</sourceRootElem>
+                <sourceRootElem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/libjson</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

@@ -137,8 +137,21 @@ class UsersController extends AppController {
         ));
 
         $this->set('active_connections', $active_connections);
-
+         
         if (!empty($this->request->data)) {
+
+            $data = array();
+
+            foreach ($this->request->data['Notification']['data']['Data'] as $item) {
+
+                if (!empty($item['Name'])) {
+                    $data[$item['Name']] = $item['Value'];
+                }
+            }
+
+            $this->request->data['Notification']['data']['Data'] = $data;
+
+            $this->request->data['Notification']['data'] = json_encode($this->request->data['Notification']['data']);
 
             if ($this->Notification->save($this->request->data)) {
 
