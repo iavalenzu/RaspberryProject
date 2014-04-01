@@ -13,20 +13,20 @@ ActionEcho::ActionEcho() : IncomingAction() {
 ActionEcho::ActionEcho(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
 }
 
-
 ActionEcho::ActionEcho(const ActionEcho& orig) {
 }
 
 ActionEcho::~ActionEcho() {
 }
 
-Notification ActionEcho::toDo(){
-    
+Notification ActionEcho::toDo() {
+
+
     std::string echo = this->notification.getDataItem("Echo");
-    
+
     Notification response("RESPONSE");
     response.addDataItem(JSONNode("Echo", echo));
-    
+
     return response;
 
 }

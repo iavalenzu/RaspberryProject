@@ -5,20 +5,20 @@
  * Created on 15 de marzo de 2014, 05:01 PM
  */
 
-#include "ActionPersistentConnection.h"
+#include "ActionPersistentReceiver.h"
 #include "OutcomingActionExecutor.h"
 #include "IncomingActionExecutor.h"
 
-ActionPersistentConnection::ActionPersistentConnection(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
+ActionPersistentReceiver::ActionPersistentReceiver(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
 }
 
-ActionPersistentConnection::ActionPersistentConnection(const ActionPersistentConnection& orig) {
+ActionPersistentReceiver::ActionPersistentReceiver(const ActionPersistentReceiver& orig) {
 }
 
-ActionPersistentConnection::~ActionPersistentConnection() {
+ActionPersistentReceiver::~ActionPersistentReceiver() {
 }
 
-Notification ActionPersistentConnection::toDo(){
+Notification ActionPersistentReceiver::toDo(){
     
     Device* device;
     Notification notification;

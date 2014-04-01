@@ -24,10 +24,6 @@ int server;
 SSL *ssl;
 JSONNode json;
 
-
-
-
-
 int OpenConnection(const char *hostname, int port) {
 
     int sd;
@@ -96,74 +92,108 @@ void ShowCerts(SSL* ssl) {
 
 }
 
-int authenticates(SSL* ssl, string access_token) {
-
+int authenticatesReceiver(SSL* ssl, string access_token) {
 
     Notification notification;
-    
-    //TODO Lo siguiente no funka, ver el metodo setAction
-    
-    notification.setAction("PERSISTENT_CONNECTION");
+
+    notification.setAction("PERSISTENT_RECEIVER");
     notification.addDataItem(JSONNode("Token", access_token));
 
-    printf("JSON enviado: %s\n", notification.toString().c_str());
+    cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
 
     RaspiUtils::writeJSON(ssl, notification.getJSON());
 
     notification = Notification(RaspiUtils::readJSON(ssl));
-    
-    printf("JSON recibido: %s\n", notification.toString().c_str());
-    
-    if(notification.getAction().compare("REPORT_DELIVERY") == 0){
-    
+
+    cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
+
+    if (notification.getAction().compare("REPORT_DELIVERY") == 0) {
+
         std::string access = notification.getDataItem("Access");
-    
-        if(access.compare("SUCCESS") == 0){
-            
+
+        if (access.compare("SUCCESS") == 0) {
+
             notification.setAction("REPORT_DELIVERY");
             notification.clearData();
-            
+
             RaspiUtils::writeJSON(ssl, notification.getJSON());
-            
-            printf("JSON enviado: %s\n", notification.toString().c_str());
+
+            cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
 
             return true;
-            
-        }else{
-            
+
+        } else {
+
             notification.setAction("REPORT_DELIVERY");
             notification.clearData();
-            
+
             RaspiUtils::writeJSON(ssl, notification.getJSON());
-            
-            printf("JSON enviado: %s\n", notification.toString().c_str());
+
+            cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
 
             return false;
         }
-    
-    }
-  
-}
 
-void todo(char* action) {
-
-    if (strcmp(action, "exit") == 0) {
-        exit(0);
-    } else {
-        printf("Action: %s\n", action);
     }
+
 
 }
 
-void manage_close(int sig) {
+int authenticatesSender(SSL* ssl, string access_token) {
 
-    printf("Liberando SSL...\n");
+    Notification notification;
+
+    notification.setAction("PERSISTENT_SENDER");
+    notification.addDataItem(JSONNode("Token", access_token));
+
+    cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+
+    RaspiUtils::writeJSON(ssl, notification.getJSON());
+
+    notification = Notification(RaspiUtils::readJSON(ssl));
+
+    cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
+
+    if (notification.getAction().compare("REPORT_DELIVERY") == 0) {
+
+        std::string access = notification.getDataItem("Access");
+
+        if (access.compare("SUCCESS") == 0) {
+
+            notification.setAction("REPORT_DELIVERY");
+            notification.clearData();
+
+            RaspiUtils::writeJSON(ssl, notification.getJSON());
+
+            cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+
+            return true;
+
+        } else {
+
+            notification.setAction("REPORT_DELIVERY");
+            notification.clearData();
+
+            RaspiUtils::writeJSON(ssl, notification.getJSON());
+
+            cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+
+            return false;
+        }
+
+    }
+
+}
+
+void manageCloseClient(int sig) {
+
+    cout << getpid() << " > Liberando SSL" << endl;
 
     if (close(server) < 0) { /* close socket */
-        printf("Falló close\n");
+        cout << "Falló close" << endl;
     }
 
-    printf("SSL_shutdown: %d\n", SSL_shutdown(ssl));
+    cout << " > SSL_shutdown: " << SSL_shutdown(ssl) << endl;
     SSL_free(ssl); /* release connection state */
 
 
@@ -175,68 +205,151 @@ void manage_close(int sig) {
 
 int main(int argc, char* argv[]) {
 
-    printf("Argc: %d\n", argc);
-    printf("Argv: %s\n", argv[0]);
+    string hostname = "localhost";
+    string access_token = "93246038d91f02b45aefd4b883edff31b67a00ce";
 
-    char hostname[BUFSIZ];
-    strcpy(hostname, "localhost");
+    pid_t rc_pid;
+    int chld_state;
 
-    signal(SIGINT, manage_close);
+    struct sigaction sigact_close_client;
+
+    sigemptyset(&sigact_close_client.sa_mask);
+    sigact_close_client.sa_flags = 0;
+    sigact_close_client.sa_handler = manageCloseClient;
+    sigaction(SIGTERM, &sigact_close_client, NULL);
+    sigaction(SIGABRT, &sigact_close_client, NULL);
+    sigaction(SIGKILL, &sigact_close_client, NULL);
+    sigaction(SIGINT, &sigact_close_client, NULL);
+    sigaction(SIGCHLD, &sigact_close_client, NULL);
 
     SSL_library_init();
 
-    ctx = InitCTX();
-    server = OpenConnection(hostname, PORT_NUM);
-    ssl = SSL_new(ctx); /* create new SSL connection state */
-    SSL_set_fd(ssl, server); /* attach the socket descriptor */
+    cout << getpid() << " > El cliente inicia!!" << endl;
+    
+    int pid = fork();
 
-    if (SSL_connect(ssl) == -1) { /* perform the connection */
-        ERR_print_errors_fp(stderr);
+    if (pid < 0) {
+        fprintf(stderr, "Fork failed\n");
         abort();
     }
 
-    ShowCerts(ssl);
-    printf("Connected with %s encryption\n", SSL_get_cipher(ssl));
+    if (pid == 0) {
+        //Creamos el hijo encargado de manejar el PERSISTENT_RECEIVER
 
+        cout << getpid() << " > Persistent Receiver Process" << endl;
 
-    string access_token = "93246038d91f02b45aefd4b883edff31b67a00ce";
+        ctx = InitCTX();
+        server = OpenConnection(hostname.c_str(), PORT_NUM);
+        ssl = SSL_new(ctx); /* create new SSL connection state */
+        SSL_set_fd(ssl, server); /* attach the socket descriptor */
 
-    /*Se realiza la autentificacion*/
-    if (!authenticates(ssl, access_token)) {
-        /*Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine*/
-        printf("Nombre de usuario o contraseña incorrecta.\n");
+        if (SSL_connect(ssl) == -1) { /* perform the connection */
+            ERR_print_errors_fp(stderr);
+            abort();
+        }
 
-    }else {
-
-        Notification notification;
-        Action* action;
+        //ShowCerts(ssl);
         
-        /*Comienza el intercambio de mensajes*/
-        
-        cout << "Comienza el intercambio de mensajes!!!" << endl;
-    
-        while (true) {
+        cout << getpid() << " > Connected with " << SSL_get_cipher(ssl) << " encryption." << endl;
 
-            notification = Notification(RaspiUtils::readJSON(ssl));
-            
-            printf("JSON recibido: %s\n", notification.toString().c_str());
 
-            action = IncomingActionFactory::createFromNotification(notification, NULL);
-            
-            notification = action->toDo();
-            
-            RaspiUtils::writeJSON(ssl, notification.getJSON());
+        //Se realiza la autentificacion
+        if (!authenticatesReceiver(ssl, access_token)) {
+            //Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine
+            cout << getpid() << " > Nombre de usuario o contraseña incorrecta." << endl;
 
-            printf("JSON enviado: %s\n", notification.toString().c_str());
+        } else {
+
+            Notification notification;
+            Action* action;
+
+            //Comienza el intercambio de mensajes
+
+            cout << getpid() << " > Comienza el intercambio de mensajes!!!" << endl;
+
+            while (true) {
+
+                notification = Notification(RaspiUtils::readJSON(ssl));
+
+                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
+
+                action = IncomingActionFactory::createFromNotification(notification, NULL);
+
+                notification = action->toDo();
+
+                RaspiUtils::writeJSON(ssl, notification.getJSON());
+
+                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+
+            }
 
         }
 
+        SSL_free(ssl); // release connection state 
+
+        close(server); // close socket 
+        SSL_CTX_free(ctx); // release context 
+
+
+        exit(0);
+
     }
 
-    SSL_free(ssl); // release connection state 
+    pid = fork();
 
-    close(server); // close socket 
-    SSL_CTX_free(ctx); // release context 
+    if (pid < 0) {
+        fprintf(stderr, "Fork failed\n");
+        abort();
+    }
+
+    if (pid == 0) {
+        //Creamos el hijo encargado de manejar el PERSISTENT_SENDER
+        cout << getpid() << " > Persistent Sender Process" << endl;
+
+        ctx = InitCTX();
+        server = OpenConnection(hostname.c_str(), PORT_NUM);
+        ssl = SSL_new(ctx); /* create new SSL connection state */
+        SSL_set_fd(ssl, server); /* attach the socket descriptor */
+
+        if (SSL_connect(ssl) == -1) { /* perform the connection */
+            ERR_print_errors_fp(stderr);
+            abort();
+        }
+
+        //ShowCerts(ssl);
+        cout << getpid() << " > Connected with " << SSL_get_cipher(ssl) << " encryption." << endl;
+
+
+        //Se realiza la autentificacion
+        if (!authenticatesSender(ssl, access_token)) {
+            //Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine
+            cout << getpid() << " > Nombre de usuario o contraseña incorrecta." << endl;
+
+        } else {
+
+            Notification notification;
+            Action* action;
+
+            //Comienza el intercambio de mensajes
+
+            cout << getpid() << " > Comienza el intercambio de mensajes!!!" << endl;
+
+
+        }
+
+        SSL_free(ssl); // release connection state 
+
+        close(server); // close socket 
+        SSL_CTX_free(ctx); // release context 
+
+
+        exit(0);
+
+    }
+
+    rc_pid = wait(&chld_state);
+    
+    cout << getpid() << " > Rc Pid: " << rc_pid << endl;
 
     return 0;
 

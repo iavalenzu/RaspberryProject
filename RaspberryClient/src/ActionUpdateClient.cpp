@@ -16,9 +16,34 @@ ActionUpdateClient::ActionUpdateClient(const ActionUpdateClient& orig) {
 ActionUpdateClient::~ActionUpdateClient() {
 }
 
-Notification ActionUpdateClient::toDo(){
+Notification ActionUpdateClient::toDo() {
 
     cout << "Me voy a actualizar!!" << endl;
-    
+
+    int pid = fork();
+
+    if (pid < 0) {
+        fprintf(stderr, "Fork failed\n");
+        abort();
+    }
+
+    if (pid == 0) {
+        //Este es el hijo
+        
+        for(int i=0; i<10; i++){
+            sleep(1);
+            cout << "Tiempo: " << i << endl;
+        }
+        
+        cout << "Finish!!" << endl;
+        
+        return this->notification;
+        
+        exit(0);
+        
+    }else{
+        //Este es el padre
+    }
+
     return this->notification;
 }

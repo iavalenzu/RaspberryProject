@@ -28,8 +28,8 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
         action = new ActionGetFortune(notification, connection);
     }else if(action_name.compare(ACTION_ECHO) == 0){
         action = new ActionEcho(notification, connection);
-    }else if(action_name.compare(ACTION_PERSISTENT_CONNECTION) == 0){
-        action = new ActionPersistentConnection(notification, connection);
+    }else if(action_name.compare(ACTION_PERSISTENT_RECEIVER) == 0){
+        action = new ActionPersistentReceiver(notification, connection);
     }
     
     return action;

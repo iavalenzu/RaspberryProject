@@ -39,7 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ActionEcho.o \
 	${OBJECTDIR}/ActionFactory.o \
 	${OBJECTDIR}/ActionGetFortune.o \
-	${OBJECTDIR}/ActionPersistentConnection.o \
+	${OBJECTDIR}/ActionPersistentReceiver.o \
 	${OBJECTDIR}/ActionReportDelivery.o \
 	${OBJECTDIR}/ActionResponseTime.o \
 	${OBJECTDIR}/ActionUpdateClient.o \
@@ -117,10 +117,10 @@ ${OBJECTDIR}/ActionGetFortune.o: ActionGetFortune.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionGetFortune.o ActionGetFortune.cpp
 
-${OBJECTDIR}/ActionPersistentConnection.o: ActionPersistentConnection.cpp 
+${OBJECTDIR}/ActionPersistentReceiver.o: ActionPersistentReceiver.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionPersistentConnection.o ActionPersistentConnection.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionPersistentReceiver.o ActionPersistentReceiver.cpp
 
 ${OBJECTDIR}/ActionReportDelivery.o: ActionReportDelivery.cpp 
 	${MKDIR} -p ${OBJECTDIR}

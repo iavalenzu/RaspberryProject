@@ -11,13 +11,13 @@
 #include <signal.h>
 #include "IncomingAction.h"
 
-#define ACTION_PERSISTENT_CONNECTION "PERSISTENT_CONNECTION" 
+#define ACTION_PERSISTENT_RECEIVER "PERSISTENT_RECEIVER" 
 
-class ActionPersistentConnection : public IncomingAction {
+class ActionPersistentReceiver : public IncomingAction {
 public:
-    ActionPersistentConnection(Notification notification, ConnectionSSL* connection);
-    ActionPersistentConnection(const ActionPersistentConnection& orig);
-    virtual ~ActionPersistentConnection();
+    ActionPersistentReceiver(Notification notification, ConnectionSSL* connection);
+    ActionPersistentReceiver(const ActionPersistentReceiver& orig);
+    virtual ~ActionPersistentReceiver();
     Notification toDo();
     
 private:

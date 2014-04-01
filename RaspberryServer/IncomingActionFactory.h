@@ -13,7 +13,7 @@
 
 #include "ActionGetFortune.h"
 #include "ActionEcho.h"
-#include "ActionPersistentConnection.h"
+#include "ActionPersistentReceiver.h"
 
 
 class IncomingActionFactory : public ActionFactory {

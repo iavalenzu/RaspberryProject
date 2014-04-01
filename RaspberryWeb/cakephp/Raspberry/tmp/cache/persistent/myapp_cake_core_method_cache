@@ -1,2 +1,2 @@
-1395794649
+1396106507
 a:2:{s:4:"name";a:7:{s:32:"e632cbd247d3590ca480f35e439da094";s:11:"`raspberry`";s:32:"8c546609381b8dc4938d2ef1fd26f2b3";s:13:"`connections`";s:32:"9fd2aed3a68dcb3e8778bfbe6151f84c";s:17:"`Connection`.`id`";s:32:"529c8b6d4d46af3c459a92d04be5f24f";s:18:"`Connection`.`pid`";s:32:"d05d5661318641918b13bcd87dac26e4";s:22:"`Connection`.`user_id`";s:32:"5cea9ef3a16bcf3bbe165d919c3c6481";s:21:"`Connection`.`status`";s:32:"73eb7eea134fddc058b1807735518af3";s:12:"`Connection`";}s:6:"fields";a:1:{s:32:"342ef8fa70bf1629e2652e25e496ef80";a:4:{i:0;s:17:"`Connection`.`id`";i:1;s:18:"`Connection`.`pid`";i:2;s:22:"`Connection`.`user_id`";i:3;s:21:"`Connection`.`status`";}}}
