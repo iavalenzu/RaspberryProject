@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o \
 	${OBJECTDIR}/Action.o \
 	${OBJECTDIR}/ActionEcho.o \
 	${OBJECTDIR}/ActionFactory.o \
@@ -96,6 +97,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryserver: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryserver ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/429082616
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp
 
 ${OBJECTDIR}/Action.o: Action.cpp 
 	${MKDIR} -p ${OBJECTDIR}

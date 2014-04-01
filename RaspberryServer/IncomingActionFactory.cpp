@@ -30,6 +30,8 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
         action = new ActionEcho(notification, connection);
     }else if(action_name.compare(ACTION_PERSISTENT_RECEIVER) == 0){
         action = new ActionPersistentReceiver(notification, connection);
+    }else if(action_name.compare(ACTION_PERSISTENT_SENDER) == 0){
+        action = new ActionPersistentSender(notification, connection);
     }
     
     return action;

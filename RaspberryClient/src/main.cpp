@@ -225,7 +225,7 @@ int main(int argc, char* argv[]) {
     SSL_library_init();
 
     cout << getpid() << " > El cliente inicia!!" << endl;
-    
+
     int pid = fork();
 
     if (pid < 0) {
@@ -249,7 +249,7 @@ int main(int argc, char* argv[]) {
         }
 
         //ShowCerts(ssl);
-        
+
         cout << getpid() << " > Connected with " << SSL_get_cipher(ssl) << " encryption." << endl;
 
 
@@ -335,6 +335,44 @@ int main(int argc, char* argv[]) {
             cout << getpid() << " > Comienza el intercambio de mensajes!!!" << endl;
 
 
+            while (true) {
+
+                /*
+                 * Se obtiene la notification de 
+                 */
+
+                cout << getpid() << " > Bucle infinito... " << endl;
+
+                notification = Notification(ACTION_REPORT_DELIVERY);
+
+                RaspiUtils::writeJSON(ssl, notification.getJSON());
+
+                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+
+                notification = Notification(RaspiUtils::readJSON(ssl));
+
+                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
+
+
+                sleep(5);
+                /*
+                action = IncomingActionFactory::createFromNotification(notification, NULL);
+
+                notification = action->toDo();
+
+                RaspiUtils::writeJSON(ssl, notification.getJSON());
+
+                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
+
+                notification = Notification(RaspiUtils::readJSON(ssl));
+
+                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
+                 */
+
+            }
+
+
+
         }
 
         SSL_free(ssl); // release connection state 
@@ -348,7 +386,7 @@ int main(int argc, char* argv[]) {
     }
 
     rc_pid = wait(&chld_state);
-    
+
     cout << getpid() << " > Rc Pid: " << rc_pid << endl;
 
     return 0;
