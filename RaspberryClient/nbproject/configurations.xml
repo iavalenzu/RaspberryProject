@@ -7,10 +7,12 @@
       <logicalFolder name="f2" displayName="Actions" projectFiles="true">
         <itemPath>src/Action.h</itemPath>
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingAction.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f4" displayName="Factory" projectFiles="true">
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.h</itemPath>
         <itemPath>src/IncomingActionFactory.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionFactory.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="IncomingsActions" projectFiles="true">
         <itemPath>src/ActionGetFortune.h</itemPath>
@@ -19,11 +21,13 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.h</itemPath>
       </logicalFolder>
-      <itemPath>src/ConnectionSSL.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Core.h</itemPath>
       <itemPath>src/Device.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.h</itemPath>
-      <itemPath>src/core.h</itemPath>
     </logicalFolder>
     <logicalFolder name="libjson" displayName="libjson" projectFiles="true">
       <logicalFolder name="_internal" displayName="_internal" projectFiles="true">
@@ -94,10 +98,12 @@
       <logicalFolder name="f2" displayName="Actions" projectFiles="true">
         <itemPath>src/Action.cpp</itemPath>
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingAction.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Factory" projectFiles="true">
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp</itemPath>
         <itemPath>src/IncomingActionFactory.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionFactory.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f4" displayName="IncomingsActions" projectFiles="true">
         <itemPath>src/ActionGetFortune.cpp</itemPath>
@@ -106,8 +112,10 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.cpp</itemPath>
       </logicalFolder>
-      <itemPath>src/ConnectionSSL.cpp</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.cpp</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.cpp</itemPath>
       <itemPath>src/Device.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.cpp</itemPath>
       <itemPath>src/main.cpp</itemPath>
@@ -174,6 +182,31 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Core.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp"
             ex="false"
             tool="1"
@@ -190,6 +223,36 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingAction.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingAction.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionFactory.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -435,10 +498,6 @@
       </item>
       <item path="src/ActionUpdateClient.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ConnectionSSL.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="src/Device.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Device.h" ex="false" tool="3" flavor2="0">
@@ -446,8 +505,6 @@
       <item path="src/IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/core.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -500,6 +557,31 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Core.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp"
             ex="false"
             tool="1"
@@ -516,6 +598,36 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingAction.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingAction.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionFactory.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -761,10 +873,6 @@
       </item>
       <item path="src/ActionUpdateClient.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="src/ConnectionSSL.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/ConnectionSSL.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="src/Device.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/Device.h" ex="false" tool="3" flavor2="0">
@@ -772,8 +880,6 @@
       <item path="src/IncomingActionFactory.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/IncomingActionFactory.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="src/core.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="src/main.cpp" ex="false" tool="1" flavor2="0">
       </item>

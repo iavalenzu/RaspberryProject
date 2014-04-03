@@ -26,6 +26,13 @@ Notification ActionPersistentSender::toDo(){
     OutcomingActionExecutor outcoming_executor(this->connection);
     sigset_t block_set;
     
+    /* 
+     * Start the timer
+     */
+
+    alarm(CHECK_INACTIVE_INTERVAL);
+    
+    
     /*
      * Initializes a signal set set to the complete set of supported signals.
      */
@@ -65,11 +72,13 @@ Notification ActionPersistentSender::toDo(){
         notification = Notification(ACTION_REPORT_DELIVERY);
         notification.addDataItem(JSONNode("Access", "SUCCESS"));
         
-        outcoming_executor.write(notification); //Termina con un read ssl
+        outcoming_executor.write(notification); 
         
         while(true){
             
-            incoming_executor.read(); //Cominenza con un read ssl
+            incoming_executor.read(); 
+            
+            this->connection->setLastActivity();
         
         }
         

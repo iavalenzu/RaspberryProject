@@ -1,94 +1,29 @@
-#include <stdlib.h>
-#include <netdb.h>
-#include <resolv.h>
 #include <sys/socket.h>
-#include <openssl/ssl.h>
-#include <openssl/err.h>
 #include <stdbool.h>
 #include <unistd.h>
 
-#include "RaspiUtils.h"
+#include <sys/msg.h>
 
-
-#include "core.h"
-#include "Notification.h"
-#include "Action.h"
-#include "IncomingActionFactory.h"
 
 #include <signal.h>
 #include <string>
 
+//#include "RaspiUtils.h"
 
-SSL_CTX *ctx;
-int server;
-SSL *ssl;
-JSONNode json;
 
-int OpenConnection(const char *hostname, int port) {
+#include "Core.h"
+#include "Notification.h"
+#include "OutcomingActionExecutor.h"
 
-    int sd;
-    struct hostent *host;
-    struct sockaddr_in addr;
 
-    if ((host = gethostbyname(hostname)) == NULL) {
-        perror(hostname);
-        abort();
-    }
+ClientSSL client;
+ConnectionSSL connection;
 
-    sd = socket(PF_INET, SOCK_STREAM, 0);
+void manageCloseClient(int sig) {
 
-    bzero(&addr, sizeof (addr));
-    addr.sin_family = AF_INET;
-    addr.sin_port = htons(port);
-    addr.sin_addr.s_addr = *(long*) (host->h_addr);
-
-    if (connect(sd, (struct sockaddr*) &addr, sizeof (addr)) != 0) {
-        close(sd);
-        perror(hostname);
-        abort();
-    }
-
-    return sd;
 }
 
-SSL_CTX* InitCTX(void) {
-
-    SSL_METHOD *method;
-    SSL_CTX *ctx;
-
-    OpenSSL_add_all_algorithms(); /* Load cryptos, et.al. */
-    SSL_load_error_strings(); /* Bring in and register error messages */
-    method = SSLv3_client_method(); /* Create new client-method instance */
-    ctx = SSL_CTX_new(method); /* Create new context */
-
-    if (ctx == NULL) {
-        ERR_print_errors_fp(stderr);
-        abort();
-    }
-
-    return ctx;
-}
-
-void ShowCerts(SSL* ssl) {
-
-    X509 *cert;
-    char *line;
-
-    cert = SSL_get_peer_certificate(ssl); // get the server's certificate 
-
-    if (cert != NULL) {
-
-        printf("Server certificates:\n");
-        line = X509_NAME_oneline(X509_get_subject_name(cert), 0, 0);
-        printf("Subject: %s\n", line);
-        free(line); // free the malloc'ed string 
-        line = X509_NAME_oneline(X509_get_issuer_name(cert), 0, 0);
-        printf("Issuer: %s\n", line);
-        free(line); // free the malloc'ed string
-        X509_free(cert); // free the malloc'ed certificate copy 
-
-    } else
-        printf("No certificates.\n");
+void manageCloseConnection(int sig) {
 
 }
 
@@ -185,33 +120,30 @@ int authenticatesSender(SSL* ssl, string access_token) {
 
 }
 
-void manageCloseClient(int sig) {
+int main(int argc, char** argv) {
 
-    cout << getpid() << " > Liberando SSL" << endl;
-
-    if (close(server) < 0) { /* close socket */
-        cout << "Falló close" << endl;
-    }
-
-    cout << " > SSL_shutdown: " << SSL_shutdown(ssl) << endl;
-    SSL_free(ssl); /* release connection state */
-
-
-    SSL_CTX_free(ctx); /* release context */
-
-    exit(sig);
-
-}
-
-int main(int argc, char* argv[]) {
-
-    string hostname = "localhost";
-    string access_token = "93246038d91f02b45aefd4b883edff31b67a00ce";
 
     pid_t rc_pid;
     int chld_state;
 
+    int msgid;
+    int msgkey;
+
     struct sigaction sigact_close_client;
+
+    msgkey = rand();
+
+
+    msgid = msgget((key_t) msgkey, 0666 | IPC_CREAT);
+
+    cout << getpid() << " > " << "msgkey: " << msgkey << endl;
+    cout << getpid() << " > " << "msgid: " << msgid << endl;
+
+    if (msgid < 0) {
+        cout << getpid() << " > msgget: " << errno << endl;
+        exit(EXIT_FAILURE);
+    }
+
 
     sigemptyset(&sigact_close_client.sa_mask);
     sigact_close_client.sa_flags = 0;
@@ -220,38 +152,25 @@ int main(int argc, char* argv[]) {
     sigaction(SIGABRT, &sigact_close_client, NULL);
     sigaction(SIGKILL, &sigact_close_client, NULL);
     sigaction(SIGINT, &sigact_close_client, NULL);
-    sigaction(SIGCHLD, &sigact_close_client, NULL);
 
-    SSL_library_init();
-
-    cout << getpid() << " > El cliente inicia!!" << endl;
-
-    int pid = fork();
+    int pid;
+    
+    pid = fork();
 
     if (pid < 0) {
-        fprintf(stderr, "Fork failed\n");
+        cout << getpid() << " > Fork failed!!" << endl;
         abort();
     }
 
     if (pid == 0) {
-        //Creamos el hijo encargado de manejar el PERSISTENT_RECEIVER
 
-        cout << getpid() << " > Persistent Receiver Process" << endl;
+        connection.setEncryptedSocket(client);
+        
+        OutcomingActionExecutor outcoming_executor(connection);
 
-        ctx = InitCTX();
-        server = OpenConnection(hostname.c_str(), PORT_NUM);
-        ssl = SSL_new(ctx); /* create new SSL connection state */
-        SSL_set_fd(ssl, server); /* attach the socket descriptor */
-
-        if (SSL_connect(ssl) == -1) { /* perform the connection */
-            ERR_print_errors_fp(stderr);
-            abort();
-        }
-
-        //ShowCerts(ssl);
-
-        cout << getpid() << " > Connected with " << SSL_get_cipher(ssl) << " encryption." << endl;
-
+        Notification notification("PERSISTENT_RECEIVER");
+        
+        outcoming_executor.write(notification);
 
         //Se realiza la autentificacion
         if (!authenticatesReceiver(ssl, access_token)) {
@@ -273,6 +192,15 @@ int main(int argc, char* argv[]) {
 
                 cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
 
+                some_data.my_msg_type = 1;
+                strcpy(some_data.some_text, notification.toString().c_str());
+
+                if (msgsnd(msgid, (void *) &some_data, BUFSIZ, 0) < 0) {
+                    cout << getpid() << " > msgsnd: " << errno << endl;
+                    abort();
+                }
+
+
                 action = IncomingActionFactory::createFromNotification(notification, NULL);
 
                 notification = action->toDo();
@@ -285,12 +213,6 @@ int main(int argc, char* argv[]) {
 
         }
 
-        SSL_free(ssl); // release connection state 
-
-        close(server); // close socket 
-        SSL_CTX_free(ctx); // release context 
-
-
         exit(0);
 
     }
@@ -298,27 +220,20 @@ int main(int argc, char* argv[]) {
     pid = fork();
 
     if (pid < 0) {
-        fprintf(stderr, "Fork failed\n");
+        cout << getpid() << " > Fork failed!!" << endl;
         abort();
     }
 
     if (pid == 0) {
-        //Creamos el hijo encargado de manejar el PERSISTENT_SENDER
-        cout << getpid() << " > Persistent Sender Process" << endl;
+        
+        connection.setEncryptedSocket(client);
+        
+        OutcomingActionExecutor outcoming_executor(connection);
 
-        ctx = InitCTX();
-        server = OpenConnection(hostname.c_str(), PORT_NUM);
-        ssl = SSL_new(ctx); /* create new SSL connection state */
-        SSL_set_fd(ssl, server); /* attach the socket descriptor */
-
-        if (SSL_connect(ssl) == -1) { /* perform the connection */
-            ERR_print_errors_fp(stderr);
-            abort();
-        }
-
-        //ShowCerts(ssl);
-        cout << getpid() << " > Connected with " << SSL_get_cipher(ssl) << " encryption." << endl;
-
+        Notification notification("PERSISTENT_SENDER");
+        
+        outcoming_executor.write(notification);
+        
 
         //Se realiza la autentificacion
         if (!authenticatesSender(ssl, access_token)) {
@@ -338,10 +253,15 @@ int main(int argc, char* argv[]) {
             while (true) {
 
                 /*
-                 * Se obtiene la notification de 
+                 * Se obtiene la notification de msgsend
                  */
 
-                cout << getpid() << " > Bucle infinito... " << endl;
+                if (msgrcv(msgid, (void *) &some_data, BUFSIZ, msg_to_receive, 0) < 0) {
+                    cout << getpid() << " > msgrcv: " << errno << endl;
+                    abort();
+                }
+
+                cout << getpid() << " > Me llega un mensaje... " << endl;
 
                 notification = Notification(ACTION_REPORT_DELIVERY);
 
@@ -354,32 +274,9 @@ int main(int argc, char* argv[]) {
                 cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
 
 
-                sleep(5);
-                /*
-                action = IncomingActionFactory::createFromNotification(notification, NULL);
-
-                notification = action->toDo();
-
-                RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-                notification = Notification(RaspiUtils::readJSON(ssl));
-
-                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
-                 */
-
             }
 
-
-
         }
-
-        SSL_free(ssl); // release connection state 
-
-        close(server); // close socket 
-        SSL_CTX_free(ctx); // release context 
-
 
         exit(0);
 

@@ -122,19 +122,13 @@ SSL* ConnectionSSL::getSSL() {
 
 void ConnectionSSL::processAction() {
 
-    /* 
-     * Start the timer
-     */
-    
-    alarm(CHECK_INACTIVE_INTERVAL);
-
-    IncomingActionExecutor executor(this);
+    IncomingActionExecutor incoming_executor(this);
 
     /*
      * Leemos la notificacion entrante y ejecutamos la accion asociada
      */
 
-    executor.read();
+    incoming_executor.read();
 
 }
 

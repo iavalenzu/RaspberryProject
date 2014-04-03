@@ -101,7 +101,7 @@ int main(int argc, char** argv) {
         int pid = fork();
 
         if (pid < 0) {
-            fprintf(stderr, "Fork failed\n");
+            cout << getpid() << " > Fork failed!!" << endl;
             abort();
         }
 
@@ -140,7 +140,7 @@ int main(int argc, char** argv) {
              * Se inicia el servicio que se encarga de enviar las notificaciones
              */
 
-            cout << getpid() << " > Iniciando Cliente!!" << endl;
+            cout << getpid() << " > Iniciando Coneccion!!" << endl;
 
             connection.processAction();
 

@@ -36,8 +36,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1604071451/ActionFactory.o \
+	${OBJECTDIR}/_ext/1604071451/ClientSSL.o \
+	${OBJECTDIR}/_ext/1604071451/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/1604071451/IncomingAction.o \
 	${OBJECTDIR}/_ext/1604071451/Notification.o \
+	${OBJECTDIR}/_ext/1604071451/OutcomingAction.o \
+	${OBJECTDIR}/_ext/1604071451/OutcomingActionExecutor.o \
+	${OBJECTDIR}/_ext/1604071451/OutcomingActionFactory.o \
 	${OBJECTDIR}/_ext/1604071451/RaspiUtils.o \
 	${OBJECTDIR}/_ext/1293681001/JSONAllocator.o \
 	${OBJECTDIR}/_ext/1293681001/JSONChildren.o \
@@ -57,7 +62,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/ActionGetFortune.o \
 	${OBJECTDIR}/src/ActionStopClient.o \
 	${OBJECTDIR}/src/ActionUpdateClient.o \
-	${OBJECTDIR}/src/ConnectionSSL.o \
 	${OBJECTDIR}/src/Device.o \
 	${OBJECTDIR}/src/IncomingActionFactory.o \
 	${OBJECTDIR}/src/main.o
@@ -92,6 +96,16 @@ ${OBJECTDIR}/_ext/1604071451/ActionFactory.o: /Users/Ismael/NetBeansProjects/Ras
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionFactory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp
 
+${OBJECTDIR}/_ext/1604071451/ClientSSL.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ClientSSL.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.cpp
+
+${OBJECTDIR}/_ext/1604071451/ConnectionSSL.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ConnectionSSL.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.cpp
+
 ${OBJECTDIR}/_ext/1604071451/IncomingAction.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
@@ -101,6 +115,21 @@ ${OBJECTDIR}/_ext/1604071451/Notification.o: /Users/Ismael/NetBeansProjects/Rasp
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/Notification.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.cpp
+
+${OBJECTDIR}/_ext/1604071451/OutcomingAction.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingAction.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/OutcomingAction.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingAction.cpp
+
+${OBJECTDIR}/_ext/1604071451/OutcomingActionExecutor.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/OutcomingActionExecutor.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.cpp
+
+${OBJECTDIR}/_ext/1604071451/OutcomingActionFactory.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/OutcomingActionFactory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionFactory.cpp
 
 ${OBJECTDIR}/_ext/1604071451/RaspiUtils.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/RaspiUtils.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
@@ -196,11 +225,6 @@ ${OBJECTDIR}/src/ActionUpdateClient.o: src/ActionUpdateClient.cpp
 	${MKDIR} -p ${OBJECTDIR}/src
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ActionUpdateClient.o src/ActionUpdateClient.cpp
-
-${OBJECTDIR}/src/ConnectionSSL.o: src/ConnectionSSL.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/src/ConnectionSSL.o src/ConnectionSSL.cpp
 
 ${OBJECTDIR}/src/Device.o: src/Device.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src

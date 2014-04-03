@@ -29,17 +29,18 @@ std:
 
         bytes = SSL_write(ssl, out.data(), BUFSIZE); // encrypt & send message 
 
-        if (bytes <= 0) {
-            ERR_print_errors_fp(stderr);
-            perror("SSL_write");
-            abort();
+        if (bytes < 0) {
+            
+            cout << getpid() << " > " << strerror(errno) << endl;
+            
+        } else {
+
+            out += bytes;
+            totalbytes += bytes;
+
+            if (totalbytes >= outlen) break;
+
         }
-
-        out += bytes;
-        totalbytes += bytes;
-
-        if (totalbytes >= outlen) break;
-
     }
 
     return totalbytes;
@@ -58,25 +59,24 @@ JSONNode RaspiUtils::readJSON(SSL *ssl) {
 
         bytes = SSL_read(ssl, buf, sizeof (buf)); /* get reply & decrypt */
 
-        if (bytes <= 0) {
-            ERR_print_errors_fp(stderr);
-            perror("SSL_read");
-            abort();
-        }
+        if (bytes < 0) {
 
-        buf[bytes] = 0;
+            cout << getpid() << " > " << strerror(errno) << endl;
 
-        msg.append(buf);
+        } else {
 
-        //TODO PRobar lo siguiente
+            buf[bytes] = 0;
 
-        try {
+            msg.append(buf);
 
-            tmpjson = libjson::parse(msg);
-            break;
+            try {
 
-        } catch (std::exception &e) {
-            continue;
+                tmpjson = libjson::parse(msg);
+                break;
+
+            } catch (std::exception &e) {
+                continue;
+            }
         }
 
     }
@@ -139,11 +139,11 @@ std::string RaspiUtils::humanTime(int _seconds) {
     int days = rest / day;
 
     if (days > 0) {
-        
+
         out.append(std::to_string(days));
         out.append(" days");
         if (days > 1) out.append("s");
-        
+
     } else {
 
         rest = rest % day;
@@ -155,12 +155,12 @@ std::string RaspiUtils::humanTime(int _seconds) {
         int hours = rest / hour;
 
         if (hours > 0) {
-            
+
             if (days > 0) out.append(", ");
             out.append(std::to_string(hours));
             out.append(" hour");
             if (hours > 1) out.append("s");
-            
+
         } else {
 
             rest = rest % hour;
@@ -172,12 +172,12 @@ std::string RaspiUtils::humanTime(int _seconds) {
             int minutes = rest / minute;
 
             if (minutes > 0) {
-                
+
                 if (hours > 0) out.append(", ");
                 out.append(std::to_string(minutes));
                 out.append(" minute");
                 if (minutes > 1) out.append("s");
-                
+
             } else {
 
                 rest = rest % minute;
@@ -189,18 +189,18 @@ std::string RaspiUtils::humanTime(int _seconds) {
                 int seconds = rest / second;
 
                 if (seconds > 0) {
-                    
+
                     if (minutes > 0) out.append(", ");
                     out.append(std::to_string(seconds));
                     out.append(" second");
                     if (seconds > 1) out.append("s");
-                    
+
                 }
 
             }
 
         }
-        
+
     }
 
     return out;
