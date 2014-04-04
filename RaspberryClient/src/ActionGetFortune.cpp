@@ -23,8 +23,6 @@ ActionGetFortune::~ActionGetFortune() {
 
 Notification ActionGetFortune::toDo() {
     
-    cout << "ActionGetFortune::toDo()" << endl;
-
     FILE *in;
     char buff[512];
     std::string out = "";

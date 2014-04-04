@@ -37,7 +37,7 @@ Notification ActionResponseTime::toDo() {
     
         ini = RaspiUtils::getTime();
 
-        response = executor.write(echo);
+        response = executor.writeAndWaitResponse(echo);
     
         end = RaspiUtils::getTime();
   

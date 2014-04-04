@@ -18,7 +18,7 @@ IncomingActionExecutor::IncomingActionExecutor(const IncomingActionExecutor& ori
 IncomingActionExecutor::~IncomingActionExecutor() {
 }
 
-void IncomingActionExecutor::readAndWriteResponse(){ 
+void IncomingActionExecutor::read(){ 
 
     Notification notification = Notification(RaspiUtils::readJSON(this->connection->getSSL()));
     
@@ -28,14 +28,4 @@ void IncomingActionExecutor::readAndWriteResponse(){
 
     RaspiUtils::writeJSON(this->connection->getSSL(), notification.getJSON());
     
-}
-
-Notification IncomingActionExecutor::read(){ 
-
-    Notification notification = Notification(RaspiUtils::readJSON(this->connection->getSSL()));
-    
-    IncomingAction *action = IncomingActionFactory::createFromNotification(notification, this->connection);
-    
-    return action->toDo();
-
 }

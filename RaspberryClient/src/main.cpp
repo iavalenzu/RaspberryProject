@@ -1,19 +1,21 @@
+#include <stdlib.h>
 #include <sys/socket.h>
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 #include <stdbool.h>
 #include <unistd.h>
-
-#include <sys/msg.h>
-
-
 #include <signal.h>
 #include <string>
 
-//#include "RaspiUtils.h"
-
-
-#include "Core.h"
 #include "Notification.h"
 #include "OutcomingActionExecutor.h"
+#include "ClientSSL.h"
+#include "ConnectionSSL.h"
+
+#include "Core.h"
+
+
+using namespace std;
 
 
 ClientSSL client;
@@ -27,123 +29,15 @@ void manageCloseConnection(int sig) {
 
 }
 
-int authenticatesReceiver(SSL* ssl, string access_token) {
-
-    Notification notification;
-
-    notification.setAction("PERSISTENT_RECEIVER");
-    notification.addDataItem(JSONNode("Token", access_token));
-
-    cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-    RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-    notification = Notification(RaspiUtils::readJSON(ssl));
-
-    cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
-
-    if (notification.getAction().compare("REPORT_DELIVERY") == 0) {
-
-        std::string access = notification.getDataItem("Access");
-
-        if (access.compare("SUCCESS") == 0) {
-
-            notification.setAction("REPORT_DELIVERY");
-            notification.clearData();
-
-            RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-            cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-            return true;
-
-        } else {
-
-            notification.setAction("REPORT_DELIVERY");
-            notification.clearData();
-
-            RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-            cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-            return false;
-        }
-
-    }
-
-
-}
-
-int authenticatesSender(SSL* ssl, string access_token) {
-
-    Notification notification;
-
-    notification.setAction("PERSISTENT_SENDER");
-    notification.addDataItem(JSONNode("Token", access_token));
-
-    cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-    RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-    notification = Notification(RaspiUtils::readJSON(ssl));
-
-    cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
-
-    if (notification.getAction().compare("REPORT_DELIVERY") == 0) {
-
-        std::string access = notification.getDataItem("Access");
-
-        if (access.compare("SUCCESS") == 0) {
-
-            notification.setAction("REPORT_DELIVERY");
-            notification.clearData();
-
-            RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-            cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-            return true;
-
-        } else {
-
-            notification.setAction("REPORT_DELIVERY");
-            notification.clearData();
-
-            RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-            cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-            return false;
-        }
-
-    }
-
-}
-
 int main(int argc, char** argv) {
 
 
     pid_t rc_pid;
+    pid_t child_pid;
     int chld_state;
-
-    int msgid;
-    int msgkey;
+    int file_pipes[2];
 
     struct sigaction sigact_close_client;
-
-    msgkey = rand();
-
-
-    msgid = msgget((key_t) msgkey, 0666 | IPC_CREAT);
-
-    cout << getpid() << " > " << "msgkey: " << msgkey << endl;
-    cout << getpid() << " > " << "msgid: " << msgid << endl;
-
-    if (msgid < 0) {
-        cout << getpid() << " > msgget: " << errno << endl;
-        exit(EXIT_FAILURE);
-    }
-
 
     sigemptyset(&sigact_close_client.sa_mask);
     sigact_close_client.sa_flags = 0;
@@ -153,134 +47,63 @@ int main(int argc, char** argv) {
     sigaction(SIGKILL, &sigact_close_client, NULL);
     sigaction(SIGINT, &sigact_close_client, NULL);
 
-    int pid;
-    
-    pid = fork();
+    if (pipe(file_pipes) == 0) {
+        perror("pipe: ");
+        abort();
+    }
 
-    if (pid < 0) {
+
+    child_pid = fork();
+
+    if (child_pid < 0) {
         cout << getpid() << " > Fork failed!!" << endl;
         abort();
     }
 
-    if (pid == 0) {
+    if (child_pid == 0) {
 
         connection.setEncryptedSocket(client);
-        
-        OutcomingActionExecutor outcoming_executor(connection);
 
-        Notification notification("PERSISTENT_RECEIVER");
-        
-        outcoming_executor.write(notification);
+        OutcomingActionExecutor outcoming_executor(&connection);
 
-        //Se realiza la autentificacion
-        if (!authenticatesReceiver(ssl, access_token)) {
-            //Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine
-            cout << getpid() << " > Nombre de usuario o contraseña incorrecta." << endl;
+        Notification notification;
 
-        } else {
+        notification.setAction("PERSISTENT_RECEIVER");
+        notification.addDataItem(JSONNode("Token", ACCESS_TOKEN));
 
-            Notification notification;
-            Action* action;
-
-            //Comienza el intercambio de mensajes
-
-            cout << getpid() << " > Comienza el intercambio de mensajes!!!" << endl;
-
-            while (true) {
-
-                notification = Notification(RaspiUtils::readJSON(ssl));
-
-                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
-
-                some_data.my_msg_type = 1;
-                strcpy(some_data.some_text, notification.toString().c_str());
-
-                if (msgsnd(msgid, (void *) &some_data, BUFSIZ, 0) < 0) {
-                    cout << getpid() << " > msgsnd: " << errno << endl;
-                    abort();
-                }
-
-
-                action = IncomingActionFactory::createFromNotification(notification, NULL);
-
-                notification = action->toDo();
-
-                RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-            }
-
-        }
+        outcoming_executor.writeAndWaitResponse(notification);
 
         exit(0);
 
     }
 
-    pid = fork();
+    child_pid = fork();
 
-    if (pid < 0) {
+    if (child_pid < 0) {
         cout << getpid() << " > Fork failed!!" << endl;
         abort();
     }
 
-    if (pid == 0) {
-        
+    if (child_pid == 0) {
+
         connection.setEncryptedSocket(client);
+
+        OutcomingActionExecutor outcoming_executor(&connection);
         
-        OutcomingActionExecutor outcoming_executor(connection);
+        Notification notification;
 
-        Notification notification("PERSISTENT_SENDER");
-        
-        outcoming_executor.write(notification);
-        
+        notification.setAction("PERSISTENT_SENDER");
+        notification.addDataItem(JSONNode("Token", ACCESS_TOKEN));
 
-        //Se realiza la autentificacion
-        if (!authenticatesSender(ssl, access_token)) {
-            //Si no es posible autentificar, se elimina el proceso hijo y se envia un status code 100 al padre para que termine
-            cout << getpid() << " > Nombre de usuario o contraseña incorrecta." << endl;
-
-        } else {
-
-            Notification notification;
-            Action* action;
-
-            //Comienza el intercambio de mensajes
-
-            cout << getpid() << " > Comienza el intercambio de mensajes!!!" << endl;
-
-
-            while (true) {
-
-                /*
-                 * Se obtiene la notification de msgsend
-                 */
-
-                if (msgrcv(msgid, (void *) &some_data, BUFSIZ, msg_to_receive, 0) < 0) {
-                    cout << getpid() << " > msgrcv: " << errno << endl;
-                    abort();
-                }
-
-                cout << getpid() << " > Me llega un mensaje... " << endl;
-
-                notification = Notification(ACTION_REPORT_DELIVERY);
-
-                RaspiUtils::writeJSON(ssl, notification.getJSON());
-
-                cout << getpid() << " > JSON enviado: " << notification.toString() << endl;
-
-                notification = Notification(RaspiUtils::readJSON(ssl));
-
-                cout << getpid() << " > JSON recibido: " << notification.toString() << endl;
-
-
-            }
-
-        }
+        outcoming_executor.writeAndWaitResponse(notification);
 
         exit(0);
 
     }
+
+    /*
+     * Esperamos a que los procesos hijos terminen
+     */
 
     rc_pid = wait(&chld_state);
 
@@ -289,4 +112,3 @@ int main(int argc, char** argv) {
     return 0;
 
 }
-

@@ -94,7 +94,7 @@ Notification ActionPersistentReceiver::toDo() {
                     continue;
                 }
 
-                notification = executor.write(notification);
+                notification = executor.writeAndWaitResponse(notification);
 
                 this->connection->setLastActivity();
 

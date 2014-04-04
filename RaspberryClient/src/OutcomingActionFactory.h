@@ -15,9 +15,8 @@
  * Lista de las acciones salientes
  */
 
-#include "ActionReportDelivery.h"
-#include "ActionResponseTime.h"
-#include "ActionUpdateClient.h"
+#include "ActionPersistentReceiver.h"
+#include "ActionPersistentSender.h"
 
 
 class OutcomingActionFactory : public ActionFactory{

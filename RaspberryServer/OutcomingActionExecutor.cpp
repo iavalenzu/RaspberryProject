@@ -17,7 +17,28 @@ OutcomingActionExecutor::OutcomingActionExecutor(const OutcomingActionExecutor& 
 OutcomingActionExecutor::~OutcomingActionExecutor() {
 }
 
-Notification OutcomingActionExecutor::write(Notification _notification){
+void OutcomingActionExecutor::write(Notification _notification){
+
+    Notification notification;
+    OutcomingAction *action;
+    
+    /*
+     * Creamos una action saliente a partir de la notificacion que se quiere enviar
+     */
+    
+    action = OutcomingActionFactory::createFromNotification(_notification, this->connection);
+
+    notification = action->toDo();
+    
+    /*
+     * Enviamos el resultado de ejecutar la accion saliente
+     */
+    
+    RaspiUtils::writeJSON(this->connection->getSSL(), notification.getJSON()); 
+
+}
+
+Notification OutcomingActionExecutor::writeAndWaitResponse(Notification _notification){
     
     Notification notification;
     OutcomingAction *action;

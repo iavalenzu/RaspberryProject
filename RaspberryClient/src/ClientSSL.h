@@ -21,14 +21,15 @@
 class ClientSSL {
 public:
     ClientSSL();
-    ClientSSL(const ClientSSL& orig);
     virtual ~ClientSSL();
     int openConnection();
     SSL_CTX* getSSLCTX();
     SSL_CTX* initClientCTX();
+    
 private:
     
-    SSL_CTX *ctx;
+    SSL_CTX* ctx;
+   
 
 };
 

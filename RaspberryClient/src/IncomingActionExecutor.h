@@ -20,8 +20,7 @@ public:
     IncomingActionExecutor(ConnectionSSL* connection);
     IncomingActionExecutor(const IncomingActionExecutor& orig);
     virtual ~IncomingActionExecutor();
-    void readAndWriteResponse();
-    Notification read();
+    void read();
 private:
     ConnectionSSL* connection;
 

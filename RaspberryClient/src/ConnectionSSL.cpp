@@ -16,16 +16,22 @@ ConnectionSSL::ConnectionSSL() {
     this->last_activity = time(NULL);
     this->created = time(NULL);
 
+    this->ctx = NULL;
+    this->ssl = NULL;
+    this->fd = -1;
+
     this->can_read_notification = false;
 
-    this->device = new Device();
+    //this->device = new Device();
 
 }
 
 void ConnectionSSL::setEncryptedSocket(ClientSSL client) {
 
     this->fd = client.openConnection();
+
     this->ctx = client.getSSLCTX();
+
     this->ssl = SSL_new(this->ctx);
 
 
@@ -33,13 +39,16 @@ void ConnectionSSL::setEncryptedSocket(ClientSSL client) {
      * the TLS/SSL (encrypted) side of ssl. fd will typically be 
      * the socket file descriptor of a network connection. 
      */
-    SSL_set_fd(this->ssl, this->fd);
+    if (SSL_set_fd(this->ssl, this->fd) == 0) {
+        ERR_print_errors_fp(stderr);
+        abort();
+    }
 
     /* 
      * Perform the connection 
      */
 
-    if (SSL_connect(this->ssl) < 0) {
+    if (SSL_connect(this->ssl) <= 0) {
         ERR_print_errors_fp(stderr);
         abort();
     }
@@ -63,9 +72,8 @@ void ConnectionSSL::closeConnection() {
     SSL_shutdown(this->ssl);
     SSL_free(this->ssl); /* release SSL state */
     SSL_CTX_free(this->ctx);
-    free(this->device);
+    //free(this->device);
 }
-
 
 void ConnectionSSL::showCerts() {
 
@@ -85,7 +93,7 @@ void ConnectionSSL::showCerts() {
         free(line); // free the malloc'ed string
         X509_free(cert); // free the malloc'ed certificate copy 
 
-    } else{
+    } else {
         cout << getpid() << " > No certificates" << endl;
     }
 }
@@ -137,27 +145,27 @@ void ConnectionSSL::manageInactiveConnection(int sig) {
      * Si el proceso ha estado inactivo por mas de MAX_INACTIVE_TIME, terminamos su ejecucion.
      * Si el proceso ha estado vivo mas de MAX_ALIVE_TIME, terminanos su ejecucion
      */
+    /*
+        int now = time(NULL);
 
-    int now = time(NULL);
+        int inactive_lapse = now - this->last_activity;
+        int alive_lapse = now - this->created;
 
-    int inactive_lapse = now - this->last_activity;
-    int alive_lapse = now - this->created;
+        if (inactive_lapse >= MAX_INACTIVE_TIME || alive_lapse >= MAX_ALIVE_TIME) {
 
-    if (inactive_lapse >= MAX_INACTIVE_TIME || alive_lapse >= MAX_ALIVE_TIME) {
+            cout << getpid() << " > Timeout process!!" << endl;
 
-        cout << getpid() << " > Timeout process!!" << endl;
+            this->manageCloseConnection(sig);
 
-        this->manageCloseConnection(sig);
+        } else {
+            cout << getpid() << " > Shutdown in ";
+            cout << "[ Inactive: " << RaspiUtils::humanTime(MAX_INACTIVE_TIME - inactive_lapse) << " ] ";
+            cout << "[ Alive: " << RaspiUtils::humanTime(MAX_ALIVE_TIME - alive_lapse) << " ]" << endl;
+        }
 
-    } else {
-        cout << getpid() << " > Shutdown in ";
-        cout << "[ Inactive: " << RaspiUtils::humanTime(MAX_INACTIVE_TIME - inactive_lapse) << " ] ";
-        cout << "[ Alive: " << RaspiUtils::humanTime(MAX_ALIVE_TIME - alive_lapse) << " ]" << endl;
-    }
-
-    // Reset the timer so we get called again in CHECK_INACTIVE_INTERVAL seconds
-    alarm(CHECK_INACTIVE_INTERVAL);
-
+        // Reset the timer so we get called again in CHECK_INACTIVE_INTERVAL seconds
+        alarm(CHECK_INACTIVE_INTERVAL);
+     */
 }
 
 void ConnectionSSL::manageNotificationWaiting(int sig) {

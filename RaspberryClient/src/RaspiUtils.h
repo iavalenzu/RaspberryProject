@@ -31,6 +31,8 @@
 #include <mach/mach.h>
 #endif
 
+#include "Core.h"
+
 using namespace libjson;
 using namespace std;
 

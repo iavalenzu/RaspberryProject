@@ -128,7 +128,7 @@ void ConnectionSSL::processAction() {
      * Leemos la notificacion entrante y ejecutamos la accion asociada
      */
 
-    incoming_executor.read();
+    incoming_executor.readAndWriteResponse();
 
 }
 

@@ -7,15 +7,21 @@
 
 #include "ClientSSL.h"
 
+#include <string>
+#include <iostream>
+using namespace std;
+
 ClientSSL::ClientSSL() {
 
     SSL_library_init();
 
-    this->ctx = this->initClientCTX(); /* initialize SSL */
+    /* 
+     * Initialize SSL 
+     */
+    
+    this->ctx = this->initClientCTX();
 
-}
 
-ClientSSL::ClientSSL(const ClientSSL& orig) {
 }
 
 ClientSSL::~ClientSSL() {
@@ -24,7 +30,7 @@ ClientSSL::~ClientSSL() {
 SSL_CTX* ClientSSL::initClientCTX() {
 
     SSL_METHOD *method;
-    SSL_CTX *ctx;
+    SSL_CTX* ctx = NULL;
 
     OpenSSL_add_all_algorithms(); /* Load cryptos, et.al. */
     SSL_load_error_strings(); /* Bring in and register error messages */

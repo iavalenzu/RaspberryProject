@@ -18,7 +18,8 @@ public:
     OutcomingActionExecutor(ConnectionSSL* _connection);
     OutcomingActionExecutor(const OutcomingActionExecutor& orig);
     virtual ~OutcomingActionExecutor();
-    Notification write(Notification notification); 
+    void write(Notification notification); 
+    Notification writeAndWaitResponse(Notification notification); 
 private:
     ConnectionSSL* connection;
     

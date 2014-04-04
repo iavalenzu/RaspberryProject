@@ -36,9 +36,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1604071451/ActionFactory.o \
+	${OBJECTDIR}/_ext/1604071451/ActionPersistentReceiver.o \
+	${OBJECTDIR}/_ext/1604071451/ActionPersistentSender.o \
 	${OBJECTDIR}/_ext/1604071451/ClientSSL.o \
 	${OBJECTDIR}/_ext/1604071451/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/1604071451/IncomingAction.o \
+	${OBJECTDIR}/_ext/1604071451/IncomingActionExecutor.o \
 	${OBJECTDIR}/_ext/1604071451/Notification.o \
 	${OBJECTDIR}/_ext/1604071451/OutcomingAction.o \
 	${OBJECTDIR}/_ext/1604071451/OutcomingActionExecutor.o \
@@ -96,6 +99,16 @@ ${OBJECTDIR}/_ext/1604071451/ActionFactory.o: /Users/Ismael/NetBeansProjects/Ras
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionFactory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp
 
+${OBJECTDIR}/_ext/1604071451/ActionPersistentReceiver.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionPersistentReceiver.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.cpp
+
+${OBJECTDIR}/_ext/1604071451/ActionPersistentSender.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionPersistentSender.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.cpp
+
 ${OBJECTDIR}/_ext/1604071451/ClientSSL.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
@@ -110,6 +123,11 @@ ${OBJECTDIR}/_ext/1604071451/IncomingAction.o: /Users/Ismael/NetBeansProjects/Ra
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/IncomingAction.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingAction.cpp
+
+${OBJECTDIR}/_ext/1604071451/IncomingActionExecutor.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingActionExecutor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/IncomingActionExecutor.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/IncomingActionExecutor.cpp
 
 ${OBJECTDIR}/_ext/1604071451/Notification.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/Notification.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451

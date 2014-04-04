@@ -76,7 +76,7 @@ Notification ActionPersistentSender::toDo(){
         
         while(true){
             
-            incoming_executor.read(); 
+            incoming_executor.readAndWriteResponse(); 
             
             this->connection->setLastActivity();
         
