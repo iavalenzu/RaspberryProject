@@ -9,6 +9,7 @@
 #define	CONNECTIONSSL_H
 
 #include <signal.h>
+#include <unistd.h>
 
 #include "Notification.h"
 
@@ -38,12 +39,23 @@ public:
     void showCerts();
     
     void openLogger();
+    
+    /*
+     * Pipe operations
+     */
+    
+    int writeNotificationOnPipe(Notification _notification);
+    Notification readNotificationFromPipe();
+    
+    
 
 private:
     
     SSL* ssl;
     SSL_CTX *ctx;
     int fd;
+    
+    int* file_pipes;
 
     time_t last_activity;
     time_t created;

@@ -16,6 +16,8 @@
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 
+#include <unistd.h>
+
 #include "Core.h"
 
 class ClientSSL {
@@ -25,11 +27,13 @@ public:
     int openConnection();
     SSL_CTX* getSSLCTX();
     SSL_CTX* initClientCTX();
-    
+    int* getFilePipe();
+
 private:
-    
+
     SSL_CTX* ctx;
-   
+
+    int file_pipes[2];
 
 };
 

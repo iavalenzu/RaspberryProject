@@ -24,7 +24,6 @@ Notification ActionPersistentSender::processResponse(Notification _notification)
 
     OutcomingActionExecutor outcoming_executor(this->connection);
 
-
     if (_notification.getAction().compare("REPORT_DELIVERY") == 0) {
 
         std::string access = _notification.getDataItem("Access");
@@ -36,13 +35,22 @@ Notification ActionPersistentSender::processResponse(Notification _notification)
              */
 
             while (true) {
-
                 
-                Notification notification("REPORT_DELIVERY");
+                
+                Notification notification;
+                
+                /*
+                 * Leemos si existe una notification pendiente en el pipe
+                 */
+                
+                notification = this->connection->readNotificationFromPipe();
+
+                /*
+                 * Enviamos la notificacion
+                 */
                 
                 outcoming_executor.writeAndWaitResponse(notification);
                 
-                sleep(5);
 
             }
 

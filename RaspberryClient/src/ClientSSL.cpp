@@ -18,13 +18,26 @@ ClientSSL::ClientSSL() {
     /* 
      * Initialize SSL 
      */
-    
+
     this->ctx = this->initClientCTX();
+
+    /*
+     * Se inicializa el pipe
+     */
+
+    if (pipe(this->file_pipes) < 0) {
+        perror("pipe: ");
+        abort();
+    }
 
 
 }
 
 ClientSSL::~ClientSSL() {
+}
+
+int* ClientSSL::getFilePipe(){
+    return this->file_pipes;
 }
 
 SSL_CTX* ClientSSL::initClientCTX() {

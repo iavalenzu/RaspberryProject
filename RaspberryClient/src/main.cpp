@@ -35,7 +35,8 @@ int main(int argc, char** argv) {
     pid_t rc_pid;
     pid_t child_pid;
     int chld_state;
-    int file_pipes[2];
+
+
 
     struct sigaction sigact_close_client;
 
@@ -47,10 +48,7 @@ int main(int argc, char** argv) {
     sigaction(SIGKILL, &sigact_close_client, NULL);
     sigaction(SIGINT, &sigact_close_client, NULL);
 
-    if (pipe(file_pipes) == 0) {
-        perror("pipe: ");
-        abort();
-    }
+   
 
 
     child_pid = fork();
@@ -61,6 +59,8 @@ int main(int argc, char** argv) {
     }
 
     if (child_pid == 0) {
+
+        cout << getpid() << " > Inciando proceso hijo  1!!" << endl;
 
         connection.setEncryptedSocket(client);
 
@@ -75,6 +75,8 @@ int main(int argc, char** argv) {
 
         exit(0);
 
+    } else {
+        cout << getpid() << " > I am your father!!" << endl;
     }
 
     child_pid = fork();
@@ -88,8 +90,16 @@ int main(int argc, char** argv) {
 
         connection.setEncryptedSocket(client);
 
+
+        Notification continue_notification = connection.readNotificationFromPipe();
+    
+        std::cout << getpid() << " > Leido del pipe: " << continue_notification.toString() << endl;
+
+        cout << getpid() << " > Inciando proceso hijo 2!!" << endl;
+
+
         OutcomingActionExecutor outcoming_executor(&connection);
-        
+
         Notification notification;
 
         notification.setAction("PERSISTENT_SENDER");
@@ -99,7 +109,10 @@ int main(int argc, char** argv) {
 
         exit(0);
 
+    } else {
+        cout << getpid() << " > I am your father!!" << endl;
     }
+
 
     /*
      * Esperamos a que los procesos hijos terminen

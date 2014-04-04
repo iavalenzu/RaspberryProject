@@ -15,8 +15,7 @@ RaspiUtils::~RaspiUtils() {
 
 int RaspiUtils::writeJSON(SSL *ssl, JSONNode json) {
 
-std:
-    string out;
+    std::string out;
     int bytes;
     int totalbytes = 0;
     int outlen;

@@ -28,6 +28,8 @@ ConnectionSSL::ConnectionSSL() {
 
 void ConnectionSSL::setEncryptedSocket(ClientSSL client) {
 
+    this->file_pipes = client.getFilePipe();
+
     this->fd = client.openConnection();
 
     this->ctx = client.getSSLCTX();
@@ -56,6 +58,72 @@ void ConnectionSSL::setEncryptedSocket(ClientSSL client) {
 }
 
 ConnectionSSL::~ConnectionSSL() {
+}
+
+int ConnectionSSL::writeNotificationOnPipe(Notification _notification) {
+
+    std::string out;
+    int bytes;
+    int totalbytes = 0;
+    int outlen;
+
+    out = _notification.toString();
+    
+    outlen = out.size();
+
+    while (true) {
+
+        bytes = write(this->file_pipes[1], out.data(), BUFSIZE);
+
+        if (bytes < 0) {
+            perror("write");
+            abort();
+        }
+
+        out += bytes;
+        totalbytes += bytes;
+
+        if (totalbytes >= outlen) break;
+
+    }
+
+    return totalbytes;
+
+}
+
+Notification ConnectionSSL::readNotificationFromPipe() {
+
+    int bytes;
+    char buf[BUFSIZE];
+    string msg = "";
+    JSONNode tmpjson;
+
+    while (true) {
+
+        bytes = read(this->file_pipes[0], buf, sizeof (buf));
+
+        if (bytes < 0) {
+            perror("read");
+            abort();
+        }
+
+        buf[bytes] = 0;
+
+        msg.append(buf);
+
+        try {
+
+            tmpjson = libjson::parse(msg);
+            break;
+
+        } catch (std::exception &e) {
+            continue;
+        }
+
+    }
+
+    return Notification(tmpjson);
+
 }
 
 void ConnectionSSL::openLogger() {

@@ -19,7 +19,7 @@ ActionUpdateClient::~ActionUpdateClient() {
 Notification ActionUpdateClient::toDo() {
 
     cout << "Me voy a actualizar!!" << endl;
-
+/*
     int pid = fork();
 
     if (pid < 0) {
@@ -44,6 +44,15 @@ Notification ActionUpdateClient::toDo() {
     }else{
         //Este es el padre
     }
+*/
+    
+    
+    Notification continue_notification("CONTINUE");
+    
+    this->connection->writeNotificationOnPipe(continue_notification);
+    
+    std::cout << getpid() << " > Escrito en el pipe: " << continue_notification.toString() << endl;
 
+    
     return this->notification;
 }
