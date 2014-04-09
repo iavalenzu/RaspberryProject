@@ -25,10 +25,14 @@ void ActionExecutor::addRejectedAction(std::string rejected_action) {
 
 int ActionExecutor::isRejectedAction(std::string action) {
 
-    for (std::vector<std::string>::iterator it = this->rejected_actions_list.begin(); it != this->rejected_actions_list.end(); ++it) {
-        if (action.compare(*it) == 0) {
-            return true;
-        }
-    }
-    return false;
+    std::vector<std::string>::iterator it;
+    
+    it = std::find(this->rejected_actions_list.begin(), this->rejected_actions_list.end(), action);
+
+    /*
+     * Si el resultado de la busqueda es distinto al final del vector, se encontro la accion en la lista
+     */
+
+    return it != this->rejected_actions_list.end();
+ 
 }

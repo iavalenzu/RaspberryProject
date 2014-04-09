@@ -47,7 +47,7 @@ Notification ActionUpdateClient::toDo() {
 */
     
     
-    Notification continue_notification("CONTINUE");
+    Notification continue_notification("PERSISTENT_SENDER");
     
     this->connection->writeNotificationOnPipe(continue_notification);
     

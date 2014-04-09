@@ -22,7 +22,7 @@ void OutcomingActionExecutor::write(Notification _notification) {
      * Creamos una action saliente a partir de la notificacion que se quiere enviar
      */
 
-    action = OutcomingActionFactory::createFromNotification(_notification, this->connection, this->rejected_actions_list);
+    action = OutcomingActionFactory::createFromNotification(_notification, this->connection);
 
     notification = action->toDo();
 
@@ -43,7 +43,7 @@ Notification OutcomingActionExecutor::writeAndWaitResponse(Notification _notific
      * Creamos una action saliente a partir de la notificacion que se quiere enviar
      */
 
-    action = OutcomingActionFactory::createFromNotification(_notification, this->connection, this->rejected_actions_list);
+    action = OutcomingActionFactory::createFromNotification(_notification, this->connection);
 
     notification = action->toDo();
 

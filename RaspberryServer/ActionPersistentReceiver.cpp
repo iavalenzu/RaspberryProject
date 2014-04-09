@@ -25,13 +25,6 @@ Notification ActionPersistentReceiver::toDo() {
     OutcomingActionExecutor outcoming_executor(this->connection);
     sigset_t block_set;
     
-    /*
-     * Agregamos las acciones que seran rechazadas
-     */
-    
-    outcoming_executor.addRejectedAction(ACTION_PERSISTENT_RECEIVER);
-    
-
     /* 
      * Start the timer
      */

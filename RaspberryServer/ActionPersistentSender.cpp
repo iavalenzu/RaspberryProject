@@ -33,10 +33,7 @@ Notification ActionPersistentSender::toDo(){
     
     incoming_executor.addRejectedAction(ACTION_PERSISTENT_SENDER);
     incoming_executor.addRejectedAction(ACTION_PERSISTENT_RECEIVER);
-
-    outcoming_executor.addRejectedAction(ACTION_PERSISTENT_SENDER);
-        
-    
+            
     /* 
      * Start the timer
      */
