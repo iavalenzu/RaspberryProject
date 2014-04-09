@@ -131,7 +131,8 @@ class UsersController extends AppController {
         $active_connections = $this->Connection->find('all', array(
             'conditions' => array(
                 'Connection.user_id' => $user_id,
-                'Connection.status' => 'ACTIVE'
+                'Connection.status' => 'ACTIVE',
+                'Connection.type' => 'RECEIVER'
             ),
             'recursive' => -1
         ));

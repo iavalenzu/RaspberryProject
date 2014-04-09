@@ -8,21 +8,21 @@
 #ifndef OUTCOMINGACTIONEXECUTOR_H
 #define	OUTCOMINGACTIONEXECUTOR_H
 
-#include "IncomingActionFactory.h"
-#include "RaspiUtils.h"
-#include "OutcomingActionFactory.h"
-#include "ConnectionSSL.h"
+#include "ActionExecutor.h"
 
-class OutcomingActionExecutor {
+#include "IncomingActionFactory.h"
+#include "OutcomingActionFactory.h"
+
+
+class OutcomingActionExecutor : public ActionExecutor {
 public:
     OutcomingActionExecutor(ConnectionSSL* _connection);
-    OutcomingActionExecutor(const OutcomingActionExecutor& orig);
     virtual ~OutcomingActionExecutor();
+        
     Notification writeAndWaitResponse(Notification notification); 
     void write(Notification _notification);
-private:
-    ConnectionSSL* connection;
     
+private:
 
 };
 

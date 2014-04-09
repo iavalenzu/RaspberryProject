@@ -22,7 +22,7 @@ public:
     IncomingActionFactory();
     IncomingActionFactory(const IncomingActionFactory& orig);
     virtual ~IncomingActionFactory();
-    static IncomingAction* createFromNotification(Notification notification, ConnectionSSL* connection);
+    static IncomingAction* createFromNotification(Notification notification, ConnectionSSL* connection, std::vector<std::string> rejected_actions_list);
 private:
 
 };

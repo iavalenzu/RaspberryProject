@@ -22,8 +22,15 @@ Notification ActionPersistentReceiver::toDo() {
 
     Device* device;
     Notification notification;
-    OutcomingActionExecutor executor(this->connection);
+    OutcomingActionExecutor outcoming_executor(this->connection);
     sigset_t block_set;
+    
+    /*
+     * Agregamos las acciones que seran rechazadas
+     */
+    
+    outcoming_executor.addRejectedAction(ACTION_PERSISTENT_RECEIVER);
+    
 
     /* 
      * Start the timer
@@ -65,12 +72,13 @@ Notification ActionPersistentReceiver::toDo() {
      */
 
 
-    if (device->connect()) {
+    if (device->connect("RECEIVER")) {
 
         notification = Notification(ACTION_REPORT_DELIVERY);
         notification.addDataItem(JSONNode("Access", "SUCCESS"));
+        notification.addDataItem(JSONNode("ConnectionId", device->getConnectionId()));
 
-        executor.write(notification);
+        outcoming_executor.write(notification);
 
         while (true) {
 
@@ -94,7 +102,7 @@ Notification ActionPersistentReceiver::toDo() {
                     continue;
                 }
 
-                notification = executor.writeAndWaitResponse(notification);
+                notification = outcoming_executor.writeAndWaitResponse(notification);
 
                 this->connection->setLastActivity();
 

@@ -27,7 +27,11 @@ std::string Device::getToken() {
     return this->user_token;
 }
 
-int Device::connect() {
+std::string Device::getConnectionId(){
+    return this->connection_id;
+}
+
+int Device::connect(string connection_type) {
 
     /*
      * Conectamos con la BD y verificamos el access token
@@ -45,7 +49,7 @@ int Device::connect() {
             this->user_token = user->getString("token");
             this->user_id = user->getString("id");
 
-            sql::ResultSet* connection = dba.createNewConnection(this->user_id, getpid());
+            sql::ResultSet* connection = dba.createNewConnection(this->user_id, getpid(), connection_type);
 
             if (connection != NULL) {
 

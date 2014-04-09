@@ -16,13 +16,28 @@ IncomingActionFactory::IncomingActionFactory(const IncomingActionFactory& orig) 
 IncomingActionFactory::~IncomingActionFactory() {
 }
 
-IncomingAction* IncomingActionFactory::createFromNotification(Notification notification, ConnectionSSL* connection){
+IncomingAction* IncomingActionFactory::createFromNotification(Notification notification, ConnectionSSL* connection, std::vector<std::string> rejected_actions_list){
 
     std:string action_name = notification.getAction();
     
     cout << getpid() << " > Creating incoming action: " << action_name << endl;
     
     IncomingAction *action = new IncomingAction(notification, connection);
+    
+/*
+     * Verificamos si la accion se encuentra en la lista de acciones rechazadas, en tal caso retornamos la accion por defecto
+     */
+
+    for (std::vector<std::string>::iterator it = rejected_actions_list.begin(); it != rejected_actions_list.end(); ++it) {
+        if (action_name.compare(*it) == 0) {
+            cout << getpid() << " Action '" << action_name << "' is rejected." << endl;
+            return action;
+        }
+    }
+
+    /*
+     * De acuerdo a la accion, elejimos la accion que corresponda
+     */    
 
     if(action_name.compare(ACTION_GET_FORTUNE) == 0){
         action = new ActionGetFortune(notification, connection);

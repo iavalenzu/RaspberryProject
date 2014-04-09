@@ -30,10 +30,11 @@ public:
     virtual ~Device();
     void setToken(string token);
     std::string getToken();
-    int connect();
+    int connect(string connection_type);
     int disconnect();
     Notification readNotification();
     int isAuthorized();
+    std::string getConnectionId();
     void reset();
 
 private:

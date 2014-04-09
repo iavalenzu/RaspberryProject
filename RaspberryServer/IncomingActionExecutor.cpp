@@ -8,11 +8,7 @@
 #include "IncomingActionExecutor.h"
 
 
-IncomingActionExecutor::IncomingActionExecutor(ConnectionSSL* _connection) {
-    this->connection = _connection;
-}
-
-IncomingActionExecutor::IncomingActionExecutor(const IncomingActionExecutor& orig) {
+IncomingActionExecutor::IncomingActionExecutor(ConnectionSSL* _connection) : ActionExecutor(_connection) {
 }
 
 IncomingActionExecutor::~IncomingActionExecutor() {
@@ -22,7 +18,7 @@ void IncomingActionExecutor::readAndWriteResponse(){
 
     Notification notification = Notification(RaspiUtils::readJSON(this->connection->getSSL()));
     
-    IncomingAction *action = IncomingActionFactory::createFromNotification(notification, this->connection);
+    IncomingAction *action = IncomingActionFactory::createFromNotification(notification, this->connection, this->rejected_actions_list);
     
     notification = action->toDo();
 
@@ -34,8 +30,10 @@ Notification IncomingActionExecutor::read(){
 
     Notification notification = Notification(RaspiUtils::readJSON(this->connection->getSSL()));
     
-    IncomingAction *action = IncomingActionFactory::createFromNotification(notification, this->connection);
+    IncomingAction *action = IncomingActionFactory::createFromNotification(notification, this->connection, this->rejected_actions_list);
     
     return action->toDo();
 
 }
+
+

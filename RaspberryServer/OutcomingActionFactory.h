@@ -25,7 +25,7 @@ public:
     OutcomingActionFactory();
     OutcomingActionFactory(const OutcomingActionFactory& orig);
     virtual ~OutcomingActionFactory();
-    static OutcomingAction* createFromNotification(Notification notification, ConnectionSSL* connection);
+    static OutcomingAction* createFromNotification(Notification notification, ConnectionSSL* connection, std::vector<std::string> rejected_actions_list);
 private:
 
 };

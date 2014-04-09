@@ -9,6 +9,11 @@
         <itemPath>IncomingAction.h</itemPath>
         <itemPath>OutcomingAction.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f6" displayName="Executors" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.h</itemPath>
+        <itemPath>IncomingActionExecutor.h</itemPath>
+        <itemPath>OutcomingActionExecutor.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f3" displayName="Factory" projectFiles="true">
         <itemPath>ActionFactory.h</itemPath>
         <itemPath>IncomingActionFactory.h</itemPath>
@@ -21,9 +26,7 @@
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
-        <itemPath>IncomingActionExecutor.h</itemPath>
         <itemPath>Notification.h</itemPath>
-        <itemPath>OutcomingActionExecutor.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="OutcomingActions" projectFiles="true">
         <itemPath>ActionReportDelivery.h</itemPath>
@@ -112,6 +115,11 @@
         <itemPath>IncomingAction.cpp</itemPath>
         <itemPath>OutcomingAction.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="f6" displayName="Executors" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.cpp</itemPath>
+        <itemPath>IncomingActionExecutor.cpp</itemPath>
+        <itemPath>OutcomingActionExecutor.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="f3" displayName="Factory" projectFiles="true">
         <itemPath>ActionFactory.cpp</itemPath>
         <itemPath>IncomingActionFactory.cpp</itemPath>
@@ -124,9 +132,7 @@
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
-        <itemPath>IncomingActionExecutor.cpp</itemPath>
         <itemPath>Notification.cpp</itemPath>
-        <itemPath>OutcomingActionExecutor.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="OutcomingActions" projectFiles="true">
         <itemPath>ActionReportDelivery.cpp</itemPath>
@@ -176,6 +182,16 @@
           <commandLine>-lssl -lcrypto -lm -lcurl</commandLine>
         </linkerTool>
       </compileType>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp"
             ex="false"
             tool="1"
@@ -512,6 +528,16 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp"
             ex="false"
             tool="1"

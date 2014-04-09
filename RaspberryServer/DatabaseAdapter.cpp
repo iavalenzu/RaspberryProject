@@ -68,17 +68,18 @@ sql::ResultSet* DatabaseAdapter::getUserByAccessToken(string token) {
 
 }
 
-sql::ResultSet* DatabaseAdapter::createNewConnection(string user_id, int process_pid) {
+sql::ResultSet* DatabaseAdapter::createNewConnection(string user_id, int process_pid, string connection_type) {
 
     try {
 
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("INSERT INTO connections(user_id, pid, status) VALUES(?,?,?)");
+        pstmt = this->con->prepareStatement("INSERT INTO connections(user_id, pid, status, type) VALUES(?,?,?,?)");
         pstmt->setString(1, user_id);
         pstmt->setInt(2, process_pid);
         pstmt->setString(3, "ACTIVE");
+        pstmt->setString(4, connection_type);
 
         int update_count = pstmt->executeUpdate();
 

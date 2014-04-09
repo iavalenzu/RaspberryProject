@@ -18,6 +18,6 @@ ActionFactory::ActionFactory(const ActionFactory& orig) {
 ActionFactory::~ActionFactory() {
 }
 
-Action* ActionFactory::createFromNotification(Notification notification, Device* device){
+Action* ActionFactory::createFromNotification(Notification notification, Device* device, std::vector<std::string> rejected_actions_list){
     return NULL;
 }

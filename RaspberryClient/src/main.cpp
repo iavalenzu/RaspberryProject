@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
 
     if (child_pid == 0) {
 
-        cout << getpid() << " > Inciando proceso hijo  1!!" << endl;
+        cout << getpid() << " > Inciando proceso hijo PERSISTENT_RECEIVER!!" << endl;
 
         connection.setEncryptedSocket(client);
 
@@ -76,7 +76,7 @@ int main(int argc, char** argv) {
         exit(0);
 
     } else {
-        cout << getpid() << " > I am your father!!" << endl;
+        cout << getpid() << " > I'm your father " << child_pid << "!!" << endl;
     }
 
     child_pid = fork();
@@ -90,13 +90,7 @@ int main(int argc, char** argv) {
 
         connection.setEncryptedSocket(client);
 
-
-        Notification continue_notification = connection.readNotificationFromPipe();
-    
-        std::cout << getpid() << " > Leido del pipe: " << continue_notification.toString() << endl;
-
-        cout << getpid() << " > Inciando proceso hijo 2!!" << endl;
-
+        cout << getpid() << " > Inciando proceso hijo PERSISTENT_SENDER!!" << endl;
 
         OutcomingActionExecutor outcoming_executor(&connection);
 
@@ -110,7 +104,7 @@ int main(int argc, char** argv) {
         exit(0);
 
     } else {
-        cout << getpid() << " > I am your father!!" << endl;
+        cout << getpid() << " > I'm your father " << child_pid << "!!" << endl;
     }
 
 

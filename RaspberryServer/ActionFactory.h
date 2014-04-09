@@ -11,6 +11,7 @@
 #include "Action.h"
 #include "Device.h"
 
+#include <vector>
 
 
 using namespace std;
@@ -19,7 +20,7 @@ class ActionFactory {
 public:
     ActionFactory();
     ActionFactory(const ActionFactory& orig);
-    static Action* createFromNotification(Notification notification, Device* device);
+    static Action* createFromNotification(Notification notification, Device* device, std::vector<std::string> rejected_actions_list);
     virtual ~ActionFactory();
 private:
 
