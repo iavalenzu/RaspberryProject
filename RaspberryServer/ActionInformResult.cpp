@@ -5,20 +5,21 @@
  * Created on 15 de marzo de 2014, 05:01 PM
  */
 
-#include "ActionPersistentSender.h"
+#include "ActionInformResult.h"
+
 #include "OutcomingActionExecutor.h"
 #include "IncomingActionExecutor.h"
 
-ActionPersistentSender::ActionPersistentSender(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
+ActionInformResult::ActionInformResult(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
 }
 
-ActionPersistentSender::ActionPersistentSender(const ActionPersistentSender& orig) {
+ActionInformResult::ActionInformResult(const ActionInformResult& orig) {
 }
 
-ActionPersistentSender::~ActionPersistentSender() {
+ActionInformResult::~ActionInformResult() {
 }
 
-Notification ActionPersistentSender::toDo(){
+Notification ActionInformResult::toDo(){
     
     Device* device;
     Notification notification;
@@ -31,8 +32,12 @@ Notification ActionPersistentSender::toDo(){
      * Agregamos las acciones que seran rechazadas
      */
     
-    incoming_executor.addRejectedAction(ACTION_PERSISTENT_SENDER);
+    //TODO Esta accion se deberia llamar RESULT_RECEIVER y el informe en particular INFORM_RESULT
+    
     incoming_executor.addRejectedAction(ACTION_PERSISTENT_RECEIVER);
+    incoming_executor.addRejectedAction(ACTION_INFORM_RESULT);
+    
+    
             
     /* 
      * Start the timer

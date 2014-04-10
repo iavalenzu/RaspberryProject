@@ -18,41 +18,60 @@ ActionUpdateClient::~ActionUpdateClient() {
 
 Notification ActionUpdateClient::toDo() {
 
-    cout << "Me voy a actualizar!!" << endl;
-/*
-    int pid = fork();
+    pid_t child_pid;
+    
+    child_pid = fork();
 
-    if (pid < 0) {
-        fprintf(stderr, "Fork failed\n");
+    if (child_pid < 0) {
+        cout << getpid() << " > Fork failed!!" << endl;
         abort();
     }
 
-    if (pid == 0) {
-        //Este es el hijo
-        
-        for(int i=0; i<10; i++){
-            sleep(1);
-            cout << "Tiempo: " << i << endl;
-        }
-        
-        cout << "Finish!!" << endl;
-        
-        return this->notification;
-        
-        exit(0);
-        
-    }else{
-        //Este es el padre
-    }
-*/
-    
-    
-    Notification continue_notification("PERSISTENT_SENDER");
-    
-    this->connection->writeNotificationOnPipe(continue_notification);
-    
-    std::cout << getpid() << " > Escrito en el pipe: " << continue_notification.toString() << endl;
+    if (child_pid == 0) {
 
-    
+        cout << getpid() << " > Me voy a actualizar!!" << endl;
+
+        /*
+         * Esperamos 5 segundos simulando un trabajo
+         */
+
+        sleep(5);
+
+        cout << getpid() << " > Termino el trabajo, creo una conneccion y envio el resultado" << endl;
+
+        ConnectionSSL connection;
+        connection.setClient(this->connection->getClient());
+        connection.createEncryptedSocket();
+
+        Notification notification;
+
+        notification.setAction(ACTION_INFORM_RESULT);
+        notification.addDataItem(JSONNode("Token", ACCESS_TOKEN));
+
+        OutcomingActionExecutor outcoming_executor(&connection);
+
+        outcoming_executor.writeAndWaitResponse(notification);
+
+        /*
+         * Envio los resultados obtenidos
+         */
+
+        notification.setAction("RESULT");
+        notification.clearData();
+        notification.addDataItem(JSONNode("Data", "Esta es la data resultado del proceso ejecutado!!!"));
+
+        outcoming_executor.writeAndWaitResponse(notification);
+
+        
+        /*
+         * Cierro la coneccion
+         */
+
+        connection.informClosingToServer();
+        
+        connection.manageCloseConnection(0);
+
+    }
+
     return this->notification;
 }

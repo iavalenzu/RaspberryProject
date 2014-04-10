@@ -30,8 +30,8 @@ OutcomingAction* OutcomingActionFactory::createFromNotification(Notification not
   
     if(action_name.compare(ACTION_PERSISTENT_RECEIVER) == 0){
         action = new ActionPersistentReceiver(notification, connection);
-    }else if(action_name.compare(ACTION_PERSISTENT_SENDER) == 0){
-        action = new ActionPersistentSender(notification, connection);
+    }else if(action_name.compare(ACTION_INFORM_RESULT) == 0){
+        action = new ActionInformResult(notification, connection);
     }
     
     return action;

@@ -14,7 +14,8 @@
 #include "ActionGetFortune.h"
 #include "ActionEcho.h"
 #include "ActionPersistentReceiver.h"
-#include "ActionPersistentSender.h"
+#include "ActionInformResult.h"
+#include "ActionCloseConnection.h"
 
 
 class IncomingActionFactory : public ActionFactory {

@@ -12,9 +12,6 @@
 #include "Device.h"
 #include "ConnectionSSL.h"
 
-#define ACTION_PERSISTENT_CONNECTION "PERSISTENT_CONNECTION" 
-
-#define ACTION_REPORT_DELIVERY "REPORT_DELIVERY"
 
 
 class Action {

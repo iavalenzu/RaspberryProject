@@ -35,8 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/429082616/ActionCloseConnection.o \
 	${OBJECTDIR}/_ext/429082616/ActionExecutor.o \
-	${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o \
+	${OBJECTDIR}/_ext/429082616/ActionInformResult.o \
 	${OBJECTDIR}/Action.o \
 	${OBJECTDIR}/ActionEcho.o \
 	${OBJECTDIR}/ActionFactory.o \
@@ -101,15 +102,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryserver: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryserver ${OBJECTFILES} ${LDLIBSOPTIONS} -lssl -lcrypto -lm -lcurl
 
+${OBJECTDIR}/_ext/429082616/ActionCloseConnection.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionCloseConnection.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/429082616
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionCloseConnection.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionCloseConnection.cpp
+
 ${OBJECTDIR}/_ext/429082616/ActionExecutor.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/429082616
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionExecutor.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.cpp
 
-${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp 
+${OBJECTDIR}/_ext/429082616/ActionInformResult.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/429082616
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionInformResult.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.cpp
 
 ${OBJECTDIR}/Action.o: Action.cpp 
 	${MKDIR} -p ${OBJECTDIR}

@@ -9,6 +9,7 @@
 #define	ACTIONUPDATECLIENT_H
 
 #include "IncomingAction.h"
+#include "ActionInformResult.h"
 
 #define ACTION_UPDATE_CLIENT "UPDATE_CLIENT"
 

@@ -25,8 +25,8 @@
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="OutcomingsActions" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionInformResult.h</itemPath>
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.h</itemPath>
-        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.h</itemPath>
       </logicalFolder>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.h</itemPath>
@@ -121,8 +121,8 @@
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/OutcomingActionExecutor.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="OutcomingsActions" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionInformResult.cpp</itemPath>
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.cpp</itemPath>
-        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.cpp</itemPath>
       </logicalFolder>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ConnectionSSL.cpp</itemPath>
@@ -192,22 +192,22 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionInformResult.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionInformResult.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -597,22 +597,22 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionInformResult.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionInformResult.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.h"
             ex="false"
             tool="3"
             flavor2="0">

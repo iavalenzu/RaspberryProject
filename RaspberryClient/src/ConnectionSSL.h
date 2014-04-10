@@ -22,55 +22,29 @@ class ConnectionSSL {
 public:
     ConnectionSSL();
     virtual ~ConnectionSSL();
-    void setEncryptedSocket(ClientSSL client);
+    void createEncryptedSocket();
     void closeConnection();
     SSL* getSSL();
-    void manageCloseConnection(int sig);
-    void manageInactiveConnection(int sig);
-    void manageNotificationWaiting(int sig);
-    int canReadNotification();
-    void setLastActivity();
     
-    Device* getDevice();
+    void manageCloseConnection(int sig);
+    void informClosingToServer();
+
+    void setClient(ClientSSL* client);
+    ClientSSL* getClient();
 
     int writeNotification(Notification notification);
     Notification readNotification();
     
     void showCerts();
-    
-    void openLogger();
-    
-    /*
-     * Pipe operations
-     */
-    
-    int writeNotificationOnPipe(Notification _notification);
-    Notification readNotificationFromPipe();
-    
-    
-
+        
 private:
     
     SSL* ssl;
     SSL_CTX *ctx;
     int fd;
     
-    int* file_pipes;
-
-    time_t last_activity;
-    time_t created;
-
-    int can_read_notification;
+    ClientSSL* client;
     
-    Device* device;    
-    
-    /*
-     * Fichero de logs
-     */
-    
-    ofstream logger;
-   
-
 };
 
 #endif	/* CONNECTIONSSL_H */

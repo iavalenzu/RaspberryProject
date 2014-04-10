@@ -39,7 +39,7 @@ Notification ActionGetFortune::toDo() {
     
     pclose(in);
         
-    Notification notification(ACTION_REPORT_DELIVERY);
+    Notification notification("REPORT_DELIVERY");
     notification.addDataItem(JSONNode("Message", out));
 
     return notification;

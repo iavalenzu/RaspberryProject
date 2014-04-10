@@ -48,9 +48,6 @@ int main(int argc, char** argv) {
     sigaction(SIGKILL, &sigact_close_client, NULL);
     sigaction(SIGINT, &sigact_close_client, NULL);
 
-   
-
-
     child_pid = fork();
 
     if (child_pid < 0) {
@@ -62,41 +59,15 @@ int main(int argc, char** argv) {
 
         cout << getpid() << " > Inciando proceso hijo PERSISTENT_RECEIVER!!" << endl;
 
-        connection.setEncryptedSocket(client);
+        connection.setClient(&client);
+        
+        connection.createEncryptedSocket();
 
         OutcomingActionExecutor outcoming_executor(&connection);
 
         Notification notification;
 
         notification.setAction("PERSISTENT_RECEIVER");
-        notification.addDataItem(JSONNode("Token", ACCESS_TOKEN));
-
-        outcoming_executor.writeAndWaitResponse(notification);
-
-        exit(0);
-
-    } else {
-        cout << getpid() << " > I'm your father " << child_pid << "!!" << endl;
-    }
-
-    child_pid = fork();
-
-    if (child_pid < 0) {
-        cout << getpid() << " > Fork failed!!" << endl;
-        abort();
-    }
-
-    if (child_pid == 0) {
-
-        connection.setEncryptedSocket(client);
-
-        cout << getpid() << " > Inciando proceso hijo PERSISTENT_SENDER!!" << endl;
-
-        OutcomingActionExecutor outcoming_executor(&connection);
-
-        Notification notification;
-
-        notification.setAction("PERSISTENT_SENDER");
         notification.addDataItem(JSONNode("Token", ACCESS_TOKEN));
 
         outcoming_executor.writeAndWaitResponse(notification);

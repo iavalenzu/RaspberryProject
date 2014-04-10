@@ -13,26 +13,26 @@
 
 ConnectionSSL::ConnectionSSL() {
 
-    this->last_activity = time(NULL);
-    this->created = time(NULL);
-
     this->ctx = NULL;
     this->ssl = NULL;
     this->fd = -1;
 
-    this->can_read_notification = false;
-
-    //this->device = new Device();
-
 }
 
-void ConnectionSSL::setEncryptedSocket(ClientSSL client) {
+void ConnectionSSL::setClient(ClientSSL* client){
+    this->client = client;
+}
 
-    this->file_pipes = client.getFilePipe();
+ClientSSL* ConnectionSSL::getClient(){
+    return this->client;
+}
 
-    this->fd = client.openConnection();
 
-    this->ctx = client.getSSLCTX();
+void ConnectionSSL::createEncryptedSocket() {
+
+    this->fd = this->client->openConnection();
+
+    this->ctx = this->client->getSSLCTX();
 
     this->ssl = SSL_new(this->ctx);
 
@@ -60,79 +60,17 @@ void ConnectionSSL::setEncryptedSocket(ClientSSL client) {
 ConnectionSSL::~ConnectionSSL() {
 }
 
-int ConnectionSSL::writeNotificationOnPipe(Notification _notification) {
-
-    std::string out;
-    int bytes;
-    int totalbytes = 0;
-    int outlen;
-
-    out = _notification.toString();
+void ConnectionSSL::informClosingToServer(){
     
-    outlen = out.size();
-
-    while (true) {
-
-        bytes = write(this->file_pipes[1], out.data(), BUFSIZE);
-
-        if (bytes < 0) {
-            perror("write");
-            abort();
-        }
-
-        out += bytes;
-        totalbytes += bytes;
-
-        if (totalbytes >= outlen) break;
-
-    }
-
-    return totalbytes;
-
-}
-
-Notification ConnectionSSL::readNotificationFromPipe() {
-
-    int bytes;
-    char buf[BUFSIZE];
-    string msg = "";
-    JSONNode tmpjson;
-
-    while (true) {
-
-        bytes = read(this->file_pipes[0], buf, sizeof (buf));
-
-        if (bytes < 0) {
-            perror("read");
-            abort();
-        }
-
-        buf[bytes] = 0;
-
-        msg.append(buf);
-
-        try {
-
-            tmpjson = libjson::parse(msg);
-            break;
-
-        } catch (std::exception &e) {
-            continue;
-        }
-
-    }
-
-    return Notification(tmpjson);
-
-}
-
-void ConnectionSSL::openLogger() {
-
+    Notification close_notification;
+    close_notification.setAction("CLOSE_CONNECTION");
+    
+    this->writeNotification(close_notification);
 
 }
 
 void ConnectionSSL::closeConnection() {
-
+    
     /*
      * Cerramos la coneccion SSL y liberamos recursos    
      */
@@ -140,7 +78,7 @@ void ConnectionSSL::closeConnection() {
     SSL_shutdown(this->ssl);
     SSL_free(this->ssl); /* release SSL state */
     SSL_CTX_free(this->ctx);
-    //free(this->device);
+    
 }
 
 void ConnectionSSL::showCerts() {
@@ -174,18 +112,6 @@ Notification ConnectionSSL::readNotification() {
     return Notification(RaspiUtils::readJSON(this->ssl));
 }
 
-Device* ConnectionSSL::getDevice() {
-    return this->device;
-}
-
-int ConnectionSSL::canReadNotification() {
-    return this->can_read_notification;
-}
-
-void ConnectionSSL::setLastActivity() {
-    this->last_activity = time(NULL);
-}
-
 SSL* ConnectionSSL::getSSL() {
     return this->ssl;
 }
@@ -200,46 +126,3 @@ void ConnectionSSL::manageCloseConnection(int sig) {
     exit(sig);
 
 }
-
-void ConnectionSSL::manageInactiveConnection(int sig) {
-
-    /*
-     * Se procede a manejar si la coneccion esta inactiva, por lo tanto se impide una lectura de notificacion
-     */
-
-    this->can_read_notification = false;
-
-    /*
-     * Si el proceso ha estado inactivo por mas de MAX_INACTIVE_TIME, terminamos su ejecucion.
-     * Si el proceso ha estado vivo mas de MAX_ALIVE_TIME, terminanos su ejecucion
-     */
-    /*
-        int now = time(NULL);
-
-        int inactive_lapse = now - this->last_activity;
-        int alive_lapse = now - this->created;
-
-        if (inactive_lapse >= MAX_INACTIVE_TIME || alive_lapse >= MAX_ALIVE_TIME) {
-
-            cout << getpid() << " > Timeout process!!" << endl;
-
-            this->manageCloseConnection(sig);
-
-        } else {
-            cout << getpid() << " > Shutdown in ";
-            cout << "[ Inactive: " << RaspiUtils::humanTime(MAX_INACTIVE_TIME - inactive_lapse) << " ] ";
-            cout << "[ Alive: " << RaspiUtils::humanTime(MAX_ALIVE_TIME - alive_lapse) << " ]" << endl;
-        }
-
-        // Reset the timer so we get called again in CHECK_INACTIVE_INTERVAL seconds
-        alarm(CHECK_INACTIVE_INTERVAL);
-     */
-}
-
-void ConnectionSSL::manageNotificationWaiting(int sig) {
-
-    this->can_read_notification = true;
-
-}
-
-

@@ -27,13 +27,10 @@ public:
     int openConnection();
     SSL_CTX* getSSLCTX();
     SSL_CTX* initClientCTX();
-    int* getFilePipe();
 
 private:
 
     SSL_CTX* ctx;
-
-    int file_pipes[2];
 
 };
 
