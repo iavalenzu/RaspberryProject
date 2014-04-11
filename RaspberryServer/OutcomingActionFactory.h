@@ -15,8 +15,6 @@
  * Lista de las acciones salientes
  */
 
-#include "ActionReportDelivery.h"
-#include "ActionResponseTime.h"
 #include "ActionUpdateClient.h"
 
 

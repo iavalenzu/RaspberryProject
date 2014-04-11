@@ -14,6 +14,8 @@
 #include "ActionGetFortune.h"
 #include "ActionStopClient.h"
 #include "ActionUpdateClient.h"
+#include "ActionPinMeter.h"
+#include "ActionCheckConnection.h"
 
 
 class IncomingActionFactory : public ActionFactory {

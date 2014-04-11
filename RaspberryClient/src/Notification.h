@@ -19,25 +19,32 @@
 using namespace libjson;
 using namespace std;
 
+#define NOTIFICATION_DATA "Data"
+#define NOTIFICATION_ACTION "Action"
+#define NOTIFICATION_ID "Id"
+#define NOTIFICATION_PARENT_ID "ParentId"
+
 class Notification {
     
 public:
     Notification(JSONNode json);
-    //Notification(std::string str_json);
-    Notification(std::string _action);
-    Notification(std::string _action, JSONNode _data);
     Notification();
     virtual ~Notification();
     
     /*Setters*/
     
     void setAction(std::string _action);
+    void setId(std::string _id);
+    void setParentId(std::string _id);
+    void setData(JSONNode _data);
     void clearData();
     void addDataItem(JSONNode _new_item);
     
     /*Getters*/
     
     std::string getAction();
+    std::string getId();
+    std::string getParentId();
     std::string getDataItem(std::string item_name);
     JSONNode getJSON();
     JSONNode getData();    

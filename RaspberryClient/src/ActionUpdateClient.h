@@ -9,7 +9,9 @@
 #define	ACTIONUPDATECLIENT_H
 
 #include "IncomingAction.h"
-#include "ActionInformResult.h"
+
+#include "ActionNotificationResponse.h"
+#include "ActionPersistentSender.h"
 
 #define ACTION_UPDATE_CLIENT "UPDATE_CLIENT"
 

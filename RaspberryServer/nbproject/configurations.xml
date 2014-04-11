@@ -22,16 +22,15 @@
       <logicalFolder name="f4" displayName="IncomingActions" projectFiles="true">
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionCloseConnection.h</itemPath>
         <itemPath>ActionEcho.h</itemPath>
-        <itemPath>ActionGetFortune.h</itemPath>
-        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionNotificationResponse.h</itemPath>
         <itemPath>ActionPersistentReceiver.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>Notification.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="OutcomingActions" projectFiles="true">
-        <itemPath>ActionReportDelivery.h</itemPath>
-        <itemPath>ActionResponseTime.h</itemPath>
+        <itemPath>ActionUpdateClient.h</itemPath>
       </logicalFolder>
       <itemPath>ConnectionSSL.h</itemPath>
       <itemPath>Core.h</itemPath>
@@ -129,18 +128,15 @@
       <logicalFolder name="f4" displayName="IncomingActions" projectFiles="true">
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionCloseConnection.cpp</itemPath>
         <itemPath>ActionEcho.cpp</itemPath>
-        <itemPath>ActionGetFortune.cpp</itemPath>
-        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionNotificationResponse.cpp</itemPath>
         <itemPath>ActionPersistentReceiver.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Notifications" projectFiles="true">
         <itemPath>Notification.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="OutcomingActions" projectFiles="true">
-        <itemPath>ActionReportDelivery.cpp</itemPath>
-        <itemPath>ActionResponseTime.cpp</itemPath>
         <itemPath>ActionUpdateClient.cpp</itemPath>
-        <itemPath>ActionUpdateClient.h</itemPath>
       </logicalFolder>
       <itemPath>ConnectionSSL.cpp</itemPath>
       <itemPath>DatabaseAdapter.cpp</itemPath>
@@ -204,12 +200,22 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionNotificationResponse.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionNotificationResponse.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -241,21 +247,9 @@
       </item>
       <item path="ActionFactory.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ActionGetFortune.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionGetFortune.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ActionPersistentReceiver.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ActionPersistentReceiver.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionReportDelivery.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionReportDelivery.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionResponseTime.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionResponseTime.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ActionUpdateClient.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -560,12 +554,22 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionNotificationResponse.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionNotificationResponse.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -597,21 +601,9 @@
       </item>
       <item path="ActionFactory.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ActionGetFortune.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionGetFortune.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ActionPersistentReceiver.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ActionPersistentReceiver.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionReportDelivery.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionReportDelivery.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ActionResponseTime.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ActionResponseTime.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ActionUpdateClient.cpp" ex="false" tool="1" flavor2="0">
       </item>

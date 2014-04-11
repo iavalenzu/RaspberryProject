@@ -118,10 +118,12 @@ class UsersController extends AppController {
                 //Se hace la llamada enviando SIGCONT a cada proceso
 
                 $return = exec("kill -s CONT $pid 2>&1", $output, $return2);
-
+                /*
                 debug($return);
                 debug($output);
                 debug($return2);
+                 * 
+                 */
             }
         }
     }
@@ -143,16 +145,15 @@ class UsersController extends AppController {
 
             $data = array();
 
-            foreach ($this->request->data['Notification']['data']['Data'] as $item) {
+            foreach ($this->request->data['Notification']['data'] as $item) {
 
                 if (!empty($item['Name'])) {
                     $data[$item['Name']] = $item['Value'];
                 }
             }
 
-            $this->request->data['Notification']['data']['Data'] = $data;
-
-            $this->request->data['Notification']['data'] = json_encode($this->request->data['Notification']['data']);
+            $this->request->data['Notification']['data'] = json_encode($data);
+            $this->request->data['Notification']['status'] = "PENDING";
 
             if ($this->Notification->save($this->request->data)) {
 
@@ -171,9 +172,11 @@ class UsersController extends AppController {
                     $this->sendSignals($active_connections);
 
                     $this->Session->setFlash(__('Notification enviada'));
+                    
                 } else {
                     $this->Session->setFlash(__('The notification could not be sent, Please, try again.'));
                 }
+                
             } else {
                 $this->Session->setFlash(__('The notification could not be deleted, Please, try again.'));
             }

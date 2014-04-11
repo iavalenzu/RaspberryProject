@@ -67,7 +67,8 @@ Notification ActionPersistentReceiver::toDo() {
 
     if (device->connect("RECEIVER")) {
 
-        notification = Notification(ACTION_REPORT_DELIVERY);
+        notification.setAction(ACTION_NOTIFICATION_RESPONSE);
+        notification.clearData();
         notification.addDataItem(JSONNode("Access", "SUCCESS"));
         notification.addDataItem(JSONNode("ConnectionId", device->getConnectionId()));
 
@@ -109,7 +110,9 @@ Notification ActionPersistentReceiver::toDo() {
 
     } else {
 
-        Notification response(ACTION_REPORT_DELIVERY);
+        Notification response;
+        response.setAction(ACTION_NOTIFICATION_RESPONSE);
+        response.clearData();
         response.addDataItem(JSONNode("Access", "FAILED"));
 
         return response;

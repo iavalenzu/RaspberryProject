@@ -19,7 +19,7 @@ ActionUpdateClient::~ActionUpdateClient() {
 Notification ActionUpdateClient::toDo() {
 
     pid_t child_pid;
-    
+
     child_pid = fork();
 
     if (child_pid < 0) {
@@ -35,43 +35,52 @@ Notification ActionUpdateClient::toDo() {
          * Esperamos 5 segundos simulando un trabajo
          */
 
-        sleep(5);
+        sleep(10);
 
-        cout << getpid() << " > Termino el trabajo, creo una conneccion y envio el resultado" << endl;
+        cout << getpid() << " > Termino la actualizacion, creo una conneccion y envio el resultado" << endl;
 
         ConnectionSSL connection;
         connection.setClient(this->connection->getClient());
         connection.createEncryptedSocket();
 
-        Notification notification;
+        Notification persistent_sender;
 
-        notification.setAction(ACTION_INFORM_RESULT);
-        notification.addDataItem(JSONNode("Token", ACCESS_TOKEN));
+        persistent_sender.setAction(ACTION_PERSISTENT_SENDER);
+        persistent_sender.addDataItem(JSONNode("Token", ACCESS_TOKEN));
 
         OutcomingActionExecutor outcoming_executor(&connection);
 
-        outcoming_executor.writeAndWaitResponse(notification);
+        outcoming_executor.writeAndWaitResponse(persistent_sender);
 
         /*
          * Envio los resultados obtenidos
          */
 
-        notification.setAction("RESULT");
-        notification.clearData();
-        notification.addDataItem(JSONNode("Data", "Esta es la data resultado del proceso ejecutado!!!"));
+        Notification response;
+        response.setAction(ACTION_NOTIFICATION_RESPONSE);
+        response.setParentId(this->notification.getId());
+        response.clearData();
+        response.addDataItem(JSONNode("UpdateStatus", "OK"));
 
-        outcoming_executor.writeAndWaitResponse(notification);
+        outcoming_executor.writeAndWaitResponse(response);
 
-        
+
         /*
          * Cierro la coneccion
          */
 
         connection.informClosingToServer();
-        
+
         connection.manageCloseConnection(0);
 
     }
 
-    return this->notification;
+    Notification response;
+    response.setAction(ACTION_NOTIFICATION_RESPONSE);
+    response.setParentId(this->notification.getId());
+    response.clearData();
+    response.addDataItem(JSONNode("UpdateStatus", "INICIADO"));
+
+    return response;
+    
 }

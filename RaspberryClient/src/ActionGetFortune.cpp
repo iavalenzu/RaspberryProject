@@ -22,26 +22,29 @@ ActionGetFortune::~ActionGetFortune() {
 }
 
 Notification ActionGetFortune::toDo() {
-    
+
     FILE *in;
     char buff[512];
     std::string out = "";
 
     in = popen("/usr/local/bin/fortune", "r");
 
-    if (in == NULL){
+    if (in == NULL) {
         return Notification();
-    }       
-    
-    while (fread(buff, 1, sizeof(buff), in) > 0) {
+    }
+
+    while (fread(buff, 1, sizeof (buff), in) > 0) {
         out.append(buff);
     }
-    
-    pclose(in);
-        
-    Notification notification("REPORT_DELIVERY");
-    notification.addDataItem(JSONNode("Message", out));
 
-    return notification;
+    pclose(in);
+
+    Notification response;
+    response.setAction(ACTION_NOTIFICATION_RESPONSE);
+    response.setParentId(this->notification.getId());
+    response.clearData();
+    response.addDataItem(JSONNode("Message", out));
+
+    return response;
 
 }

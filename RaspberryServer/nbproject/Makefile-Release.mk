@@ -37,14 +37,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/429082616/ActionCloseConnection.o \
 	${OBJECTDIR}/_ext/429082616/ActionExecutor.o \
-	${OBJECTDIR}/_ext/429082616/ActionInformResult.o \
+	${OBJECTDIR}/_ext/429082616/ActionNotificationResponse.o \
+	${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o \
 	${OBJECTDIR}/Action.o \
 	${OBJECTDIR}/ActionEcho.o \
 	${OBJECTDIR}/ActionFactory.o \
-	${OBJECTDIR}/ActionGetFortune.o \
 	${OBJECTDIR}/ActionPersistentReceiver.o \
-	${OBJECTDIR}/ActionReportDelivery.o \
-	${OBJECTDIR}/ActionResponseTime.o \
 	${OBJECTDIR}/ActionUpdateClient.o \
 	${OBJECTDIR}/ConnectionSSL.o \
 	${OBJECTDIR}/DatabaseAdapter.o \
@@ -110,10 +108,15 @@ ${OBJECTDIR}/_ext/429082616/ActionExecutor.o: /Users/Ismael/NetBeansProjects/Ras
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionExecutor.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionExecutor.cpp
 
-${OBJECTDIR}/_ext/429082616/ActionInformResult.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.cpp 
+${OBJECTDIR}/_ext/429082616/ActionNotificationResponse.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionNotificationResponse.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/429082616
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionInformResult.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionInformResult.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionNotificationResponse.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionNotificationResponse.cpp
+
+${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/429082616
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/429082616/ActionPersistentSender.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServer/ActionPersistentSender.cpp
 
 ${OBJECTDIR}/Action.o: Action.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -130,25 +133,10 @@ ${OBJECTDIR}/ActionFactory.o: ActionFactory.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionFactory.o ActionFactory.cpp
 
-${OBJECTDIR}/ActionGetFortune.o: ActionGetFortune.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionGetFortune.o ActionGetFortune.cpp
-
 ${OBJECTDIR}/ActionPersistentReceiver.o: ActionPersistentReceiver.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionPersistentReceiver.o ActionPersistentReceiver.cpp
-
-${OBJECTDIR}/ActionReportDelivery.o: ActionReportDelivery.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionReportDelivery.o ActionReportDelivery.cpp
-
-${OBJECTDIR}/ActionResponseTime.o: ActionResponseTime.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ActionResponseTime.o ActionResponseTime.cpp
 
 ${OBJECTDIR}/ActionUpdateClient.o: ActionUpdateClient.cpp 
 	${MKDIR} -p ${OBJECTDIR}

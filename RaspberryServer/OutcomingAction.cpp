@@ -19,10 +19,25 @@ OutcomingAction::OutcomingAction(const OutcomingAction& orig) {
 OutcomingAction::~OutcomingAction() {
 }
 
-Notification OutcomingAction::toDo(){
+Notification OutcomingAction::toDo() {
     return this->notification;
 }
 
-Notification OutcomingAction::processResponse(Notification _notification){
+Notification OutcomingAction::processResponse(Notification _notification) {
+
+    Device* device;
+
+    /*
+     * Se obtiene el dispositivo asociado a la coneccion
+     */
+
+    device = this->connection->getDevice();
+
+    /*
+     * Guardamos la respuesta de la notificacion
+     */
+
+    device->writeNotificationResponse(_notification);
+
     return _notification;
 }

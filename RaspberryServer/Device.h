@@ -32,7 +32,10 @@ public:
     std::string getToken();
     int connect(string connection_type);
     int disconnect();
+    
     Notification readNotification();
+    void writeNotificationResponse(Notification _notification);
+    
     int isAuthorized();
     std::string getConnectionId();
     void reset();

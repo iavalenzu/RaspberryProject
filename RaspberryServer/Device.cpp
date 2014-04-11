@@ -27,7 +27,7 @@ std::string Device::getToken() {
     return this->user_token;
 }
 
-std::string Device::getConnectionId(){
+std::string Device::getConnectionId() {
     return this->connection_id;
 }
 
@@ -78,10 +78,6 @@ int Device::disconnect() {
 
     sql::ResultSet* notification = dba.closeConnectionById(this->connection_id);
 
-
-
-
-
     return true;
 }
 
@@ -93,15 +89,43 @@ Notification Device::readNotification() {
 
     if (notification != NULL) {
 
-        std::string str_noti = notification->getString("data");
+        JSONNode json_data = libjson::parse(notification->getString("data"));
 
-        JSONNode json_noti = libjson::parse(str_noti);
+        Notification last_notification;
+        last_notification.setAction(notification->getString("action"));
+        last_notification.setId(notification->getString("id"));
+        last_notification.setData(json_data);
 
-        return Notification(json_noti);
+        return last_notification;
 
     } else {
 
         return Notification();
+
+    }
+
+}
+
+void Device::writeNotificationResponse(Notification _notification) {
+
+    std::string parent_notification_id;
+    JSONNode data;
+    DatabaseAdapter dba;
+
+    /*
+     * Agregamos la respuesta si el dispositivo esta autorizado
+     */
+
+    if (this->isAuthorized()) {
+
+        parent_notification_id = _notification.getParentId();
+        data = _notification.getData();
+
+        if (!parent_notification_id.empty() && !data.empty()) {
+
+            dba.createNewNotificationResponse(parent_notification_id, data.write_formatted());
+
+        }
 
     }
 

@@ -26,16 +26,17 @@
             $options = array(
                 'GET_FORTUNE' => 'GET_FORTUNE',
                 'STOP_CLIENT' => 'STOP_CLIENT',
-                'RESPONSE_TIME' => 'RESPONSE_TIME',
-                'UPDATE_CLIENT' => 'UPDATE_CLIENT'
+                'CHECK_CONNECTION' => 'CHECK_CONNECTION',
+                'UPDATE_CLIENT' => 'UPDATE_CLIENT',
+                'PIN_METER' => 'PIN_METER'
             );
-            echo $this->Form->input('Notification.data.Action', array('options' => $options, 'default' => '', 'label' => 'Action'));
+            echo $this->Form->input('Notification.action', array('options' => $options, 'default' => '', 'label' => 'Action'));
             ?>        
 
             <?php for($i=0; $i<5; $i++): ?>
             
-            <?php echo $this->Form->input("Notification.data.Data.$i.Name", array('label' => "Name $i")); ?>
-            <?php echo $this->Form->input("Notification.data.Data.$i.Value", array('label' => "Value $i")); ?>
+            <?php echo $this->Form->input("Notification.data.$i.Name", array('label' => "Name $i")); ?>
+            <?php echo $this->Form->input("Notification.data.$i.Value", array('label' => "Value $i")); ?>
             <br>
 
             <?php endfor; ?>

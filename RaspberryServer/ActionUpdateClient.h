@@ -18,8 +18,6 @@ public:
     ActionUpdateClient(Notification notification, ConnectionSSL* connection);
     ActionUpdateClient(const ActionUpdateClient& orig);
     virtual ~ActionUpdateClient();
-    Notification toDo();
-    Notification processResponse(Notification _notification);
 private:
 
 };

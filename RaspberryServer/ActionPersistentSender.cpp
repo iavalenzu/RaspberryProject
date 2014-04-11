@@ -5,21 +5,21 @@
  * Created on 15 de marzo de 2014, 05:01 PM
  */
 
-#include "ActionInformResult.h"
+#include "ActionPersistentSender.h"
 
 #include "OutcomingActionExecutor.h"
 #include "IncomingActionExecutor.h"
 
-ActionInformResult::ActionInformResult(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
+ActionPersistentSender::ActionPersistentSender(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
 }
 
-ActionInformResult::ActionInformResult(const ActionInformResult& orig) {
+ActionPersistentSender::ActionPersistentSender(const ActionPersistentSender& orig) {
 }
 
-ActionInformResult::~ActionInformResult() {
+ActionPersistentSender::~ActionPersistentSender() {
 }
 
-Notification ActionInformResult::toDo(){
+Notification ActionPersistentSender::toDo(){
     
     Device* device;
     Notification notification;
@@ -35,7 +35,7 @@ Notification ActionInformResult::toDo(){
     //TODO Esta accion se deberia llamar RESULT_RECEIVER y el informe en particular INFORM_RESULT
     
     incoming_executor.addRejectedAction(ACTION_PERSISTENT_RECEIVER);
-    incoming_executor.addRejectedAction(ACTION_INFORM_RESULT);
+    incoming_executor.addRejectedAction(ACTION_PERSISTENT_SENDER);
     
     
             
@@ -82,7 +82,8 @@ Notification ActionInformResult::toDo(){
     
     if(device->connect("SENDER")){
 
-        notification = Notification(ACTION_REPORT_DELIVERY);
+        notification.setAction(ACTION_NOTIFICATION_RESPONSE);
+        notification.clearData();
         notification.addDataItem(JSONNode("Access", "SUCCESS"));
         notification.addDataItem(JSONNode("ConnectionId", device->getConnectionId()));
         
@@ -100,7 +101,9 @@ Notification ActionInformResult::toDo(){
     
     }else{
     
-        Notification response(ACTION_REPORT_DELIVERY);
+        Notification response;
+        response.setAction(ACTION_NOTIFICATION_RESPONSE);
+        response.clearData();
         response.addDataItem(JSONNode("Access", "FAILED"));
         
         return response;

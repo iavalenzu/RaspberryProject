@@ -11,11 +11,11 @@
 #include "ActionFactory.h"
 #include "IncomingAction.h"
 
-#include "ActionGetFortune.h"
 #include "ActionEcho.h"
 #include "ActionPersistentReceiver.h"
-#include "ActionInformResult.h"
+#include "ActionPersistentSender.h"
 #include "ActionCloseConnection.h"
+#include "ActionNotificationResponse.h"
 
 
 class IncomingActionFactory : public ActionFactory {

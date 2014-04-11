@@ -35,9 +35,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/1604071451/ActionCheckConnection.o \
 	${OBJECTDIR}/_ext/1604071451/ActionFactory.o \
-	${OBJECTDIR}/_ext/1604071451/ActionInformResult.o \
+	${OBJECTDIR}/_ext/1604071451/ActionNotificationResponse.o \
 	${OBJECTDIR}/_ext/1604071451/ActionPersistentReceiver.o \
+	${OBJECTDIR}/_ext/1604071451/ActionPersistentSender.o \
+	${OBJECTDIR}/_ext/1604071451/ActionPinMeter.o \
 	${OBJECTDIR}/_ext/1604071451/ClientSSL.o \
 	${OBJECTDIR}/_ext/1604071451/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/1604071451/IncomingAction.o \
@@ -92,22 +95,37 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient ${OBJECTFILES} ${LDLIBSOPTIONS} -lssl -lcrypto -lm -lcurl
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclient ${OBJECTFILES} ${LDLIBSOPTIONS} -lssl -lcrypto -lm -lcurl -v
+
+${OBJECTDIR}/_ext/1604071451/ActionCheckConnection.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionCheckConnection.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionCheckConnection.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionCheckConnection.cpp
 
 ${OBJECTDIR}/_ext/1604071451/ActionFactory.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionFactory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionFactory.cpp
 
-${OBJECTDIR}/_ext/1604071451/ActionInformResult.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionInformResult.cpp 
+${OBJECTDIR}/_ext/1604071451/ActionNotificationResponse.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionNotificationResponse.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionInformResult.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionInformResult.cpp
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionNotificationResponse.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionNotificationResponse.cpp
 
 ${OBJECTDIR}/_ext/1604071451/ActionPersistentReceiver.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionPersistentReceiver.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentReceiver.cpp
+
+${OBJECTDIR}/_ext/1604071451/ActionPersistentSender.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionPersistentSender.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPersistentSender.cpp
+
+${OBJECTDIR}/_ext/1604071451/ActionPinMeter.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPinMeter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1604071451/ActionPinMeter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionPinMeter.cpp
 
 ${OBJECTDIR}/_ext/1604071451/ClientSSL.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ClientSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1604071451

@@ -26,7 +26,7 @@ Notification ActionPersistentReceiver::processResponse(Notification _notificatio
     IncomingActionExecutor incoming_executor(this->connection);
 
 
-    if (_notification.getAction().compare("REPORT_DELIVERY") == 0) {
+    if (_notification.getAction().compare(ACTION_NOTIFICATION_RESPONSE) == 0) {
 
         std::string access = _notification.getDataItem("Access");
 
@@ -49,11 +49,5 @@ Notification ActionPersistentReceiver::processResponse(Notification _notificatio
     }
 
     return _notification;
-
-}
-
-Notification ActionPersistentReceiver::toDo() {
-
-    return this->notification;
 
 }

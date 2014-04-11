@@ -34,12 +34,13 @@ class DatabaseAdapter {
 public:
     DatabaseAdapter();
     virtual ~DatabaseAdapter();
-    sql::ResultSet* getUserByAccessToken(string token);
-    sql::ResultSet* getLastNotificationByAccessToken(string token);
-    sql::ResultSet* getLastNotificationByConnectionId(string connection_id);
+    sql::ResultSet* getUserByAccessToken(std::string token);
+    sql::ResultSet* getLastNotificationByAccessToken(std::string token);
+    sql::ResultSet* getLastNotificationByConnectionId(std::string connection_id);
     static void showColumns(sql::ResultSet* set);
-    sql::ResultSet* createNewConnection(string user_id, int process_pid, string connection_type);
-    sql::ResultSet* closeConnectionById(string connection_id);
+    sql::ResultSet* createNewConnection(std::string user_id, int process_pid, std::string connection_type);
+    sql::ResultSet* createNewNotificationResponse(std::string notification_id, std::string data);
+    sql::ResultSet* closeConnectionById(std::string connection_id);
 
 private:
 

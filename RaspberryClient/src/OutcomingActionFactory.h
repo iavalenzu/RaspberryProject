@@ -16,7 +16,7 @@
  */
 
 #include "ActionPersistentReceiver.h"
-#include "ActionInformResult.h"
+#include "ActionPersistentSender.h"
 
 
 class OutcomingActionFactory : public ActionFactory{

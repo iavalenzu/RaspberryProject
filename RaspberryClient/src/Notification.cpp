@@ -8,60 +8,62 @@ Notification::Notification(JSONNode json) {
 Notification::Notification() {
 
     JSONNode _json(JSON_NODE);
-    _json.push_back(JSONNode("Action", ""));
-    JSONNode _data(JSON_NODE);
-    _data.set_name("Data");
-    _json.push_back(_data);
 
     this->json = _json;
-}
-
-Notification::Notification(std::string _action) {
-
-    JSONNode _json(JSON_NODE);
-    _json.push_back(JSONNode("Action", _action));
-    JSONNode _data(JSON_NODE);
-    _data.set_name("Data");
-    _json.push_back(_data);
-
-    this->json = _json;
-}
-
-Notification::Notification(std::string _action, JSONNode _data) {
-
-    JSONNode _json(JSON_NODE);
-    _json.push_back(JSONNode("Action", _action));
-    _data.set_name("Data");
-    _json.push_back(_data);
-
-    this->json = _json;
-
 }
 
 Notification::~Notification() {
 }
 
-JSONNode Notification::getJSON() {
-    return this->json;
-}
-
 int Notification::isEmpty() {
-    return getAction().empty();
+    return this->json.empty();
 }
 
 void Notification::addDataItem(JSONNode new_item) {
 
-    JSONNode::json_iterator i = this->json.find("Data");
+    /*
+     * Buscamos el nodo json con nombre data, si no lo encuentro lo creo y le agrego el nuevo elemento
+     */
 
-    if (i == this->json.end()) return;
-    
-    i->push_back(new_item);
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_DATA);
+
+    if (i == this->json.end()) {
+
+        JSONNode data(JSON_NODE);
+        data.set_name(NOTIFICATION_DATA);
+        data.push_back(new_item);
+        this->json.push_back(data);
+
+    } else {
+        i->push_back(new_item);
+    }
+}
+
+std::string Notification::toString() {
+    return (this->json).write_formatted();
+}
+
+void Notification::clearData() {
+
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_DATA);
+
+    JSONNode data;
+    data.set_name(NOTIFICATION_DATA);
+
+    if (i != this->json.end()) {
+        i->swap(data);
+    }
 
 }
 
+/*
+ * === G E T T E R S ===
+ */
+
+
 JSONNode Notification::getData() {
 
-    JSONNode::json_iterator i = this->json.find("Data");
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_DATA);
 
     return i->as_node();
 
@@ -69,7 +71,7 @@ JSONNode Notification::getData() {
 
 std::string Notification::getDataItem(std::string name) {
 
-    JSONNode::json_iterator i = this->json.find("Data");
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_DATA);
 
     if (i == this->json.end()) return "";
 
@@ -83,7 +85,7 @@ std::string Notification::getDataItem(std::string name) {
 
 std::string Notification::getAction() {
 
-    JSONNode::json_iterator i = this->json.find("Action");
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_ACTION);
 
     if (i == this->json.end()) return "";
 
@@ -91,27 +93,93 @@ std::string Notification::getAction() {
 
 }
 
-std::string Notification::toString() {
-    return (this->json).write_formatted();
+std::string Notification::getId() {
+
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_ID);
+
+    if (i == this->json.end()) return "";
+
+    return i->as_string();
+
+}
+
+std::string Notification::getParentId() {
+
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_PARENT_ID);
+
+    if (i == this->json.end()) return "";
+
+    return i->as_string();
+
+}
+
+JSONNode Notification::getJSON() {
+    return this->json;
+}
+
+/*
+ * ==== S E T T E R S ==== 
+ */
+
+
+void Notification::setData(JSONNode _data) {
+
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_DATA);
+
+    _data.set_name(NOTIFICATION_DATA);
+
+    if (i == this->json.end()) {
+        this->json.push_back(_data);
+    } else {
+        i->swap(_data);
+    }
 }
 
 void Notification::setAction(std::string _action) {
 
-    JSONNode::json_iterator i = this->json.find("Action");
-    
-    JSONNode action_node("Action", _action);
-    
-    i->swap(action_node);
-    
-}
+    JSONNode action_node(NOTIFICATION_ACTION, _action);
 
-void Notification::clearData() {
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_ACTION);
 
-    JSONNode::json_iterator i = this->json.find("Data");
-    
-    JSONNode data;
-    data.set_name("Data");
-    
-    i->swap(data);
+    if (i == this->json.end()) {
+        this->json.push_back(action_node);
+    } else {
+        i->swap(action_node);
+    }
 
 }
+
+void Notification::setId(std::string _id) {
+
+    JSONNode id_node(NOTIFICATION_ID, _id);
+
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_ID);
+
+    /*
+     * Si no lo encuentra lo crea, y lo agrega al objeto json
+     */
+    if (i == this->json.end()) {
+        this->json.push_back(id_node);
+    } else {
+        i->swap(id_node);
+    }
+
+}
+
+void Notification::setParentId(std::string _id) {
+
+    JSONNode parent_id_node(NOTIFICATION_PARENT_ID, _id);
+
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_PARENT_ID);
+
+    /*
+     * Si no lo encuentra lo crea, y lo agrega al objeto json
+     */
+    if (i == this->json.end()) {
+        this->json.push_back(parent_id_node);
+    } else {
+        i->swap(parent_id_node);
+    }
+
+}
+

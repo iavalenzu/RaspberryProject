@@ -20,13 +20,4 @@ ActionUpdateClient::ActionUpdateClient(const ActionUpdateClient& orig) {
 ActionUpdateClient::~ActionUpdateClient() {
 }
 
-Notification ActionUpdateClient::toDo() {
 
-    return this->notification;
-}
-
-Notification ActionUpdateClient::processResponse(Notification _notification) {
-
-    return _notification;
-
-}

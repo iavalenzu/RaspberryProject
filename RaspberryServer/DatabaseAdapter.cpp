@@ -40,7 +40,7 @@ void DatabaseAdapter::showColumns(sql::ResultSet* set) {
 
 }
 
-sql::ResultSet* DatabaseAdapter::getUserByAccessToken(string token) {
+sql::ResultSet* DatabaseAdapter::getUserByAccessToken(std::string token) {
 
     try {
 
@@ -68,14 +68,14 @@ sql::ResultSet* DatabaseAdapter::getUserByAccessToken(string token) {
 
 }
 
-sql::ResultSet* DatabaseAdapter::createNewConnection(string user_id, int process_pid, string connection_type) {
+sql::ResultSet* DatabaseAdapter::createNewConnection(std::string user_id, int process_pid, std::string connection_type) {
 
     try {
 
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("INSERT INTO connections(user_id, pid, status, type) VALUES(?,?,?,?)");
+        pstmt = this->con->prepareStatement("INSERT INTO connections(user_id, pid, status, type, created, modified) VALUES(?,?,?,?, NOW(), NOW())");
         pstmt->setString(1, user_id);
         pstmt->setInt(2, process_pid);
         pstmt->setString(3, "ACTIVE");
@@ -110,10 +110,53 @@ sql::ResultSet* DatabaseAdapter::createNewConnection(string user_id, int process
 
     }
 
+}
+
+sql::ResultSet* DatabaseAdapter::createNewNotificationResponse(std::string notification_id, std::string data) {
+
+    try {
+
+        sql::PreparedStatement *pstmt;
+        sql::ResultSet *res;
+
+        pstmt = this->con->prepareStatement("INSERT INTO notifications_responses(notification_id, data, status, created, modified) VALUES(?,?,?, NOW(), NOW())");
+        pstmt->setString(1, notification_id);
+        pstmt->setString(2, data);
+        pstmt->setString(3, "RECEIVED");
+
+        int update_count = pstmt->executeUpdate();
+
+        /*
+         * Si no es posible insertar el nuevo registro retornamos NULL
+         */
+        if (update_count <= 0) {
+            return NULL;
+        }
+
+        pstmt = this->con->prepareStatement("SELECT * FROM notifications_responses WHERE id = LAST_INSERT_ID() LIMIT 1");
+
+        res = pstmt->executeQuery();
+
+        this->con->commit();
+
+        delete pstmt;
+
+        return (res->next()) ? res : NULL;
+
+    } catch (sql::SQLException &e) {
+
+        cout << "SQLException: " << e.what() << endl;
+        cout << "SQLException: code > " << e.getErrorCode() << endl;
+        cout << "SQLException: state > " << e.getSQLState() << endl;
+
+        return NULL;
+
+    }
 
 }
 
-sql::ResultSet* DatabaseAdapter::closeConnectionById(string connection_id) {
+
+sql::ResultSet* DatabaseAdapter::closeConnectionById(std::string connection_id) {
 
 
     try {
@@ -157,14 +200,14 @@ sql::ResultSet* DatabaseAdapter::closeConnectionById(string connection_id) {
 
 }
 
-sql::ResultSet* DatabaseAdapter::getLastNotificationByConnectionId(string connection_id) {
+sql::ResultSet* DatabaseAdapter::getLastNotificationByConnectionId(std::string connection_id) {
 
     try {
 
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("SELECT N.data FROM connection_notifications AS CN JOIN notifications AS N ON (CN.notification_id = N.id ) WHERE CN.connection_id = ? AND CN.status = 'PENDING' ORDER BY CN.id DESC LIMIT 1");
+        pstmt = this->con->prepareStatement("SELECT N.id, N.data, N.action FROM connection_notifications AS CN JOIN notifications AS N ON (CN.notification_id = N.id ) WHERE CN.connection_id = ? AND CN.status = 'PENDING' ORDER BY CN.id DESC LIMIT 1");
         pstmt->setString(1, connection_id);
 
         res = pstmt->executeQuery();
@@ -189,7 +232,7 @@ sql::ResultSet* DatabaseAdapter::getLastNotificationByConnectionId(string connec
 
 }
 
-sql::ResultSet* DatabaseAdapter::getLastNotificationByAccessToken(string token) {
+sql::ResultSet* DatabaseAdapter::getLastNotificationByAccessToken(std::string token) {
 
     try {
 

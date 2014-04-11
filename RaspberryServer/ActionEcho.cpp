@@ -21,12 +21,6 @@ ActionEcho::~ActionEcho() {
 
 Notification ActionEcho::toDo() {
 
-
-    std::string echo = this->notification.getDataItem("Echo");
-
-    Notification response("RESPONSE");
-    response.addDataItem(JSONNode("Echo", echo));
-
-    return response;
+    return this->notification;
 
 }

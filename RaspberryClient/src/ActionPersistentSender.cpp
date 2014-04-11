@@ -5,24 +5,24 @@
  * Created on 15 de marzo de 2014, 05:01 PM
  */
 
-#include "ActionInformResult.h"
+#include "ActionPersistentSender.h"
 
-ActionInformResult::ActionInformResult(Notification notification, ConnectionSSL* connection) : OutcomingAction(notification, connection) {
+ActionPersistentSender::ActionPersistentSender(Notification notification, ConnectionSSL* connection) : OutcomingAction(notification, connection) {
 }
 
-ActionInformResult::ActionInformResult(const ActionInformResult& orig) {
+ActionPersistentSender::ActionPersistentSender(const ActionPersistentSender& orig) {
 }
 
-ActionInformResult::~ActionInformResult() {
+ActionPersistentSender::~ActionPersistentSender() {
 }
 
-Notification ActionInformResult::processResponse(Notification _notification) {
+Notification ActionPersistentSender::processResponse(Notification _notification) {
 
     /*
      * Notification corresponde a la respuesta luego se ser enviada las credenciales, verifica si el acceso es valido
      */
 
-    if (_notification.getAction().compare("REPORT_DELIVERY") == 0) {
+    if (_notification.getAction().compare(ACTION_NOTIFICATION_RESPONSE) == 0) {
 
         std::string access = _notification.getDataItem("Access");
 
@@ -44,7 +44,7 @@ Notification ActionInformResult::processResponse(Notification _notification) {
 
 }
 
-Notification ActionInformResult::toDo() {
+Notification ActionPersistentSender::toDo() {
 
     return this->notification;
 

@@ -20,6 +20,7 @@ OutcomingAction* OutcomingActionFactory::createFromNotification(Notification not
 
     std::string action_name = notification.getAction();
 
+    cout << getpid() << " > Outcoming notification: " << notification.toString() << endl;
     cout << getpid() << " > Creating outcoming action: " << action_name << endl;
 
     OutcomingAction *action = new OutcomingAction(notification, connection);
@@ -27,11 +28,7 @@ OutcomingAction* OutcomingActionFactory::createFromNotification(Notification not
     /*
      * De acuerdo al tipo de notification, elejimos la accion
      */
-    if (action_name.compare(ACTION_REPORT_DELIVERY) == 0) {
-        action = new ActionReportDelivery(notification, connection);
-    } else if (action_name.compare(ACTION_RESPONSE_TIME) == 0) {
-        action = new ActionResponseTime(notification, connection);
-    } else if (action_name.compare(ACTION_UPDATE_CLIENT) == 0) {
+    if (action_name.compare(ACTION_UPDATE_CLIENT) == 0) {
         action = new ActionUpdateClient(notification, connection);
     }
 
