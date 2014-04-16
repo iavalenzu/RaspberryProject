@@ -21,6 +21,7 @@
 #include <ev++.h>
 
 #include "Core.h"
+#include "ConnectionSSL.h"
 
 using namespace std;
 

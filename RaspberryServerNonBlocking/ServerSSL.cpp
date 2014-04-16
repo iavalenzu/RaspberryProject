@@ -148,7 +148,11 @@ void ServerSSL::ioAcceptConnectionsCallback(ev::io &watcher, int revents) {
 
     std::cout << " > Accept new connection: " << inet_ntoa(addr.sin_addr) << ":" << ntohs(addr.sin_port) << std::endl;
 
-
+    /*
+     * Creamos un nuevo objeto que maneja la coneccion
+     */
+    
+    ConnectionSSL connection_ssl(new_connection_fd, this);
 
 }
 

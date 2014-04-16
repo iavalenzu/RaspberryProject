@@ -13,6 +13,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.h</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -46,6 +48,16 @@
           <commandLine>-lssl -lcrypto -lm -lcurl</commandLine>
         </linkerTool>
       </compileType>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Core.h"
             ex="false"
             tool="3"
@@ -84,6 +96,16 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Core.h"
             ex="false"
             tool="3"
