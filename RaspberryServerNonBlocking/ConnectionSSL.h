@@ -8,24 +8,36 @@
 #ifndef CONNECTIONSSL_H
 #define	CONNECTIONSSL_H
 
+#include <openssl/ssl.h>
+#include <openssl/err.h>
 #include <signal.h>
+#include <string>
+#include <iostream>
 
-#include "Notification.h"
+#include <event.h>
+#include <event2/listener.h>
+#include <event2/bufferevent_ssl.h>
 
-#include "RaspiUtils.h"
+
+       #include <unistd.h>
+       #include <fcntl.h>
+
+//#include "Notification.h"
+
+//#include "RaspiUtils.h"
 #include "Device.h"
 
-#include "ServerSSL.h"
+using namespace std;
 
 class ConnectionSSL {
 public:
-    ConnectionSSL(int connection_fd, ServerSSL _server);
+    ConnectionSSL(int connection_fd, SSL_CTX* ctx);
     virtual ~ConnectionSSL();
     void setSSLContext();
     
     
     void closeConnection();
-    void processAction();
+    //void processAction();
     SSL* getSSL();
     void manageCloseConnection(int sig);
     void manageInactiveConnection(int sig);
@@ -34,9 +46,11 @@ public:
     void setLastActivity();
     
     Device* getDevice();
+    
+    //void callback(ev::io &watcher, int revents);
 
-    int writeNotification(Notification notification);
-    Notification readNotification();
+    //int writeNotification(Notification notification);
+    //Notification readNotification();
     
     void openLogger();
 
@@ -51,15 +65,9 @@ private:
 
     int can_read_notification;
     
-    ServerSSL* server; 
-    
     Device* device;    
     
-    /*
-     * Fichero de logs
-     */
-    
-    ofstream logger;
+    //ev::io io_connection_fd;
    
 
 };

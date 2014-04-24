@@ -6,9 +6,14 @@
  */
 
 #include <cstdlib>
-#include <ev++.h>
+
+#include <event.h>
+#include <event2/listener.h>
+#include <event2/bufferevent_ssl.h>
+
 
 #include "ServerSSL.h"
+#include "ConnectionSSL.h"
 
 using namespace std;
 
@@ -17,10 +22,7 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-    ev::default_loop loop;
     ServerSSL server(PORT_NUM, CERT_FILE, CERT_FILE);
-
-    loop.run(0);
 
     return 0;
 }

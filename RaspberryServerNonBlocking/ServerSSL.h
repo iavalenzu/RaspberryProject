@@ -18,7 +18,14 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
-#include <ev++.h>
+
+#include <event.h>
+#include <event2/listener.h>
+#include <event2/bufferevent_ssl.h>
+
+
+//       #include <unistd.h>
+//       #include <fcntl.h>
 
 #include "Core.h"
 #include "ConnectionSSL.h"
@@ -35,10 +42,15 @@ public:
     void openNewConnectionsListener();
     void loadCertificates();
     
-    void ioAcceptConnectionsCallback(ev::io &watcher, int revents);
-    void signalCloseServerCallback(ev::sig &signal, int revents);
+    //void ioAcceptConnectionsCallback(ev::io &watcher, int revents);
+    //void signalCloseServerCallback(ev::sig &signal, int revents);
+    
+    //void periodic_cb(ev::periodic &periodic, int revents);
     
     void closeServer();
+    
+    
+    static void ssl_acceptcb(struct evconnlistener *serv, int sock, struct sockaddr *sa, int sa_len, void *arg);
     
 private:
     SSL_CTX *ctx;
@@ -48,8 +60,14 @@ private:
     std::string certfile;
     std::string keyfile;
     
-    ev::io io_accept_connections;
-    ev::sig sio_handle_int;
+    struct evconnlistener *listener;
+    
+    struct event_base *evbase;
+    
+    //ev::io io_accept_connections;
+    //ev::sig sio_handle_int;
+    
+    //ev::periodic periodic;
 
 };
 
