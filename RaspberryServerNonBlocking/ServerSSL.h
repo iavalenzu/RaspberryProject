@@ -24,8 +24,6 @@
 #include <event2/bufferevent_ssl.h>
 
 
-//       #include <unistd.h>
-//       #include <fcntl.h>
 
 #include "Core.h"
 #include "ConnectionSSL.h"
@@ -64,11 +62,6 @@ private:
     
     struct event_base *evbase;
     
-    //ev::io io_accept_connections;
-    //ev::sig sio_handle_int;
-    
-    //ev::periodic periodic;
-
 };
 
 #endif	/* SERVERSSL_H */

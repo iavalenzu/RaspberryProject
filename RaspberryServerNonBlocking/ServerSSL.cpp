@@ -12,7 +12,7 @@ ServerSSL::ServerSSL(int _port, std::string _cert, std::string _key) {
     this->port = _port;
     this->certfile = _cert;
     this->keyfile = _key;
-    
+
     this->evbase = event_base_new();
 
     SSL_library_init();
@@ -62,6 +62,7 @@ void ServerSSL::initSSLContext() {
     }
 
 }
+
 /*
 void ServerSSL::periodic_cb(ev::periodic &periodic, int revents) {
 
@@ -69,13 +70,28 @@ void ServerSSL::periodic_cb(ev::periodic &periodic, int revents) {
 
 }
 
-*/
+ */
 void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct sockaddr *sa,
-             int sa_len, void *arg){
-    
-    ServerSSL* server_ssl;  
+        int sa_len, void *arg) {
+
+    struct event_base *evbase;
+    ServerSSL* server_ssl;
+    SSL_CTX* ssl_ctx;
 
     server_ssl = (ServerSSL*) arg;
+    
+    evbase = evconnlistener_get_base(serv);
+    ssl_ctx = server_ssl->getSSLCTX();
+    
+    
+    std::cout << " > Accept new connection: Port = " << sa->sa_data << std::endl;
+
+
+    // Creamos un nuevo objeto que maneja la coneccion
+
+    ConnectionSSL connection_ssl(sock, evbase, ssl_ctx);
+
+
 
 }
 
@@ -91,17 +107,17 @@ void ServerSSL::openNewConnectionsListener() {
     addr.sin_port = htons(this->port);
     addr.sin_addr.s_addr = INADDR_ANY;
 
-    
+
     this->listener = evconnlistener_new_bind(
-                         this->evbase, this->ssl_acceptcb, (void *)this,
-                         LEV_OPT_CLOSE_ON_FREE | LEV_OPT_REUSEABLE, 1024,
-                         (struct sockaddr *)&addr, sizeof(addr));
-    
-    
+            this->evbase, this->ssl_acceptcb, (void *) this,
+            LEV_OPT_CLOSE_ON_FREE | LEV_OPT_REUSEABLE, 1024,
+            (struct sockaddr *) &addr, sizeof (addr));
+
+
     event_base_loop(this->evbase, 0);
 
     evconnlistener_free(this->listener);
-    
+
     /*
     int tr = 1;
     
@@ -126,7 +142,7 @@ void ServerSSL::openNewConnectionsListener() {
         perror("Can't configure listening port");
         abort();
     }
-*/
+     */
     /*
      * Se define el evento encargado de manejar las nuevas conecciones
      */
@@ -137,8 +153,8 @@ void ServerSSL::openNewConnectionsListener() {
 
     //periodic.set<ServerSSL, &ServerSSL::periodic_cb>(this);
     //periodic.start(0, 5);
-    
-    
+
+
     //sio_handle_int.set<ServerSSL, &ServerSSL::signalCloseServerCallback>(this);
     //sio_handle_int.start(SIGINT);
 
@@ -169,6 +185,7 @@ void ServerSSL::loadCertificates() {
     }
 
 }
+
 /*
 void ServerSSL::ioAcceptConnectionsCallback(ev::io &watcher, int revents) {
 
@@ -196,7 +213,7 @@ void ServerSSL::ioAcceptConnectionsCallback(ev::io &watcher, int revents) {
     ConnectionSSL connection_ssl(new_connection_fd, this->ctx);
 
 }
-*/
+ */
 
 
 void ServerSSL::closeServer() {
@@ -222,4 +239,4 @@ void ServerSSL::signalCloseServerCallback(ev::sig &signal, int revents) {
     exit(EXIT_SUCCESS);
 
 }
-*/
+ */

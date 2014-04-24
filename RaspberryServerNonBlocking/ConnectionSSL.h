@@ -19,19 +19,17 @@
 #include <event2/bufferevent_ssl.h>
 
 
-       #include <unistd.h>
-       #include <fcntl.h>
-
 //#include "Notification.h"
 
 //#include "RaspiUtils.h"
 #include "Device.h"
 
+
 using namespace std;
 
 class ConnectionSSL {
 public:
-    ConnectionSSL(int connection_fd, SSL_CTX* ctx);
+    ConnectionSSL(int connection_fd, struct event_base *evbase, SSL_CTX* ssl_ctx);
     virtual ~ConnectionSSL();
     void setSSLContext();
     
@@ -47,8 +45,6 @@ public:
     
     Device* getDevice();
     
-    //void callback(ev::io &watcher, int revents);
-
     //int writeNotification(Notification notification);
     //Notification readNotification();
     
@@ -57,7 +53,7 @@ public:
 private:
     
     SSL* ssl;
-    SSL_CTX *ctx;
+    SSL_CTX* ctx;
     int fd;
 
     time_t last_activity;
@@ -67,9 +63,10 @@ private:
     
     Device* device;    
     
-    //ev::io io_connection_fd;
-   
-
+    struct event_base* evbase;
+        
+    struct bufferevent *bev;
+    
 };
 
 #endif	/* CONNECTIONSSL_H */

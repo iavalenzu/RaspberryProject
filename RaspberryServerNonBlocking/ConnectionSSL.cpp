@@ -6,41 +6,36 @@
  * Created on 30 de junio de 2013, 05:31 PM
  */
 
-#include <sstream>
 
 #include "ConnectionSSL.h"
 //#include "ActionFactory.h"
 //#include "IncomingActionExecutor.h"
 
-ConnectionSSL::ConnectionSSL(int _connection_fd, SSL_CTX* _ctx) {
+ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL_CTX* _ssl_ctx) {
 
     this->last_activity = time(NULL);
     this->created = time(NULL);
 
+    this->evbase = _evbase;
     this->fd = _connection_fd;
-    this->ctx = _ctx;
+    this->ctx = _ssl_ctx;
+    
+    this->ssl = SSL_new(_ssl_ctx);
 
     this->device = new Device();
 
-    fcntl(this->fd, F_SETFL, fcntl(this->fd, F_GETFL, 0) | O_NONBLOCK);
 
-    //io_connection_fd.set<ConnectionSSL, &ConnectionSSL::callback>(this);
-    //io_connection_fd.start(this->fd, ev::READ | ev::WRITE);
+    this->bev = bufferevent_openssl_socket_new(this->evbase, this->fd, this->ssl,
+            BUFFEREVENT_SSL_ACCEPTING,
+            BEV_OPT_CLOSE_ON_FREE);
 
-}
+    bufferevent_enable(this->bev, EV_READ);
+    bufferevent_setcb(this->bev, ssl_readcb, NULL, NULL, NULL);
 
-/*
-void ConnectionSSL::callback(ev::io &watcher, int revents) {
-    
-    std::cout << " > Callback!! " << std::endl;
-    
-    if (EV_ERROR & revents) {
-        perror("got invalid event");
-        return;
-    }
+
 
 }
-*/
+
 void ConnectionSSL::setSSLContext() {
 
     this->ssl = SSL_new(this->ctx);
