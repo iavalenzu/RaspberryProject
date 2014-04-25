@@ -47,11 +47,13 @@ public:
     //void setClient(ClientSSL* client);
     //ClientSSL* getClient();
     
-    static void ssl_readcb(struct bufferevent * bev, void * arg);
+    static void ssl_readcb(struct bufferevent * bev, void *arg);
     
-    static void ssl_eventcb(struct bufferevent *bev, short events, void *ptr);
+    static void ssl_eventcb(struct bufferevent *bev, short events, void *arg);
     
-    static void standard_input_cb(struct bufferevent *bev, void *data);
+    static void standard_input_cb(struct bufferevent *bev, void *arg);
+    
+    static void periodic_cb(evutil_socket_t fd, short what, void *arg);
     
     //void ioReadCallback(ev::io &watcher, int revents);
     //void ioWriteCallback(ev::io &watcher, int revents);

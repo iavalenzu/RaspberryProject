@@ -206,13 +206,22 @@ void ConnectionSSL::createEncryptedSocket() {
     //bufferevent_enable(this->bev, EV_READ);
     bufferevent_setcb(this->bev, this->ssl_readcb, NULL, this->ssl_eventcb, (void *) this);
 
+
+
+
     struct bufferevent *bev_stdin;
 
-    bev_stdin = bufferevent_new(0, this->standard_input_cb, NULL, NULL, NULL);
+    bev_stdin = bufferevent_new(0, this->standard_input_cb, NULL, NULL, (void *) this);
 
     bufferevent_base_set(this->evbase, bev_stdin);
-    
+
     bufferevent_enable(bev_stdin, EV_READ);
+
+
+    struct event *ev;
+    ev = event_new(this->evbase, -1, EV_PERSIST, this->periodic_cb, (void *) this);
+    struct timeval ten_sec = {10, 0};
+    event_add(ev, &ten_sec);
 
 
     /*
@@ -259,32 +268,68 @@ void ConnectionSSL::createEncryptedSocket() {
 
 }
 
-void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *data) {
+void ConnectionSSL::periodic_cb(evutil_socket_t fd, short what, void *arg) {
+
+    printf("ConnectionSSL::periodic_cb\n");
+
+
+}
+
+void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *arg) {
 
     printf("ConnectionSSL::standard_input_cb\n");
+
+    ConnectionSSL *connection_ssl;
+
+    connection_ssl = (ConnectionSSL *) arg;
+
+    struct evbuffer *in = bufferevent_get_input(bev);
+
+    bufferevent_write_buffer(connection_ssl->bev, in);
+
+
+
+
 }
 
 void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
 
     struct evbuffer *in = bufferevent_get_input(bev);
 
-    printf("Received %zu bytes\n", evbuffer_get_length(in));
+
+    char *request_line;
+    size_t len;
+
+    request_line = evbuffer_readln(in, &len, EVBUFFER_EOL_CRLF);
+    if (request_line) {
+        
+        printf("Data: %s\n", request_line);
+
+        free(request_line);
+    }
+
+/*
+    printf("Leido de stdin %zu bytes\n", evbuffer_get_length(in));
     printf("----- data ----\n");
     printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
-
-    bufferevent_write_buffer(bev, in);
+*/
+    //bufferevent_write_buffer(bev, in);
 
 }
 
-void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *ptr) {
+void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg) {
 
     if (events & BEV_EVENT_CONNECTED) {
         int fd = bufferevent_getfd(bev);
 
         printf("BEV_EVENT_CONNECTED\n");
-
-
         return;
+    } else if (events & BEV_EVENT_EOF) {
+        printf("Disconnected from the remote host\n");
+    } else if (events & BEV_EVENT_ERROR) {
+        printf("Network error\n");
+    } else if (events & BEV_EVENT_TIMEOUT) {
+        printf("Timeout\n");
     }
 
 }

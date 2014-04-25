@@ -84,7 +84,11 @@ void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct socka
     ssl_ctx = server_ssl->getSSLCTX();
     
     
-    std::cout << " > Accept new connection: Port = " << sa->sa_data << std::endl;
+    if (sa->sa_family == AF_INET) {
+        std::cout << " > Accept new connection > Port: " << ntohs(((struct sockaddr_in*)sa)->sin_port) << std::endl;
+    }else if(sa->sa_family == AF_INET6){
+        std::cout << " > Accept new connection > Port: " << ntohs(((struct sockaddr_in6*)sa)->sin6_port) << std::endl;
+    }
 
 
     // Creamos un nuevo objeto que maneja la coneccion
