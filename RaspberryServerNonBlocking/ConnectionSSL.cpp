@@ -8,6 +8,8 @@
 
 
 #include "ConnectionSSL.h"
+
+
 //#include "ActionFactory.h"
 //#include "IncomingActionExecutor.h"
 
@@ -24,38 +26,24 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
 
     this->device = new Device();
 
-
-    this->bev = bufferevent_openssl_socket_new(this->evbase, this->fd, this->ssl,
-            BUFFEREVENT_SSL_ACCEPTING,
-            BEV_OPT_CLOSE_ON_FREE);
+    this->bev = bufferevent_openssl_socket_new(this->evbase, this->fd, this->ssl, BUFFEREVENT_SSL_ACCEPTING, BEV_OPT_CLOSE_ON_FREE);
 
     bufferevent_enable(this->bev, EV_READ);
-    bufferevent_setcb(this->bev, ssl_readcb, NULL, NULL, NULL);
-
-
+    bufferevent_setcb(this->bev, this->ssl_readcb, NULL, NULL, (void *) this);
 
 }
 
-void ConnectionSSL::setSSLContext() {
-
-    this->ssl = SSL_new(this->ctx);
 
 
-    /* Sets the file descriptor fd as the input/output facility for 
-     * the TLS/SSL (encrypted) side of ssl. fd will typically be 
-     * the socket file descriptor of a network connection. 
-     */
-    SSL_set_fd(this->ssl, this->fd);
+void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg){
 
-    /* 
-     * Do SSL-protocol accept 
-     */
+    struct evbuffer *in = bufferevent_get_input(bev);
 
-    if (SSL_accept(this->ssl) <= 0) {
-        ERR_print_errors_fp(stderr);
-        abort();
-    }
+    printf("Received %zu bytes\n", evbuffer_get_length(in));
+    printf("----- data ----\n");
+    printf("%.*s\n", (int)evbuffer_get_length(in), evbuffer_pullup(in, -1));
 
+    bufferevent_write_buffer(bev, in);
 
 }
 

@@ -12,22 +12,16 @@
 
 //#include "ActionFactory.h"
 
-ConnectionSSL::ConnectionSSL() {
+ConnectionSSL::ConnectionSSL(SSL_CTX* _ctx, struct event_base* _evbase) {
 
-    this->ctx = NULL;
+    this->ctx = _ctx;
+    this->evbase = _evbase;
     this->ssl = NULL;
     this->fd = -1;
 
 }
 
-void ConnectionSSL::setClient(ClientSSL* client) {
-    this->client = client;
-}
-
-ClientSSL* ConnectionSSL::getClient() {
-    return this->client;
-}
-
+/*
 void ConnectionSSL::ioReadCallback(ev::io &watcher, int revents) {
 
     /*
@@ -36,8 +30,8 @@ void ConnectionSSL::ioReadCallback(ev::io &watcher, int revents) {
     if (this->read_count == 10) {
         this->io_connection_fd_read.stop();
     }
-*/
-
+ */
+/*
     if (EV_ERROR & revents) {
         perror("got invalid event");
         return;
@@ -90,7 +84,7 @@ void ConnectionSSL::ioReadCallback(ev::io &watcher, int revents) {
         }
         
     }*/
-
+/*
 }
 
 void ConnectionSSL::ioWriteCallback(ev::io &watcher, int revents) {
@@ -101,8 +95,8 @@ void ConnectionSSL::ioWriteCallback(ev::io &watcher, int revents) {
     if (this->write_count == 10) {
         this->io_connection_fd_write.stop();
     }
-*/
-
+ */
+/*
     if (EV_ERROR & revents) {
         perror("got invalid event");
         return;
@@ -156,18 +150,16 @@ void ConnectionSSL::ioWriteCallback(ev::io &watcher, int revents) {
         
     }*/
 
+/*
 
 }
+ */
 
 void ConnectionSSL::createEncryptedSocket() {
 
-    this->fd = this->client->openConnection();
-
-    this->ctx = this->client->getSSLCTX();
+    //this->fd = this->client->openConnection();
 
     this->ssl = SSL_new(this->ctx);
-
-
 
 
     /* Sets the file descriptor fd as the input/output facility for 
@@ -179,20 +171,55 @@ void ConnectionSSL::createEncryptedSocket() {
         abort();
     }
 
-    
 
     /* 
      * Perform the connection 
      */
 
+    this->bev = bufferevent_openssl_socket_new(this->evbase, -1, this->ssl,
+            BUFFEREVENT_SSL_CONNECTING,
+            BEV_OPT_DEFER_CALLBACKS | BEV_OPT_CLOSE_ON_FREE);
+
+
+    struct hostent *host;
+    struct sockaddr_in addr;
+
+    if ((host = gethostbyname(HOST_NAME.c_str())) == NULL) {
+        perror("gethostbyname");
+        abort();
+    }
+
+    bzero(&addr, sizeof (addr));
+    addr.sin_family = AF_INET;
+    addr.sin_port = htons(PORT_NUM);
+    addr.sin_addr.s_addr = *(long*) (host->h_addr);
 
 
 
+    this->fd = bufferevent_socket_connect(this->bev, (struct sockaddr*) &addr, sizeof (addr));
+
+    if (this->fd < 0) {
+        bufferevent_free(this->bev);
+        return;
+    }
+
+    //bufferevent_enable(this->bev, EV_READ);
+    bufferevent_setcb(this->bev, this->ssl_readcb, NULL, this->ssl_eventcb, (void *) this);
+
+    struct bufferevent *bev_stdin;
+
+    bev_stdin = bufferevent_new(0, this->standard_input_cb, NULL, NULL, NULL);
+
+    bufferevent_base_set(this->evbase, bev_stdin);
+    
+    bufferevent_enable(bev_stdin, EV_READ);
 
 
-    this->connect_error = SSL_ERROR_NONE;
-    this->connected = false;
+    /*
 
+        this->connect_error = SSL_ERROR_NONE;
+        this->connected = false;
+     */
     /*
     int connect_res = SSL_connect(this->ssl);
 
@@ -219,16 +246,46 @@ void ConnectionSSL::createEncryptedSocket() {
      */
 
 
-
-    io_connection_fd_write.set<ConnectionSSL, &ConnectionSSL::ioWriteCallback>(this);
-    io_connection_fd_write.start(this->fd, ev::WRITE);
-
-
-    io_connection_fd_read.set<ConnectionSSL, &ConnectionSSL::ioReadCallback>(this);
-    io_connection_fd_read.start(this->fd, ev::READ);
+    /*
+        io_connection_fd_write.set<ConnectionSSL, &ConnectionSSL::ioWriteCallback>(this);
+        io_connection_fd_write.start(this->fd, ev::WRITE);
 
 
+        io_connection_fd_read.set<ConnectionSSL, &ConnectionSSL::ioReadCallback>(this);
+        io_connection_fd_read.start(this->fd, ev::READ);
+     */
 
+
+
+}
+
+void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *data) {
+
+    printf("ConnectionSSL::standard_input_cb\n");
+}
+
+void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
+
+    struct evbuffer *in = bufferevent_get_input(bev);
+
+    printf("Received %zu bytes\n", evbuffer_get_length(in));
+    printf("----- data ----\n");
+    printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
+
+    bufferevent_write_buffer(bev, in);
+
+}
+
+void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *ptr) {
+
+    if (events & BEV_EVENT_CONNECTED) {
+        int fd = bufferevent_getfd(bev);
+
+        printf("BEV_EVENT_CONNECTED\n");
+
+
+        return;
+    }
 
 }
 

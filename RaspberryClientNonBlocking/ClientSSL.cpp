@@ -7,9 +7,9 @@
 
 #include "ClientSSL.h"
 
-
-
 ClientSSL::ClientSSL() {
+    
+    this->evbase = event_base_new();
 
     SSL_library_init();
 
@@ -18,6 +18,13 @@ ClientSSL::ClientSSL() {
      */
 
     this->ctx = this->initClientCTX();
+
+
+    ConnectionSSL connection(this->ctx, this->evbase);
+
+    connection.createEncryptedSocket();
+    
+    event_base_loop(this->evbase, 0);
 
 }
 
@@ -42,6 +49,10 @@ SSL_CTX* ClientSSL::initClientCTX() {
     return ctx;
 }
 
+struct event_base* ClientSSL::getEvBase() {
+    return this->evbase;
+}
+
 int ClientSSL::openConnection() {
 
     int sd;
@@ -59,7 +70,7 @@ int ClientSSL::openConnection() {
     addr.sin_family = AF_INET;
     addr.sin_port = htons(PORT_NUM);
     addr.sin_addr.s_addr = *(long*) (host->h_addr);
-    
+
 
     if (connect(sd, (struct sockaddr*) &addr, sizeof (addr)) != 0) {
         perror("connect");
@@ -67,8 +78,8 @@ int ClientSSL::openConnection() {
     }
 
     fcntl(sd, F_SETFL, fcntl(sd, F_GETFL, 0) | O_NONBLOCK);
-    
-    
+
+
     return sd;
 
 }

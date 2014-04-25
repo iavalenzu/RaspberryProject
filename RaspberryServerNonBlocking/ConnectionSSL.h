@@ -8,11 +8,18 @@
 #ifndef CONNECTIONSSL_H
 #define	CONNECTIONSSL_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <iostream>
+
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-#include <signal.h>
-#include <string>
-#include <iostream>
+#include <openssl/rand.h>
+
 
 #include <event.h>
 #include <event2/listener.h>
@@ -28,10 +35,10 @@
 using namespace std;
 
 class ConnectionSSL {
+    
 public:
-    ConnectionSSL(int connection_fd, struct event_base *evbase, SSL_CTX* ssl_ctx);
+    ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL_CTX* _ssl_ctx);
     virtual ~ConnectionSSL();
-    void setSSLContext();
     
     
     void closeConnection();
@@ -45,14 +52,14 @@ public:
     
     Device* getDevice();
     
+    static void ssl_readcb(struct bufferevent * bev, void * arg);
+    
     //int writeNotification(Notification notification);
     //Notification readNotification();
     
-    void openLogger();
-
 private:
     
-    SSL* ssl;
+    struct event_base* evbase;
     SSL_CTX* ctx;
     int fd;
 
@@ -63,9 +70,9 @@ private:
     
     Device* device;    
     
-    struct event_base* evbase;
+    SSL* ssl;
         
-    struct bufferevent *bev;
+    struct bufferevent* bev;
     
 };
 

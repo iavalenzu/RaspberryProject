@@ -8,8 +8,7 @@
 #ifndef SERVERSSL_H
 #define	SERVERSSL_H
 
-#include <openssl/ssl.h>
-#include <openssl/err.h>
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -18,6 +17,11 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string>
+
+#include <openssl/ssl.h>
+#include <openssl/err.h>
+#include <openssl/rand.h>
+
 
 #include <event.h>
 #include <event2/listener.h>
