@@ -21,7 +21,7 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
     this->evbase = _evbase;
     this->fd = _connection_fd;
     this->ctx = _ssl_ctx;
-    
+
     this->ssl = SSL_new(_ssl_ctx);
 
     this->device = new Device();
@@ -31,17 +31,64 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
     bufferevent_enable(this->bev, EV_READ);
     bufferevent_setcb(this->bev, this->ssl_readcb, NULL, NULL, (void *) this);
 
+
+
+
+    const char *fifo = "/tmp/client.fifo";
+    int res;
+
+    unlink(fifo);
+
+    if (access(fifo, F_OK) == -1) {
+        res = mkfifo(fifo, 0666);
+        if (res != 0) {
+            printf("Could not create fifo %s\n", fifo);
+            exit(EXIT_FAILURE);
+        }
+    }
+
+    int notifier = open(fifo, O_RDONLY | O_NONBLOCK, 0);
+
+
+    struct bufferevent *bev_notifier;
+
+    bev_notifier = bufferevent_new(notifier, this->notifier_cb, NULL, NULL, (void *) this);
+
+    bufferevent_base_set(this->evbase, bev_notifier);
+
+    bufferevent_enable(bev_notifier, EV_READ);
+
+
+
+
+
 }
 
+void ConnectionSSL::notifier_cb(struct bufferevent *bev, void *arg) {
+
+    printf("ConnectionSSL::notifier_cb\n");
+    
+    ConnectionSSL *connection_ssl;
+
+    connection_ssl = (ConnectionSSL *) arg;    
+
+    struct evbuffer *in = bufferevent_get_input(bev);
 
 
-void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg){
+    bufferevent_write_buffer(connection_ssl->bev, in);
+
+
+
+
+}
+
+void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
 
     struct evbuffer *in = bufferevent_get_input(bev);
 
     printf("Received %zu bytes\n", evbuffer_get_length(in));
     printf("----- data ----\n");
-    printf("%.*s\n", (int)evbuffer_get_length(in), evbuffer_pullup(in, -1));
+    printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
 
     bufferevent_write_buffer(bev, in);
 

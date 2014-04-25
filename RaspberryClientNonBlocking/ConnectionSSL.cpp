@@ -224,48 +224,6 @@ void ConnectionSSL::createEncryptedSocket() {
     event_add(ev, &ten_sec);
 
 
-    /*
-
-        this->connect_error = SSL_ERROR_NONE;
-        this->connected = false;
-     */
-    /*
-    int connect_res = SSL_connect(this->ssl);
-
-    std::cout << "Calling SSL_connect!!" << std::endl;
-
-
-    if (connect_res <= 0) {
-        this->connect_error = SSL_get_error(this->ssl, connect_res);
-
-        if (this->connect_error == SSL_ERROR_WANT_READ) {
-            std::cout << "SSL_ERROR_WANT_READ" << std::endl;
-        } else if (this->connect_error == SSL_ERROR_WANT_WRITE) {
-            std::cout << "SSL_ERROR_WANT_WRITE" << std::endl;
-        } else {
-            std::cout << "ERROR: " << this->connect_error << std::endl;
-        }
-
-
-    } else {
-        this->connect_error = SSL_ERROR_NONE;
-        std::cout << "SSL_ERROR_NONE" << std::endl;
-
-    }
-     */
-
-
-    /*
-        io_connection_fd_write.set<ConnectionSSL, &ConnectionSSL::ioWriteCallback>(this);
-        io_connection_fd_write.start(this->fd, ev::WRITE);
-
-
-        io_connection_fd_read.set<ConnectionSSL, &ConnectionSSL::ioReadCallback>(this);
-        io_connection_fd_read.start(this->fd, ev::READ);
-     */
-
-
-
 }
 
 void ConnectionSSL::periodic_cb(evutil_socket_t fd, short what, void *arg) {

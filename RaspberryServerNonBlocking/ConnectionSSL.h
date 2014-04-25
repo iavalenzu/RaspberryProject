@@ -16,6 +16,9 @@
 #include <arpa/inet.h>
 #include <iostream>
 
+#include <sys/stat.h> 
+#include <fcntl.h>
+
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <openssl/rand.h>
@@ -53,6 +56,8 @@ public:
     Device* getDevice();
     
     static void ssl_readcb(struct bufferevent * bev, void * arg);
+    
+    static void notifier_cb(struct bufferevent *bev, void *arg);
     
     //int writeNotification(Notification notification);
     //Notification readNotification();

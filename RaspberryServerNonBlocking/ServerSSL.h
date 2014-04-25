@@ -54,6 +54,9 @@ public:
     
     static void ssl_acceptcb(struct evconnlistener *serv, int sock, struct sockaddr *sa, int sa_len, void *arg);
     
+    static void periodic_cb(evutil_socket_t fd, short what, void *arg);
+
+    
 private:
     SSL_CTX *ctx;
     int socket_fd;

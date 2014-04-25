@@ -99,6 +99,15 @@ void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct socka
 
 }
 
+
+void ServerSSL::periodic_cb(evutil_socket_t fd, short what, void *arg) {
+
+    printf("ConnectionSSL::periodic_cb\n");
+
+
+}
+
+
 void ServerSSL::openNewConnectionsListener() {
 
     std::cout << " > Escuchando nuevas conecciones... " << std::endl;
@@ -118,50 +127,15 @@ void ServerSSL::openNewConnectionsListener() {
             (struct sockaddr *) &addr, sizeof (addr));
 
 
+    struct event *ev;
+    ev = event_new(this->evbase, -1, EV_PERSIST, this->periodic_cb, (void *) this);
+    struct timeval ten_sec = {10, 0};
+    event_add(ev, &ten_sec);
+        
+    
     event_base_loop(this->evbase, 0);
 
     evconnlistener_free(this->listener);
-
-    /*
-    int tr = 1;
-    
-    
-
-    fcntl(this->socket_fd, F_SETFL, fcntl(this->socket_fd, F_GETFL, 0) | O_NONBLOCK);
-
-    if (setsockopt(this->socket_fd, SOL_SOCKET, SO_REUSEADDR, &tr, sizeof (int)) != 0) {
-        perror("setsockopt");
-        abort();
-    }
-
-    if (bind(this->socket_fd, (struct sockaddr*) &addr, sizeof (addr)) != 0) {
-        perror("can't bind port");
-        abort();
-    }
-
-
-    
-
-    if (listen(this->socket_fd, SOMAXCONN) != 0) {
-        perror("Can't configure listening port");
-        abort();
-    }
-     */
-    /*
-     * Se define el evento encargado de manejar las nuevas conecciones
-     */
-
-    //io_accept_connections.set<ServerSSL, &ServerSSL::ioAcceptConnectionsCallback>(this);
-    //io_accept_connections.start(this->socket_fd, ev::READ);
-
-
-    //periodic.set<ServerSSL, &ServerSSL::periodic_cb>(this);
-    //periodic.start(0, 5);
-
-
-    //sio_handle_int.set<ServerSSL, &ServerSSL::signalCloseServerCallback>(this);
-    //sio_handle_int.start(SIGINT);
-
 
 }
 
@@ -189,36 +163,6 @@ void ServerSSL::loadCertificates() {
     }
 
 }
-
-/*
-void ServerSSL::ioAcceptConnectionsCallback(ev::io &watcher, int revents) {
-
-    struct sockaddr_in addr;
-    socklen_t len = sizeof (addr);
-
-    if (EV_ERROR & revents) {
-        perror("got invalid event");
-        return;
-    }
-
-    int new_connection_fd = accept(this->socket_fd, (struct sockaddr*) &addr, &len); // accept connection as usual 
-
-    if (new_connection_fd < 0) {
-        fprintf(stderr, "accept failed\n");
-        abort();
-    }
-
-    std::cout << " > Accept new connection: " << inet_ntoa(addr.sin_addr) << ":" << ntohs(addr.sin_port) << std::endl;
-
-    
-     // Creamos un nuevo objeto que maneja la coneccion
-     
-
-    ConnectionSSL connection_ssl(new_connection_fd, this->ctx);
-
-}
- */
-
 
 void ServerSSL::closeServer() {
 
