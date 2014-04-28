@@ -12,7 +12,7 @@
 
 const int BUFSIZE = 2048;
 
-const int PORT_NUM = 6759;
+const int PORT_NUM = 9999;
 const std::string HOST_NAME = "localhost";
 
 

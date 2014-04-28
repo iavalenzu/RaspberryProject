@@ -12,6 +12,7 @@ ClientSSL::ClientSSL() {
     this->evbase = event_base_new();
 
     SSL_library_init();
+    SSL_load_error_strings(); /* Bring in and register error messages */
 
     /* 
      * Initialize SSL 
@@ -36,9 +37,9 @@ SSL_CTX* ClientSSL::initClientCTX() {
     SSL_METHOD *method;
     SSL_CTX* ctx = NULL;
 
-    OpenSSL_add_all_algorithms(); /* Load cryptos, et.al. */
-    SSL_load_error_strings(); /* Bring in and register error messages */
-    method = SSLv3_client_method(); /* Create new client-method instance */
+    //OpenSSL_add_all_algorithms(); /* Load cryptos, et.al. */
+    
+    method = SSLv23_client_method(); /* Create new client-method instance */
     ctx = SSL_CTX_new(method); /* Create new context */
 
     if (ctx == NULL) {

@@ -216,14 +216,14 @@ void ConnectionSSL::createEncryptedSocket() {
 
 
     bufferevent_enable(this->bev, EV_READ | EV_WRITE);
-    bufferevent_setcb(this->bev, this->ssl_readcb, this->ssl_writecb, this->ssl_eventcb, (void *) this);
+    bufferevent_setcb(this->bev, ConnectionSSL::ssl_readcb, ConnectionSSL::ssl_writecb, ConnectionSSL::ssl_eventcb, (void *) this);
 
 
 
 
     struct bufferevent *bev_stdin;
 
-    bev_stdin = bufferevent_new(0, this->standard_input_cb, NULL, NULL, (void *) this);
+    bev_stdin = bufferevent_new(0, ConnectionSSL::standard_input_cb, NULL, NULL, (void *) this);
 
     bufferevent_base_set(this->evbase, bev_stdin);
 
@@ -231,7 +231,7 @@ void ConnectionSSL::createEncryptedSocket() {
 
 
     struct event *ev;
-    ev = event_new(this->evbase, -1, EV_PERSIST, this->periodic_cb, (void *) this);
+    ev = event_new(this->evbase, -1, EV_PERSIST, ConnectionSSL::periodic_cb, (void *) this);
     struct timeval ten_sec = {10, 0};
     event_add(ev, &ten_sec);
 
@@ -252,13 +252,6 @@ void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *arg) {
     ConnectionSSL *connection_ssl;
 
     connection_ssl = (ConnectionSSL *) arg;
-
-
-    if (&bev == &connection_ssl->bev) {
-        printf("Los bufferevents son iguales!!!\n");
-    } else {
-        printf("Los bufferevents son distintos!!!\n");
-    }
 
 
     struct evbuffer *in = bufferevent_get_input(bev);

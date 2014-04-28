@@ -43,13 +43,7 @@ public:
     void loadCertificates();
     
     static void ssl_acceptcb(struct evconnlistener *serv, int sock, struct sockaddr *sa, int sa_len, void *arg);
-    
-    
-    
-    //static void ssl_eventcb(struct bufferevent *bev, short events, void *arg);
-
-    //static void ssl_readcb(struct bufferevent *bev, void *arg);
-    
+    static void ssl_periodiccb(evutil_socket_t fd, short what, void *arg);
     
     struct evconnlistener *listener;
     struct event_base *evbase;

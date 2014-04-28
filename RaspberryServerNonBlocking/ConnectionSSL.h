@@ -42,14 +42,22 @@ class ConnectionSSL {
 public:
     ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL* _ssl);
     
+    void createAssociatedFifo();
+    void createSslSocket(); 
+    
     static void ssl_readcb(struct bufferevent * bev, void * arg);
     static void ssl_eventcb(struct bufferevent *bev, short events, void *ptr);
+    static void ssl_writecb(struct bufferevent * bev, void * arg);
     
-    static void periodic_cb(evutil_socket_t fd, short what, void *arg);
     static void fifo_readcb(struct bufferevent * bev, void * arg);
-    
+    static void fifo_eventcb(struct bufferevent *bev, short events, void *arg);    
+
     struct event_base* evbase;
-    struct bufferevent* bev;
+    
+    struct bufferevent* ssl_bev;
+    
+    struct bufferevent *fifo_bev;
+    int fifo_fd;
     
 private:
     
