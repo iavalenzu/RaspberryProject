@@ -43,13 +43,14 @@
       </toolsSet>
       <compileType>
         <ccTool>
+          <commandLine>-levent</commandLine>
           <warningLevel>0</warningLevel>
         </ccTool>
         <linkerTool>
           <linkerLibItems>
             <linkerLibLibItem>event_openssl-2.0.5</linkerLibLibItem>
           </linkerLibItems>
-          <commandLine>-lssl -lcrypto -lm -lcurl -levent</commandLine>
+          <commandLine>-levent -lssl</commandLine>
         </linkerTool>
       </compileType>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp"

@@ -37,37 +37,32 @@ using namespace std;
 class ServerSSL {
 public:
     ServerSSL(int port, std::string _cert, std::string _key);
-    virtual ~ServerSSL();
     
     void initSSLContext();
-    SSL_CTX* getSSLCTX();
     void openNewConnectionsListener();
     void loadCertificates();
     
-    //void ioAcceptConnectionsCallback(ev::io &watcher, int revents);
-    //void signalCloseServerCallback(ev::sig &signal, int revents);
-    
-    //void periodic_cb(ev::periodic &periodic, int revents);
-    
-    void closeServer();
-    
-    
     static void ssl_acceptcb(struct evconnlistener *serv, int sock, struct sockaddr *sa, int sa_len, void *arg);
     
-    static void periodic_cb(evutil_socket_t fd, short what, void *arg);
-
     
-private:
-    SSL_CTX *ctx;
-    int socket_fd;
+    
+    //static void ssl_eventcb(struct bufferevent *bev, short events, void *arg);
+
+    //static void ssl_readcb(struct bufferevent *bev, void *arg);
+    
+    
+    struct evconnlistener *listener;
+    struct event_base *evbase;
+
+     SSL_CTX *ctx;
     
     int port;
     std::string certfile;
     std::string keyfile;
     
-    struct evconnlistener *listener;
+private:
+
     
-    struct event_base *evbase;
     
 };
 

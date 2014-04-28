@@ -40,44 +40,22 @@ using namespace std;
 class ConnectionSSL {
     
 public:
-    ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL_CTX* _ssl_ctx);
-    virtual ~ConnectionSSL();
-    
-    
-    void closeConnection();
-    //void processAction();
-    SSL* getSSL();
-    void manageCloseConnection(int sig);
-    void manageInactiveConnection(int sig);
-    void manageNotificationWaiting(int sig);
-    int canReadNotification();
-    void setLastActivity();
-    
-    Device* getDevice();
+    ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL* _ssl);
     
     static void ssl_readcb(struct bufferevent * bev, void * arg);
+    static void ssl_eventcb(struct bufferevent *bev, short events, void *ptr);
     
-    static void notifier_cb(struct bufferevent *bev, void *arg);
+    static void periodic_cb(evutil_socket_t fd, short what, void *arg);
+    static void fifo_readcb(struct bufferevent * bev, void * arg);
     
-    //int writeNotification(Notification notification);
-    //Notification readNotification();
+    struct event_base* evbase;
+    struct bufferevent* bev;
     
 private:
     
-    struct event_base* evbase;
-    SSL_CTX* ctx;
     int fd;
-
-    time_t last_activity;
-    time_t created;
-
-    int can_read_notification;
-    
-    Device* device;    
-    
     SSL* ssl;
         
-    struct bufferevent* bev;
     
 };
 

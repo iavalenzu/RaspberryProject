@@ -166,11 +166,13 @@ void ConnectionSSL::createEncryptedSocket() {
      * the TLS/SSL (encrypted) side of ssl. fd will typically be 
      * the socket file descriptor of a network connection. 
      */
+    
+    /*
     if (SSL_set_fd(this->ssl, this->fd) == 0) {
         ERR_print_errors_fp(stderr);
         abort();
     }
-
+*/
 
     /* 
      * Perform the connection 
@@ -203,8 +205,18 @@ void ConnectionSSL::createEncryptedSocket() {
         return;
     }
 
-    //bufferevent_enable(this->bev, EV_READ);
-    bufferevent_setcb(this->bev, this->ssl_readcb, NULL, this->ssl_eventcb, (void *) this);
+
+    int flags = fcntl(this->fd, F_GETFL);
+    if (flags >= 0) {
+        flags |= O_NONBLOCK;
+        if (fcntl(this->fd, F_SETFL, flags) < 0)
+            perror("fcntl");
+
+    }
+
+
+    bufferevent_enable(this->bev, EV_READ | EV_WRITE);
+    bufferevent_setcb(this->bev, this->ssl_readcb, this->ssl_writecb, this->ssl_eventcb, (void *) this);
 
 
 
@@ -241,6 +253,14 @@ void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *arg) {
 
     connection_ssl = (ConnectionSSL *) arg;
 
+
+    if (&bev == &connection_ssl->bev) {
+        printf("Los bufferevents son iguales!!!\n");
+    } else {
+        printf("Los bufferevents son distintos!!!\n");
+    }
+
+
     struct evbuffer *in = bufferevent_get_input(bev);
 
     bufferevent_write_buffer(connection_ssl->bev, in);
@@ -260,18 +280,24 @@ void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
 
     request_line = evbuffer_readln(in, &len, EVBUFFER_EOL_CRLF);
     if (request_line) {
-        
+
         printf("Data: %s\n", request_line);
 
         free(request_line);
     }
 
-/*
-    printf("Leido de stdin %zu bytes\n", evbuffer_get_length(in));
-    printf("----- data ----\n");
-    printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
-*/
+    /*
+        printf("Leido de stdin %zu bytes\n", evbuffer_get_length(in));
+        printf("----- data ----\n");
+        printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
+     */
     //bufferevent_write_buffer(bev, in);
+
+}
+
+void ConnectionSSL::ssl_writecb(struct bufferevent * bev, void * arg) {
+
+    printf("ConnectionSSL::ssl_writecb\n");
 
 }
 

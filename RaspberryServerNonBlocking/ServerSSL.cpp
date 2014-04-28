@@ -13,8 +13,8 @@ ServerSSL::ServerSSL(int _port, std::string _cert, std::string _key) {
     this->certfile = _cert;
     this->keyfile = _key;
 
-    this->evbase = event_base_new();
 
+    SSL_load_error_strings();
     SSL_library_init();
 
     /*
@@ -33,14 +33,17 @@ ServerSSL::ServerSSL(int _port, std::string _cert, std::string _key) {
      * Create server socket 
      */
 
+    this->evbase = event_base_new();
+
+
     this->openNewConnectionsListener();
 
 
-}
+    event_base_loop(this->evbase, 0);
 
-ServerSSL::~ServerSSL() {
+    evconnlistener_free(this->listener);
+    SSL_CTX_free(this->ctx);
 
-    this->closeServer();
 
 }
 
@@ -50,63 +53,53 @@ void ServerSSL::initSSLContext() {
 
     SSL_METHOD *method;
 
-    OpenSSL_add_all_algorithms(); /* load & register all cryptos, etc. */
-    SSL_load_error_strings(); /* load all error messages */
-    method = SSLv3_server_method(); /* create new server-method instance */
+    method = SSLv23_server_method(); //No funciona bien con SSLv3_server_method(), ver porque?? 23 o 3
 
-    this->ctx = SSL_CTX_new(method); /* create new context from method */
+    this->ctx = SSL_CTX_new(method); 
 
     if (this->ctx == NULL) {
-        ERR_print_errors_fp(stderr);
+        perror("SSL_CTX_new");
         abort();
     }
 
 }
 
-/*
-void ServerSSL::periodic_cb(ev::periodic &periodic, int revents) {
-
-    printf("Periodic Callback!!\n");
-
-}
-
- */
-void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct sockaddr *sa,
-        int sa_len, void *arg) {
+void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct sockaddr *sa, int sa_len, void *arg) {
 
     struct event_base *evbase;
-    ServerSSL* server_ssl;
-    SSL_CTX* ssl_ctx;
 
-    server_ssl = (ServerSSL*) arg;
+    SSL_CTX* ssl_ctx;
+    SSL* ssl;
+
+    ssl_ctx = (SSL_CTX *) arg;
     
+    if(ssl_ctx == NULL){
+        perror("arg is NULL");
+        abort();
+    }
+
     evbase = evconnlistener_get_base(serv);
-    ssl_ctx = server_ssl->getSSLCTX();
-    
-    
+    ssl = SSL_new(ssl_ctx);
+
+    if (ssl == NULL) {
+        perror("SSL_new");
+        abort();
+    }
+
+
+
     if (sa->sa_family == AF_INET) {
-        std::cout << " > Accept new connection > Port: " << ntohs(((struct sockaddr_in*)sa)->sin_port) << std::endl;
-    }else if(sa->sa_family == AF_INET6){
-        std::cout << " > Accept new connection > Port: " << ntohs(((struct sockaddr_in6*)sa)->sin6_port) << std::endl;
+        std::cout << " > Accept new connection > Port: " << ntohs(((struct sockaddr_in*) sa)->sin_port) << std::endl;
+    } else if (sa->sa_family == AF_INET6) {
+        std::cout << " > Accept new connection > Port: " << ntohs(((struct sockaddr_in6*) sa)->sin6_port) << std::endl;
     }
 
 
     // Creamos un nuevo objeto que maneja la coneccion
 
-    ConnectionSSL connection_ssl(sock, evbase, ssl_ctx);
-
-
+    ConnectionSSL connection_ssl(sock, evbase, ssl);
 
 }
-
-
-void ServerSSL::periodic_cb(evutil_socket_t fd, short what, void *arg) {
-
-    printf("ConnectionSSL::periodic_cb\n");
-
-
-}
-
 
 void ServerSSL::openNewConnectionsListener() {
 
@@ -114,28 +107,14 @@ void ServerSSL::openNewConnectionsListener() {
 
     struct sockaddr_in addr;
 
-    this->socket_fd = socket(PF_INET, SOCK_STREAM, 0);
-    bzero(&addr, sizeof (addr));
+    memset(&addr, 0, sizeof (addr));
     addr.sin_family = AF_INET;
     addr.sin_port = htons(this->port);
-    addr.sin_addr.s_addr = INADDR_ANY;
+    //addr.sin_addr.s_addr = INADDR_ANY;
+    addr.sin_addr.s_addr = htonl(0x7f000001); /* 127.0.0.1 */
 
 
-    this->listener = evconnlistener_new_bind(
-            this->evbase, this->ssl_acceptcb, (void *) this,
-            LEV_OPT_CLOSE_ON_FREE | LEV_OPT_REUSEABLE, 1024,
-            (struct sockaddr *) &addr, sizeof (addr));
-
-
-    struct event *ev;
-    ev = event_new(this->evbase, -1, EV_PERSIST, this->periodic_cb, (void *) this);
-    struct timeval ten_sec = {10, 0};
-    event_add(ev, &ten_sec);
-        
-    
-    event_base_loop(this->evbase, 0);
-
-    evconnlistener_free(this->listener);
+    this->listener = evconnlistener_new_bind(this->evbase, ServerSSL::ssl_acceptcb, (void *) this->ctx, LEV_OPT_CLOSE_ON_FREE | LEV_OPT_REUSEABLE, 1024, (struct sockaddr *) &addr, sizeof (addr));
 
 }
 
@@ -145,46 +124,23 @@ void ServerSSL::loadCertificates() {
 
 
     /* set the local certificate from CertFile */
-    if (SSL_CTX_use_certificate_file(this->ctx, this->certfile.c_str(), SSL_FILETYPE_PEM) <= 0) {
-        ERR_print_errors_fp(stderr);
+    if (SSL_CTX_use_certificate_chain_file(this->ctx, this->certfile.c_str()) <= 0) {
+        perror("SSL_CTX_use_certificate_chain_file");
         abort();
     }
 
     /* set the private key from KeyFile (may be the same as CertFile) */
     if (SSL_CTX_use_PrivateKey_file(this->ctx, this->keyfile.c_str(), SSL_FILETYPE_PEM) <= 0) {
-        ERR_print_errors_fp(stderr);
+        perror("SSL_CTX_use_PrivateKey_file");
         abort();
     }
 
     /* verify private key */
     if (!SSL_CTX_check_private_key(this->ctx)) {
-        fprintf(stderr, "Private key does not match the public certificate\n");
+        perror("SSL_CTX_check_private_key");
         abort();
     }
 
-}
-
-void ServerSSL::closeServer() {
-
-    std::cout << " > Cerrando el servidor..." << std::endl;
-
-    shutdown(this->socket_fd, SHUT_RDWR);
-
-    close(this->socket_fd); /* close server socket */
-
-    SSL_CTX_free(this->ctx); /* release context */
+    SSL_CTX_set_options(this->ctx, SSL_OP_NO_SSLv2);
 
 }
-
-SSL_CTX* ServerSSL::getSSLCTX() {
-    return this->ctx;
-}
-/*
-void ServerSSL::signalCloseServerCallback(ev::sig &signal, int revents) {
-
-    this->closeServer();
-
-    exit(EXIT_SUCCESS);
-
-}
- */

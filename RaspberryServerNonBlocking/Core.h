@@ -19,7 +19,7 @@ const int BUFSIZE = 2048;
 const int MAX_INACTIVE_TIME = 60*60;
 const int MAX_ALIVE_TIME = 5*60*60;
 
-const int PORT_NUM = 6759;
+const int PORT_NUM = 9999;
 const std::string CERT_FILE = "mycert.pem";
 const int CHECK_INACTIVE_INTERVAL = 60;    
 
