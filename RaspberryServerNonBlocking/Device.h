@@ -30,6 +30,7 @@ public:
     virtual ~Device();
     void setToken(string token);
     std::string getToken();
+    
     //int connect(string connection_type);
     //int disconnect();
     
@@ -40,12 +41,20 @@ public:
     std::string getConnectionId();
     void reset();
 
+    struct bufferevent *ssl_bev;
+    
+    struct bufferevent *fifo_bev;
+    int fifo_fd;
+
+    
 private:
 
     int authenticated;
     string user_token;
     string user_id;
     string connection_id;
+    
+
 
 };
 

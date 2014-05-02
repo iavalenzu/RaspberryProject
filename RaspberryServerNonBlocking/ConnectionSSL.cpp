@@ -15,6 +15,8 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
     this->fd = _connection_fd;
     this->ssl = _ssl;
 
+    //this->device = new Device();
+    
     /*
      * Crea el socket SSL encargado de manejar la coneccion con el cliente
      */
@@ -35,7 +37,7 @@ void ConnectionSSL::createSslSocket() {
     /*
      * Se crea un nuevo socket para manejar la coneccion
      */
-
+    
     this->ssl_bev = bufferevent_openssl_socket_new(this->evbase,
             this->fd,
             this->ssl,
@@ -51,12 +53,14 @@ void ConnectionSSL::createSslSocket() {
         abort();
     }
 
+    
     /*
      * Changes the callbacks for a bufferevent.
      */
 
-    bufferevent_setcb(this->ssl_bev, ConnectionSSL::ssl_readcb, ConnectionSSL::ssl_writecb, ConnectionSSL::ssl_eventcb, (void*) this);
+    bufferevent_setcb(this->ssl_bev, this->ssl_readcb, this->ssl_writecb, ConnectionSSL::ssl_eventcb, this);
 
+    
 }
 
 void ConnectionSSL::createAssociatedFifo() {
@@ -76,7 +80,7 @@ void ConnectionSSL::createAssociatedFifo() {
         exit(1);
     }
 
-    this->fifo_bev = bufferevent_new(this->fifo_fd, ConnectionSSL::fifo_readcb, NULL, ConnectionSSL::fifo_eventcb, (void *) this->ssl_bev);
+    this->fifo_bev = bufferevent_new(this->fifo_fd, this->fifo_readcb, NULL, this->fifo_eventcb, this);
     bufferevent_base_set(this->evbase, this->fifo_bev);
     bufferevent_enable(this->fifo_bev, EV_READ);
 
@@ -101,16 +105,30 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
     }
 }
 
-void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
-
+void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void *arg) {
+    
     struct evbuffer *in = bufferevent_get_input(bev);
+    
+    //Creo un pbjeto json del contenido del evbuffer
+    
+    char buf[1024];
+    
+    evbuffer_remove(in, buf, 1024);
 
+    printf("%s\n", buf);
+
+    
+    JSONNode tmpjson;
+    
+    //tmpjson = libjson::parse(buf);
+    
+/*
     printf("Received %zu bytes\n", evbuffer_get_length(in));
     printf("----- data ----\n");
     printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
 
     bufferevent_write_buffer(bev, in);
-
+*/
 }
 
 void ConnectionSSL::ssl_writecb(struct bufferevent * bev, void * arg) {
@@ -138,14 +156,17 @@ void ConnectionSSL::fifo_eventcb(struct bufferevent *bev, short events, void *ar
     }
 }
 
-void ConnectionSSL::fifo_readcb(struct bufferevent * bev, void * arg) {
+void ConnectionSSL::fifo_readcb(struct bufferevent *bev, void *arg) {
 
     printf("ConnectionSSL::fifo_readcb\n");
 
-    struct bufferevent* connection_ssl_bev;
+    struct bufferevent *connection_ssl_bev;
+    //connection_ssl_bev = (struct bufferevent *) arg;
 
-    connection_ssl_bev = (struct bufferevent *) arg;
-
+    ConnectionSSL *connection_ssl;
+    connection_ssl = (ConnectionSSL*)arg;
+    connection_ssl_bev = connection_ssl->ssl_bev;
+    
     struct evbuffer *in = bufferevent_get_input(bev);
 
     printf("Fifo received %zu bytes\n", evbuffer_get_length(in));

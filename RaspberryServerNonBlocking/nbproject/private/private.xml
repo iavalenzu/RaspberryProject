@@ -15,7 +15,6 @@
         </group>
         <group name="Raspberry">
             <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/main.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Core.h</file>
             <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h</file>
             <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp</file>
             <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.cpp</file>

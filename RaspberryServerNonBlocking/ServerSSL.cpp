@@ -121,8 +121,11 @@ void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct socka
      *  Creamos un nuevo objeto que maneja la coneccion
      */
 
-    ConnectionSSL connection_ssl(sock, evbase, ssl);
+    ConnectionSSL *connection_ssl;
+    connection_ssl = new ConnectionSSL(sock, evbase, ssl);
 
+//    ConnectionSSL connection_ssl(sock, evbase, ssl);
+    
 }
 
 void ServerSSL::openNewConnectionsListener() {
@@ -152,7 +155,7 @@ void ServerSSL::openNewConnectionsListener() {
      */
 
     struct event *ev;
-    ev = event_new(this->evbase, -1, EV_PERSIST, ServerSSL::ssl_periodiccb, (void *) this);
+    ev = event_new(this->evbase, -1, EV_PERSIST, ServerSSL::ssl_periodiccb, this);
     struct timeval ten_sec = {10, 0};
     event_add(ev, &ten_sec);
 

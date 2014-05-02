@@ -16,6 +16,7 @@ void Device::reset() {
     this->user_token = "";
     this->user_id = "";
     this->connection_id = "";
+    this->ssl_bev = NULL;
 
 }
 

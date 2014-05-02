@@ -23,6 +23,7 @@
 #include <openssl/err.h>
 #include <openssl/rand.h>
 
+#include "libjson/libjson.h"
 
 #include <event.h>
 #include <event2/listener.h>
@@ -54,16 +55,19 @@ public:
 
     struct event_base* evbase;
     
-    struct bufferevent* ssl_bev;
+    struct bufferevent *ssl_bev;
+    
     
     struct bufferevent *fifo_bev;
     int fifo_fd;
-    
-private:
-    
+
+    //Device *device;
+     
     int fd;
     SSL* ssl;
-        
+           
+private:
+
     
 };
 
