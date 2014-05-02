@@ -12,8 +12,6 @@
 ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL* _ssl) {
 
     this->evbase = _evbase;
-    this->fd = _connection_fd;
-    this->ssl = _ssl;
 
     //this->device = new Device();
     
@@ -21,7 +19,7 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
      * Crea el socket SSL encargado de manejar la coneccion con el cliente
      */
     
-    this->createSslSocket();
+    this->createSecureBufferEvent(_connection_fd, _ssl);
 
     /*
      * Se crea el fifo asociado a la coneccion
@@ -32,15 +30,15 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
 
 }
 
-void ConnectionSSL::createSslSocket() {
+void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
 
     /*
      * Se crea un nuevo socket para manejar la coneccion
      */
     
     this->ssl_bev = bufferevent_openssl_socket_new(this->evbase,
-            this->fd,
-            this->ssl,
+            _connection_fd,
+            _ssl,
             BUFFEREVENT_SSL_ACCEPTING, BEV_OPT_CLOSE_ON_FREE);
 
     if (this->ssl_bev == NULL) {
@@ -58,7 +56,7 @@ void ConnectionSSL::createSslSocket() {
      * Changes the callbacks for a bufferevent.
      */
 
-    bufferevent_setcb(this->ssl_bev, this->ssl_readcb, this->ssl_writecb, ConnectionSSL::ssl_eventcb, this);
+    bufferevent_setcb(this->ssl_bev, ConnectionSSL::ssl_readcb, ConnectionSSL::ssl_writecb, ConnectionSSL::ssl_eventcb, this);
 
     
 }
@@ -73,14 +71,14 @@ void ConnectionSSL::createAssociatedFifo() {
         exit(1);
     }
 
-    this->fifo_fd = open(fifo, O_RDONLY | O_NONBLOCK, 0);
+    int fifo_fd = open(fifo, O_RDONLY | O_NONBLOCK, 0);
 
-    if (this->fifo_fd == -1) {
+    if (fifo_fd == -1) {
         perror("open");
         exit(1);
     }
 
-    this->fifo_bev = bufferevent_new(this->fifo_fd, this->fifo_readcb, NULL, this->fifo_eventcb, this);
+    this->fifo_bev = bufferevent_new(fifo_fd, ConnectionSSL::fifo_readcb, NULL, ConnectionSSL::fifo_eventcb, this);
     bufferevent_base_set(this->evbase, this->fifo_bev);
     bufferevent_enable(this->fifo_bev, EV_READ);
 
@@ -105,6 +103,25 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
     }
 }
 
+
+void ConnectionSSL::jsonstream_successcb(JSONNode &node, void *arg) {
+
+    std::cout << "jsonstream_successcb" << std::endl;
+
+    std::string jc = node.write_formatted();
+
+    std::cout << jc << std::endl;
+
+
+
+}
+
+void ConnectionSSL::jsonstream_errorcb(void *arg) {
+
+    std::cout << "jsonstream_errorcb" << std::endl;
+
+}
+
 void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void *arg) {
     
     struct evbuffer *in = bufferevent_get_input(bev);
@@ -116,9 +133,10 @@ void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void *arg) {
     evbuffer_remove(in, buf, 1024);
 
     printf("%s\n", buf);
-
     
-    JSONNode tmpjson;
+    JSONStream json_stream(ConnectionSSL::jsonstream_successcb, ConnectionSSL::jsonstream_errorcb, JSONSTREAM_SELF);
+    
+    json_stream << buf;
     
     //tmpjson = libjson::parse(buf);
     

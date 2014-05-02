@@ -1,6 +1,9 @@
 
 #include "Notification.h"
 
+
+
+
 Notification::Notification(JSONNode json) {
     this->json = json;
 }
