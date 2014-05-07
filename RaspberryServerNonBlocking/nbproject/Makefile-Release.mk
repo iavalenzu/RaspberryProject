@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/441878278/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/441878278/Device.o \
+	${OBJECTDIR}/_ext/441878278/JSONBuffer.o \
 	${OBJECTDIR}/_ext/441878278/Notification.o \
 	${OBJECTDIR}/_ext/441878278/ServerSSL.o \
 	${OBJECTDIR}/_ext/856698395/JSONAllocator.o \
@@ -89,6 +90,11 @@ ${OBJECTDIR}/_ext/441878278/Device.o: /Users/Ismael/NetBeansProjects/RaspberryPr
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/Device.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.cpp
+
+${OBJECTDIR}/_ext/441878278/JSONBuffer.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/JSONBuffer.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp
 
 ${OBJECTDIR}/_ext/441878278/Notification.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Notification.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278

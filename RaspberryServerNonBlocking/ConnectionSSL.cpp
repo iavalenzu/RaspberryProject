@@ -15,6 +15,7 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
 
     //this->device = new Device();
     
+    
     /*
      * Crea el socket SSL encargado de manejar la coneccion con el cliente
      */
@@ -26,8 +27,10 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
      */
 
     this->createAssociatedFifo();
+    
+    this->json_buffer.setCallbacks(ConnectionSSL::jsonstream_successcb, ConnectionSSL::jsonstream_errorcb);
 
-
+        
 }
 
 void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
@@ -104,11 +107,11 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
 }
 
 
-void ConnectionSSL::jsonstream_successcb(JSONNode &node, void *arg) {
+void ConnectionSSL::jsonstream_successcb(JSONNode &json, void *arg) {
 
     std::cout << "jsonstream_successcb" << std::endl;
 
-    std::string jc = node.write_formatted();
+    std::string jc = json.write_formatted();
 
     std::cout << jc << std::endl;
 
@@ -116,17 +119,20 @@ void ConnectionSSL::jsonstream_successcb(JSONNode &node, void *arg) {
 
 }
 
-void ConnectionSSL::jsonstream_errorcb(void *arg) {
+void ConnectionSSL::jsonstream_errorcb(int code, void *arg) {
 
+    
     std::cout << "jsonstream_errorcb" << std::endl;
+//    this->json_stream.reset();
 
 }
 
 void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void *arg) {
     
-    struct evbuffer *in = bufferevent_get_input(bev);
+    ConnectionSSL *connection_ssl;
+    connection_ssl = static_cast<ConnectionSSL*>(arg);
     
-    //Creo un pbjeto json del contenido del evbuffer
+    struct evbuffer *in = bufferevent_get_input(bev);
     
     char buf[1024];
     
@@ -134,12 +140,8 @@ void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void *arg) {
 
     printf("%s\n", buf);
     
-    JSONStream json_stream(ConnectionSSL::jsonstream_successcb, ConnectionSSL::jsonstream_errorcb, JSONSTREAM_SELF);
-    
-    json_stream << buf;
-    
-    //tmpjson = libjson::parse(buf);
-    
+    connection_ssl->json_buffer.append(buf);
+
 /*
     printf("Received %zu bytes\n", evbuffer_get_length(in));
     printf("----- data ----\n");

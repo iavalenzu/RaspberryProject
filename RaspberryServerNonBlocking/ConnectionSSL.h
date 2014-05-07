@@ -26,9 +26,13 @@
 
 #include "libjson/libjson.h"
 
+
+
 #include <event.h>
 #include <event2/listener.h>
 #include <event2/bufferevent_ssl.h>
+
+#include "JSONBuffer.h"
 
 
 using namespace std;
@@ -46,14 +50,14 @@ public:
 
     static void fifo_readcb(struct bufferevent * bev, void * arg);
     static void fifo_eventcb(struct bufferevent *bev, short events, void *arg);
+
+    static void jsonstream_successcb(JSONNode &node, void *arg);
     
-    static void jsonstream_successcb(JSONNode &node, void *arg);;
-    static void jsonstream_errorcb(void *arg); 
-    
+    static void jsonstream_errorcb(int code, void *arg);
+
 
     int connect(string connection_type);
 
-    
 
 private:
 
@@ -62,15 +66,15 @@ private:
     struct bufferevent *ssl_bev;
 
     struct bufferevent *fifo_bev;
+    
+    JSONBuffer json_buffer;
 
     int authenticated;
     string user_token;
     string user_id;
     string connection_id;
 
-
-
-
+    
 
 };
 

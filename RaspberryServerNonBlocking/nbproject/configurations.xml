@@ -75,6 +75,8 @@
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Notification.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Notification.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.cpp</itemPath>
@@ -95,6 +97,7 @@
   </logicalFolder>
   <sourceRootList>
     <Elem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/libjson</Elem>
+    <Elem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/yajl</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -112,6 +115,7 @@
         <linkerTool>
           <linkerLibItems>
             <linkerLibLibItem>event_openssl-2.0.5</linkerLibLibItem>
+            <linkerLibFileItem>/usr/local/lib/libyajl.2.1.0.dylib</linkerLibFileItem>
           </linkerLibItems>
           <commandLine>-levent -lssl</commandLine>
         </linkerTool>
@@ -137,6 +141,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -415,6 +429,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.h"
             ex="false"
             tool="3"
             flavor2="0">

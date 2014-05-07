@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/441878278/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/441878278/Device.o \
+	${OBJECTDIR}/_ext/441878278/JSONBuffer.o \
 	${OBJECTDIR}/_ext/441878278/Notification.o \
 	${OBJECTDIR}/_ext/441878278/ServerSSL.o \
 	${OBJECTDIR}/_ext/856698395/JSONAllocator.o \
@@ -70,11 +71,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-levent_openssl-2.0.5
+LDLIBSOPTIONS=-levent_openssl-2.0.5 /usr/local/lib/libyajl.2.1.0.dylib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking: /usr/local/lib/libyajl.2.1.0.dylib
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
@@ -89,6 +92,11 @@ ${OBJECTDIR}/_ext/441878278/Device.o: /Users/Ismael/NetBeansProjects/RaspberryPr
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/Device.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.cpp
+
+${OBJECTDIR}/_ext/441878278/JSONBuffer.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/JSONBuffer.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp
 
 ${OBJECTDIR}/_ext/441878278/Notification.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Notification.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278

@@ -4,22 +4,39 @@
 #include "JSONWorker.h"
 #include "JSONValidator.h"
 
+JSONStream::JSONStream() json_nothrow {
+    this->state = true;
+    this->call = NULL;
+    this->err_call = NULL;
+    this->callback_identifier = NULL;
+    
+    LIBJSON_CTOR;
+}
+
+void JSONStream::setCallbacks(json_stream_callback_t call_p, json_stream_e_callback_t call_e, void * callbackIdentifier) json_nothrow {
+
+    this->state = true;
+    this->call = call_p;
+    this->err_call = call_e;
+    this->callback_identifier = callbackIdentifier;
+    
+}
 
 JSONStream::JSONStream(json_stream_callback_t call_p, json_stream_e_callback_t call_e, void * callbackIdentifier) json_nothrow : state(true), call(call_p), err_call(call_e), buffer(), callback_identifier(callbackIdentifier) {
 	LIBJSON_CTOR;
 }
 
 JSONStream::JSONStream(const JSONStream & orig) json_nothrow : state(orig.state), call(orig.call), err_call(orig.err_call), buffer(orig.buffer), callback_identifier(orig.callback_identifier){
-	LIBJSON_COPY_CTOR;
+LIBJSON_COPY_CTOR;
 }
 
 JSONStream & JSONStream::operator =(const JSONStream & orig) json_nothrow {
 	LIBJSON_ASSIGNMENT;
-	err_call = orig.err_call;
+    err_call = orig.err_call;
     call = orig.call;
-	state = orig.state;
+    state = orig.state;
     buffer = orig.buffer;
-	callback_identifier = orig.callback_identifier;
+    callback_identifier = orig.callback_identifier;
     return *this;
 }
 

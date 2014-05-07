@@ -11,6 +11,7 @@
             <make-dep-projects/>
             <sourceRootList>
                 <sourceRootElem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/libjson</sourceRootElem>
+                <sourceRootElem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/yajl</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
