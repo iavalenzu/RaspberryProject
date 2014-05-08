@@ -21,158 +21,9 @@ ConnectionSSL::ConnectionSSL(SSL_CTX* _ctx, struct event_base* _evbase) {
 
 }
 
-/*
-void ConnectionSSL::ioReadCallback(ev::io &watcher, int revents) {
-
-    /*
-    this->read_count++;
-
-    if (this->read_count == 10) {
-        this->io_connection_fd_read.stop();
-    }
- */
-/*
-    if (EV_ERROR & revents) {
-        perror("got invalid event");
-        return;
-    }
-
-    //std::cout << "ioReadCallback" << std::endl;
-
-
-    if (this->connect_error == SSL_ERROR_WANT_READ) {
-        std::cout << "ioReadCallback: SSL_ERROR_WANT_READ" << std::endl;
-    } else if (this->connect_error == SSL_ERROR_WANT_WRITE) {
-        std::cout << "ioReadCallback: SSL_ERROR_WANT_WRITE" << std::endl;
-    } else {
-        std::cout << "ioReadCallback: ERROR: " << this->connect_error << std::endl;
-    }
-
-    if (!this->connected) {
-
-        if (this->connect_error == SSL_ERROR_WANT_READ || this->connect_error == SSL_ERROR_WANT_WRITE) {
-
-            int connect_res = SSL_connect(this->ssl);
-
-            std::cout << "Calling SSL_connect again!!" << std::endl;
-
-            if (connect_res <= 0) {
-                this->connect_error = SSL_get_error(this->ssl, connect_res);
-
-            } else {
-                this->connected = true;
-                std::cout << "CONNECTED!!" << std::endl;
-
-            }
-
-        }
-
-    }
-    /*else if(this->connect_error == SSL_ERROR_WANT_WRITE){
-
-        int connect_res = SSL_connect(this->ssl);
-
-        std::cout << "Calling SSL_connect again!!" << std::endl;
-
-        if (connect_res <= 0) {
-            this->connect_error = SSL_get_error(this->ssl, connect_res);
-
-        } else {
-            this->connect_error = SSL_ERROR_NONE;
-            std::cout << "SSL_ERROR_NONE" << std::endl;
-
-        }
-        
-    }*/
-/*
-}
-
-void ConnectionSSL::ioWriteCallback(ev::io &watcher, int revents) {
-
-    /*
-    this->write_count++;
-
-    if (this->write_count == 10) {
-        this->io_connection_fd_write.stop();
-    }
- */
-/*
-    if (EV_ERROR & revents) {
-        perror("got invalid event");
-        return;
-    }
-
-    if (this->connect_error == SSL_ERROR_WANT_READ) {
-        std::cout << "ioWriteCallback: SSL_ERROR_WANT_READ" << std::endl;
-    } else if (this->connect_error == SSL_ERROR_WANT_WRITE) {
-        std::cout << "ioWriteCallback: SSL_ERROR_WANT_WRITE" << std::endl;
-    } else {
-        std::cout << "ioWriteCallback: ERROR: " << this->connect_error << std::endl;
-    }
-
-
-    if (!this->connected) {
-
-        if (this->connect_error == SSL_ERROR_WANT_WRITE || this->connect_error == SSL_ERROR_WANT_READ) {
-
-            int connect_res = SSL_connect(this->ssl);
-
-            std::cout << "Calling SSL_connect again!!" << std::endl;
-
-
-            if (connect_res <= 0) {
-                this->connect_error = SSL_get_error(this->ssl, connect_res);
-
-            } else {
-                this->connected = true;
-                std::cout << "CONNECTED!!" << std::endl;
-            }
-
-        }
-
-    }
-
-    /*else if(this->connect_error == SSL_ERROR_WANT_READ){
-
-        int connect_res = SSL_connect(this->ssl);
-
-        std::cout << "Calling SSL_connect again!!" << std::endl;
-
-
-        if (connect_res <= 0) {
-            this->connect_error = SSL_get_error(this->ssl, connect_res);
-
-        } else {
-            this->connect_error = SSL_ERROR_NONE;
-            std::cout << "SSL_ERROR_NONE" << std::endl;
-
-        }
-        
-    }*/
-
-/*
-
-}
- */
-
 void ConnectionSSL::createEncryptedSocket() {
 
-    //this->fd = this->client->openConnection();
-
     this->ssl = SSL_new(this->ctx);
-
-
-    /* Sets the file descriptor fd as the input/output facility for 
-     * the TLS/SSL (encrypted) side of ssl. fd will typically be 
-     * the socket file descriptor of a network connection. 
-     */
-    
-    /*
-    if (SSL_set_fd(this->ssl, this->fd) == 0) {
-        ERR_print_errors_fp(stderr);
-        abort();
-    }
-*/
 
     /* 
      * Perform the connection 
@@ -195,8 +46,6 @@ void ConnectionSSL::createEncryptedSocket() {
     addr.sin_family = AF_INET;
     addr.sin_port = htons(PORT_NUM);
     addr.sin_addr.s_addr = *(long*) (host->h_addr);
-
-
 
     this->fd = bufferevent_socket_connect(this->bev, (struct sockaddr*) &addr, sizeof (addr));
 
@@ -240,9 +89,6 @@ void ConnectionSSL::createEncryptedSocket() {
 
 void ConnectionSSL::periodic_cb(evutil_socket_t fd, short what, void *arg) {
 
-    printf("ConnectionSSL::periodic_cb\n");
-
-
 }
 
 void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *arg) {
@@ -250,23 +96,18 @@ void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *arg) {
     printf("ConnectionSSL::standard_input_cb\n");
 
     ConnectionSSL *connection_ssl;
-
-    connection_ssl = (ConnectionSSL *) arg;
+    connection_ssl = static_cast<ConnectionSSL*> (arg);
 
 
     struct evbuffer *in = bufferevent_get_input(bev);
 
     bufferevent_write_buffer(connection_ssl->bev, in);
 
-
-
-
 }
 
 void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
 
     struct evbuffer *in = bufferevent_get_input(bev);
-
 
     char *request_line;
     size_t len;
@@ -297,10 +138,24 @@ void ConnectionSSL::ssl_writecb(struct bufferevent * bev, void * arg) {
 void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg) {
 
     if (events & BEV_EVENT_CONNECTED) {
-        int fd = bufferevent_getfd(bev);
+
+        /*
+         * Luego de connectarnos. enviamos una notificacion de autentificacion
+         */
+
+        Notification authentication;
+        authentication.setAction("GET_FORTUNE");
+        authentication.clearData();
+        authentication.addDataItem(JSONNode("CREDENTIALS", ACCESS_TOKEN));
+        
+        std::string notification_json = authentication.toString();
+        
+        bufferevent_write(bev, notification_json.c_str(), notification_json.size());
 
         printf("BEV_EVENT_CONNECTED\n");
+        
         return;
+        
     } else if (events & BEV_EVENT_EOF) {
         printf("Disconnected from the remote host\n");
     } else if (events & BEV_EVENT_ERROR) {

@@ -165,8 +165,7 @@ void ServerSSL::openNewConnectionsListener() {
 
 void ServerSSL::ssl_periodiccb(evutil_socket_t fd, short what, void *arg){
     
-    printf("ServerSSL::ssl_periodiccb\n");
-
+    
 }
 
 void ServerSSL::loadCertificates() {

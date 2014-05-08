@@ -37,6 +37,21 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1335234418/ClientSSL.o \
 	${OBJECTDIR}/_ext/1335234418/ConnectionSSL.o \
+	${OBJECTDIR}/_ext/1335234418/Notification.o \
+	${OBJECTDIR}/_ext/1494676077/JSONAllocator.o \
+	${OBJECTDIR}/_ext/1494676077/JSONChildren.o \
+	${OBJECTDIR}/_ext/1494676077/JSONDebug.o \
+	${OBJECTDIR}/_ext/1494676077/JSONIterators.o \
+	${OBJECTDIR}/_ext/1494676077/JSONMemory.o \
+	${OBJECTDIR}/_ext/1494676077/JSONNode.o \
+	${OBJECTDIR}/_ext/1494676077/JSONNode_Mutex.o \
+	${OBJECTDIR}/_ext/1494676077/JSONPreparse.o \
+	${OBJECTDIR}/_ext/1494676077/JSONStream.o \
+	${OBJECTDIR}/_ext/1494676077/JSONValidator.o \
+	${OBJECTDIR}/_ext/1494676077/JSONWorker.o \
+	${OBJECTDIR}/_ext/1494676077/JSONWriter.o \
+	${OBJECTDIR}/_ext/1494676077/internalJSONNode.o \
+	${OBJECTDIR}/_ext/1494676077/libjson.o \
 	${OBJECTDIR}/main.o
 
 
@@ -73,6 +88,81 @@ ${OBJECTDIR}/_ext/1335234418/ConnectionSSL.o: /Users/Ismael/NetBeansProjects/Ras
 	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/ConnectionSSL.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ConnectionSSL.cpp
+
+${OBJECTDIR}/_ext/1335234418/Notification.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Notification.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/Notification.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Notification.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONAllocator.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONAllocator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONAllocator.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONAllocator.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONChildren.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONChildren.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONChildren.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONChildren.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONDebug.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONDebug.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONDebug.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONDebug.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONIterators.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONIterators.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONIterators.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONIterators.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONMemory.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONMemory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONMemory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONMemory.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONNode.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONNode.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONNode.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONNode.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONNode_Mutex.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONNode_Mutex.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONNode_Mutex.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONNode_Mutex.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONPreparse.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONPreparse.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONPreparse.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONPreparse.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONStream.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONStream.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONStream.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONStream.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONValidator.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONValidator.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONValidator.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONValidator.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONWorker.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONWorker.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONWorker.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONWorker.cpp
+
+${OBJECTDIR}/_ext/1494676077/JSONWriter.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONWriter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/JSONWriter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/JSONWriter.cpp
+
+${OBJECTDIR}/_ext/1494676077/internalJSONNode.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/internalJSONNode.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/internalJSONNode.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/internalJSONNode.cpp
+
+${OBJECTDIR}/_ext/1494676077/libjson.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/libjson.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1494676077
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1494676077/libjson.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/libjson/_internal/Source/libjson.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}

@@ -24,15 +24,14 @@
 #include <openssl/err.h>
 #include <openssl/rand.h>
 
-#include "libjson/libjson.h"
-
-
-
 #include <event.h>
 #include <event2/listener.h>
 #include <event2/bufferevent_ssl.h>
 
 #include "JSONBuffer.h"
+
+#include "Notification.h"
+#include "IncomingActionExecutor.h"
 
 
 using namespace std;
@@ -73,6 +72,8 @@ private:
     string user_token;
     string user_id;
     string connection_id;
+    
+    IncomingActionExecutor incoming_action_executor;
 
     
 

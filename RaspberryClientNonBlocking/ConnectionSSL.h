@@ -24,8 +24,7 @@
 #include <event2/listener.h>
 #include <event2/bufferevent_ssl.h>
 
-
-//#include "Notification.h"
+#include "Notification.h"
 
 //#include "RaspiUtils.h"
 //#include "Device.h"
@@ -45,9 +44,6 @@ public:
     void manageCloseConnection(int sig);
     void informClosingToServer();
 
-    //void setClient(ClientSSL* client);
-    //ClientSSL* getClient();
-
     static void ssl_readcb(struct bufferevent * bev, void *arg);
 
     static void ssl_writecb(struct bufferevent * bev, void * arg);
@@ -58,12 +54,6 @@ public:
 
     static void periodic_cb(evutil_socket_t fd, short what, void *arg);
 
-    //void ioReadCallback(ev::io &watcher, int revents);
-    //void ioWriteCallback(ev::io &watcher, int revents);
-
-    //int writeNotification(Notification notification);
-    //Notification readNotification();
-
     void showCerts();
 
 private:
@@ -72,15 +62,10 @@ private:
     SSL_CTX *ctx;
 
     int fd;
-    //int wfd;
 
     struct event_base *evbase;
 
     struct bufferevent* bev;
-
-
-    //ev::io io_connection_fd_read;
-    //ev::io io_connection_fd_write;
 
     int read_count = 0;
     int write_count = 0;

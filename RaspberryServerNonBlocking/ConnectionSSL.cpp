@@ -14,12 +14,12 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
     this->evbase = _evbase;
 
     //this->device = new Device();
-    
-    
+
+
     /*
      * Crea el socket SSL encargado de manejar la coneccion con el cliente
      */
-    
+
     this->createSecureBufferEvent(_connection_fd, _ssl);
 
     /*
@@ -27,10 +27,11 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
      */
 
     this->createAssociatedFifo();
-    
+
     this->json_buffer.setCallbacks(ConnectionSSL::jsonstream_successcb, ConnectionSSL::jsonstream_errorcb);
 
-        
+    this->incoming_action_executor.setConnection(this);
+
 }
 
 void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
@@ -38,7 +39,7 @@ void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
     /*
      * Se crea un nuevo socket para manejar la coneccion
      */
-    
+
     this->ssl_bev = bufferevent_openssl_socket_new(this->evbase,
             _connection_fd,
             _ssl,
@@ -54,14 +55,14 @@ void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
         abort();
     }
 
-    
+
     /*
      * Changes the callbacks for a bufferevent.
      */
 
     bufferevent_setcb(this->ssl_bev, ConnectionSSL::ssl_readcb, ConnectionSSL::ssl_writecb, ConnectionSSL::ssl_eventcb, this);
 
-    
+
 }
 
 void ConnectionSSL::createAssociatedFifo() {
@@ -90,7 +91,7 @@ void ConnectionSSL::createAssociatedFifo() {
 void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg) {
 
     printf("ConnectionSSL::ssl_eventcb\n");
-    
+
     if (events & BEV_EVENT_READING) {
         printf("BEV_EVENT_READING\n");
     } else if (events & BEV_EVENT_WRITING) {
@@ -106,49 +107,40 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
     }
 }
 
-
 void ConnectionSSL::jsonstream_successcb(JSONNode &json, void *arg) {
 
-    std::cout << "jsonstream_successcb" << std::endl;
-
+    
+    
+    
     std::string jc = json.write_formatted();
 
     std::cout << jc << std::endl;
-
-
 
 }
 
 void ConnectionSSL::jsonstream_errorcb(int code, void *arg) {
 
-    
     std::cout << "jsonstream_errorcb" << std::endl;
-//    this->json_stream.reset();
 
 }
 
 void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void *arg) {
-    
+
     ConnectionSSL *connection_ssl;
-    connection_ssl = static_cast<ConnectionSSL*>(arg);
-    
-    struct evbuffer *in = bufferevent_get_input(bev);
-    
+    connection_ssl = static_cast<ConnectionSSL*> (arg);
+
     char buf[1024];
+    int n;
     
-    evbuffer_remove(in, buf, 1024);
-
-    printf("%s\n", buf);
+    struct evbuffer *input = bufferevent_get_input(bev);
     
-    connection_ssl->json_buffer.append(buf);
-
-/*
-    printf("Received %zu bytes\n", evbuffer_get_length(in));
-    printf("----- data ----\n");
-    printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
-
-    bufferevent_write_buffer(bev, in);
-*/
+    while ((n = evbuffer_remove(input, buf, sizeof (buf))) > 0) {
+        
+        //std::cout << buf << std::endl;
+        
+        connection_ssl->json_buffer.append(buf);
+    }
+    
 }
 
 void ConnectionSSL::ssl_writecb(struct bufferevent * bev, void * arg) {
@@ -160,7 +152,7 @@ void ConnectionSSL::ssl_writecb(struct bufferevent * bev, void * arg) {
 void ConnectionSSL::fifo_eventcb(struct bufferevent *bev, short events, void *arg) {
 
     printf("ConnectionSSL::fifo_eventcb\n");
-    
+
     if (events & BEV_EVENT_READING) {
         printf("BEV_EVENT_READING\n");
     } else if (events & BEV_EVENT_WRITING) {
@@ -181,12 +173,11 @@ void ConnectionSSL::fifo_readcb(struct bufferevent *bev, void *arg) {
     printf("ConnectionSSL::fifo_readcb\n");
 
     struct bufferevent *connection_ssl_bev;
-    //connection_ssl_bev = (struct bufferevent *) arg;
 
     ConnectionSSL *connection_ssl;
-    connection_ssl = (ConnectionSSL*)arg;
+    connection_ssl = static_cast<ConnectionSSL*> (arg);
     connection_ssl_bev = connection_ssl->ssl_bev;
-    
+
     struct evbuffer *in = bufferevent_get_input(bev);
 
     printf("Fifo received %zu bytes\n", evbuffer_get_length(in));
