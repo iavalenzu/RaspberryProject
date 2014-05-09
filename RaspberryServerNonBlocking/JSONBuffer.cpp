@@ -12,6 +12,7 @@ JSONBuffer::JSONBuffer() {
     this->buffer.clear();
     this->success_cb = NULL;
     this->error_cb = NULL;
+    this->arg = NULL;
 
 }
 
@@ -20,6 +21,7 @@ JSONBuffer::JSONBuffer(const JSONBuffer& orig) {
     this->buffer = orig.buffer;
     this->success_cb = orig.success_cb;
     this->error_cb = orig.error_cb;
+    this->arg = orig.arg;
 
 }
 
@@ -43,7 +45,7 @@ int JSONBuffer::parse() {
         json_tmp = libjson::parse(this->buffer);
 
         if (this->success_cb != NULL) {
-            this->success_cb(json_tmp, this);
+            this->success_cb(json_tmp, this->arg);
         }
         
         this->reset();
@@ -53,7 +55,7 @@ int JSONBuffer::parse() {
     } catch (std::exception &e) {
 
         if (this->error_cb != NULL) {
-            this->error_cb(EXCEPTION_PARSE_JSON, this);
+            this->error_cb(EXCEPTION_PARSE_JSON, this->arg);
         }
         
         return -1;
@@ -62,10 +64,11 @@ int JSONBuffer::parse() {
 
 }
 
-void JSONBuffer::setCallbacks(jsonbuffer_success_cb _success_cb, jsonbuffer_error_cb _error_cb) {
+void JSONBuffer::setCallbacks(jsonbuffer_success_cb _success_cb, jsonbuffer_error_cb _error_cb, void *arg) {
 
     this->success_cb = _success_cb;
     this->error_cb = _error_cb;
+    this->arg = arg;
 
 }
 
@@ -90,7 +93,7 @@ int JSONBuffer::expectedCharOnTop(char _expected) {
          */
 
         if (this->error_cb != NULL) {
-            this->error_cb(UNFORMATTED_JSON, this);
+            this->error_cb(UNFORMATTED_JSON, this->arg);
         }
         
         return -1;

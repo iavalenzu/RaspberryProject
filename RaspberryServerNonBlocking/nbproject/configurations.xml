@@ -89,8 +89,14 @@
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionFactory.cpp</itemPath>
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionFactory.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f4" displayName="IncomingActions" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionAuthenticate.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionAuthenticate.h</itemPath>
+      </logicalFolder>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp</itemPath>
@@ -130,15 +136,16 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <commandLine>-levent</commandLine>
+          <commandLine>-levent -lssl</commandLine>
           <warningLevel>0</warningLevel>
         </ccTool>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibLibItem>event_openssl-2.0.5</linkerLibLibItem>
             <linkerLibFileItem>/usr/local/lib/libyajl.2.1.0.dylib</linkerLibFileItem>
+            <linkerLibFileItem>/usr/local/lib/libmysqlcppconn.dylib</linkerLibFileItem>
+            <linkerLibFileItem>/usr/local/lib/libevent_openssl-2.0.5.dylib</linkerLibFileItem>
           </linkerLibItems>
-          <commandLine>-levent -lssl</commandLine>
+          <commandLine>-levent -lssl -lcrypto</commandLine>
         </linkerTool>
       </compileType>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Action.cpp"
@@ -147,6 +154,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Action.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionAuthenticate.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionAuthenticate.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -182,6 +199,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Core.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -499,6 +526,16 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionAuthenticate.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionAuthenticate.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionExecutor.cpp"
             ex="false"
             tool="1"
@@ -530,6 +567,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Core.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.h"
             ex="false"
             tool="3"
             flavor2="0">

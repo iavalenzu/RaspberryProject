@@ -33,29 +33,36 @@
 #include "Notification.h"
 #include "IncomingActionExecutor.h"
 
+#include "DatabaseAdapter.h"
+
 
 using namespace std;
 
 class ConnectionSSL {
 public:
-    ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL* _ssl);
+    ConnectionSSL(int _connection_fd, struct event_base *_evbase, SSL *_ssl);
 
     void createAssociatedFifo();
-    void createSecureBufferEvent(int _connection_fd, SSL* _ssl);
+    void createSecureBufferEvent(int _connection_fd, SSL *_ssl);
 
-    static void ssl_readcb(struct bufferevent * bev, void * arg);
-    static void ssl_eventcb(struct bufferevent *bev, short events, void *ptr);
-    static void ssl_writecb(struct bufferevent * bev, void * arg);
+    static void readSSLCallback(struct bufferevent *bev, void *arg);
+    static void eventSSLCallback(struct bufferevent *bev, short events, void *arg);
+    static void writeSSLCallback(struct bufferevent *bev, void *arg);
 
-    static void fifo_readcb(struct bufferevent * bev, void * arg);
-    static void fifo_eventcb(struct bufferevent *bev, short events, void *arg);
+    static void readFIFOCallback(struct bufferevent *bev, void *arg);
+    static void eventFIFOCallback(struct bufferevent *bev, short events, void *arg);
 
-    static void jsonstream_successcb(JSONNode &node, void *arg);
+    static void successJSONCallback(JSONNode &node, void *arg);
+    static void errorJSONCallback(int code, void *arg);
+
     
-    static void jsonstream_errorcb(int code, void *arg);
-    
-    int connect(string connection_type);
 
+    
+    int checkCredentials();
+    void clearCredentials();
+
+    void setAccessToken(std::string _access_token);
+    
 
 private:
 
@@ -67,10 +74,15 @@ private:
     
     JSONBuffer json_buffer;
 
+    std::string access_token;
+
+    std::string user_id;
+    std::string user_token;
+
+    
     int authenticated;
-    string user_token;
-    string user_id;
-    string connection_id;
+    std::string connection_id;
+    
     
     IncomingActionExecutor incoming_action_executor;
 

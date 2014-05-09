@@ -34,10 +34,8 @@ public:
     //virtual ~JSONBuffer();
     void append(char *block);
     void reset();
-    void setCallbacks(jsonbuffer_success_cb _success_cb, jsonbuffer_error_cb _error_cb);
+    void setCallbacks(jsonbuffer_success_cb _success_cb, jsonbuffer_error_cb _error_cb, void *arg);
     
-    jsonbuffer_success_cb success_cb;
-    jsonbuffer_error_cb error_cb;    
 
     
 private:
@@ -48,6 +46,10 @@ private:
     std::string buffer;
     std::vector<char> chars;
     
+    jsonbuffer_success_cb success_cb;
+    jsonbuffer_error_cb error_cb;    
+    
+    void *arg;
     
 };
 

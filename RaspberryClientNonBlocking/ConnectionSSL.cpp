@@ -92,7 +92,7 @@ void ConnectionSSL::periodic_cb(evutil_socket_t fd, short what, void *arg) {
 }
 
 void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *arg) {
-
+/*
     printf("ConnectionSSL::standard_input_cb\n");
 
     ConnectionSSL *connection_ssl;
@@ -102,36 +102,27 @@ void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *arg) {
     struct evbuffer *in = bufferevent_get_input(bev);
 
     bufferevent_write_buffer(connection_ssl->bev, in);
-
+*/
 }
 
 void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
 
-    struct evbuffer *in = bufferevent_get_input(bev);
+    std::cout << "Reading from SSL connection..." << std::endl;
 
-    char *request_line;
-    size_t len;
-
-    request_line = evbuffer_readln(in, &len, EVBUFFER_EOL_CRLF);
-    if (request_line) {
-
-        printf("Data: %s\n", request_line);
-
-        free(request_line);
-    }
-
-    /*
-        printf("Leido de stdin %zu bytes\n", evbuffer_get_length(in));
-        printf("----- data ----\n");
-        printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
-     */
-    //bufferevent_write_buffer(bev, in);
-
+    char buf[1024];
+    int n;
+    
+    struct evbuffer *input = bufferevent_get_input(bev);
+    
+    while ((n = evbuffer_remove(input, buf, sizeof (buf))) > 0) {
+        std::cout << buf << std::endl;
+    }    
+   
 }
 
 void ConnectionSSL::ssl_writecb(struct bufferevent * bev, void * arg) {
 
-    printf("ConnectionSSL::ssl_writecb\n");
+    std::cout << "Writing on SSL connection..." << std::endl;
 
 }
 
@@ -144,9 +135,9 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
          */
 
         Notification authentication;
-        authentication.setAction("GET_FORTUNE");
+        authentication.setAction("ACTION_AUTHENTICATE");
         authentication.clearData();
-        authentication.addDataItem(JSONNode("CREDENTIALS", ACCESS_TOKEN));
+        authentication.addDataItem(JSONNode("ACCESS_TOKEN", ACCESS_TOKEN));
         
         std::string notification_json = authentication.toString();
         

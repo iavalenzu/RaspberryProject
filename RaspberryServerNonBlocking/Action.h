@@ -14,6 +14,7 @@ class ConnectionSSL;
 
 class Action {
 public:
+    
     Action();
     Action(Notification _notification, ConnectionSSL* connection);
     Action(const Action& orig);

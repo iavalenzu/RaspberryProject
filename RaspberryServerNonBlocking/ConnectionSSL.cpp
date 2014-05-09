@@ -13,9 +13,6 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
 
     this->evbase = _evbase;
 
-    //this->device = new Device();
-
-
     /*
      * Crea el socket SSL encargado de manejar la coneccion con el cliente
      */
@@ -28,8 +25,12 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
 
     this->createAssociatedFifo();
 
-    this->json_buffer.setCallbacks(ConnectionSSL::jsonstream_successcb, ConnectionSSL::jsonstream_errorcb);
+    this->json_buffer.setCallbacks(ConnectionSSL::successJSONCallback, ConnectionSSL::errorJSONCallback, this);
 
+}
+
+void ConnectionSSL::setAccessToken(std::string _access_token) {
+    this->access_token = _access_token;
 }
 
 void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
@@ -58,12 +59,22 @@ void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
      * Changes the callbacks for a bufferevent.
      */
 
-    bufferevent_setcb(this->ssl_bev, ConnectionSSL::ssl_readcb, ConnectionSSL::ssl_writecb, ConnectionSSL::ssl_eventcb, this);
+    bufferevent_setcb(this->ssl_bev, ConnectionSSL::readSSLCallback, ConnectionSSL::writeSSLCallback, ConnectionSSL::eventSSLCallback, this);
 
 
 }
 
 void ConnectionSSL::createAssociatedFifo() {
+
+
+    char * pointer;
+
+    pointer = tmpnam(NULL);
+    std::cout << pointer << std::endl;
+
+    //char rand_name[32];
+    //RAND_bytes(rand_name, sizeof (rand_name));
+    //std::cout << rand_name << std::endl;
 
     const char *fifo = "/tmp/connection.fifo";
 
@@ -80,15 +91,13 @@ void ConnectionSSL::createAssociatedFifo() {
         exit(1);
     }
 
-    this->fifo_bev = bufferevent_new(fifo_fd, ConnectionSSL::fifo_readcb, NULL, ConnectionSSL::fifo_eventcb, this);
+    this->fifo_bev = bufferevent_new(fifo_fd, ConnectionSSL::readFIFOCallback, NULL, ConnectionSSL::eventFIFOCallback, this);
     bufferevent_base_set(this->evbase, this->fifo_bev);
     bufferevent_enable(this->fifo_bev, EV_READ);
 
 }
 
-void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg) {
-
-    printf("ConnectionSSL::ssl_eventcb\n");
+void ConnectionSSL::eventSSLCallback(struct bufferevent *bev, short events, void *arg) {
 
     if (events & BEV_EVENT_READING) {
         printf("BEV_EVENT_READING\n");
@@ -105,56 +114,52 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
     }
 }
 
-void ConnectionSSL::jsonstream_successcb(JSONNode &json, void *arg) {
+void ConnectionSSL::successJSONCallback(JSONNode &json, void *arg) {
 
-    //Esto esta mal, arg es de la forma JSONBuffer, no ConnectionSSL
-    
+    std::cout << "Recibo con exito una cadena json..." << std::endl;
+
     ConnectionSSL *connection_ssl;
     connection_ssl = static_cast<ConnectionSSL*> (arg);
-    
+
     Notification incoming_notification(json);
 
-    std::string notification_string = incoming_notification.toString();
-    
-    std::cout <<  notification_string << std::endl;
-    
-    bufferevent_write(connection_ssl->ssl_bev, notification_string.c_str(), notification_string.size());    
-    
-    //connection_ssl->incoming_action_executor.execute(incoming_notification, connection_ssl);
-    
-}
-
-void ConnectionSSL::jsonstream_errorcb(int code, void *arg) {
-
-    std::cout << "jsonstream_errorcb" << std::endl;
+    connection_ssl->incoming_action_executor.execute(incoming_notification, connection_ssl);
 
 }
 
-void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void *arg) {
+void ConnectionSSL::errorJSONCallback(int code, void *arg) {
+
+    std::cout << "Tengo problemas al recibir la cadena json..." << std::endl;
+
+}
+
+void ConnectionSSL::readSSLCallback(struct bufferevent * bev, void *arg) {
+
+    std::cout << "Reading from SSL connection..." << std::endl;
 
     ConnectionSSL *connection_ssl;
     connection_ssl = static_cast<ConnectionSSL*> (arg);
 
     char buf[1024];
     int n;
-    
+
     struct evbuffer *input = bufferevent_get_input(bev);
-    
+
     while ((n = evbuffer_remove(input, buf, sizeof (buf))) > 0) {
         connection_ssl->json_buffer.append(buf);
     }
-    
-}
-
-void ConnectionSSL::ssl_writecb(struct bufferevent * bev, void * arg) {
-
-    printf("ConnectionSSL::ssl_writecb\n");
 
 }
 
-void ConnectionSSL::fifo_eventcb(struct bufferevent *bev, short events, void *arg) {
+void ConnectionSSL::writeSSLCallback(struct bufferevent * bev, void * arg) {
 
-    printf("ConnectionSSL::fifo_eventcb\n");
+    std::cout << "Writing on SSL connection..." << std::endl;
+
+
+
+}
+
+void ConnectionSSL::eventFIFOCallback(struct bufferevent *bev, short events, void *arg) {
 
     if (events & BEV_EVENT_READING) {
         printf("BEV_EVENT_READING\n");
@@ -171,7 +176,7 @@ void ConnectionSSL::fifo_eventcb(struct bufferevent *bev, short events, void *ar
     }
 }
 
-void ConnectionSSL::fifo_readcb(struct bufferevent *bev, void *arg) {
+void ConnectionSSL::readFIFOCallback(struct bufferevent *bev, void *arg) {
 
     printf("ConnectionSSL::fifo_readcb\n");
 
@@ -189,4 +194,53 @@ void ConnectionSSL::fifo_readcb(struct bufferevent *bev, void *arg) {
 
     bufferevent_write_buffer(connection_ssl_bev, in);
 
+}
+
+int ConnectionSSL::checkCredentials() {
+
+    /*
+     * Conectamos con la BD y verificamos el access token
+     */
+
+    if (!this->access_token.empty()) {
+
+        DatabaseAdapter dba;
+
+        sql::ResultSet* user = dba.getUserByAccessToken(this->access_token);
+
+        if (user != NULL) {
+
+            this->authenticated = true;
+            this->user_token = user->getString("token");
+            this->user_id = user->getString("id");
+
+            sql::ResultSet* connection = dba.createNewConnection(this->user_id);
+
+            if (connection != NULL) {
+
+                this->connection_id = connection->getString("id");
+
+                return true;
+
+            }
+
+        }
+    }
+
+    /*
+     * Borramos los valores asociados al dispositivo
+     */
+
+    this->checkCredentials();
+
+    return false;
+
+}
+
+void ConnectionSSL::clearCredentials() {
+    this->access_token.clear();
+    this->authenticated = false;
+    this->connection_id.clear();
+    this->user_id.clear();
+    this->user_token.clear();
 }

@@ -36,9 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/441878278/Action.o \
+	${OBJECTDIR}/_ext/441878278/ActionAuthenticate.o \
 	${OBJECTDIR}/_ext/441878278/ActionExecutor.o \
 	${OBJECTDIR}/_ext/441878278/ActionFactory.o \
 	${OBJECTDIR}/_ext/441878278/ConnectionSSL.o \
+	${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o \
 	${OBJECTDIR}/_ext/441878278/Device.o \
 	${OBJECTDIR}/_ext/441878278/IncomingAction.o \
 	${OBJECTDIR}/_ext/441878278/IncomingActionExecutor.o \
@@ -67,8 +69,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-levent
-CXXFLAGS=-levent
+CCFLAGS=-levent -lssl
+CXXFLAGS=-levent -lssl
 
 # Fortran Compiler Flags
 FFLAGS=
@@ -77,7 +79,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-levent_openssl-2.0.5 /usr/local/lib/libyajl.2.1.0.dylib
+LDLIBSOPTIONS=/usr/local/lib/libyajl.2.1.0.dylib /usr/local/lib/libmysqlcppconn.dylib /usr/local/lib/libevent_openssl-2.0.5.dylib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -85,14 +87,23 @@ LDLIBSOPTIONS=-levent_openssl-2.0.5 /usr/local/lib/libyajl.2.1.0.dylib
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking: /usr/local/lib/libyajl.2.1.0.dylib
 
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking: /usr/local/lib/libmysqlcppconn.dylib
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking: /usr/local/lib/libevent_openssl-2.0.5.dylib
+
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking ${OBJECTFILES} ${LDLIBSOPTIONS} -levent -lssl
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking ${OBJECTFILES} ${LDLIBSOPTIONS} -levent -lssl -lcrypto
 
 ${OBJECTDIR}/_ext/441878278/Action.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Action.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/Action.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Action.cpp
+
+${OBJECTDIR}/_ext/441878278/ActionAuthenticate.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionAuthenticate.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/ActionAuthenticate.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionAuthenticate.cpp
 
 ${OBJECTDIR}/_ext/441878278/ActionExecutor.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionExecutor.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
@@ -108,6 +119,11 @@ ${OBJECTDIR}/_ext/441878278/ConnectionSSL.o: /Users/Ismael/NetBeansProjects/Rasp
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/ConnectionSSL.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp
+
+${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp
 
 ${OBJECTDIR}/_ext/441878278/Device.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278

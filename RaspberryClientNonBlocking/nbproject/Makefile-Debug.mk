@@ -69,11 +69,13 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-levent_openssl-2.0.5
+LDLIBSOPTIONS=/usr/local/lib/libevent_openssl.dylib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclientnonblocking
+
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclientnonblocking: /usr/local/lib/libevent_openssl.dylib
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclientnonblocking: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}

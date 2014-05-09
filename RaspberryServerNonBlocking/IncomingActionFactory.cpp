@@ -6,6 +6,7 @@
  */
 
 #include "IncomingActionFactory.h"
+#include "ActionAuthenticate.h"
 
 IncomingActionFactory::IncomingActionFactory() {
 }
@@ -20,8 +21,8 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
 
     std::string action_name = notification.getAction();
 
-    cout << " > Incoming notification: " << notification.toString() << endl;
-    cout << " > Creating incoming action: " << action_name << endl;
+    cout << "Incoming notification: " << notification.toString() << endl;
+    cout << "Creating incoming action: " << action_name << endl;
 
     IncomingAction *action = new IncomingAction(notification, connection);
 
@@ -43,11 +44,11 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
     /*
      * De acuerdo a la accion, elejimos la accion que corresponda
      */
-/*
-    if (action_name.compare(ACTION_AUTHENTICATE) == 0) {
+
+    if (action_name.compare(ActionAuthenticate::name) == 0) {
         action = new ActionAuthenticate(notification, connection);
     }
-  */  
+    
     return action;
 
 }
