@@ -12,6 +12,9 @@
             <sourceRootList>
                 <sourceRootElem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/libjson</sourceRootElem>
                 <sourceRootElem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/yajl</sourceRootElem>
+                <sourceRootElem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/BaseActions</sourceRootElem>
+                <sourceRootElem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Executors</sourceRootElem>
+                <sourceRootElem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Factory</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

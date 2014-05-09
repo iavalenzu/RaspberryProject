@@ -30,8 +30,6 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
 
     this->json_buffer.setCallbacks(ConnectionSSL::jsonstream_successcb, ConnectionSSL::jsonstream_errorcb);
 
-    this->incoming_action_executor.setConnection(this);
-
 }
 
 void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
@@ -109,13 +107,21 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
 
 void ConnectionSSL::jsonstream_successcb(JSONNode &json, void *arg) {
 
+    //Esto esta mal, arg es de la forma JSONBuffer, no ConnectionSSL
     
+    ConnectionSSL *connection_ssl;
+    connection_ssl = static_cast<ConnectionSSL*> (arg);
     
-    
-    std::string jc = json.write_formatted();
+    Notification incoming_notification(json);
 
-    std::cout << jc << std::endl;
-
+    std::string notification_string = incoming_notification.toString();
+    
+    std::cout <<  notification_string << std::endl;
+    
+    bufferevent_write(connection_ssl->ssl_bev, notification_string.c_str(), notification_string.size());    
+    
+    //connection_ssl->incoming_action_executor.execute(incoming_notification, connection_ssl);
+    
 }
 
 void ConnectionSSL::jsonstream_errorcb(int code, void *arg) {
@@ -135,9 +141,6 @@ void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void *arg) {
     struct evbuffer *input = bufferevent_get_input(bev);
     
     while ((n = evbuffer_remove(input, buf, sizeof (buf))) > 0) {
-        
-        //std::cout << buf << std::endl;
-        
         connection_ssl->json_buffer.append(buf);
     }
     

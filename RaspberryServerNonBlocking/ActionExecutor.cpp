@@ -16,10 +16,6 @@ ActionExecutor::ActionExecutor(const ActionExecutor& orig) {
 ActionExecutor::~ActionExecutor() {
 }
 
-void ActionExecutor::setConnection(ConnectionSSL* _connection) {
-    this->connection = _connection;
-}
-
 void ActionExecutor::addRejectedAction(std::string rejected_action) {
 
     this->rejected_actions_list.push_back(rejected_action);

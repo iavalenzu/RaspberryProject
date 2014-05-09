@@ -71,22 +71,28 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Action.cpp</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Action.h</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionExecutor.cpp</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionExecutor.h</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionFactory.cpp</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionFactory.h</itemPath>
+      <logicalFolder name="f2" displayName="Actions" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Action.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Action.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingAction.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingAction.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="Executors" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionExecutor.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionExecutor.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionExecutor.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionExecutor.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="Factory" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionFactory.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionFactory.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionFactory.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionFactory.h</itemPath>
+      </logicalFolder>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.h</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingAction.cpp</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingAction.h</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionExecutor.cpp</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionExecutor.h</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionFactory.cpp</itemPath>
-      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingActionFactory.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/JSONBuffer.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Notification.cpp</itemPath>
@@ -110,6 +116,9 @@
   <sourceRootList>
     <Elem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/libjson</Elem>
     <Elem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/yajl</Elem>
+    <Elem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/BaseActions</Elem>
+    <Elem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Executors</Elem>
+    <Elem>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Factory</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

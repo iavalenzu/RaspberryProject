@@ -20,8 +20,8 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
 
     std::string action_name = notification.getAction();
 
-    cout << getpid() << " > Incoming notification: " << notification.toString() << endl;
-    cout << getpid() << " > Creating incoming action: " << action_name << endl;
+    cout << " > Incoming notification: " << notification.toString() << endl;
+    cout << " > Creating incoming action: " << action_name << endl;
 
     IncomingAction *action = new IncomingAction(notification, connection);
 
@@ -36,26 +36,18 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
      */
     
     if (it != rejected_actions_list.end()) {
-        cout << getpid() << " > Action '" << action_name << "' is rejected." << endl;
+        cout << " > Action '" << action_name << "' is rejected." << endl;
         return action;
     }
 
     /*
      * De acuerdo a la accion, elejimos la accion que corresponda
      */
-
-    if (action_name.compare(ACTION_ECHO) == 0) {
-        action = new ActionEcho(notification, connection);
-    } else if (action_name.compare(ACTION_PERSISTENT_RECEIVER) == 0) {
-        action = new ActionPersistentReceiver(notification, connection);
-    } else if (action_name.compare(ACTION_PERSISTENT_SENDER) == 0) {
-        action = new ActionPersistentSender(notification, connection);
-    } else if (action_name.compare(ACTION_CLOSE_CONNECTION) == 0) {
-        action = new ActionCloseConnection(notification, connection);
-    } else if (action_name.compare(ACTION_NOTIFICATION_RESPONSE) == 0) {
-        action = new ActionNotificationResponse(notification, connection);
+/*
+    if (action_name.compare(ACTION_AUTHENTICATE) == 0) {
+        action = new ActionAuthenticate(notification, connection);
     }
-    
+  */  
     return action;
 
 }

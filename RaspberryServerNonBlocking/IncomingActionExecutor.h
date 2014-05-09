@@ -21,7 +21,7 @@ public:
     IncomingActionExecutor();
     virtual ~IncomingActionExecutor();
     
-    void execute(Notification notification);
+    void execute(Notification notification, ConnectionSSL *connection);
     
 private:
 

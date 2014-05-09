@@ -14,10 +14,9 @@ IncomingActionExecutor::IncomingActionExecutor() : ActionExecutor() {
 IncomingActionExecutor::~IncomingActionExecutor() {
 }
 
+void IncomingActionExecutor::execute(Notification notification, ConnectionSSL *connection){
 
-void IncomingActionExecutor::execute(Notification notification){
-
-    IncomingAction *action = IncomingActionFactory::createFromNotification(notification, this->connection, this->rejected_actions_list);
+    IncomingAction *action = IncomingActionFactory::createFromNotification(notification, connection, this->rejected_actions_list);
     
     notification = action->toDo();
 

@@ -53,8 +53,7 @@ public:
     static void jsonstream_successcb(JSONNode &node, void *arg);
     
     static void jsonstream_errorcb(int code, void *arg);
-
-
+    
     int connect(string connection_type);
 
 

@@ -9,8 +9,8 @@
 #define	ACTION_H
 
 #include "Notification.h"
-#include "Device.h"
-#include "ConnectionSSL.h"
+
+class ConnectionSSL;
 
 class Action {
 public:

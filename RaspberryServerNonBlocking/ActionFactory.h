@@ -10,6 +10,7 @@
 
 #include "Action.h"
 #include "Device.h"
+#include "Notification.h"
 
 #include <vector>
 
