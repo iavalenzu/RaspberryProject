@@ -114,7 +114,9 @@ void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
     
     struct evbuffer *input = bufferevent_get_input(bev);
     
-    while ((n = evbuffer_remove(input, buf, sizeof (buf))) > 0) {
+    //std::cout <<  evbuffer_pullup(input, -1) << std::endl;
+
+    while ((n = evbuffer_remove(input, buf, sizeof(buf))) > 0) {
         std::cout << buf << std::endl;
     }    
    
@@ -150,6 +152,8 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
     } else if (events & BEV_EVENT_EOF) {
         printf("Disconnected from the remote host\n");
     } else if (events & BEV_EVENT_ERROR) {
+        
+        
         printf("Network error\n");
     } else if (events & BEV_EVENT_TIMEOUT) {
         printf("Timeout\n");

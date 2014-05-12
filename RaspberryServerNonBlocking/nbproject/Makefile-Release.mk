@@ -48,6 +48,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/441878278/JSONBuffer.o \
 	${OBJECTDIR}/_ext/441878278/Notification.o \
 	${OBJECTDIR}/_ext/441878278/ServerSSL.o \
+	${OBJECTDIR}/_ext/441878278/Utilities.o \
 	${OBJECTDIR}/_ext/856698395/JSONAllocator.o \
 	${OBJECTDIR}/_ext/856698395/JSONChildren.o \
 	${OBJECTDIR}/_ext/856698395/JSONDebug.o \
@@ -153,6 +154,11 @@ ${OBJECTDIR}/_ext/441878278/ServerSSL.o: /Users/Ismael/NetBeansProjects/Raspberr
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/ServerSSL.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.cpp
+
+${OBJECTDIR}/_ext/441878278/Utilities.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Utilities.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/Utilities.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Utilities.cpp
 
 ${OBJECTDIR}/_ext/856698395/JSONAllocator.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/libjson/_internal/Source/JSONAllocator.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/856698395

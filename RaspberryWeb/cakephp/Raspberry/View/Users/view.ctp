@@ -36,14 +36,14 @@
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Pid'); ?></th>
+		<th><?php echo __('Fifo'); ?></th>
 		<th><?php echo __('User Id'); ?></th>
 		<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($user['Connection'] as $connection): ?>
 		<tr>
 			<td><?php echo $connection['id']; ?></td>
-			<td><?php echo $connection['pid']; ?></td>
+			<td><?php echo $connection['fifo_name']; ?></td>
 			<td><?php echo $connection['user_id']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'connections', 'action' => 'view', $connection['id'])); ?>

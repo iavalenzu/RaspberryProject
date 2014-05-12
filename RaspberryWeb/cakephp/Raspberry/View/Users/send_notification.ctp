@@ -6,11 +6,11 @@
             <legend>Active Connections</legend>
 
             <table>
-                <?php echo $this->Html->tableHeaders(array('Id', 'Pid', 'Status', 'Type')); ?>
+                <?php echo $this->Html->tableHeaders(array('Id', 'Fifo', 'Status')); ?>
 
                 <?php foreach ($active_connections as $active_connection): ?>
 
-                    <?php echo $this->Html->tableCells(array($active_connection['Connection']['id'], $active_connection['Connection']['pid'], $active_connection['Connection']['status'], $active_connection['Connection']['type'] )); ?>
+                    <?php echo $this->Html->tableCells(array($active_connection['Connection']['id'], $active_connection['Connection']['fifo_name'], $active_connection['Connection']['status'] )); ?>
 
                 <?php endforeach; ?>
 

@@ -8,6 +8,7 @@
 
 
 #include "ConnectionSSL.h"
+#include "Utilities.h"
 
 ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL* _ssl) {
 
@@ -20,12 +21,16 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
     this->createSecureBufferEvent(_connection_fd, _ssl);
 
     /*
-     * Se crea el fifo asociado a la coneccion
+     * Se definen los callbacks asociados al buffer de objetos JSON
      */
 
-    this->createAssociatedFifo();
-
     this->json_buffer.setCallbacks(ConnectionSSL::successJSONCallback, ConnectionSSL::errorJSONCallback, this);
+
+}
+
+ConnectionSSL::~ConnectionSSL() {
+
+
 
 }
 
@@ -46,45 +51,37 @@ void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
 
     if (this->ssl_bev == NULL) {
         std::cout << "El nuevo socket SSL es nulo" << std::endl;
-        abort();
+    } else {
+
+        if (bufferevent_enable(this->ssl_bev, EV_READ | EV_WRITE) < 0) {
+            std::cout << "bufferevent_enable failure" << std::endl;
+        } else {
+
+
+            /*
+             * Changes the callbacks for a bufferevent.
+             */
+
+            bufferevent_setcb(this->ssl_bev, ConnectionSSL::readSSLCallback, ConnectionSSL::writeSSLCallback, ConnectionSSL::eventSSLCallback, this);
+        }
     }
-
-    if (bufferevent_enable(this->ssl_bev, EV_READ | EV_WRITE) < 0) {
-        std::cout << "bufferevent_enable failure" << std::endl;
-        abort();
-    }
-
-
-    /*
-     * Changes the callbacks for a bufferevent.
-     */
-
-    bufferevent_setcb(this->ssl_bev, ConnectionSSL::readSSLCallback, ConnectionSSL::writeSSLCallback, ConnectionSSL::eventSSLCallback, this);
-
 
 }
 
 void ConnectionSSL::createAssociatedFifo() {
 
+    std::cout << "Creando FIFO en '" << this->fifo_filename.c_str() << "'" << std::endl;
 
-    char * pointer;
+    if (unlink(this->fifo_filename.c_str()) == 0) {
+        std::cout << "El FIFO ya existia previamente!!" << std::endl;
+    }
 
-    pointer = tmpnam(NULL);
-    std::cout << pointer << std::endl;
-
-    //char rand_name[32];
-    //RAND_bytes(rand_name, sizeof (rand_name));
-    //std::cout << rand_name << std::endl;
-
-    const char *fifo = "/tmp/connection.fifo";
-
-    unlink(fifo);
-    if (mkfifo(fifo, 0600) == -1) {
+    if (mkfifo(this->fifo_filename.c_str(), 0600) == -1) {
         perror("mkfifo");
         exit(1);
     }
 
-    int fifo_fd = open(fifo, O_RDONLY | O_NONBLOCK, 0);
+    int fifo_fd = open(this->fifo_filename.c_str(), O_RDONLY | O_NONBLOCK, 0);
 
     if (fifo_fd == -1) {
         perror("open");
@@ -99,12 +96,22 @@ void ConnectionSSL::createAssociatedFifo() {
 
 void ConnectionSSL::eventSSLCallback(struct bufferevent *bev, short events, void *arg) {
 
+    ConnectionSSL *connection_ssl;
+    connection_ssl = static_cast<ConnectionSSL*> (arg);
+
     if (events & BEV_EVENT_READING) {
         printf("BEV_EVENT_READING\n");
     } else if (events & BEV_EVENT_WRITING) {
         printf("BEV_EVENT_WRITING\n");
     } else if (events & BEV_EVENT_ERROR) {
         printf("BEV_EVENT_ERROR\n");
+
+        /*
+         * 
+         */
+
+        connection_ssl->close();
+
     } else if (events & BEV_EVENT_TIMEOUT) {
         printf("BEV_EVENT_WRITING\n");
     } else if (events & BEV_EVENT_EOF) {
@@ -155,8 +162,6 @@ void ConnectionSSL::writeSSLCallback(struct bufferevent * bev, void * arg) {
 
     std::cout << "Writing on SSL connection..." << std::endl;
 
-
-
 }
 
 void ConnectionSSL::eventFIFOCallback(struct bufferevent *bev, short events, void *arg) {
@@ -178,7 +183,7 @@ void ConnectionSSL::eventFIFOCallback(struct bufferevent *bev, short events, voi
 
 void ConnectionSSL::readFIFOCallback(struct bufferevent *bev, void *arg) {
 
-    printf("ConnectionSSL::fifo_readcb\n");
+    std::cout << "Reading from FIFO connection..." << std::endl;
 
     struct bufferevent *connection_ssl_bev;
 
@@ -188,15 +193,13 @@ void ConnectionSSL::readFIFOCallback(struct bufferevent *bev, void *arg) {
 
     struct evbuffer *in = bufferevent_get_input(bev);
 
-    printf("Fifo received %zu bytes\n", evbuffer_get_length(in));
-    printf("----- data ----\n");
-    printf("%.*s\n", (int) evbuffer_get_length(in), evbuffer_pullup(in, -1));
+    std::cout << evbuffer_pullup(in, -1) << std::endl;
 
     bufferevent_write_buffer(connection_ssl_bev, in);
 
 }
 
-int ConnectionSSL::checkCredentials() {
+int ConnectionSSL::checkCredentialsOnDatabase() {
 
     /*
      * Conectamos con la BD y verificamos el access token
@@ -214,11 +217,19 @@ int ConnectionSSL::checkCredentials() {
             this->user_token = user->getString("token");
             this->user_id = user->getString("id");
 
-            sql::ResultSet* connection = dba.createNewConnection(this->user_id);
+            this->fifo_filename = Utilities::get_unique_filename("fifos/");
+
+            sql::ResultSet* connection = dba.createNewConnection(this->user_id, this->fifo_filename);
 
             if (connection != NULL) {
 
                 this->connection_id = connection->getString("id");
+
+                /*
+                 * Se crea el fifo asociado a la coneccion
+                 */
+
+                this->createAssociatedFifo();
 
                 return true;
 
@@ -231,16 +242,42 @@ int ConnectionSSL::checkCredentials() {
      * Borramos los valores asociados al dispositivo
      */
 
-    this->checkCredentials();
+    this->clearCredentials();
 
     return false;
 
 }
 
+void ConnectionSSL::close() {
+
+    bufferevent_free(this->ssl_bev);
+
+    bufferevent_free(this->fifo_bev);
+
+    unlink(this->fifo_filename.c_str());
+
+    std::cout << this->connection_id << std::endl;
+
+    this->disconnectFromDatabase();
+
+
+}
+
+int ConnectionSSL::disconnectFromDatabase() {
+
+    DatabaseAdapter dba;
+
+    sql::ResultSet* notification = dba.closeConnectionById(this->connection_id);
+
+    return true;
+}
+
 void ConnectionSSL::clearCredentials() {
+
     this->access_token.clear();
     this->authenticated = false;
     this->connection_id.clear();
     this->user_id.clear();
     this->user_token.clear();
+
 }

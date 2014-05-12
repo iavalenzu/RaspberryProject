@@ -17,6 +17,9 @@ ServerSSL::ServerSSL(int _port, std::string _cert, std::string _key) {
     this->certfile = _cert;
     this->keyfile = _key;
 
+    std::cout << "Server pid: " << getpid() << std::endl;
+
+
 
     SSL_load_error_strings(); /* readable error messages */
     SSL_library_init(); /* initialize library */
@@ -43,13 +46,11 @@ ServerSSL::ServerSSL(int _port, std::string _cert, std::string _key) {
 
     this->openNewConnectionsListener();
 
-
-
 }
 
 void ServerSSL::initSSLContext() {
 
-    std::cout << " > Iniciando el contexto SSL... " << std::endl;
+    std::cout << "Iniciando el contexto SSL... " << std::endl;
 
     SSL_METHOD *ssl_method;
 
@@ -86,22 +87,22 @@ void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct socka
     SSL* ssl;
 
     if (sa->sa_family == AF_INET) {
-        std::cout << " > Accept new connection in port: " << ntohs(((struct sockaddr_in*) sa)->sin_port) << std::endl;
+        std::cout << "Accept new connection in port: " << ntohs(((struct sockaddr_in*) sa)->sin_port) << std::endl;
     } else if (sa->sa_family == AF_INET6) {
-        std::cout << " > Accept new connection int port: " << ntohs(((struct sockaddr_in6*) sa)->sin6_port) << std::endl;
+        std::cout << "Accept new connection int port: " << ntohs(((struct sockaddr_in6*) sa)->sin6_port) << std::endl;
     }
 
     server_ssl = (ServerSSL *) arg;
 
     if (server_ssl == NULL) {
-        std::cout << " > No es posible crear un objeto ServerSSL" << std::endl;
+        std::cout << "No es posible crear un objeto ServerSSL" << std::endl;
         abort();
     }
 
     evbase = evconnlistener_get_base(serv);
 
     if (evbase == NULL) {
-        std::cout << " > Event base is NULL" << std::endl;
+        std::cout << "Event base is NULL" << std::endl;
         abort();
     }
 
@@ -113,7 +114,7 @@ void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct socka
     ssl = SSL_new(server_ssl->ctx);
 
     if (ssl == NULL) {
-        std::cout << " > Error al crear la estructura SSL" << std::endl;
+        std::cout << "Error al crear la estructura SSL" << std::endl;
         abort();
     }
 
@@ -124,13 +125,13 @@ void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct socka
     ConnectionSSL *connection_ssl;
     connection_ssl = new ConnectionSSL(sock, evbase, ssl);
 
-//    ConnectionSSL connection_ssl(sock, evbase, ssl);
-    
+    //    ConnectionSSL connection_ssl(sock, evbase, ssl);
+
 }
 
 void ServerSSL::openNewConnectionsListener() {
 
-    std::cout << " > Escuchando nuevas conecciones... " << std::endl;
+    std::cout << "Escuchando nuevas conecciones... " << std::endl;
 
     struct sockaddr_in addr;
 
@@ -163,14 +164,14 @@ void ServerSSL::openNewConnectionsListener() {
 
 }
 
-void ServerSSL::ssl_periodiccb(evutil_socket_t fd, short what, void *arg){
-    
-    
+void ServerSSL::ssl_periodiccb(evutil_socket_t fd, short what, void *arg) {
+
+
 }
 
 void ServerSSL::loadCertificates() {
 
-    std::cout << " > Cargando los certificados... " << std::endl;
+    std::cout << "Cargando los certificados... " << std::endl;
 
     /* set the local certificate from CertFile */
     if (SSL_CTX_use_certificate_chain_file(this->ctx, this->certfile.c_str()) <= 0) {

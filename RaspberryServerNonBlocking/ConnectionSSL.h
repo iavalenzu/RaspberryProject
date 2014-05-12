@@ -8,6 +8,8 @@
 #ifndef CONNECTIONSSL_H
 #define	CONNECTIONSSL_H
 
+#include <cstdlib>
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,7 +17,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <iostream>
-#include <unistd.h>
 
 #include <sys/stat.h> 
 #include <fcntl.h>
@@ -34,6 +35,7 @@
 #include "IncomingActionExecutor.h"
 
 #include "DatabaseAdapter.h"
+#include "Utilities.h"
 
 
 using namespace std;
@@ -41,6 +43,8 @@ using namespace std;
 class ConnectionSSL {
 public:
     ConnectionSSL(int _connection_fd, struct event_base *_evbase, SSL *_ssl);
+    ~ConnectionSSL();
+    
 
     void createAssociatedFifo();
     void createSecureBufferEvent(int _connection_fd, SSL *_ssl);
@@ -54,11 +58,14 @@ public:
 
     static void successJSONCallback(JSONNode &node, void *arg);
     static void errorJSONCallback(int code, void *arg);
+    
+    void close();
 
     
-
+    int checkCredentialsOnDatabase();
+    int disconnectFromDatabase();
     
-    int checkCredentials();
+    
     void clearCredentials();
 
     void setAccessToken(std::string _access_token);
@@ -75,6 +82,7 @@ private:
     JSONBuffer json_buffer;
 
     std::string access_token;
+    std::string fifo_filename;
 
     std::string user_id;
     std::string user_token;

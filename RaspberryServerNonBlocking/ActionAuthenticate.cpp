@@ -34,26 +34,14 @@ Notification ActionAuthenticate::toDo() {
      * Verificamos si es posible conectar 
      */
 
-    if (this->connection->checkCredentials()) {
-/*
-        notification.setAction(ACTION_NOTIFICATION_RESPONSE);
-        notification.clearData();
-        notification.addDataItem(JSONNode("Access", "SUCCESS"));
-        notification.addDataItem(JSONNode("ConnectionId", device->getConnectionId()));
+    if (this->connection->checkCredentialsOnDatabase()) {
+        
+        return Notification();
 
-        outcoming_executor.write(notification);
-
-        return notification;
-*/
     } else {
-/*
-        Notification response;
-        response.setAction(ACTION_NOTIFICATION_RESPONSE);
-        response.clearData();
-        response.addDataItem(JSONNode("Access", "FAILED"));
-
-        return response;
- */
+        
+        return Notification();
+ 
     }
     
 }

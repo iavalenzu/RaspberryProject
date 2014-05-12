@@ -6,9 +6,9 @@
 			<?php echo h($connection['Connection']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Pid'); ?></dt>
+		<dt><?php echo __('Fifo'); ?></dt>
 		<dd>
-			<?php echo h($connection['Connection']['pid']); ?>
+			<?php echo h($connection['Connection']['fifo_name']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('User'); ?></dt>

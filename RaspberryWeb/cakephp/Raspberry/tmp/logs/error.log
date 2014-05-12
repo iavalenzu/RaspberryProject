@@ -894,3 +894,19 @@ Stack Trace:
 #3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
 #4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2014-05-11 21:51:00 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Connection.type' in 'where clause'
+Request URL: /users/sendNotification/1
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('SELECT `Connect...', Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(666): DboSource->execute('SELECT `Connect...', Array, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Datasource/DboSource.php(1077): DboSource->fetchAll('SELECT `Connect...', false)
+#4 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2750): DboSource->read(Object(Connection), Array)
+#5 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Model/Model.php(2722): Model->_readDataSource('all', Array)
+#6 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/Controller/UsersController.php(140): Model->find('all', Array)
+#7 [internal function]: UsersController->sendNotification('1')
+#8 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Controller/Controller.php(490): ReflectionMethod->invokeArgs(Object(UsersController), Array)
+#9 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#10 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(UsersController), Object(CakeRequest), Object(CakeResponse))
+#11 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Raspberry/webroot/index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}

@@ -105,6 +105,8 @@
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Notification.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Utilities.cpp</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Utilities.h</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -279,6 +281,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Utilities.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Utilities.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -647,6 +659,16 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ServerSSL.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Utilities.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Utilities.h"
             ex="false"
             tool="3"
             flavor2="0">

@@ -68,18 +68,17 @@ sql::ResultSet* DatabaseAdapter::getUserByAccessToken(std::string token) {
 
 }
 
-sql::ResultSet* DatabaseAdapter::createNewConnection(std::string user_id) {
+sql::ResultSet* DatabaseAdapter::createNewConnection(std::string user_id, std::string fifo_name) {
 
     try {
 
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("INSERT INTO connections(user_id, pid, status, type, created, modified) VALUES(?,?,?,?, NOW(), NOW())");
+        pstmt = this->con->prepareStatement("INSERT INTO connections(user_id, fifo_name, status, created, modified) VALUES(?,?,?, NOW(), NOW())");
         pstmt->setString(1, user_id);
-        pstmt->setInt(2, 111);
+        pstmt->setString(2, fifo_name);
         pstmt->setString(3, "ACTIVE");
-        pstmt->setString(4, "");
 
         int update_count = pstmt->executeUpdate();
 
