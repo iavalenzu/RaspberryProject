@@ -19,11 +19,8 @@ ServerSSL::ServerSSL(int _port, std::string _cert, std::string _key) {
 
     std::cout << "Server pid: " << getpid() << std::endl;
 
-
-
     SSL_load_error_strings(); /* readable error messages */
     SSL_library_init(); /* initialize library */
-
 
     /*
      * Initialize SSL context 
@@ -40,9 +37,6 @@ ServerSSL::ServerSSL(int _port, std::string _cert, std::string _key) {
     /* 
      * Create server socket 
      */
-
-
-
 
     this->openNewConnectionsListener();
 
@@ -92,7 +86,7 @@ void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct socka
         std::cout << "Accept new connection int port: " << ntohs(((struct sockaddr_in6*) sa)->sin6_port) << std::endl;
     }
 
-    server_ssl = (ServerSSL *) arg;
+    server_ssl = static_cast<ServerSSL*> (arg);
 
     if (server_ssl == NULL) {
         std::cout << "No es posible crear un objeto ServerSSL" << std::endl;
@@ -125,7 +119,11 @@ void ServerSSL::ssl_acceptcb(struct evconnlistener *serv, int sock, struct socka
     ConnectionSSL *connection_ssl;
     connection_ssl = new ConnectionSSL(sock, evbase, ssl);
 
-    //    ConnectionSSL connection_ssl(sock, evbase, ssl);
+    /*
+     * Agregamos la nueva conneccion a la lista de conecciones del servidor
+     */
+
+    server_ssl->connections.push_back(connection_ssl);
 
 }
 
@@ -142,6 +140,11 @@ void ServerSSL::openNewConnectionsListener() {
 
     this->evbase = event_base_new();
 
+    if (this->evbase == NULL) {
+        std::cout << "event_base_new failure" << std::endl;
+        abort();
+    }
+
     this->listener = evconnlistener_new_bind(this->evbase,
             ServerSSL::ssl_acceptcb,
             (void *) this,
@@ -150,6 +153,10 @@ void ServerSSL::openNewConnectionsListener() {
             (struct sockaddr *) &addr,
             sizeof (addr));
 
+    if (this->listener == NULL) {
+        std::cout << "evconnlistener_new_bind failure" << std::endl;
+        abort();
+    }
 
     /*
      * Se crea un evento periodico que verifica el NON_BLOCKING
@@ -157,15 +164,68 @@ void ServerSSL::openNewConnectionsListener() {
 
     struct event *ev;
     ev = event_new(this->evbase, -1, EV_PERSIST, ServerSSL::ssl_periodiccb, this);
-    struct timeval ten_sec = {10, 0};
-    event_add(ev, &ten_sec);
 
-    event_base_loop(this->evbase, 0);
+    if (ev == NULL) {
+        std::cout << "event_new failure" << std::endl;
+        abort();
+    }
+
+    struct timeval period_sec = {PERIOD, 0};
+    event_add(ev, &period_sec);
+
+    /*
+     * Se define el manejador de la señal de termino 
+     */
+
+    struct event *ev_int;
+    ev_int = evsignal_new(this->evbase, SIGTERM, ServerSSL::signal_intcb, this);
+
+    if (ev_int == NULL) {
+        std::cout << "evsignal_new failure" << std::endl;
+        abort();
+    }
+
+    event_add(ev_int, NULL);
+
+
+
+    event_base_dispatch(this->evbase);
+    event_base_free(this->evbase);
+
+}
+
+void ServerSSL::signal_intcb(int fd, short what, void* arg) {
+    
+    ServerSSL* server_ssl;
+
+    server_ssl = static_cast<ServerSSL*> (arg);
+
+    if (server_ssl == NULL) {
+        std::cout << "No es posible crear un objeto ServerSSL" << std::endl;
+        abort();
+    }
+
+    server_ssl->closeConnections();
+
+    event_base_free(server_ssl->evbase);
+
+    exit(1);
+    
 
 }
 
 void ServerSSL::ssl_periodiccb(evutil_socket_t fd, short what, void *arg) {
 
+    ServerSSL* server_ssl;
+
+    server_ssl = static_cast<ServerSSL*> (arg);
+
+    if (server_ssl == NULL) {
+        std::cout << "No es posible crear un objeto ServerSSL" << std::endl;
+        abort();
+    }
+
+    server_ssl->closeInactiveConnections();
 
 }
 
@@ -189,6 +249,31 @@ void ServerSSL::loadCertificates() {
     if (!SSL_CTX_check_private_key(this->ctx)) {
         perror("SSL_CTX_check_private_key");
         abort();
+    }
+
+}
+
+void ServerSSL::closeInactiveConnections() {
+
+    std::cout << "Closing inactive connections..." << std::endl;
+
+    for (std::vector<ConnectionSSL *>::iterator it = this->connections.begin(); it != this->connections.end();) {
+        if (!(*it)->isActive()) {
+            delete *it;
+            it = this->connections.erase(it);
+        } else {
+            it++;
+        }
+    }
+
+}
+
+void ServerSSL::closeConnections() {
+
+    std::cout << "Closing connections..." << std::endl;
+
+    for (std::vector<ConnectionSSL *>::iterator it = this->connections.begin(); it != this->connections.end(); it++) {
+        delete *it;
     }
 
 }

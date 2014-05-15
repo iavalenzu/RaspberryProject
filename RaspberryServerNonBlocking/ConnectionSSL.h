@@ -58,10 +58,7 @@ public:
 
     static void successJSONCallback(JSONNode &node, void *arg);
     static void errorJSONCallback(int code, void *arg);
-    
-    void close();
-
-    
+        
     int checkCredentialsOnDatabase();
     int disconnectFromDatabase();
     
@@ -70,7 +67,8 @@ public:
 
     void setAccessToken(std::string _access_token);
     
-
+    int isActive();
+    
 private:
 
     struct event_base *evbase;
@@ -78,6 +76,7 @@ private:
     struct bufferevent *ssl_bev;
 
     struct bufferevent *fifo_bev;
+    int fifo_fd;
     
     JSONBuffer json_buffer;
 
@@ -86,15 +85,14 @@ private:
 
     std::string user_id;
     std::string user_token;
-
     
     int authenticated;
     std::string connection_id;
+
+    int connection_active;
     
     
     IncomingActionExecutor incoming_action_executor;
-
-    
 
 };
 

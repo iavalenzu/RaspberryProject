@@ -143,13 +143,12 @@ class UsersController extends AppController {
 
             $fifo = fopen("/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/" . $active_connection['Connection']['fifo_name'], 'w');
 
-            if($fifo){
-                if (fwrite($fifo, $json_notification)){
+            if ($fifo) {
+                if (fwrite($fifo, $json_notification)) {
                     
                 }
+                fclose($fifo);
             }
-            
-            fclose($fifo);
         }
     }
 
