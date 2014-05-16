@@ -9,7 +9,6 @@
         <group/>
         <group name="Raspberry">
             <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ConnectionSSL.cpp</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Notification.cpp</file>
         </group>
     </open-files>
 </project-private>

@@ -43,7 +43,7 @@ void Notification::addDataItem(JSONNode new_item) {
 }
 
 std::string Notification::toString() {
-    return (this->json).write_formatted();
+    return (this->json).write();
 }
 
 void Notification::clearData() {

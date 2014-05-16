@@ -20,6 +20,4 @@ IncomingAction::IncomingAction(const IncomingAction& orig) {
 IncomingAction::~IncomingAction() {
 }
 
-Notification IncomingAction::toDo(){
-    return this->notification;
-}
+void IncomingAction::toDo(){}

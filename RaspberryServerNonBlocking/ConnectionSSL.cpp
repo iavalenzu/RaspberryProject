@@ -215,6 +215,14 @@ void ConnectionSSL::writeSSLCallback(struct bufferevent * bev, void * arg) {
 
 }
 
+int ConnectionSSL::writeNotification(Notification _notification){
+    
+    std::string data = _notification.toString();
+    
+    return bufferevent_write(this->ssl_bev, data.c_str(), data.size());
+
+}
+
 void ConnectionSSL::eventFIFOCallback(struct bufferevent *bev, short events, void *arg) {
 
     if (events & BEV_EVENT_READING) {

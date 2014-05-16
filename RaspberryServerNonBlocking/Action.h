@@ -18,7 +18,7 @@ public:
     Action();
     Action(Notification _notification, ConnectionSSL* connection);
     Action(const Action& orig);
-    virtual Notification toDo();
+    virtual void toDo();
     virtual ~Action();
 protected:
     

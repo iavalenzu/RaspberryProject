@@ -178,7 +178,7 @@ void ServerSSL::openNewConnectionsListener() {
      */
 
     struct event *ev_int;
-    ev_int = evsignal_new(this->evbase, SIGTERM, ServerSSL::signal_intcb, this);
+    ev_int = evsignal_new(this->evbase, SIGTERM | SIGINT, ServerSSL::signal_intcb, this);
 
     if (ev_int == NULL) {
         std::cout << "evsignal_new failure" << std::endl;

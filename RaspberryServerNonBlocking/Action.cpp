@@ -23,7 +23,5 @@ Action::Action(const Action& orig) {
 Action::~Action() {
 }
 
-Notification Action::toDo(){
-    return this->notification;
-}
+void Action::toDo(){}
 

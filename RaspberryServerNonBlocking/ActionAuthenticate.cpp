@@ -22,7 +22,7 @@ ActionAuthenticate::ActionAuthenticate(const ActionAuthenticate& orig) {
 ActionAuthenticate::~ActionAuthenticate() {
 }
 
-Notification ActionAuthenticate::toDo() {
+void ActionAuthenticate::toDo() {
 
     /*
      * Se obtiene el token de acceso de la notificacion
@@ -36,12 +36,18 @@ Notification ActionAuthenticate::toDo() {
 
     if (this->connection->checkCredentialsOnDatabase()) {
         
-        return Notification();
+        Notification result;
+        result.setAction("SUCESS");
+        
+        this->connection->writeNotification(result);
 
     } else {
         
-        return Notification();
- 
+        Notification result;
+        result.setAction("ERROR");
+        
+        this->connection->writeNotification(result);
+
     }
     
 }

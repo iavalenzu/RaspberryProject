@@ -21,7 +21,7 @@ public:
     ActionAuthenticate(Notification notification, ConnectionSSL* connection);
     ActionAuthenticate(const ActionAuthenticate& orig);
     virtual ~ActionAuthenticate();
-    virtual Notification toDo();
+    virtual void toDo();
 private:
 
 };

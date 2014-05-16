@@ -62,6 +62,7 @@ public:
     int checkCredentialsOnDatabase();
     int disconnectFromDatabase();
     
+    int writeNotification(Notification notification);
     
     void clearCredentials();
 

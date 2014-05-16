@@ -17,7 +17,7 @@ public:
     IncomingAction(Notification notification, ConnectionSSL* connection);
     IncomingAction(const IncomingAction& orig);
     virtual ~IncomingAction();
-    virtual Notification toDo();
+    virtual void toDo();
 private:
 
 };
