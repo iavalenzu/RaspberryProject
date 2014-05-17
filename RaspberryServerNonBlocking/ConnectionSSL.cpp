@@ -23,7 +23,7 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
     this->user_token = "";
     this->authenticated = false;
     this->connection_id = "";
-    
+
     this->connection_active = false;
 
 
@@ -47,29 +47,40 @@ ConnectionSSL::~ConnectionSSL() {
 
     std::cout << "Destroying ConnectionSSL..." << std::endl;
 
+    this->closeConnection();
+}
+
+//TODO Separa el cierre de la conneccion
+
+void ConnectionSSL::closeConnection() {
+
     /*
      * Desconectamos la coneccion de la BD
      */
-
-    if (!this->disconnectFromDatabase()) {
-        std::cout << "Error al desconectar la coneccion de la BD." << std::endl;
+    if (!this->connection_id.empty()) {
+        if (!this->disconnectFromDatabase()) {
+            std::cout << "Error al desconectar la coneccion de la BD." << std::endl;
+        }
     }
 
     bufferevent_free(this->ssl_bev);
 
     bufferevent_free(this->fifo_bev);
 
-    if (close(this->fifo_fd) == -1) {
-        std::cout << "Error al cerrar el file descriptor." << std::endl;
+    if (this->fifo_fd != -1) {
+        if (close(this->fifo_fd) == -1) {
+            std::cout << "Error al cerrar el file descriptor." << std::endl;
+        }
     }
 
-    if (unlink(this->fifo_filename.c_str()) == -1) {
-        std::cout << "Error al remover el enlace al archivo." << std::endl;
+    if (!this->fifo_filename.empty()) {
+        if (unlink(this->fifo_filename.c_str()) == -1) {
+            std::cout << "Error al remover el enlace al archivo." << std::endl;
+        }
     }
-
 }
 
-int ConnectionSSL::isActive(){
+int ConnectionSSL::isActive() {
     return this->connection_active;
 }
 
@@ -204,6 +215,7 @@ void ConnectionSSL::readSSLCallback(struct bufferevent * bev, void *arg) {
     struct evbuffer *input = bufferevent_get_input(bev);
 
     while ((n = evbuffer_remove(input, buffer, sizeof (buffer))) > 0) {
+        buffer[n] = '\0';
         connection_ssl->json_buffer.append(buffer);
     }
 
@@ -215,10 +227,14 @@ void ConnectionSSL::writeSSLCallback(struct bufferevent * bev, void * arg) {
 
 }
 
-int ConnectionSSL::writeNotification(Notification _notification){
-    
+int ConnectionSSL::writeNotification(Notification _notification) {
+
     std::string data = _notification.toString();
-    
+
+    std::cout << data.c_str() << std::endl;
+    std::cout << data.size() << std::endl;
+    std::cout << strlen(data.c_str()) << std::endl;
+
     return bufferevent_write(this->ssl_bev, data.c_str(), data.size());
 
 }

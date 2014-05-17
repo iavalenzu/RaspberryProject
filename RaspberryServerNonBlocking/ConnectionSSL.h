@@ -65,6 +65,7 @@ public:
     int writeNotification(Notification notification);
     
     void clearCredentials();
+    void closeConnection(); 
 
     void setAccessToken(std::string _access_token);
     

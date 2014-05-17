@@ -34,19 +34,11 @@ void ActionAuthenticate::toDo() {
      * Verificamos si es posible conectar 
      */
 
-    if (this->connection->checkCredentialsOnDatabase()) {
-        
-        Notification result;
-        result.setAction("SUCESS");
-        
-        this->connection->writeNotification(result);
+    if (!this->connection->checkCredentialsOnDatabase()) {
 
-    } else {
+        std::cout << "Acceso denegado" << std::endl;
         
-        Notification result;
-        result.setAction("ERROR");
-        
-        this->connection->writeNotification(result);
+        this->connection->closeConnection();
 
     }
     

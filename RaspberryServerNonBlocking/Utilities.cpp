@@ -31,6 +31,8 @@ std::string Utilities::char_to_string(unsigned char *rand_bytes) {
 
 }
 
+//TODO Revisar si el nombre del fifo efectivamente es unico, buscando en la carpeta
+
 std::string Utilities::get_unique_filename(std::string basepath) {
 
     unsigned char rand_bytes[32];

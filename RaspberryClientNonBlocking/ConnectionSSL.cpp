@@ -117,6 +117,9 @@ void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
     //std::cout <<  evbuffer_pullup(input, -1) << std::endl;
 
     while ((n = evbuffer_remove(input, buf, sizeof(buf))) > 0) {
+        std::cout << n << std::endl;
+        std::cout << buf << std::endl;
+        buf[n] = '\0';
         std::cout << buf << std::endl;
     }    
    
