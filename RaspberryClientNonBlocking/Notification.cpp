@@ -40,6 +40,10 @@ void Notification::addDataItem(JSONNode new_item) {
 }
 
 std::string Notification::toString() {
+    return (this->json).write();
+}
+
+std::string Notification::toStringFormatted() {
     return (this->json).write_formatted();
 }
 

@@ -24,11 +24,11 @@
 
             <?php
             $options = array(
-                'GET_FORTUNE' => 'GET_FORTUNE',
-                'STOP_CLIENT' => 'STOP_CLIENT',
-                'CHECK_CONNECTION' => 'CHECK_CONNECTION',
-                'UPDATE_CLIENT' => 'UPDATE_CLIENT',
-                'PIN_METER' => 'PIN_METER'
+                'ACTION_GET_FORTUNE' => 'ACTION_GET_FORTUNE',
+                'ACTION_STOP_CLIENT' => 'ACTION_STOP_CLIENT',
+                'ACTION_CHECK_CONNECTION' => 'ACTION_CHECK_CONNECTION',
+                'ACTION_UPDATE_CLIENT' => 'ACTION_UPDATE_CLIENT',
+                'ACTION_PIN_METER' => 'ACTION_PIN_METER'
             );
             echo $this->Form->input('Notification.action', array('options' => $options, 'default' => '', 'label' => 'Action'));
             ?>        

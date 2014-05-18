@@ -46,6 +46,11 @@ std::string Notification::toString() {
     return (this->json).write();
 }
 
+std::string Notification::toStringFormatted() {
+    return (this->json).write_formatted();
+}
+
+
 void Notification::clearData() {
 
     JSONNode::json_iterator i = this->json.find(NOTIFICATION_DATA);

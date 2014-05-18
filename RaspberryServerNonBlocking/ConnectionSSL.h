@@ -73,25 +73,25 @@ public:
     
 private:
 
-    struct event_base *evbase;
+    struct event_base *evbase = NULL;
 
-    struct bufferevent *ssl_bev;
+    struct bufferevent *ssl_bev = NULL;
 
-    struct bufferevent *fifo_bev;
-    int fifo_fd;
+    struct bufferevent *fifo_bev = NULL;
+    int fifo_fd = -1;
     
     JSONBuffer json_buffer;
 
-    std::string access_token;
-    std::string fifo_filename;
+    std::string access_token = "";
+    std::string fifo_filename = "";
 
-    std::string user_id;
-    std::string user_token;
+    std::string user_id = "";
+    std::string user_token = "";
     
-    int authenticated;
-    std::string connection_id;
+    int authenticated = false;
+    std::string connection_id = "";
 
-    int connection_active;
+    int connection_active = false;
     
     
     IncomingActionExecutor incoming_action_executor;

@@ -26,8 +26,9 @@
 
 #include "Notification.h"
 
-//#include "RaspiUtils.h"
-//#include "Device.h"
+#include "JSONBuffer.h"
+
+#include "IncomingActionExecutor.h"
 
 #include "Core.h"
 
@@ -41,18 +42,18 @@ public:
     void closeConnection();
     SSL* getSSL();
 
-    void manageCloseConnection(int sig);
-    void informClosingToServer();
-
     static void ssl_readcb(struct bufferevent * bev, void *arg);
 
     static void ssl_writecb(struct bufferevent * bev, void * arg);
 
     static void ssl_eventcb(struct bufferevent *bev, short events, void *arg);
 
-    static void standard_input_cb(struct bufferevent *bev, void *arg);
-
     static void periodic_cb(evutil_socket_t fd, short what, void *arg);
+    
+    static void successJSONCallback(JSONNode &node, void *arg);
+    static void errorJSONCallback(int code, void *arg);
+
+    int writeNotification(Notification notification);
 
     void showCerts();
 
@@ -65,14 +66,11 @@ private:
 
     struct event_base *evbase;
 
-    struct bufferevent* bev;
-
-    int read_count = 0;
-    int write_count = 0;
-
-    int connect_error;
-    int connected = false;
-
+    struct bufferevent* ssl_bev;
+    
+    JSONBuffer json_buffer;
+    
+    IncomingActionExecutor incoming_action_executor;
 
 };
 

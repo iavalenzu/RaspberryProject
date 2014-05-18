@@ -12,21 +12,6 @@
 
 ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL* _ssl) {
 
-    this->ssl_bev = NULL;
-    this->fifo_bev = NULL;
-
-    this->fifo_fd = -1;
-    this->fifo_filename = "";
-
-    this->access_token = "";
-    this->user_id = "";
-    this->user_token = "";
-    this->authenticated = false;
-    this->connection_id = "";
-
-    this->connection_active = false;
-
-
     this->evbase = _evbase;
 
     /*
@@ -50,34 +35,46 @@ ConnectionSSL::~ConnectionSSL() {
     this->closeConnection();
 }
 
-//TODO Separa el cierre de la conneccion
-
 void ConnectionSSL::closeConnection() {
 
     /*
      * Desconectamos la coneccion de la BD
      */
     if (!this->connection_id.empty()) {
-        if (!this->disconnectFromDatabase()) {
+        if (this->disconnectFromDatabase()) {
+            this->connection_id.clear();
+        }else{
             std::cout << "Error al desconectar la coneccion de la BD." << std::endl;
         }
     }
 
-    bufferevent_free(this->ssl_bev);
+    if (this->ssl_bev != NULL) {
+        bufferevent_free(this->ssl_bev);
+        this->ssl_bev = NULL;
+    }
 
-    bufferevent_free(this->fifo_bev);
+    if (this->fifo_bev != NULL) {
+        bufferevent_free(this->fifo_bev);
+        this->fifo_bev = NULL;
+    }
 
     if (this->fifo_fd != -1) {
-        if (close(this->fifo_fd) == -1) {
+        if (close(this->fifo_fd) == 0) {
+            this->fifo_fd = -1;
+        }else{
             std::cout << "Error al cerrar el file descriptor." << std::endl;
         }
     }
 
     if (!this->fifo_filename.empty()) {
-        if (unlink(this->fifo_filename.c_str()) == -1) {
+        if (unlink(this->fifo_filename.c_str()) == 0) {
+            this->fifo_filename.clear();
+        }else{
             std::cout << "Error al remover el enlace al archivo." << std::endl;
         }
     }
+
+    this->connection_active = false;
 }
 
 int ConnectionSSL::isActive() {
@@ -101,12 +98,12 @@ void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
 
     if (this->ssl_bev == NULL) {
         std::cout << "El nuevo socket SSL es nulo" << std::endl;
-        delete this;
+        this->closeConnection();
     }
 
     if (bufferevent_enable(this->ssl_bev, EV_READ | EV_WRITE) < 0) {
         std::cout << "bufferevent_enable failure" << std::endl;
-        delete this;
+        this->closeConnection();
     }
     /*
      * Changes the callbacks for a bufferevent.
@@ -126,31 +123,31 @@ void ConnectionSSL::createAssociatedFifo() {
 
     if (mkfifo(this->fifo_filename.c_str(), 0600) == -1) {
         perror("mkfifo");
-        delete this;
+        this->closeConnection();
     }
 
     this->fifo_fd = open(this->fifo_filename.c_str(), O_RDONLY | O_NONBLOCK, 0);
 
     if (this->fifo_fd == -1) {
         perror("open");
-        delete this;
+        this->closeConnection();
     }
 
     this->fifo_bev = bufferevent_new(this->fifo_fd, ConnectionSSL::readFIFOCallback, NULL, ConnectionSSL::eventFIFOCallback, this);
 
     if (this->fifo_bev == NULL) {
         std::cout << "El nuevo bufferevent del FIFO es nulo" << std::endl;
-        delete this;
+        this->closeConnection();
     }
 
     if (bufferevent_base_set(this->evbase, this->fifo_bev) == -1) {
         std::cout << "bufferevent_base_set failure" << std::endl;
-        delete this;
+        this->closeConnection();
     }
 
     if (bufferevent_enable(this->fifo_bev, EV_READ) == -1) {
         std::cout << "bufferevent_enable failure" << std::endl;
-        delete this;
+        this->closeConnection();
     }
 
 }
@@ -231,11 +228,7 @@ int ConnectionSSL::writeNotification(Notification _notification) {
 
     std::string data = _notification.toString();
 
-    std::cout << data.c_str() << std::endl;
-    std::cout << data.size() << std::endl;
-    std::cout << strlen(data.c_str()) << std::endl;
-
-    return bufferevent_write(this->ssl_bev, data.c_str(), data.size());
+    return bufferevent_write(this->ssl_bev, data.data(), data.size());
 
 }
 
@@ -344,5 +337,6 @@ void ConnectionSSL::clearCredentials() {
     this->connection_id.clear();
     this->user_id.clear();
     this->user_token.clear();
+    this->connection_active = false;
 
 }

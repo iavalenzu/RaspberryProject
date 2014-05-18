@@ -12,6 +12,28 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f3" displayName="Actions" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Action.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Action.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingAction.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingAction.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Executors" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionExecutor.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionExecutor.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionExecutor.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionExecutor.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f1" displayName="Factory" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionFactory.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionFactory.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionFactory.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionFactory.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4" displayName="IncomingActions" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="libjson" displayName="libjson" projectFiles="true">
         <logicalFolder name="_internal" displayName="_internal" projectFiles="true">
           <logicalFolder name="Dependencies"
@@ -75,6 +97,8 @@
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ConnectionSSL.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ConnectionSSL.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Core.h</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/JSONBuffer.cpp</itemPath>
+      <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/JSONBuffer.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Notification.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Notification.h</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -113,6 +137,46 @@
           <commandLine>-lssl -lcrypto -lm -lcurl -levent</commandLine>
         </linkerTool>
       </compileType>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Action.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Action.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionExecutor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionExecutor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ClientSSL.cpp"
             ex="false"
             tool="1"
@@ -134,6 +198,46 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Core.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingAction.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingAction.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionExecutor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionExecutor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/JSONBuffer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/JSONBuffer.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -381,6 +485,46 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Action.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Action.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionExecutor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionExecutor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ClientSSL.cpp"
             ex="false"
             tool="1"
@@ -402,6 +546,46 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Core.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingAction.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingAction.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionExecutor.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionExecutor.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionFactory.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionFactory.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/JSONBuffer.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/JSONBuffer.h"
             ex="false"
             tool="3"
             flavor2="0">

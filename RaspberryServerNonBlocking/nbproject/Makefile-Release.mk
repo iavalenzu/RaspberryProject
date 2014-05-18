@@ -41,7 +41,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/441878278/ActionFactory.o \
 	${OBJECTDIR}/_ext/441878278/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o \
-	${OBJECTDIR}/_ext/441878278/Device.o \
 	${OBJECTDIR}/_ext/441878278/IncomingAction.o \
 	${OBJECTDIR}/_ext/441878278/IncomingActionExecutor.o \
 	${OBJECTDIR}/_ext/441878278/IncomingActionFactory.o \
@@ -119,11 +118,6 @@ ${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o: /Users/Ismael/NetBeansProjects/Ra
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp
-
-${OBJECTDIR}/_ext/441878278/Device.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/Device.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.cpp
 
 ${OBJECTDIR}/_ext/441878278/IncomingAction.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingAction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278

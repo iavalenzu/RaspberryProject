@@ -18,6 +18,41 @@ ConnectionSSL::ConnectionSSL(SSL_CTX* _ctx, struct event_base* _evbase) {
     this->evbase = _evbase;
     this->ssl = NULL;
     this->fd = -1;
+    
+      /*
+     * Se definen los callbacks asociados al buffer de objetos JSON
+     */
+
+    this->json_buffer.setCallbacks(ConnectionSSL::successJSONCallback, ConnectionSSL::errorJSONCallback, this);
+
+
+}
+
+int ConnectionSSL::writeNotification(Notification _notification) {
+
+    std::string data = _notification.toString();
+
+    return bufferevent_write(this->ssl_bev, data.data(), data.size());
+
+}
+
+
+void ConnectionSSL::successJSONCallback(JSONNode &json, void *arg) {
+
+    std::cout << "Recibo con exito una cadena json..." << std::endl;
+    
+    ConnectionSSL *connection_ssl;
+    connection_ssl = static_cast<ConnectionSSL*> (arg);
+
+    Notification incoming_notification(json);
+
+    connection_ssl->incoming_action_executor.execute(incoming_notification, connection_ssl);
+
+}
+
+void ConnectionSSL::errorJSONCallback(int code, void *arg) {
+
+    std::cout << "Tengo problemas al recibir la cadena json..." << std::endl;
 
 }
 
@@ -29,7 +64,7 @@ void ConnectionSSL::createEncryptedSocket() {
      * Perform the connection 
      */
 
-    this->bev = bufferevent_openssl_socket_new(this->evbase, -1, this->ssl,
+    this->ssl_bev = bufferevent_openssl_socket_new(this->evbase, -1, this->ssl,
             BUFFEREVENT_SSL_CONNECTING,
             BEV_OPT_DEFER_CALLBACKS | BEV_OPT_CLOSE_ON_FREE);
 
@@ -47,10 +82,10 @@ void ConnectionSSL::createEncryptedSocket() {
     addr.sin_port = htons(PORT_NUM);
     addr.sin_addr.s_addr = *(long*) (host->h_addr);
 
-    this->fd = bufferevent_socket_connect(this->bev, (struct sockaddr*) &addr, sizeof (addr));
+    this->fd = bufferevent_socket_connect(this->ssl_bev, (struct sockaddr*) &addr, sizeof (addr));
 
     if (this->fd < 0) {
-        bufferevent_free(this->bev);
+        bufferevent_free(this->ssl_bev);
         return;
     }
 
@@ -64,19 +99,8 @@ void ConnectionSSL::createEncryptedSocket() {
     }
 
 
-    bufferevent_enable(this->bev, EV_READ | EV_WRITE);
-    bufferevent_setcb(this->bev, ConnectionSSL::ssl_readcb, ConnectionSSL::ssl_writecb, ConnectionSSL::ssl_eventcb, (void *) this);
-
-
-
-
-    struct bufferevent *bev_stdin;
-
-    bev_stdin = bufferevent_new(0, ConnectionSSL::standard_input_cb, NULL, NULL, (void *) this);
-
-    bufferevent_base_set(this->evbase, bev_stdin);
-
-    bufferevent_enable(bev_stdin, EV_READ);
+    bufferevent_enable(this->ssl_bev, EV_READ | EV_WRITE);
+    bufferevent_setcb(this->ssl_bev, ConnectionSSL::ssl_readcb, ConnectionSSL::ssl_writecb, ConnectionSSL::ssl_eventcb, (void *) this);
 
 
     struct event *ev;
@@ -91,37 +115,22 @@ void ConnectionSSL::periodic_cb(evutil_socket_t fd, short what, void *arg) {
 
 }
 
-void ConnectionSSL::standard_input_cb(struct bufferevent *bev, void *arg) {
-/*
-    printf("ConnectionSSL::standard_input_cb\n");
-
-    ConnectionSSL *connection_ssl;
-    connection_ssl = static_cast<ConnectionSSL*> (arg);
-
-
-    struct evbuffer *in = bufferevent_get_input(bev);
-
-    bufferevent_write_buffer(connection_ssl->bev, in);
-*/
-}
-
 void ConnectionSSL::ssl_readcb(struct bufferevent * bev, void * arg) {
 
     std::cout << "Reading from SSL connection..." << std::endl;
 
-    char buf[1024];
-    int n;
-    
-    struct evbuffer *input = bufferevent_get_input(bev);
-    
-    //std::cout <<  evbuffer_pullup(input, -1) << std::endl;
+    ConnectionSSL *connection_ssl;
+    connection_ssl = static_cast<ConnectionSSL*> (arg);
 
-    while ((n = evbuffer_remove(input, buf, sizeof(buf))) > 0) {
-        std::cout << n << std::endl;
-        std::cout << buf << std::endl;
-        buf[n] = '\0';
-        std::cout << buf << std::endl;
-    }    
+    char buffer[BUFSIZE];
+    int n;
+
+    struct evbuffer *input = bufferevent_get_input(bev);
+
+    while ((n = evbuffer_remove(input, buffer, sizeof (buffer))) > 0) {
+        buffer[n] = '\0';
+        connection_ssl->json_buffer.append(buffer);
+    }   
    
 }
 
@@ -155,9 +164,11 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
     } else if (events & BEV_EVENT_EOF) {
         printf("Disconnected from the remote host\n");
     } else if (events & BEV_EVENT_ERROR) {
-        
-        
         printf("Network error\n");
+        
+        exit(0);
+        
+        
     } else if (events & BEV_EVENT_TIMEOUT) {
         printf("Timeout\n");
     }
@@ -167,14 +178,6 @@ void ConnectionSSL::ssl_eventcb(struct bufferevent *bev, short events, void *arg
 ConnectionSSL::~ConnectionSSL() {
 }
 
-void ConnectionSSL::informClosingToServer() {
-    /*
-    Notification close_notification;
-    close_notification.setAction("CLOSE_CONNECTION");
-    
-    this->writeNotification(close_notification);
-     */
-}
 
 void ConnectionSSL::closeConnection() {
 
@@ -211,26 +214,6 @@ void ConnectionSSL::showCerts() {
     }
 }
 
-/*
-int ConnectionSSL::writeNotification(Notification notification) {
-    return RaspiUtils::writeJSON(this->ssl, notification.getJSON());
-}
-
-Notification ConnectionSSL::readNotification() {
-    return Notification(RaspiUtils::readJSON(this->ssl));
-}
- */
 SSL* ConnectionSSL::getSSL() {
     return this->ssl;
-}
-
-void ConnectionSSL::manageCloseConnection(int sig) {
-
-    std::cout << getpid() << " > Cerrando Cliente!!" << std::endl;
-
-    this->closeConnection();
-
-    //Matamos el proceso
-    exit(sig);
-
 }

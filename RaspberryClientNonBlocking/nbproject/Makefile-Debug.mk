@@ -35,8 +35,16 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/1335234418/Action.o \
+	${OBJECTDIR}/_ext/1335234418/ActionExecutor.o \
+	${OBJECTDIR}/_ext/1335234418/ActionFactory.o \
+	${OBJECTDIR}/_ext/1335234418/ActionGetFortune.o \
 	${OBJECTDIR}/_ext/1335234418/ClientSSL.o \
 	${OBJECTDIR}/_ext/1335234418/ConnectionSSL.o \
+	${OBJECTDIR}/_ext/1335234418/IncomingAction.o \
+	${OBJECTDIR}/_ext/1335234418/IncomingActionExecutor.o \
+	${OBJECTDIR}/_ext/1335234418/IncomingActionFactory.o \
+	${OBJECTDIR}/_ext/1335234418/JSONBuffer.o \
 	${OBJECTDIR}/_ext/1335234418/Notification.o \
 	${OBJECTDIR}/_ext/1494676077/JSONAllocator.o \
 	${OBJECTDIR}/_ext/1494676077/JSONChildren.o \
@@ -81,6 +89,26 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclientnonblocking: ${OBJECTF
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryclientnonblocking ${OBJECTFILES} ${LDLIBSOPTIONS} -lssl -lcrypto -lm -lcurl -levent
 
+${OBJECTDIR}/_ext/1335234418/Action.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Action.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/Action.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Action.cpp
+
+${OBJECTDIR}/_ext/1335234418/ActionExecutor.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionExecutor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/ActionExecutor.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionExecutor.cpp
+
+${OBJECTDIR}/_ext/1335234418/ActionFactory.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/ActionFactory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionFactory.cpp
+
+${OBJECTDIR}/_ext/1335234418/ActionGetFortune.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/ActionGetFortune.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.cpp
+
 ${OBJECTDIR}/_ext/1335234418/ClientSSL.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ClientSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
 	${RM} "$@.d"
@@ -90,6 +118,26 @@ ${OBJECTDIR}/_ext/1335234418/ConnectionSSL.o: /Users/Ismael/NetBeansProjects/Ras
 	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/ConnectionSSL.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ConnectionSSL.cpp
+
+${OBJECTDIR}/_ext/1335234418/IncomingAction.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingAction.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/IncomingAction.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingAction.cpp
+
+${OBJECTDIR}/_ext/1335234418/IncomingActionExecutor.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionExecutor.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/IncomingActionExecutor.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionExecutor.cpp
+
+${OBJECTDIR}/_ext/1335234418/IncomingActionFactory.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionFactory.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/IncomingActionFactory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/IncomingActionFactory.cpp
+
+${OBJECTDIR}/_ext/1335234418/JSONBuffer.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/JSONBuffer.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/JSONBuffer.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/JSONBuffer.cpp
 
 ${OBJECTDIR}/_ext/1335234418/Notification.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/Notification.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418

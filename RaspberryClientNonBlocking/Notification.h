@@ -50,6 +50,7 @@ public:
     JSONNode getData();    
     
     std::string toString();
+    std::string toStringFormatted();
     int isEmpty();
 
 protected:

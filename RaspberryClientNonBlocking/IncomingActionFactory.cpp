@@ -6,7 +6,6 @@
  */
 
 #include "IncomingActionFactory.h"
-#include "ActionAuthenticate.h"
 
 IncomingActionFactory::IncomingActionFactory() {
 }
@@ -45,8 +44,8 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
      * De acuerdo a la accion, elejimos la accion que corresponda
      */
 
-    if (action_name.compare(ActionAuthenticate::name) == 0) {
-        action = new ActionAuthenticate(notification, connection);
+    if (action_name.compare(ActionGetFortune::name) == 0) {
+        action = new ActionGetFortune(notification, connection);
     }
     
     return action;
