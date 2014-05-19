@@ -46,7 +46,7 @@ void ConnectionSSL::successJSONCallback(JSONNode &json, void *arg) {
 
     Notification incoming_notification(json);
 
-    connection_ssl->incoming_action_executor.execute(incoming_notification, connection_ssl);
+    //connection_ssl->incoming_action_executor.execute(incoming_notification, connection_ssl);
 
 }
 
@@ -110,6 +110,15 @@ void ConnectionSSL::createEncryptedSocket() {
 
 
 }
+
+struct event_base* ConnectionSSL::getEventBase(){
+    return this->evbase;
+}
+/*
+IncomingActionExecutor ConnectionSSL::getIncomingExecutor(){
+    return this->incoming_action_executor;
+}
+*/
 
 void ConnectionSSL::periodic_cb(evutil_socket_t fd, short what, void *arg) {
 

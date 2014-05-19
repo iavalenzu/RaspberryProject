@@ -19,6 +19,6 @@ void IncomingActionExecutor::execute(Notification notification, ConnectionSSL *c
     IncomingAction *action = IncomingActionFactory::createFromNotification(notification, connection, this->rejected_actions_list);
     
     action->toDo();
-
+    
 }
 

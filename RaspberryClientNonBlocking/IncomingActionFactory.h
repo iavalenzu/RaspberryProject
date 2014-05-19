@@ -12,6 +12,8 @@
 #include "IncomingAction.h"
 
 #include "ActionGetFortune.h"
+#include "ActionStartPinMeter.h"
+#include "ActionStopPinMeter.h"
 
 class IncomingActionFactory : public ActionFactory {
 public:

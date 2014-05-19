@@ -36,6 +36,7 @@ using namespace std;
 
 class ConnectionSSL {
 public:
+    
     ConnectionSSL(SSL_CTX* ctx, struct event_base* evbase);
     virtual ~ConnectionSSL();
     void createEncryptedSocket();
@@ -54,6 +55,9 @@ public:
     static void errorJSONCallback(int code, void *arg);
 
     int writeNotification(Notification notification);
+    
+    struct event_base* getEventBase(); 
+    IncomingActionExecutor getIncomingExecutor();
 
     void showCerts();
 
@@ -71,7 +75,7 @@ private:
     JSONBuffer json_buffer;
     
     IncomingActionExecutor incoming_action_executor;
-
+    
 };
 
 #endif	/* CONNECTIONSSL_H */

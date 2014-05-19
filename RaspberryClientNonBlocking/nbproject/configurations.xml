@@ -33,6 +33,10 @@
       <logicalFolder name="f4" displayName="IncomingActions" projectFiles="true">
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.cpp</itemPath>
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStartPinMeter.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStartPinMeter.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStopPinMeter.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStopPinMeter.h</itemPath>
       </logicalFolder>
       <logicalFolder name="libjson" displayName="libjson" projectFiles="true">
         <logicalFolder name="_internal" displayName="_internal" projectFiles="true">
@@ -173,6 +177,26 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStartPinMeter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStartPinMeter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStopPinMeter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStopPinMeter.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -521,6 +545,26 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStartPinMeter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStartPinMeter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStopPinMeter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStopPinMeter.h"
             ex="false"
             tool="3"
             flavor2="0">

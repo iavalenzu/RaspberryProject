@@ -8,13 +8,14 @@
 #ifndef ACTIONFACTORY_H
 #define	ACTIONFACTORY_H
 
-#include "Action.h"
-#include "Notification.h"
-
 #include <vector>
 
+//#include "Action.h"
 
-using namespace std;
+#include "Notification.h"
+#include "Action.h"
+
+class ConnectionSSL;
 
 class ActionFactory {
 public:

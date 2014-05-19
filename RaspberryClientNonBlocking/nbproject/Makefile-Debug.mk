@@ -39,6 +39,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/1335234418/ActionExecutor.o \
 	${OBJECTDIR}/_ext/1335234418/ActionFactory.o \
 	${OBJECTDIR}/_ext/1335234418/ActionGetFortune.o \
+	${OBJECTDIR}/_ext/1335234418/ActionStartPinMeter.o \
+	${OBJECTDIR}/_ext/1335234418/ActionStopPinMeter.o \
 	${OBJECTDIR}/_ext/1335234418/ClientSSL.o \
 	${OBJECTDIR}/_ext/1335234418/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/1335234418/IncomingAction.o \
@@ -108,6 +110,16 @@ ${OBJECTDIR}/_ext/1335234418/ActionGetFortune.o: /Users/Ismael/NetBeansProjects/
 	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/ActionGetFortune.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionGetFortune.cpp
+
+${OBJECTDIR}/_ext/1335234418/ActionStartPinMeter.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStartPinMeter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/ActionStartPinMeter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStartPinMeter.cpp
+
+${OBJECTDIR}/_ext/1335234418/ActionStopPinMeter.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStopPinMeter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1335234418/ActionStopPinMeter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ActionStopPinMeter.cpp
 
 ${OBJECTDIR}/_ext/1335234418/ClientSSL.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClientNonBlocking/ClientSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1335234418

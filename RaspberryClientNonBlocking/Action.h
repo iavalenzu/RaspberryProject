@@ -8,6 +8,7 @@
 #ifndef ACTION_H
 #define	ACTION_H
 
+#include "Core.h"
 #include "Notification.h"
 
 class ConnectionSSL;
@@ -16,13 +17,13 @@ class Action {
 public:
     
     Action();
-    Action(Notification _notification, ConnectionSSL* connection);
+    Action(Notification _notification, ConnectionSSL *connection);
     Action(const Action& orig);
     virtual void toDo();
     virtual ~Action();
 protected:
     
-    ConnectionSSL* connection;
+    ConnectionSSL *connection;
     Notification notification;
 
 };

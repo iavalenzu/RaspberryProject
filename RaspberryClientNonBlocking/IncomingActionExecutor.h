@@ -13,8 +13,6 @@
 #include "ActionExecutor.h"
 
 #include "IncomingActionFactory.h"
-//#include "OutcomingActionFactory.h"
-
 
 class IncomingActionExecutor : public ActionExecutor {
 public:
@@ -24,7 +22,7 @@ public:
     void execute(Notification notification, ConnectionSSL *connection);
     
 private:
-
+    
 };
 
 #endif	/* INCOMINGACTIONEXECUTOR_H */

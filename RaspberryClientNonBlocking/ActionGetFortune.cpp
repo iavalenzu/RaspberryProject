@@ -6,7 +6,9 @@
  */
 
 #include "ActionGetFortune.h"
+
 #include "ConnectionSSL.h"
+
 
 const std::string ActionGetFortune::name = "ACTION_GET_FORTUNE";
 

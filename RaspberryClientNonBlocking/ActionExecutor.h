@@ -11,6 +11,10 @@
 #include <iostream>
 #include <vector>
 
+#include "ActionFactory.h"
+
+class ConnectionSSL;
+
 class ActionExecutor {
 public:
     ActionExecutor();

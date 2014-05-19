@@ -7,6 +7,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group/>
-        <group name="Raspberry"/>
+        <group name="Raspberry">
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryClient/src/ActionGetFortune.cpp</file>
+        </group>
     </open-files>
 </project-private>

@@ -34,7 +34,7 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
     /*
      * Si el resultado de la busqueda es distinto al final del vector, se encontro la accion en la lista, luego retornamos la accion por defecto
      */
-    
+
     if (it != rejected_actions_list.end()) {
         cout << " > Action '" << action_name << "' is rejected." << endl;
         return action;
@@ -46,6 +46,10 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
 
     if (action_name.compare(ActionGetFortune::name) == 0) {
         action = new ActionGetFortune(notification, connection);
+    } else if (action_name.compare(ActionStartPinMeter::name) == 0) {
+        action = new ActionStartPinMeter(notification, connection);
+    } else if(action_name.compare(ActionStopPinMeter::name) == 0){
+        action = new ActionStopPinMeter(notification, connection);
     }
     
     return action;

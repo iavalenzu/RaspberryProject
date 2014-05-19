@@ -11,7 +11,6 @@
 #include "IncomingAction.h"
 
 
-
 class ActionGetFortune : public IncomingAction {
 public:
 
