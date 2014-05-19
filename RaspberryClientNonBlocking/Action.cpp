@@ -25,3 +25,4 @@ Action::~Action() {
 
 void Action::toDo(){}
 
+void Action::cancel(){}

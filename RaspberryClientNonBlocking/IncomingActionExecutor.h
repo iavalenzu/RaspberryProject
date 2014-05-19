@@ -23,6 +23,8 @@ public:
     
 private:
     
+    std::vector<IncomingAction *> incoming_action_list;
+    
 };
 
 #endif	/* INCOMINGACTIONEXECUTOR_H */

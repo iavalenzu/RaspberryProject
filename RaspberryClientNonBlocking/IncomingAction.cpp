@@ -21,3 +21,5 @@ IncomingAction::~IncomingAction() {
 }
 
 void IncomingAction::toDo(){}
+
+void IncomingAction::cancel(){}

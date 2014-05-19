@@ -6,6 +6,7 @@
  */
 
 #include "IncomingActionExecutor.h"
+#include "ConnectionSSL.h"
 
 
 IncomingActionExecutor::IncomingActionExecutor() : ActionExecutor() {
@@ -20,5 +21,7 @@ void IncomingActionExecutor::execute(Notification notification, ConnectionSSL *c
     
     action->toDo();
     
+    this->incoming_action_list.push_back(action);
+        
 }
 

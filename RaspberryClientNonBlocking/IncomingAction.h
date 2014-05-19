@@ -18,6 +18,7 @@ public:
     IncomingAction(const IncomingAction& orig);
     virtual ~IncomingAction();
     virtual void toDo();
+    virtual void cancel();
 private:
 
 };

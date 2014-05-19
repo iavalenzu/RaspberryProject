@@ -24,7 +24,6 @@ ActionStopPinMeter::~ActionStopPinMeter() {
 void ActionStopPinMeter::toDo() {
 
     std::string parent_notification_id = this->notification.getId();
-    std::string interval_data = this->notification.getDataItem("Interval");
     std::string pin_data = this->notification.getDataItem("Pin");
 
     std::cout << "ParentNotificationId: " << parent_notification_id << std::endl;
@@ -33,7 +32,7 @@ void ActionStopPinMeter::toDo() {
 
     try {
 
-
+        //this->connection->getIncomingExecutor().
 
 
     } catch (const std::exception& ex) {
