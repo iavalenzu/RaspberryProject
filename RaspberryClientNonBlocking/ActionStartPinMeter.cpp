@@ -10,7 +10,7 @@
 #include "ConnectionSSL.h"
 
 
-const std::string ActionStartPinMeter::name = "ACTION_START_PIN_METER";
+std::string ActionStartPinMeter::name = "ACTION_START_PIN_METER";
 
 ActionStartPinMeter::ActionStartPinMeter() : IncomingAction() {
     this->pin = -1;
@@ -31,6 +31,10 @@ ActionStartPinMeter::ActionStartPinMeter(const ActionStartPinMeter& orig) {
 }
 
 ActionStartPinMeter::~ActionStartPinMeter() {
+}
+
+std::string ActionStartPinMeter::getName(){
+    return this->name;
 }
 
 void ActionStartPinMeter::periodic_cb(evutil_socket_t fd, short what, void *arg) {

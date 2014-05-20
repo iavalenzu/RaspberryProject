@@ -14,13 +14,14 @@
 class ActionGetFortune : public IncomingAction {
 public:
 
-    static const std::string name;
+    static std::string name;
     
     ActionGetFortune();
     ActionGetFortune(Notification notification, ConnectionSSL* connection);
     ActionGetFortune(const ActionGetFortune& orig);
     virtual ~ActionGetFortune();
     virtual void toDo();
+    virtual std::string getName();
 private:
 
 };

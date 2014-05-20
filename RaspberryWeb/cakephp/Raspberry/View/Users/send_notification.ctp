@@ -28,7 +28,8 @@
                 'ACTION_STOP_CLIENT' => 'ACTION_STOP_CLIENT',
                 'ACTION_CHECK_CONNECTION' => 'ACTION_CHECK_CONNECTION',
                 'ACTION_UPDATE_CLIENT' => 'ACTION_UPDATE_CLIENT',
-                'ACTION_PIN_METER' => 'ACTION_PIN_METER'
+                'ACTION_START_PIN_METER' => 'ACTION_START_PIN_METER',
+                'ACTION_STOP_PIN_METER' => 'ACTION_STOP_PIN_METER'
             );
             echo $this->Form->input('Notification.action', array('options' => $options, 'default' => '', 'label' => 'Action'));
             ?>        

@@ -14,7 +14,7 @@
 class ActionStopPinMeter : public IncomingAction {
 public:
 
-    static const std::string name;
+    static std::string name;
     
     ActionStopPinMeter();
     ActionStopPinMeter(Notification notification, ConnectionSSL* connection);
@@ -22,6 +22,8 @@ public:
     virtual ~ActionStopPinMeter();
     virtual void toDo();
     virtual void cancel();
+    virtual std::string getName();
+
 private:
 
     

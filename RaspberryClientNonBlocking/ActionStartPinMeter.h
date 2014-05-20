@@ -17,7 +17,7 @@
 class ActionStartPinMeter : public IncomingAction {
 public:
 
-    static const std::string name;
+    static std::string name;
     
     int pin;
     int interval;
@@ -29,6 +29,7 @@ public:
     virtual ~ActionStartPinMeter();
     virtual void toDo();
     virtual void cancel();
+    virtual std::string getName();
     static void periodic_cb(evutil_socket_t fd, short what, void *arg);
 private:
 

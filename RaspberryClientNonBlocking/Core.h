@@ -11,6 +11,7 @@
 #include <string>
 
 const int BUFSIZE = 2048;
+const int ACTION_HISTORY_CAPACITY = 100;
 
 const int PORT_NUM = 9999;
 const std::string HOST_NAME = "localhost";

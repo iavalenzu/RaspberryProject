@@ -8,20 +8,50 @@
 #include "IncomingActionExecutor.h"
 #include "ConnectionSSL.h"
 
-
 IncomingActionExecutor::IncomingActionExecutor() : ActionExecutor() {
 }
 
 IncomingActionExecutor::~IncomingActionExecutor() {
 }
 
-void IncomingActionExecutor::execute(Notification notification, ConnectionSSL *connection){
+void IncomingActionExecutor::execute(Notification notification, ConnectionSSL *connection) {
 
     IncomingAction *action = IncomingActionFactory::createFromNotification(notification, connection, this->rejected_actions_list);
-    
+
     action->toDo();
-    
-    this->incoming_action_list.push_back(action);
-        
+
+    this->addActionHistory(action);
+
+}
+
+void IncomingActionExecutor::addActionHistory(IncomingAction *incoming_action) {
+
+    /*
+     * Se inserta la nueva accion al comienzo del vector
+     */
+
+    std::vector<IncomingAction *>::iterator begin;
+
+    begin = this->incoming_action_list.begin();
+
+    this->incoming_action_list.insert(begin, incoming_action);
+
+    /*
+     * Si el tamaño del vector supera el maximo definido, removemos el ultimo elemento
+     */
+
+    //TODO Hay accionnes que no deben salir de la cola, como las periodicas
+
+    if (this->incoming_action_list.size() > ACTION_HISTORY_CAPACITY) {
+        this->incoming_action_list.pop_back();
+    }
+
+
+    for (std::vector<IncomingAction *>::iterator it = this->incoming_action_list.begin(); it != this->incoming_action_list.end(); it++) {
+        std::cout << "Name: " << (*it)->getName() << std::endl;
+    }
+
+
+
 }
 

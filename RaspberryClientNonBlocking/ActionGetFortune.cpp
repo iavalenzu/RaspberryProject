@@ -10,18 +10,18 @@
 #include "ConnectionSSL.h"
 
 
-const std::string ActionGetFortune::name = "ACTION_GET_FORTUNE";
+std::string ActionGetFortune::name = "ACTION_GET_FORTUNE";
 
-ActionGetFortune::ActionGetFortune() : IncomingAction() {
-}
+ActionGetFortune::ActionGetFortune() : IncomingAction() {}
 
-ActionGetFortune::ActionGetFortune(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
-}
+ActionGetFortune::ActionGetFortune(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {}
 
-ActionGetFortune::ActionGetFortune(const ActionGetFortune& orig) {
-}
+ActionGetFortune::ActionGetFortune(const ActionGetFortune& orig) {}
 
-ActionGetFortune::~ActionGetFortune() {
+ActionGetFortune::~ActionGetFortune() {}
+
+std::string ActionGetFortune::getName(){
+    return this->name;
 }
 
 void ActionGetFortune::toDo() {

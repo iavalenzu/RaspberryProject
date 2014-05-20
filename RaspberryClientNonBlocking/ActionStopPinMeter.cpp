@@ -10,7 +10,7 @@
 #include "ConnectionSSL.h"
 
 
-const std::string ActionStopPinMeter::name = "ACTION_STOP_PIN_METER";
+std::string ActionStopPinMeter::name = "ACTION_STOP_PIN_METER";
 
 ActionStopPinMeter::ActionStopPinMeter() : IncomingAction() {}
 
@@ -18,7 +18,10 @@ ActionStopPinMeter::ActionStopPinMeter(Notification notification, ConnectionSSL*
 
 ActionStopPinMeter::ActionStopPinMeter(const ActionStopPinMeter& orig) {}
 
-ActionStopPinMeter::~ActionStopPinMeter() {
+ActionStopPinMeter::~ActionStopPinMeter() {}
+
+std::string ActionStopPinMeter::getName(){
+    return this->name;
 }
 
 void ActionStopPinMeter::toDo() {
@@ -27,12 +30,9 @@ void ActionStopPinMeter::toDo() {
     std::string pin_data = this->notification.getDataItem("Pin");
 
     std::cout << "ParentNotificationId: " << parent_notification_id << std::endl;
-    std::cout << "Interval: " << interval_data << std::endl;
     std::cout << "Pin: " << pin_data << std::endl;
 
     try {
-
-        //this->connection->getIncomingExecutor().
 
 
     } catch (const std::exception& ex) {

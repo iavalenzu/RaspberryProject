@@ -7,19 +7,18 @@
 
 #include "IncomingAction.h"
 
-IncomingAction::IncomingAction() : Action() {
-}
+IncomingAction::IncomingAction() : Action() {}
 
-IncomingAction::IncomingAction(Notification notification, ConnectionSSL* connection) : Action(notification, connection){
+IncomingAction::IncomingAction(Notification notification, ConnectionSSL* connection) : Action(notification, connection){}
 
-}
+IncomingAction::IncomingAction(const IncomingAction& orig) {}
 
-IncomingAction::IncomingAction(const IncomingAction& orig) {
-}
-
-IncomingAction::~IncomingAction() {
-}
+IncomingAction::~IncomingAction() {}
 
 void IncomingAction::toDo(){}
 
 void IncomingAction::cancel(){}
+
+std::string IncomingAction::getName(){
+    return "";
+}

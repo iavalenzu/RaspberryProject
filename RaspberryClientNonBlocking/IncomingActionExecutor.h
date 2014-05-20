@@ -21,6 +21,9 @@ public:
     
     void execute(Notification notification, ConnectionSSL *connection);
     
+    void addActionHistory(IncomingAction *incoming_action);
+    
+    
 private:
     
     std::vector<IncomingAction *> incoming_action_list;
