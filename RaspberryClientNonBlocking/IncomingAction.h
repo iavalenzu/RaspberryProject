@@ -19,7 +19,6 @@ public:
     virtual ~IncomingAction();
     virtual void toDo();
     virtual void cancel();
-    virtual std::string getName();
 private:
 
 };

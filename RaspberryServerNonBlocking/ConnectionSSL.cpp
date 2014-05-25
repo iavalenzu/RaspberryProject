@@ -43,7 +43,7 @@ void ConnectionSSL::closeConnection() {
     if (!this->connection_id.empty()) {
         if (this->disconnectFromDatabase()) {
             this->connection_id.clear();
-        }else{
+        } else {
             std::cout << "Error al desconectar la coneccion de la BD." << std::endl;
         }
     }
@@ -61,7 +61,7 @@ void ConnectionSSL::closeConnection() {
     if (this->fifo_fd != -1) {
         if (close(this->fifo_fd) == 0) {
             this->fifo_fd = -1;
-        }else{
+        } else {
             std::cout << "Error al cerrar el file descriptor." << std::endl;
         }
     }
@@ -69,7 +69,7 @@ void ConnectionSSL::closeConnection() {
     if (!this->fifo_filename.empty()) {
         if (unlink(this->fifo_filename.c_str()) == 0) {
             this->fifo_filename.clear();
-        }else{
+        } else {
             std::cout << "Error al remover el enlace al archivo." << std::endl;
         }
     }
@@ -230,6 +230,34 @@ int ConnectionSSL::writeNotification(Notification _notification) {
 
     return bufferevent_write(this->ssl_bev, data.data(), data.size());
 
+}
+
+int ConnectionSSL::saveNotificationResponseOnDatabase(Notification notification) {
+
+    DatabaseAdapter dba;
+
+    std::string parent_notification_id = notification.getParentId();
+    JSONNode data_json = notification.getData();
+    
+    std::string data_string = data_json.write();
+    
+    if (!parent_notification_id.empty() && !data_string.empty()) {
+
+        sql::ResultSet* response;
+        
+        response = dba.getLastNotificationResponse(parent_notification_id);
+        
+        if(response == NULL){
+                response = dba.createNewNotificationResponse(parent_notification_id, data_string);
+        }else{
+                response = dba.updateNotificationResponse(parent_notification_id, data_string);
+        }
+
+        return (response != NULL);
+
+    }
+
+    return false;
 }
 
 void ConnectionSSL::eventFIFOCallback(struct bufferevent *bev, short events, void *arg) {

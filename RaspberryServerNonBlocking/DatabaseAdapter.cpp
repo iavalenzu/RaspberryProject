@@ -22,6 +22,11 @@ DatabaseAdapter::~DatabaseAdapter() {
 
 void DatabaseAdapter::showColumns(sql::ResultSet* set) {
 
+    if(set == NULL){
+        std::cout << "Resultset is NULL!!" << std::endl;
+        return;
+    }
+    
     sql::ResultSetMetaData *res_meta;
 
     res_meta = set -> getMetaData();
@@ -111,6 +116,34 @@ sql::ResultSet* DatabaseAdapter::createNewConnection(std::string user_id, std::s
 
 }
 
+sql::ResultSet* DatabaseAdapter::getLastNotificationResponse(std::string notification_id) {
+
+    try {
+
+        sql::PreparedStatement *pstmt;
+        sql::ResultSet *res;
+
+        pstmt = this->con->prepareStatement("SELECT * FROM notifications_responses WHERE notification_id = ? ORDER BY id DESC LIMIT 1");
+        pstmt->setString(1, notification_id);
+
+        res = pstmt->executeQuery();
+
+        delete pstmt;
+
+        return (res->next()) ? res : NULL;
+
+    } catch (sql::SQLException &e) {
+
+        cout << "SQLException: " << e.what() << endl;
+        cout << "SQLException: code > " << e.getErrorCode() << endl;
+        cout << "SQLException: state > " << e.getSQLState() << endl;
+
+        return NULL;
+
+    }
+
+}
+
 sql::ResultSet* DatabaseAdapter::createNewNotificationResponse(std::string notification_id, std::string data) {
 
     try {
@@ -154,6 +187,48 @@ sql::ResultSet* DatabaseAdapter::createNewNotificationResponse(std::string notif
 
 }
 
+sql::ResultSet* DatabaseAdapter::updateNotificationResponse(std::string notification_id, std::string data) {
+
+    try {
+
+        sql::PreparedStatement *pstmt;
+        sql::ResultSet *res;
+
+        pstmt = this->con->prepareStatement("UPDATE notifications_responses SET data = ?, status = ?, modified = NOW() WHERE notification_id = ?");
+        pstmt->setString(1, data);
+        pstmt->setString(2, "RECEIVED");
+        pstmt->setString(3, notification_id);
+
+        int update_count = pstmt->executeUpdate();
+
+        /*
+         * Si no es posible insertar el nuevo registro retornamos NULL
+         */
+        if (update_count <= 0) {
+            return NULL;
+        }
+
+        pstmt = this->con->prepareStatement("SELECT * FROM notifications_responses WHERE id = LAST_INSERT_ID() LIMIT 1");
+
+        res = pstmt->executeQuery();
+
+        this->con->commit();
+
+        delete pstmt;
+
+        return (res->next()) ? res : NULL;
+
+    } catch (sql::SQLException &e) {
+
+        cout << "SQLException: " << e.what() << endl;
+        cout << "SQLException: code > " << e.getErrorCode() << endl;
+        cout << "SQLException: state > " << e.getSQLState() << endl;
+
+        return NULL;
+
+    }
+
+}
 
 sql::ResultSet* DatabaseAdapter::closeConnectionById(std::string connection_id) {
 

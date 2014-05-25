@@ -45,7 +45,8 @@ public:
     std::string getAction();
     std::string getId();
     std::string getParentId();
-    std::string getDataItem(std::string item_name);
+    std::string getStringDataItem(std::string item_name);
+    JSONNode getNodeDataItem(std::string name);    
     JSONNode getJSON();
     JSONNode getData();    
     

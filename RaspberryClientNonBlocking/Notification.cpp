@@ -73,8 +73,8 @@ JSONNode Notification::getData() {
 
 }
 
-std::string Notification::getDataItem(std::string name) {
-
+std::string Notification::getStringDataItem(std::string name) {
+    
     JSONNode::json_iterator i = this->json.find(NOTIFICATION_DATA);
 
     if (i == this->json.end()) return "";
@@ -84,7 +84,23 @@ std::string Notification::getDataItem(std::string name) {
     if (j == i->end()) return "";
 
     return j->as_string();
+    
+}
 
+JSONNode Notification::getNodeDataItem(std::string name) {
+    
+    JSONNode _json_null(JSON_NULL);
+
+    JSONNode::json_iterator i = this->json.find(NOTIFICATION_DATA);
+
+    if (i == this->json.end()) return _json_null;
+
+    JSONNode::json_iterator j = i->find(name);
+
+    if (j == i->end()) return _json_null;
+
+    return j->as_node();
+    
 }
 
 std::string Notification::getAction() {

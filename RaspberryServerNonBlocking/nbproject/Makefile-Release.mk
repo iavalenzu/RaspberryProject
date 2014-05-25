@@ -39,6 +39,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/441878278/ActionAuthenticate.o \
 	${OBJECTDIR}/_ext/441878278/ActionExecutor.o \
 	${OBJECTDIR}/_ext/441878278/ActionFactory.o \
+	${OBJECTDIR}/_ext/441878278/ActionResponsePinMeter.o \
 	${OBJECTDIR}/_ext/441878278/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o \
 	${OBJECTDIR}/_ext/441878278/IncomingAction.o \
@@ -108,6 +109,11 @@ ${OBJECTDIR}/_ext/441878278/ActionFactory.o: /Users/Ismael/NetBeansProjects/Rasp
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/ActionFactory.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionFactory.cpp
+
+${OBJECTDIR}/_ext/441878278/ActionResponsePinMeter.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionResponsePinMeter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/ActionResponsePinMeter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionResponsePinMeter.cpp
 
 ${OBJECTDIR}/_ext/441878278/ConnectionSSL.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278

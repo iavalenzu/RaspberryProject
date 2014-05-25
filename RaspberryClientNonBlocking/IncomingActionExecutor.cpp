@@ -24,6 +24,22 @@ void IncomingActionExecutor::execute(Notification notification, ConnectionSSL *c
 
 }
 
+IncomingAction* IncomingActionExecutor::findActionById(std::string _id){
+    
+    for (std::vector<IncomingAction *>::iterator it = this->incoming_action_list.begin(); it != this->incoming_action_list.end(); it++) {
+        
+        std:string id = (*it)->getNotification().getId();
+        
+        if(id.compare(_id) == 0){
+            return *it;
+        }
+        
+    }
+    
+    return NULL;
+
+}
+
 void IncomingActionExecutor::addActionHistory(IncomingAction *incoming_action) {
 
     /*
@@ -45,13 +61,6 @@ void IncomingActionExecutor::addActionHistory(IncomingAction *incoming_action) {
     if (this->incoming_action_list.size() > ACTION_HISTORY_CAPACITY) {
         this->incoming_action_list.pop_back();
     }
-
-
-    for (std::vector<IncomingAction *>::iterator it = this->incoming_action_list.begin(); it != this->incoming_action_list.end(); it++) {
-        std::cout << "Name: " << (*it)->getName() << std::endl;
-    }
-
-
 
 }
 

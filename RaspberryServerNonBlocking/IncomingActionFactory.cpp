@@ -6,7 +6,9 @@
  */
 
 #include "IncomingActionFactory.h"
+
 #include "ActionAuthenticate.h"
+#include "ActionResponsePinMeter.h"
 
 IncomingActionFactory::IncomingActionFactory() {
 }
@@ -47,6 +49,8 @@ IncomingAction* IncomingActionFactory::createFromNotification(Notification notif
 
     if (action_name.compare(ActionAuthenticate::name) == 0) {
         action = new ActionAuthenticate(notification, connection);
+    }else if(action_name.compare(ActionResponsePinMeter::name) == 0){
+        action = new ActionResponsePinMeter(notification, connection);
     }
     
     return action;

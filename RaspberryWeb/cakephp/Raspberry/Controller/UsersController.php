@@ -105,51 +105,21 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
-    public function sendSignals($active_connections = null) {
+    public function writeNotification($fifo_name = null, $notification = null) {
 
-        if (empty($active_connections))
-            return;
+        if (is_null($fifo_name) || is_null($notification))
+            return false;
 
-        foreach ($active_connections as $active_connection) {
+        $fifo = fopen("/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/" . $fifo_name, 'w');
 
-            $pid = $active_connection['Connection']['pid'];
-
-            if (!empty($pid)) {
-                //Se hace la llamada enviando SIGCONT a cada proceso
-
-                $return = exec("kill -s CONT $pid 2>&1", $output, $return2);
-                /*
-                  debug($return);
-                  debug($output);
-                  debug($return2);
-                 * 
-                 */
+        if ($fifo) {
+            if (fwrite($fifo, json_encode($notification))) {
+                return true;
             }
+            fclose($fifo);
         }
-    }
 
-    public function writeNotification($active_connections = null, $notification = null) {
-
-        if (is_null($active_connections) || is_null($notification))
-            return;
-
-        $new_notification = array();
-        $new_notification['Action'] = $notification['action'];
-        $new_notification['Data'] = json_decode($notification['data'], true);
-
-        $json_notification = json_encode($new_notification);
-
-        foreach ($active_connections as $active_connection) {
-
-            $fifo = fopen("/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/" . $active_connection['Connection']['fifo_name'], 'w');
-
-            if ($fifo) {
-                if (fwrite($fifo, $json_notification)) {
-                    
-                }
-                fclose($fifo);
-            }
-        }
+        return false;
     }
 
     public function sendNotification($user_id = null) {
@@ -171,35 +141,43 @@ class UsersController extends AppController {
             foreach ($this->request->data['Notification']['data'] as $item) {
 
                 if (!empty($item['Name'])) {
-                    $data[$item['Name']] = $item['Value'];
+
+                    if ($item['Name'] == "Pins") {
+                        $data[strtoupper($item['Name'])] = json_decode($item['Value'], true);
+                    } else {
+                        $data[strtoupper($item['Name'])] = $item['Value'];
+                    }
                 }
             }
 
             $this->request->data['Notification']['data'] = json_encode($data);
-            $this->request->data['Notification']['status'] = "PENDING";
+            $this->request->data['Notification']['status'] = "";
+
 
             if ($this->Notification->save($this->request->data)) {
 
-                $connections_notifications = array();
-
                 foreach ($active_connections as $active_connection) {
-                    $connections_notifications[] = array(
+
+                    $connections_notification = array(
                         'notification_id' => $this->Notification->id,
                         'connection_id' => $active_connection['Connection']['id'],
                         'status' => 'PENDING'
                     );
-                }
 
-                if ($this->ConnectionNotification->saveMany($connections_notifications)) {
+                    $this->ConnectionNotification->create();
+                    if ($this->ConnectionNotification->save($connections_notification)) {
 
-                    $this->writeNotification($active_connections, $this->request->data['Notification']);
+                        $notification = array(
+                            'Id' => $this->Notification->id,
+                            'Action' => $this->request->data['Notification']['action'],
+                            'Data' => $data
+                        );
 
-                    $this->Session->setFlash(__('Notification enviada'));
-                } else {
-                    $this->Session->setFlash(__('The notification could not be sent, Please, try again.'));
+                        $this->writeNotification($active_connection['Connection']['fifo_name'], $notification);
+                    }
                 }
             } else {
-                $this->Session->setFlash(__('The notification could not be deleted, Please, try again.'));
+                $this->Session->setFlash(__('The notification could not be sent, Please, try again.'));
             }
         }
     }

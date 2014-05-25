@@ -16,14 +16,13 @@ class ConnectionSSL;
 class Action {
 public:
     
-    static std::string name;
-    
     Action();
     Action(Notification _notification, ConnectionSSL *connection);
     Action(const Action& orig);
+    Notification getNotification();
+    ConnectionSSL* getConnectionSSL();
     virtual void toDo();
     virtual void cancel();
-    virtual std::string getName();
     virtual ~Action();
 protected:
     

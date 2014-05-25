@@ -16,13 +16,14 @@ public:
 
     static std::string name;
     
+    std::string stop_id;
+    
     ActionStopPinMeter();
     ActionStopPinMeter(Notification notification, ConnectionSSL* connection);
     ActionStopPinMeter(const ActionStopPinMeter& orig);
     virtual ~ActionStopPinMeter();
     virtual void toDo();
     virtual void cancel();
-    virtual std::string getName();
 
 private:
 

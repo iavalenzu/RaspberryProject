@@ -38,7 +38,11 @@ public:
     sql::ResultSet* getLastNotificationByConnectionId(std::string connection_id);
     static void showColumns(sql::ResultSet* set);
     sql::ResultSet* createNewConnection(std::string user_id, std::string user_fifo_name);
+    
     sql::ResultSet* createNewNotificationResponse(std::string notification_id, std::string data);
+    sql::ResultSet* updateNotificationResponse(std::string notification_id, std::string data);
+    sql::ResultSet* getLastNotificationResponse(std::string notification_id);
+    
     sql::ResultSet* closeConnectionById(std::string connection_id);
 
 private:

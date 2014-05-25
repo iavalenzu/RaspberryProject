@@ -19,6 +19,3 @@ void IncomingAction::toDo(){}
 
 void IncomingAction::cancel(){}
 
-std::string IncomingAction::getName(){
-    return "";
-}

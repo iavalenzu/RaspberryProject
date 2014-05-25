@@ -19,7 +19,6 @@ public:
 
     static std::string name;
     
-    int pin;
     int interval;
     struct event *ev_periodic;
 
@@ -29,7 +28,6 @@ public:
     virtual ~ActionStartPinMeter();
     virtual void toDo();
     virtual void cancel();
-    virtual std::string getName();
     static void periodic_cb(evutil_socket_t fd, short what, void *arg);
 private:
 

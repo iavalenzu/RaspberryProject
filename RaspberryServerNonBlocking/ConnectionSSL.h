@@ -62,6 +62,8 @@ public:
     int checkCredentialsOnDatabase();
     int disconnectFromDatabase();
     
+    int saveNotificationResponseOnDatabase(Notification notification);
+    
     int writeNotification(Notification notification);
     
     void clearCredentials();
@@ -92,7 +94,6 @@ private:
     std::string connection_id = "";
 
     int connection_active = false;
-    
     
     IncomingActionExecutor incoming_action_executor;
 

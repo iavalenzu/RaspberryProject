@@ -13,19 +13,16 @@
 std::string ActionStartPinMeter::name = "ACTION_START_PIN_METER";
 
 ActionStartPinMeter::ActionStartPinMeter() : IncomingAction() {
-    this->pin = -1;
     this->ev_periodic = NULL;
     this->interval = -1;
 }
 
 ActionStartPinMeter::ActionStartPinMeter(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
-    this->pin = -1;
     this->ev_periodic = NULL;
     this->interval = -1;
 }
 
 ActionStartPinMeter::ActionStartPinMeter(const ActionStartPinMeter& orig) {
-    this->pin = orig.pin;
     this->ev_periodic = orig.ev_periodic;
     this->interval = orig.interval;
 }
@@ -33,45 +30,54 @@ ActionStartPinMeter::ActionStartPinMeter(const ActionStartPinMeter& orig) {
 ActionStartPinMeter::~ActionStartPinMeter() {
 }
 
-std::string ActionStartPinMeter::getName(){
-    return this->name;
-}
-
 void ActionStartPinMeter::periodic_cb(evutil_socket_t fd, short what, void *arg) {
 
     ActionStartPinMeter *action_pin_meter;
     action_pin_meter = static_cast<ActionStartPinMeter*> (arg);
 
+    std::string parent_notification_id = action_pin_meter->notification.getId();
 
     Notification response;
-    response.setAction("RESPONSE");
-    //response.setParentId(parent_notification_id);
+    response.setAction("ACTION_RESPONSE_PIN_METER");
+    response.setParentId(parent_notification_id);
     response.clearData();
-    response.addDataItem(JSONNode("Value", rand()));
+    
+    JSONNode pins = action_pin_meter->notification.getNodeDataItem("PINS");
 
+    JSONNode data(JSON_NODE);
+   
+    for(JSONNode::json_iterator it = pins.begin(); it != pins.end(); it++){
+   
+        JSONNode pinvalue(JSON_NODE);
+        pinvalue.set_name(it->as_string());
+        pinvalue.push_back(JSONNode("PIN", it->as_string()));
+        pinvalue.push_back(JSONNode("VALUE", rand()));
+        
+        data.push_back(pinvalue);
+        
+    }
+    
+    response.setData(data);
+    
+    
     action_pin_meter->connection->writeNotification(response);
 
 }
 
 void ActionStartPinMeter::toDo() {
 
-    std::string parent_notification_id = this->notification.getId();
-    std::string interval_data = this->notification.getDataItem("Interval");
-    std::string pin_data = this->notification.getDataItem("Pin");
-
-    std::cout << "ParentNotificationId: " << parent_notification_id << std::endl;
-    std::cout << "Interval: " << interval_data << std::endl;
-    std::cout << "Pin: " << pin_data << std::endl;
 
     try {
 
+        std::string interval_data = this->notification.getStringDataItem("INTERVAL");
+        
+        this->interval = std::stoi(interval_data);
+
+        std::cout << "Interval: " << interval_data << std::endl;
 
         /*
          * Se indica que se debe iniciar la lectura del pin en cuestion
          */
-
-        this->pin = std::stoi(pin_data);
-        this->interval = std::stoi(interval_data);
 
         this->ev_periodic = event_new(this->connection->getEventBase(), -1, EV_PERSIST, ActionStartPinMeter::periodic_cb, (void *) this);
 

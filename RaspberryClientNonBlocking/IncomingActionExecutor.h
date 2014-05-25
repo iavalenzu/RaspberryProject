@@ -23,6 +23,8 @@ public:
     
     void addActionHistory(IncomingAction *incoming_action);
     
+    IncomingAction* findActionById(std::string id);
+    
     
 private:
     

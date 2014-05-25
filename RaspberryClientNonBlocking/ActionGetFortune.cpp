@@ -20,10 +20,6 @@ ActionGetFortune::ActionGetFortune(const ActionGetFortune& orig) {}
 
 ActionGetFortune::~ActionGetFortune() {}
 
-std::string ActionGetFortune::getName(){
-    return this->name;
-}
-
 void ActionGetFortune::toDo() {
 
 

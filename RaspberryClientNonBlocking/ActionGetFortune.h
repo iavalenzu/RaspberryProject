@@ -21,7 +21,6 @@ public:
     ActionGetFortune(const ActionGetFortune& orig);
     virtual ~ActionGetFortune();
     virtual void toDo();
-    virtual std::string getName();
 private:
 
 };

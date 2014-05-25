@@ -12,33 +12,31 @@
 
 std::string ActionStopPinMeter::name = "ACTION_STOP_PIN_METER";
 
-ActionStopPinMeter::ActionStopPinMeter() : IncomingAction() {}
+ActionStopPinMeter::ActionStopPinMeter() : IncomingAction() {
+}
 
-ActionStopPinMeter::ActionStopPinMeter(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {}
+ActionStopPinMeter::ActionStopPinMeter(Notification notification, ConnectionSSL* connection) : IncomingAction(notification, connection) {
+}
 
-ActionStopPinMeter::ActionStopPinMeter(const ActionStopPinMeter& orig) {}
+ActionStopPinMeter::ActionStopPinMeter(const ActionStopPinMeter& orig) {
+}
 
-ActionStopPinMeter::~ActionStopPinMeter() {}
-
-std::string ActionStopPinMeter::getName(){
-    return this->name;
+ActionStopPinMeter::~ActionStopPinMeter() {
 }
 
 void ActionStopPinMeter::toDo() {
 
-    std::string parent_notification_id = this->notification.getId();
-    std::string pin_data = this->notification.getDataItem("Pin");
+    this->stop_id = this->notification.getStringDataItem("STOP_NOTIFICATION_ID");
 
-    std::cout << "ParentNotificationId: " << parent_notification_id << std::endl;
-    std::cout << "Pin: " << pin_data << std::endl;
+    std::cout << "StopParentNotificationId: " << stop_id << std::endl;
 
-    try {
+    IncomingAction* incoming_action = this->connection->getIncomingExecutor().findActionById(this->stop_id);
 
-
-    } catch (const std::exception& ex) {
-        std::cout << ex.what() << std::endl;
+    if(incoming_action != NULL){
+        incoming_action->cancel();
     }
-
+    
 }
 
-void ActionStopPinMeter::cancel() {}
+void ActionStopPinMeter::cancel() {
+}
