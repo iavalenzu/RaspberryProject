@@ -238,7 +238,7 @@ class FormsController extends AppController {
 
         $form_data = $service_form['ServiceForm']['data'];
         $form_id = $service_form['ServiceForm']['form_id'];
-        $form_checksum_key = $service_form['ServiceForm']['checksum_key'];
+        //$form_checksum_key = $service_form['ServiceForm']['checksum_key'];
         
         $this->set('form_data', $form_data);
         
@@ -255,7 +255,7 @@ class FormsController extends AppController {
         $this->set('service_id', $service_id);
         $this->set('transaction_id', $transaction_id);  
 
-        $this->set('checksum', hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $form_checksum_key));        
+        //$this->set('checksum', hash_hmac('sha256', implode('.', array($form_id, $service_id, $transaction_id)), $form_checksum_key));        
                 
     }    
     

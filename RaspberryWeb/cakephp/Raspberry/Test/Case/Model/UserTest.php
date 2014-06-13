@@ -14,9 +14,8 @@ class UserTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.user',
-		'app.connection',
-		'app.connection_notification',
-		'app.notification'
+		'app.device',
+		'app.devices_notifications'
 	);
 
 /**

@@ -13,10 +13,6 @@
             <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h</file>
             <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.h</file>
         </group>
-        <group name="Raspberry">
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.h</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h</file>
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp</file>
-        </group>
+        <group name="Raspberry"/>
     </open-files>
 </project-private>

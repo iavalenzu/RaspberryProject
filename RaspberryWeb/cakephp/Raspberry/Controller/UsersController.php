@@ -2,6 +2,10 @@
 
 App::uses('AppController', 'Controller');
 
+App::import('Lib', 'Packet');
+App::import('Lib', 'SecureSender');
+App::import('Lib', 'SecureReceiver');
+
 /**
  * Users Controller
  *
@@ -16,7 +20,6 @@ class UsersController extends AppController {
      * @var array
      */
     public $components = array('Paginator');
-    public $uses = array('Connection', 'User', 'ConnectionNotification', 'Notification');
 
     /**
      * index method
@@ -25,7 +28,7 @@ class UsersController extends AppController {
      */
     public function index() {
         $this->User->recursive = 0;
-        $this->set('users', $this->Paginator->paginate('User'));
+        $this->set('users', $this->Paginator->paginate());
     }
 
     /**
@@ -105,81 +108,142 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
-    public function writeNotification($fifo_name = null, $notification = null) {
+    public function login() {
 
-        if (is_null($fifo_name) || is_null($notification))
-            return false;
+        session_start();
 
-        $fifo = fopen("/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/" . $fifo_name, 'w');
+        $MyPrivateKey = Configure::read('MyPrivateKey');
+        $KonalenPublicKey = Configure::read('KonalenPublicKey');
 
-        if ($fifo) {
-            if (fwrite($fifo, json_encode($notification))) {
-                return true;
-            }
-            fclose($fifo);
+        $sps = new SecureSender();
+        $sps->setRecipientPublicKey($KonalenPublicKey);
+        $sps->setSenderPrivateKey($MyPrivateKey);
+
+        $service_id = 2;
+        $form_id = isset($_GET['FormId']) ? $_GET['FormId'] : '';
+        $transaction_id = 'trx_' . hash('sha256', microtime(true));
+
+        $_SESSION['TransactionId'] = $transaction_id;
+
+        $checksum_key = hash('sha256', microtime(true) . mt_rand());
+
+
+        $plain_data = array(
+            'FormId' => $form_id,
+            'ServiceId' => $service_id,
+            'TransactionId' => $transaction_id
+        );
+
+        $format_type = 'XML';
+
+        if (strcasecmp($format_type, 'JSON') == 0) {
+
+            $enc_data = array('data' => $plain_data);
+            $enc_data = json_encode($enc_data);
+        } elseif (strcasecmp($format_type, 'XML') == 0) {
+
+            $enc_data = '<?xml version="1.0"?>';
+            $enc_data .= '<data>';
+            $enc_data .= '<FormId>' . $form_id . '</FormId>';
+            $enc_data .= '<ServiceId>' . $service_id . '</ServiceId>';
+            $enc_data .= '<TransactionId>' . $transaction_id . '</TransactionId>';
+            $enc_data .= '</data>';
         }
 
-        return false;
+        $get_data = array(
+            'PartnerId' => 1,
+            'FormatData' => $format_type,
+            'EncData' => $sps->encrypt($enc_data),
+        );
+
+        $this->set('get', $get_data);
     }
 
-    public function sendNotification($user_id = null) {
+    /**
+     * admin_index method
+     *
+     * @return void
+     */
+    public function admin_index() {
+        $this->User->recursive = 0;
+        $this->set('users', $this->Paginator->paginate());
+    }
 
-        $active_connections = $this->Connection->find('all', array(
-            'conditions' => array(
-                'Connection.user_id' => $user_id,
-                'Connection.status' => 'ACTIVE'
-            ),
-            'recursive' => -1
-        ));
+    /**
+     * admin_view method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_view($id = null) {
+        if (!$this->User->exists($id)) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        $options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+        $this->set('user', $this->User->find('first', $options));
+    }
 
-        $this->set('active_connections', $active_connections);
-
-        if (!empty($this->request->data)) {
-
-            $data = array();
-
-            foreach ($this->request->data['Notification']['data'] as $item) {
-
-                if (!empty($item['Name'])) {
-
-                    if ($item['Name'] == "Pins") {
-                        $data[strtoupper($item['Name'])] = json_decode($item['Value'], true);
-                    } else {
-                        $data[strtoupper($item['Name'])] = $item['Value'];
-                    }
-                }
-            }
-
-            $this->request->data['Notification']['data'] = json_encode($data);
-            $this->request->data['Notification']['status'] = "";
-
-
-            if ($this->Notification->save($this->request->data)) {
-
-                foreach ($active_connections as $active_connection) {
-
-                    $connections_notification = array(
-                        'notification_id' => $this->Notification->id,
-                        'connection_id' => $active_connection['Connection']['id'],
-                        'status' => 'PENDING'
-                    );
-
-                    $this->ConnectionNotification->create();
-                    if ($this->ConnectionNotification->save($connections_notification)) {
-
-                        $notification = array(
-                            'Id' => $this->Notification->id,
-                            'Action' => $this->request->data['Notification']['action'],
-                            'Data' => $data
-                        );
-
-                        $this->writeNotification($active_connection['Connection']['fifo_name'], $notification);
-                    }
-                }
+    /**
+     * admin_add method
+     *
+     * @return void
+     */
+    public function admin_add() {
+        if ($this->request->is('post')) {
+            $this->User->create();
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('The user has been saved.'));
+                return $this->redirect(array('action' => 'index'));
             } else {
-                $this->Session->setFlash(__('The notification could not be sent, Please, try again.'));
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
             }
         }
+    }
+
+    /**
+     * admin_edit method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_edit($id = null) {
+        if (!$this->User->exists($id)) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        if ($this->request->is(array('post', 'put'))) {
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash(__('The user has been saved.'));
+                return $this->redirect(array('action' => 'index'));
+            } else {
+                $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+            }
+        } else {
+            $options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
+            $this->request->data = $this->User->find('first', $options);
+        }
+    }
+
+    /**
+     * admin_delete method
+     *
+     * @throws NotFoundException
+     * @param string $id
+     * @return void
+     */
+    public function admin_delete($id = null) {
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        $this->request->onlyAllow('post', 'delete');
+        if ($this->User->delete()) {
+            $this->Session->setFlash(__('The user has been deleted.'));
+        } else {
+            $this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
+        }
+        return $this->redirect(array('action' => 'index'));
     }
 
 }

@@ -3,7 +3,7 @@ App::uses('AppModel', 'Model');
 /**
  * User Model
  *
- * @property Connection $Connection
+ * @property Device $Device
  */
 class User extends AppModel {
 
@@ -23,8 +23,8 @@ class User extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Connection' => array(
-			'className' => 'Connection',
+		'Device' => array(
+			'className' => 'Device',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
 			'conditions' => '',

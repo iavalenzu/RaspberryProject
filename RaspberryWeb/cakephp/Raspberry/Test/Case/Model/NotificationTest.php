@@ -14,9 +14,8 @@ class NotificationTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.notification',
-		'app.connection_notification',
-		'app.connection',
-		'app.user'
+		'app.response',
+		'app.devices_notifications'
 	);
 
 /**

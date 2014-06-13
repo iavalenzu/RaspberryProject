@@ -3,7 +3,8 @@ App::uses('AppModel', 'Model');
 /**
  * Notification Model
  *
- * @property ConnectionNotification $ConnectionNotification
+ * @property Response $Response
+ * @property DevicesNotifications $DevicesNotifications
  */
 class Notification extends AppModel {
 
@@ -16,8 +17,21 @@ class Notification extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'ConnectionNotification' => array(
-			'className' => 'ConnectionNotification',
+		'Response' => array(
+			'className' => 'Response',
+			'foreignKey' => 'notification_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'DevicesNotifications' => array(
+			'className' => 'DevicesNotifications',
 			'foreignKey' => 'notification_id',
 			'dependent' => false,
 			'conditions' => '',

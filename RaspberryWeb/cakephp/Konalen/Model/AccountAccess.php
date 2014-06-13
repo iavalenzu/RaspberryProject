@@ -62,9 +62,9 @@ class AccountAccess extends AppModel {
          * @throws InternalErrorException
          */
         
-        public function createAccess($account = null){
+        public function createAccess($account_id = null, $service_session_timeout = null){
 
-            if(empty($account)){
+            if(empty($account_id) || empty($service_session_timeout)){
                 return false;
             }
             
@@ -74,15 +74,13 @@ class AccountAccess extends AppModel {
             
             $session_id = $this->createSessionId();
             
-            $session_duration = $account['Service']['session_timeout'];
-            
             $account_access = array(
                 'AccountAccess' => array(
-                    'account_id' => $account['Account']['id'],
+                    'account_id' => $account_id,
                     'user_agent' => Utilities::clientUserAgent(),
                     'ip_address' => Utilities::clientIp(),
                     'session_id' => $session_id,
-                    'session_expire' => date('Y-m-d H:i:s', time() + $session_duration),
+                    'session_expire' => date('Y-m-d H:i:s', time() + $service_session_timeout),
                     'active' => 1
                 )
             );

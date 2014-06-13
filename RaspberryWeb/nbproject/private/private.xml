@@ -3,6 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group/>
-        <group name="Raspberry"/>
+        <group name="Raspberry">
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/View/Forms/login.ctp</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Account.php</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Model/Identity.php</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/Utilities.php</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/ApiController.php</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/UsersController.php</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/tmp/logs/error.log</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/AppController.php</file>
+        </group>
     </open-files>
 </project-private>

@@ -14,9 +14,8 @@ class NotificationsControllerTest extends ControllerTestCase {
  */
 	public $fixtures = array(
 		'app.notification',
-		'app.connection_notification',
-		'app.connection',
-		'app.user'
+		'app.response',
+		'app.devices_notifications'
 	);
 
 /**
@@ -57,6 +56,46 @@ class NotificationsControllerTest extends ControllerTestCase {
  * @return void
  */
 	public function testDelete() {
+	}
+
+/**
+ * testAdminIndex method
+ *
+ * @return void
+ */
+	public function testAdminIndex() {
+	}
+
+/**
+ * testAdminView method
+ *
+ * @return void
+ */
+	public function testAdminView() {
+	}
+
+/**
+ * testAdminAdd method
+ *
+ * @return void
+ */
+	public function testAdminAdd() {
+	}
+
+/**
+ * testAdminEdit method
+ *
+ * @return void
+ */
+	public function testAdminEdit() {
+	}
+
+/**
+ * testAdminDelete method
+ *
+ * @return void
+ */
+	public function testAdminDelete() {
 	}
 
 }
