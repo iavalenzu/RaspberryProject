@@ -210,3 +210,95 @@ Stack Trace:
 2014-06-13 16:44:14 Error: 
 2014-06-13 16:45:14 Error: Borrando los registros expirados
 2014-06-13 16:45:15 Error: Borrando los registros expirados
+2014-06-13 17:46:05 Error: Borrando los registros expirados
+2014-06-13 17:46:55 Error: Borrando los registros expirados
+2014-06-13 17:46:56 Error: Borrando los registros expirados
+2014-06-13 17:52:34 Error: Fatal Error (1): Class 'SimpleCaptcha' not found in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php, line 66]
+2014-06-13 17:52:34 Error: [FatalErrorException] Class 'SimpleCaptcha' not found
+Request URL: /forms/captcha/eyJkYXRhIj
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-13 17:59:03 Error: Fatal Error (1): Class 'SimpleCaptcha' not found in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php, line 66]
+2014-06-13 17:59:03 Error: [FatalErrorException] Class 'SimpleCaptcha' not found
+Request URL: /forms/captcha/eyJkYXRhIjoie1wi
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-13 18:00:24 Error: Fatal Error (1): Class 'SimpleCaptcha' not found in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php, line 66]
+2014-06-13 18:00:24 Error: [FatalErrorException] Class 'SimpleCaptcha' not found
+Request URL: /forms/captcha/eyJkYXRhIjoie1wi
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-13 18:00:30 Error: Fatal Error (1): Class 'SimpleCaptcha' not found in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php, line 66]
+2014-06-13 18:00:30 Error: [FatalErrorException] Class 'SimpleCaptcha' not found
+Request URL: /forms/captcha/980809=
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-13 18:02:19 Error: Fatal Error (1): Class 'SimpleCaptcha' not found in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php, line 66]
+2014-06-13 18:02:19 Error: [FatalErrorException] Class 'SimpleCaptcha' not found
+Request URL: /forms/captcha/980809=
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66)
+#1 [internal function]: ErrorHandler::handleError(1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Class 'SimpleCa...', '/Users/Ismael/N...', 66, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-13 18:07:44 Error: Borrando los registros expirados
+2014-06-13 18:07:47 Error: Borrando los registros expirados
+2014-06-13 18:07:49 Error: Borrando los registros expirados
+2014-06-13 18:07:51 Error: Borrando los registros expirados
+2014-06-13 18:07:53 Error: Borrando los registros expirados
+2014-06-13 18:07:54 Error: Borrando los registros expirados
+2014-06-15 12:30:09 Error: Borrando los registros expirados
+2014-06-15 12:35:48 Error: Borrando los registros expirados
+2014-06-15 12:38:18 Error: Borrando los registros expirados
+2014-06-15 12:39:24 Error: Borrando los registros expirados
+2014-06-15 12:39:35 Error: Borrando los registros expirados
+2014-06-15 12:46:27 Error: Fatal Error (1): Call to a member function write() on a non-object in [/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Controller/FormsController.php, line 157]
+2014-06-15 12:46:27 Error: [FatalErrorException] Call to a member function write() on a non-object
+Request URL: /forms/login?PartnerId=1&FormatData=XML&EncData=eyJkYXRhIjoie1wic2VhbGVkZGF0YVwiOlwiN2EzNmU1Yzc0ZjMyODlhMTg1MDIwMmRmODc5NDEyNWFhMzJlODI3NzZhYjkwOGEwZjEwNTMwMjVlYTYyODRhM2YzZjdjZWZmNDk0OTY0ZmEzY2IzMDYwMzliOGQ3YjMwYjNlZWFkY2UyMzc0YjRkOTIyZmJhYzMyMDIxMzcyZTRmZmVlY2ZkNWI0NGQyM2M0MWQzZTE3MGUwZGJkYzZmNjU0ZmI0NDM4Njg0YTllNTU0OGE0YzM1ODk5MjUwNDk2M2M2YmVmMjI3MzRhNmQ4YmQwYmY4MWYxNzNmNTZkNzBjZmM3YjQ2MGZjZTc5NTNjODIwMTM3ZjMwZGY5NDU3MGE0ZDIzODZhMjFlYmY2NzU5ZjA2NGQ4ZDdkN2QyNmI0OGE4OTVjNjhiNWUwZTg2MmIxZWEyMTJlOTBlODIxN2RjMGNkMjJkM2JjYmU2YzgzYTYxM2QwZjBhZTJiMjQzZTgxM2FhMzhiYzlmYjUzZjNmMWU1NTVlZjhiMzE1ODNiZGZhNzhkMTI2OWQxZDdlOGRiZDgxYWJlMmU0YTIxODU1ZTUwYzI4NmY0NjQxYWYwN2MzOGNjY2E1M2UzNjM2N2M4NTFhYjQ0ZTc3Yjg5NGRhMGY1ODI2NjNkOTdjNGYyMTYzMzRlNTMzZWU0ZDFjYWIwMmI1ZDIzMTE2YWYyYmM1NTE3ODY3MzA1YzgzYjk3NDZiZjI4OTI0OGM4NTAzNzExZTdjYjkxM2Y0MDc4YmJkNzQxMmRhMzU4OTZjYjBkOTRkZGI4ZjE1Yjc0MjdhYzc1Njk4ZGIzNGZhYmVlZWVjZGFmZmExY2UxMWE4ZDQ1OGY2YTkwNGIyZmU2OGY4NDFlNDdiOTFkMzA4NjI4OTNmOTdiNjY5Zjk4M2U2ZDVhODIxOTBhMjUzZTRiOGUzMjg4M2NiODMwNDZiODY3NTkyMjgzMDllOWUzMmQzZTE4NzQ2N2Y5ZTY3MjdiNzMyNzYwNmFjOWIwYjgzOWYxODE3ZWI2M2I2NmFjYjEwMjgwMTFjMWY5ODA5OGI2MjJhZTM5OTk3YzAwMThhOWM5NzY1ZDk3NjgyNWY3YWFiOTc2MTNjNTkwZWY5OWU2MDYzMWU1YzM4MDMzN2NjYjUzYjNiZTU4Y2ExNDRjODczNmUwZDIxODZjZWYzOGQ0OWU3ZmI2NmQxNjUxZTI4NTM2MGUxNjY0MWNmZTIxYjc1N2Q1OGFmNDI3MjUzNGQxMTMyNGEwZDliYzVjYWI3ODFhZmEwMjlkMmU4YjRmMzg0NzU3N2IzMGNlZmRmNDI5OWE1M2M0MzUxNDE1N2UyODg4YWY1ZWVhZThlZWZhYWY4MGYwMGVjOWNkMGY4MDVkOWM4YzAzNDdmMDgwNmYyM2JmMTQ1OGU5MWI5ZTAwZDczZmNkZWM1NjcyZWI2OTFlNzdkNWU5NjMxMWM0MzFjY2IxZTllNWNjZWQ3MGIwNDEyM2IyZDM1ZjU4ZmRkYTFiMThkNWE1Njc2NjBiNDllMTM0ZWRhMDk2MjViZTI5ODUxOTMwMzUxYWRkMzBiYWI4YThlNTQwMmJjMWFhMGU5YjlmOTA2YzAzMjU2OGZlYTIyZDBhYWQzZDkxOTQzNjFjZTZmMzIxZThjZmQ5ZjcwYjk2Y2Q1NDIxYWYzMjlmZGIxYTMxNTg3ZWM2NDU2Nzk1NTAzZDhmZjRjNDAxOGZiZmY3NDdjZTE3NDNiZTAyNmQ4NTY0MmQ3ZmYyMjAxNTk0MTU1ODU5YTNhMzAxMDNhMDBmMzU4NGZlY2I4Y2U4N2RkZDE5YjdmMWI5MWM5OWRhYWJmYTY1MmI0YmY1YmQ5Yjg0NmQxNjAyZjQ1YmUwMTA0MmU0ZmQ4YTZmNGNkNmVlMzBkODgxNGYzOWVjY2UzYzk5YzUwYzIwMzcyNzk2MzRjZjMwY2U2MGI5OWI0ZTI0ZDMwNWRiZWU3MTZhZjg0OGY5ZDliOTJjMmQxNjdlMDI2NGUyNDZlMmUyNDc0ZWU0MTg2ZjhjNjQxZmFjZGMwOTk0YjhkOTRkYTk5MmE3YTMyMTQyNTdmOGU0OWU3NzE1YWI0NWY5MzA1ZWZlMTlkN2MyNTMzNDU4Mjc1MzQ4YWU2MTUyZDQzZTk0M2RlNTE5ZjkzMDAyNzlmYTRhMDZjOTczMTA2ZGFmZjVkZjdlNzQwYzNjN2Q5YTgyMjc4NWYzZWMzZTI3OWI5YzEyMGM3YWFlYTRkM2Q2NzYxM2YzMTBhMGNmOTYzZDA1YmE5MmM3MjU2MjM2OTFjOTc0MDRkNDg1NDBkNWM2OWIzYjEzNDUyNTM3OWQyNTg2MjE3MjQ0NGYxMjYxY2E5OTExMjM5ZTVjMDVjNGNjMzc5MzkwMGMxMDVjMjc0NjdiOGU5NzkxYmQxYWE4ZTNiOWVjYTM0YTA5ZTllZDZmM2QzMzZmMTg4YzlmNzlkNzczMDc0ZGM5ZDM1MmRhMjRmNTQwMjE4MTk4NDRlZjY2ZDE4OTJlNTIxZjU5OWI2MDZjMjllMmUwNTM1MTcwN2Q1MTBiZDVkNTk4NWRiNThjZTdmMmJiYjAwYzcxOGJhZGZjNTNmNzAxZjU2M2ZmOWIzMmQzNjdjN2RiYTc4MzUzOTU5ODk1MGY1OGNkMjQ5OThkN2Q4ZjE2YjE5YTgyMjBkODY0NGI2MTQzYzUxOWVjMDk3MzdmMTdhNTQ2NTI3MzlkZjRhOTA0ZGQ1MzY3YzFiNjZjNmQwYTg2NWRkN2VkYjk4YWJhODZlNDhmNWFkMWQ2ZTIxYWVlNDQ1MzQ1N2NiMzIzYTkzMGM1MzY1NDcwZDE3ZWZiYmY2ZjlmYTY2MTM5NWNjOTYzYzAyNzlmNTQ1MDc1NmY1MDhkYjJhYjg0ZGM2OTIxNzA0MzQwOTU3ZjNhOTMxYmE1ODg2NGMzNjNkMjVhMDY5YjczN2Y0OWI2NWVkNmQ0ZTIyYzY0OTI3NmQ4N2Q2NTkwNWUwNjhkMzExN2QwY2Y0MjhkNjg3MTU2OGYyOWFiZTFmODE1M2U0MDMzNDBlYWQ2YmQxODE2Y2ExNWMxYzRlYzMwMTcxYzA0ZGIwNDVlYWFiNmNiMDUzN2Q2M2VkMWFmMGRmY2UwNDI1MzExYWVmYTIxMmVhNzkwOWNkNDc1OTY1MGE4OWUzMjYzZjliMmEyMjBjZjVlZDE5MTUyZTc0MDZjZWY2MzU5MjZiMTAwNjA2MjA1YzY1N2E5NWEyYTU1MWY2MTBiOTdkZTQ4Y2E3NjRlYjRcIixcImVudmtleVwiOlwiOGNhNmIzNmNmOTBlNzg2OTk3MjE3YTEyNjE0MjlmMGEzZmU5NjJmMmU0MGJhYjdiM2VmMGUxMjM0OTczMDUzOWMwMzA1ZWZlMDMwM2VmMWQ4NmExZTMzYzBiODFmZDVmOThkMTJmZmEzYTZiYjU2ZDlmZWVmNDA2MmYwODgwNjNkZGYyMjQzNGQ5YjFhNmE0MmI0ODQxN2NlZmJkOGJlZmFiYjZjOGEwNzY2MmY0YjRkNDI2NzYwOGU3NTg4NWRhNDI3NjE0NTM4ZmNkZjZhZjk1MTliMmM3ODdhMDM1NjYyMGYwZjgwYWU1MmE2OTFhMDMzMjNhMDk4MWNlZWI1YzUyYmNiMzZkNTJmNjFiMGRlNGM0NjFjNzViN2U1NTE4Y2RiMmU4NTE5NmFjYmM1NDU2ODNmYWQwNDk5YjhiNjkwMjFlODUwNDIyM2I0ODJkOWU3OWJiOTViZTVmZTgxZjhmZGVmZGRiYmY4YjBiZWMxYzcyMWUzMGY5YWYwZjFiMWE5MzUwZGIyZWMwZDAzZjkzZmQxOGZjNGE5NGNkNmQ2NGRiZGRlY2Q1YmQ0YzI4NDNlMGNjNzE3NDIzNzIwZjYyNjcwZjUxYzU0MjUwMzFhMTczNjUxMGU1N2M4YzgzYzYwN2ViMWNjMzgyODIxNGJjYWQyZTBlZTM1Y2NmM2ZcIn0iLCJzaWduYXR1cmUiOiI3ZTBiMjgyODcwMGQ4MDc3ODhmYTVjODdmNTAxMDE5MGI3ZWQxMjJiZTliY2JkZmY3NjkwMWM5YzQ1Yzk2Y2JlOThjYWMzODg0YzYwOGVjMWNmNTZkMzgwMTkxZDY2NjcwMjA4YTY5ZWUyM2I0ZGY0M2FlNTRiNmE5N2U0MTIxYTU3ZTg3MDQ2NzczMzgwM2RhMjY5OGI0NGM0Yzk2NThlOGNiNmZkODljMjhhZGI0MmVlOWM4ODhkMWUzMzgwMTE0Zjc2ZGVmZjMwMDliYWM5N2QwNTA1YTY2MWE2ODYxYjUxY2RlZThkZjFhMTMyYWFlMWM5YmIwMDYyMzIzYzdhM2NiMTcwNTlmZGVhNjk3NjBiNDRlODYwYmIxNDE0ZmY1ZGNlMDEzN2IxMDgzOWUzNmUyYmFiZGRjZDk5NjA5Y2EzNThiMGU2N2E1NzY2ODkzMDgzOTAwNDVkYmE3ZmUzMzkwMDMwMjZhZTAxZGE5NzBmMGQ1MDIzYzM2ODNiMWQwNjhmY2Q2OWMwYzJiMDI2ZjIyZGQ1MDNkNTVmNDEyYzExODNlMjg4OThjOTc0NzY3YzM4Y2UwYzY4MjlkODljZjEwZDI3MDAxMDQxYTg5NzUwYmRmNjYwNDJjYWIyNWQ2YjA0OTAxYWFhMTIxMWYxMTdkOTRhMTQ2NWMyODI5MSJ9
+Stack Trace:
+#0 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Error/ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/Ismael/N...', 157)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/Ismael/N...', 157, Array)
+#2 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/Ismael/N...', 157, Array)
+#3 /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-06-15 12:50:03 Error: Borrando los registros expirados
+2014-06-15 12:50:07 Error: Borrando los registros expirados
+2014-06-15 12:50:09 Error: Borrando los registros expirados
+2014-06-15 12:50:11 Error: Borrando los registros expirados
+2014-06-15 12:50:13 Error: Borrando los registros expirados
+2014-06-15 13:12:17 Error: Borrando los registros expirados
+2014-06-15 13:12:19 Error: Borrando los registros expirados
+2014-06-15 13:12:21 Error: Borrando los registros expirados
+2014-06-15 13:12:23 Error: Borrando los registros expirados
+2014-06-15 13:12:29 Error: Borrando los registros expirados
+2014-06-15 13:23:19 Error: Borrando los registros expirados
+2014-06-15 13:23:24 Error: Borrando los registros expirados
+2014-06-15 13:23:43 Error: Borrando los registros expirados
+2014-06-16 02:13:43 Error: Borrando los registros expirados
+2014-06-16 02:13:47 Error: Borrando los registros expirados
+2014-06-16 02:19:27 Error: Borrando los registros expirados
+2014-06-16 02:24:46 Error: Borrando los registros expirados
+2014-06-16 02:41:21 Error: Borrando los registros expirados

@@ -7,6 +7,11 @@ App::uses('AppModel', 'Model');
  * @property DevicesNotifications $DevicesNotifications
  */
 class Device extends AppModel {
+    
+    
+        public $status_disconnected = 0;
+        public $status_connected = 1;
+    
 
 /**
  * Display field

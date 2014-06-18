@@ -45,14 +45,14 @@ void DatabaseAdapter::showColumns(sql::ResultSet* set) {
 
 }
 
-sql::ResultSet* DatabaseAdapter::getUserByAccessToken(std::string token) {
+sql::ResultSet* DatabaseAdapter::getDeviceByAccessToken(std::string token) {
 
     try {
 
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("SELECT * FROM Users WHERE token = ? LIMIT 1");
+        pstmt = this->con->prepareStatement("SELECT * FROM devices WHERE access_token = ? LIMIT 1");
         pstmt->setString(1, token);
 
         res = pstmt->executeQuery();
@@ -73,6 +73,52 @@ sql::ResultSet* DatabaseAdapter::getUserByAccessToken(std::string token) {
 
 }
 
+sql::ResultSet* DatabaseAdapter::connectDevice(std::string device_id, std::string device_fifo_name) {
+
+try {
+
+        sql::PreparedStatement *pstmt;
+        sql::ResultSet *res;
+
+        pstmt = this->con->prepareStatement("UPDATE devices SET fifo_name = ?, status = ?, modified = NOW() WHERE id = ?");
+        pstmt->setString(1, device_fifo_name);
+        pstmt->setString(2, "1");
+        pstmt->setString(3, device_id);
+
+        int update_count = pstmt->executeUpdate();
+
+         // Si no es posible insertar el nuevo registro retornamos NULL
+         
+        if (update_count <= 0) {
+            return NULL;
+        }
+
+        pstmt = this->con->prepareStatement("SELECT * FROM devices WHERE id = ? LIMIT 1");
+        pstmt->setString(1, device_id);
+
+        res = pstmt->executeQuery();
+        
+        this->con->commit();
+
+        delete pstmt;
+
+        return (res->next()) ? res : NULL;
+
+    } catch (sql::SQLException &e) {
+
+        cout << "SQLException: " << e.what() << endl;
+        cout << "SQLException: code > " << e.getErrorCode() << endl;
+        cout << "SQLException: state > " << e.getSQLState() << endl;
+
+        return NULL;
+
+    }
+
+
+}
+
+
+/*
 sql::ResultSet* DatabaseAdapter::createNewConnection(std::string user_id, std::string fifo_name) {
 
     try {
@@ -87,9 +133,9 @@ sql::ResultSet* DatabaseAdapter::createNewConnection(std::string user_id, std::s
 
         int update_count = pstmt->executeUpdate();
 
-        /*
-         * Si no es posible insertar el nuevo registro retornamos NULL
-         */
+        
+         // Si no es posible insertar el nuevo registro retornamos NULL
+         
         if (update_count <= 0) {
             return NULL;
         }
@@ -115,6 +161,8 @@ sql::ResultSet* DatabaseAdapter::createNewConnection(std::string user_id, std::s
     }
 
 }
+*/
+
 
 sql::ResultSet* DatabaseAdapter::getLastNotificationResponse(std::string notification_id) {
 
@@ -123,7 +171,7 @@ sql::ResultSet* DatabaseAdapter::getLastNotificationResponse(std::string notific
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("SELECT * FROM notifications_responses WHERE notification_id = ? ORDER BY id DESC LIMIT 1");
+        pstmt = this->con->prepareStatement("SELECT * FROM responses WHERE notification_id = ? ORDER BY id DESC LIMIT 1");
         pstmt->setString(1, notification_id);
 
         res = pstmt->executeQuery();
@@ -143,6 +191,9 @@ sql::ResultSet* DatabaseAdapter::getLastNotificationResponse(std::string notific
     }
 
 }
+
+
+
 
 sql::ResultSet* DatabaseAdapter::createNewNotificationResponse(std::string notification_id, std::string data) {
 
@@ -151,21 +202,21 @@ sql::ResultSet* DatabaseAdapter::createNewNotificationResponse(std::string notif
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("INSERT INTO notifications_responses(notification_id, data, status, created, modified) VALUES(?,?,?, NOW(), NOW())");
+        pstmt = this->con->prepareStatement("INSERT INTO responses(notification_id, data, status, created, modified) VALUES(?,?,?, NOW(), NOW())");
         pstmt->setString(1, notification_id);
         pstmt->setString(2, data);
-        pstmt->setString(3, "RECEIVED");
+        pstmt->setString(3, "1");
 
         int update_count = pstmt->executeUpdate();
 
-        /*
-         * Si no es posible insertar el nuevo registro retornamos NULL
-         */
+        
+         // Si no es posible insertar el nuevo registro retornamos NULL
+         
         if (update_count <= 0) {
             return NULL;
         }
 
-        pstmt = this->con->prepareStatement("SELECT * FROM notifications_responses WHERE id = LAST_INSERT_ID() LIMIT 1");
+        pstmt = this->con->prepareStatement("SELECT * FROM responses WHERE id = LAST_INSERT_ID() LIMIT 1");
 
         res = pstmt->executeQuery();
 
@@ -186,6 +237,7 @@ sql::ResultSet* DatabaseAdapter::createNewNotificationResponse(std::string notif
     }
 
 }
+
 
 sql::ResultSet* DatabaseAdapter::updateNotificationResponse(std::string notification_id, std::string data) {
 
@@ -194,21 +246,21 @@ sql::ResultSet* DatabaseAdapter::updateNotificationResponse(std::string notifica
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("UPDATE notifications_responses SET data = ?, status = ?, modified = NOW() WHERE notification_id = ?");
+        pstmt = this->con->prepareStatement("UPDATE responses SET data = ?, status = ?, modified = NOW() WHERE notification_id = ?");
         pstmt->setString(1, data);
-        pstmt->setString(2, "RECEIVED");
+        pstmt->setString(2, "1");
         pstmt->setString(3, notification_id);
 
         int update_count = pstmt->executeUpdate();
 
-        /*
-         * Si no es posible insertar el nuevo registro retornamos NULL
-         */
+        
+         // Si no es posible insertar el nuevo registro retornamos NULL
+         
         if (update_count <= 0) {
             return NULL;
         }
 
-        pstmt = this->con->prepareStatement("SELECT * FROM notifications_responses WHERE id = LAST_INSERT_ID() LIMIT 1");
+        pstmt = this->con->prepareStatement("SELECT * FROM responses WHERE id = LAST_INSERT_ID() LIMIT 1");
 
         res = pstmt->executeQuery();
 
@@ -230,29 +282,29 @@ sql::ResultSet* DatabaseAdapter::updateNotificationResponse(std::string notifica
 
 }
 
-sql::ResultSet* DatabaseAdapter::closeConnectionById(std::string connection_id) {
 
+sql::ResultSet* DatabaseAdapter::disconnectDeviceById(std::string device_id) {
 
     try {
 
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("UPDATE connections SET status = ? WHERE id = ?");
-        pstmt->setString(1, "INACTIVE");
-        pstmt->setString(2, connection_id);
+        pstmt = this->con->prepareStatement("UPDATE devices SET status = ?, modified = NOW() WHERE id = ?");
+        pstmt->setString(1, "0");
+        pstmt->setString(2, device_id);
 
         int update_count = pstmt->executeUpdate();
 
-        /*
-         * Si no es posible insertar el nuevo registro retornamos NULL
-         */
+        
+         // Si no es posible insertar el nuevo registro retornamos NULL
+         
         if (update_count <= 0) {
             return NULL;
         }
 
-        pstmt = this->con->prepareStatement("SELECT * FROM connections WHERE id = ? LIMIT 1");
-        pstmt->setString(1, connection_id);
+        pstmt = this->con->prepareStatement("SELECT * FROM devices WHERE id = ? LIMIT 1");
+        pstmt->setString(1, device_id);
 
         res = pstmt->executeQuery();
 
@@ -274,6 +326,7 @@ sql::ResultSet* DatabaseAdapter::closeConnectionById(std::string connection_id) 
 
 }
 
+/*
 sql::ResultSet* DatabaseAdapter::getLastNotificationByConnectionId(std::string connection_id) {
 
     try {
@@ -334,3 +387,4 @@ sql::ResultSet* DatabaseAdapter::getLastNotificationByAccessToken(std::string to
 
 }
 
+*/

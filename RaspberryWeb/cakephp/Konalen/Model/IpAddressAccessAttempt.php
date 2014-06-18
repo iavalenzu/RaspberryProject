@@ -95,7 +95,6 @@ class IpAddressAccessAttempt extends AppModel {
                     $access['IpAddressAccessAttempt']['max_access_attempts']++;
                     $access['IpAddressAccessAttempt']['blocked_until'] = date('Y-m-d H:i:s', $now + $blocked_period);
                     $access['IpAddressAccessAttempt']['access_attempts'] = 0;
-                    //$access['IpAddressAccessAttempt']['unblocking_code'] = Utilities::getRandomCode(32);
                     
                 }else{
                     $access['IpAddressAccessAttempt']['access_attempts']++;
@@ -153,7 +152,7 @@ class IpAddressAccessAttempt extends AppModel {
             
             $new_code = Utilities::getRandomCode(32);
             
-            $access['IpAddressAccessAttempt']['unblocking_code'] = sha1($new_code);
+            $access['IpAddressAccessAttempt']['unblocking_code'] = $new_code;
 
             if($this->save($access)){
                 return $new_code;
@@ -174,7 +173,7 @@ class IpAddressAccessAttempt extends AppModel {
             $blocked = $this->find('first', array(
                 'conditions' => array(
                     'IpAddressAccessAttempt.ip_address' => $ip_address,
-                    'IpAddressAccessAttempt.unblocking_code' => sha1($unblocking_code)
+                    'IpAddressAccessAttempt.unblocking_code' => $unblocking_code
                 )
             ));
 

@@ -87,11 +87,14 @@ private:
     std::string access_token = "";
     std::string fifo_filename = "";
 
-    std::string user_id = "";
-    std::string user_token = "";
+    //std::string user_id = "";
+    //std::string user_token = "";
     
-    int authenticated = false;
-    std::string connection_id = "";
+    //int authenticated = false;
+    //std::string connection_id = "";
+    
+    std::string status = "";
+    std::string id = "";
 
     int connection_active = false;
     

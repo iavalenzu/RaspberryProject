@@ -40,9 +40,9 @@ void ConnectionSSL::closeConnection() {
     /*
      * Desconectamos la coneccion de la BD
      */
-    if (!this->connection_id.empty()) {
+    if (!this->id.empty()) {
         if (this->disconnectFromDatabase()) {
-            this->connection_id.clear();
+            this->id.clear();
         } else {
             std::cout << "Error al desconectar la coneccion de la BD." << std::endl;
         }
@@ -238,19 +238,19 @@ int ConnectionSSL::saveNotificationResponseOnDatabase(Notification notification)
 
     std::string parent_notification_id = notification.getParentId();
     JSONNode data_json = notification.getData();
-    
+
     std::string data_string = data_json.write();
-    
+
     if (!parent_notification_id.empty() && !data_string.empty()) {
 
         sql::ResultSet* response;
-        
+
         response = dba.getLastNotificationResponse(parent_notification_id);
-        
-        if(response == NULL){
-                response = dba.createNewNotificationResponse(parent_notification_id, data_string);
-        }else{
-                response = dba.updateNotificationResponse(parent_notification_id, data_string);
+
+        if (response == NULL) {
+            response = dba.createNewNotificationResponse(parent_notification_id, data_string);
+        } else {
+            response = dba.updateNotificationResponse(parent_notification_id, data_string);
         }
 
         return (response != NULL);
@@ -306,33 +306,46 @@ int ConnectionSSL::checkCredentialsOnDatabase() {
 
         DatabaseAdapter dba;
 
-        sql::ResultSet* user = dba.getUserByAccessToken(this->access_token);
+        sql::ResultSet* device = dba.getDeviceByAccessToken(this->access_token);
 
-        if (user != NULL) {
+        if (device != NULL) {
 
-            this->authenticated = true;
-            this->user_token = user->getString("token");
-            this->user_id = user->getString("id");
+            std::cout << "El device existe!!" << std::endl;
+            
+            DatabaseAdapter::showColumns(device);
+            
+            
+            this->status = device->getString("status");
+            this->id = device->getString("id");
 
-            this->fifo_filename = Utilities::get_unique_filename(FIFOS_DIR);
+            if (this->status.compare("0") == 0) {
+                
+                std::cout << "El estado es 0!!" << std::endl;
 
-            sql::ResultSet* connection = dba.createNewConnection(this->user_id, this->fifo_filename);
+                //Si el device esta desconectado lo conectamos
 
-            if (connection != NULL) {
+                this->fifo_filename = Utilities::get_unique_filename(FIFOS_DIR);
 
-                this->connection_id = connection->getString("id");
+                device = dba.connectDevice(this->id, this->fifo_filename); 
+                
+                DatabaseAdapter::showColumns(device);
+                
+                if (device != NULL) {
 
-                /*
-                 * Se crea el fifo asociado a la coneccion
-                 */
+                    /*
+                     * Se crea el fifo asociado a la coneccion
+                     */
 
-                this->createAssociatedFifo();
+                    this->createAssociatedFifo();
+                    
+                    return true;
 
-                return true;
+                }
 
             }
 
         }
+
     }
 
     /*
@@ -349,22 +362,22 @@ int ConnectionSSL::disconnectFromDatabase() {
 
     DatabaseAdapter dba;
 
-    sql::ResultSet* notification = dba.closeConnectionById(this->connection_id);
+    sql::ResultSet* device = dba.disconnectDeviceById(this->id);
 
-    if (notification == NULL) return false;
+    if (device == NULL) return false;
 
-    std::string status = notification->getString("status");
+    this->status = device->getString("status");
 
-    return status.compare("INACTIVE") == 0;
+    return this->status.compare("0") == 0;
 }
 
 void ConnectionSSL::clearCredentials() {
 
     this->access_token.clear();
-    this->authenticated = false;
-    this->connection_id.clear();
-    this->user_id.clear();
-    this->user_token.clear();
+    //this->authenticated = false;
+    //this->connection_id.clear();
+    //this->user_id.clear();
+    //this->user_token.clear();
     this->connection_active = false;
 
 }

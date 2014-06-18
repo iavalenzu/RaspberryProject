@@ -194,7 +194,7 @@ class Account extends AppModel {
                 //return new Login(Login::$ERROR);
             }
             
-            $account_identity = $this->AccountIdentity->check($account, $identity);
+            $account_identity = $this->AccountIdentity->check($account['Account']['id'], $identity['Identity']['id']);
             
             if(empty($account_identity)){
                 return false;

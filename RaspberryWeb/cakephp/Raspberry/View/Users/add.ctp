@@ -5,7 +5,8 @@
 	<?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('email');
-		echo $this->Form->input('facebook_id');
+		echo $this->Form->input('access_token');
+		echo $this->Form->input('facebook_id', array('type'=>'text'));
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

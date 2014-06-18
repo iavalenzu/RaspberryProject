@@ -30,9 +30,6 @@ if(isset($two_step_auth_form) && $two_step_auth_form){
     echo $this->Form->hidden('Form.service_id', array('value'=> $service_id));
     echo $this->Form->hidden('Form.form_id', array('value'=> $form_id));
     echo $this->Form->hidden('Form.transaction_id', array('value'=> $transaction_id));
-    
-    //echo $this->Form->hidden(null, array('name' => 'checksum', 'value'=> $checksum));
-    //echo $this->Form->hidden(null, array('name' => 'checksum_key', 'value'=> $checksum_key));
 
     echo $this->Form->end('Enviar');
     
@@ -66,9 +63,6 @@ if(isset($two_step_auth_form) && $two_step_auth_form){
     echo $this->Form->hidden('Form.service_id', array('value' => $service_id));
     echo $this->Form->hidden('Form.form_id', array('value' => $form_id));
     echo $this->Form->hidden('Form.transaction_id', array('value' => $transaction_id));
-
-    //echo $this->Form->hidden(null, array('name' => 'checksum', 'value' => $checksum));
-    //echo $this->Form->hidden(null, array('name' => 'checksum_key', 'value' => $checksum_key));
 
     echo $this->Form->end('Acceder');
 

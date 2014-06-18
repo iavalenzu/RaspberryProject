@@ -321,6 +321,7 @@ class ApiController extends AppController {
                     } else {
                         $this->log("No existe medio para enviar el codigo de autorizacion en la cuenta de id: " . $account_id);
                     }
+                    
                 } else {
 
 
@@ -347,6 +348,7 @@ class ApiController extends AppController {
                      */
                     $this->redirect($service['Service']['login_success'] . '?' . http_build_query(array('data' => $sps->encrypt($data))));
                 }
+                
             } else {
 
                 $service_form['ServiceForm']['data'] = array(
@@ -358,7 +360,13 @@ class ApiController extends AppController {
                     $this->log("Error al guardar en la BD");
                 }
 
-
+                /*
+                 * Marcamos un intento de acceso
+                 */
+                
+                 $this->IpAddressAccessAttempt->attempt();                
+                
+                
                 /*
                  * Se hace un redirect indicando el id del formulario
                  */

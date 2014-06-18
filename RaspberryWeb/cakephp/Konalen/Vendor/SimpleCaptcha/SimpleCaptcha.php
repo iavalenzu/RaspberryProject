@@ -33,7 +33,7 @@ class SimpleCaptcha {
      * directory to another location outise the web server
      *
      */
-    public $resourcesPath = '/home/ivalenzu/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Lib/SimpleCaptcha/resources';
+    public $resourcesPath = '/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryWeb/cakephp/Konalen/Vendor/SimpleCaptcha/resources';
 
     /** Min word length (for non-dictionary random text generation) */
     public $minWordLength = 5;
@@ -119,10 +119,10 @@ class SimpleCaptcha {
     /** Captcha Checksum **/
     public $captcha_checksum = false;
     
-    
+    /*
     public function __construct($config = array()) {
     }
-
+*/
 
     public function getSha1Captcha(){
         return $this->captcha_checksum;

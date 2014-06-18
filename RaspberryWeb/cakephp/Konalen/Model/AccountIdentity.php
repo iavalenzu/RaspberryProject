@@ -48,16 +48,16 @@ class AccountIdentity extends AppModel {
             
         }
         
-        public function check($account = null, $identity = null){
+        public function check($account_id = null, $identity_id = null){
             
-            if(empty($account) || empty($identity)){
+            if(empty($account_id) || empty($identity_id)){
                 return null;
             }
             
             return $this->find('first', array(
                 'conditions' => array(
-                    'AccountIdentity.account_id' => $account['Account']['id'],
-                    'AccountIdentity.identity_id' => $identity['Identity']['id'],
+                    'AccountIdentity.account_id' => $account_id,
+                    'AccountIdentity.identity_id' => $identity_id,
                     'AccountIdentity.authenticated' => 1
                 )
             ));

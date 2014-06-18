@@ -6,6 +6,9 @@ App::uses('AppModel', 'Model');
  * @property Notification $Notification
  */
 class Response extends AppModel {
+    
+    public $status_pending = 0;
+    public $status_received = 1;
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

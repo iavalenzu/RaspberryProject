@@ -5,7 +5,7 @@
 	<?php
 		echo $this->Form->input('user_id');
 		echo $this->Form->input('fifo_name');
-		echo $this->Form->input('token');
+		echo $this->Form->input('access_token');
 		echo $this->Form->input('name');
 		echo $this->Form->input('status');
 	?>

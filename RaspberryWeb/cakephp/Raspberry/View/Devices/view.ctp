@@ -18,7 +18,7 @@
 		</dd>
 		<dt><?php echo __('Token'); ?></dt>
 		<dd>
-			<?php echo h($device['Device']['token']); ?>
+			<?php echo h($device['Device']['access_token']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Name'); ?></dt>
