@@ -25,6 +25,7 @@
 		<td><?php echo h($device['Device']['created']); ?>&nbsp;</td>
 		<td><?php echo h($device['Device']['modified']); ?>&nbsp;</td>
 		<td class="actions">
+			<?php echo $this->Html->link(__('Send Notification'), array('action' => 'sendNotification', $device['Device']['id'])); ?>
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $device['Device']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $device['Device']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $device['Device']['id']), null, __('Are you sure you want to delete # %s?', $device['Device']['id'])); ?>

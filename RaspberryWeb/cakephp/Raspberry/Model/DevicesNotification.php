@@ -7,6 +7,9 @@ App::uses('AppModel', 'Model');
  * @property Device $Device
  */
 class DevicesNotification extends AppModel {
+    
+    public $status_pending = 0;
+    public $status_sent = 1;
 
 
 	//The Associations below have been created with all possible keys, those that are not needed can be removed

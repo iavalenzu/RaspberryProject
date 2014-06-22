@@ -309,28 +309,21 @@ int ConnectionSSL::checkCredentialsOnDatabase() {
         sql::ResultSet* device = dba.getDeviceByAccessToken(this->access_token);
 
         if (device != NULL) {
-
-            std::cout << "El device existe!!" << std::endl;
-            
-            DatabaseAdapter::showColumns(device);
-            
             
             this->status = device->getString("status");
             this->id = device->getString("id");
 
             if (this->status.compare("0") == 0) {
                 
-                std::cout << "El estado es 0!!" << std::endl;
-
                 //Si el device esta desconectado lo conectamos
 
                 this->fifo_filename = Utilities::get_unique_filename(FIFOS_DIR);
 
                 device = dba.connectDevice(this->id, this->fifo_filename); 
                 
-                DatabaseAdapter::showColumns(device);
-                
                 if (device != NULL) {
+                    
+                    this->status = device->getString("status");
 
                     /*
                      * Se crea el fifo asociado a la coneccion
@@ -338,7 +331,7 @@ int ConnectionSSL::checkCredentialsOnDatabase() {
 
                     this->createAssociatedFifo();
                     
-                    return true;
+                    return this->status.compare("1") == 0;
 
                 }
 
@@ -374,6 +367,7 @@ int ConnectionSSL::disconnectFromDatabase() {
 void ConnectionSSL::clearCredentials() {
 
     this->access_token.clear();
+    this->status = "0";
     //this->authenticated = false;
     //this->connection_id.clear();
     //this->user_id.clear();
