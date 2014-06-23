@@ -37,7 +37,7 @@ public:
     //sql::ResultSet* getLastNotificationByAccessToken(std::string token);
     //sql::ResultSet* getLastNotificationByConnectionId(std::string connection_id);
     static void showColumns(sql::ResultSet* set);
-    sql::ResultSet* connectDevice(std::string device_id, std::string device_fifo_name);
+    sql::ResultSet* connectDevice(std::string device_id, std::string device_output_fifo_name, std::string device_input_fifo_name);
     
     sql::ResultSet* createNewNotificationResponse(std::string notification_id, std::string data);
     sql::ResultSet* updateNotificationResponse(std::string notification_id, std::string data);

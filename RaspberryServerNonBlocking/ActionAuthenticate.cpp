@@ -40,6 +40,6 @@ void ActionAuthenticate::toDo() {
         
         this->connection->closeConnection();
 
-    }
+    }    
     
 }

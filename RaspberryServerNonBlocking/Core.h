@@ -25,6 +25,8 @@ const std::string FIFOS_DIR = "fifos/";
 
 const int PERIOD = 60;
 
+const int MAX_UNIQUE_NAME_GENERATION_ATTEMPS = 10;
+
 /*
  * Database definitions
  */

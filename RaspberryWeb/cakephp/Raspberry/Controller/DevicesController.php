@@ -246,7 +246,6 @@ class DevicesController extends AppController {
             $this->request->data['Notification']['data'] = json_encode($data);
             $this->request->data['Notification']['status'] = "0";
 
-
             if ($this->Notification->save($this->request->data)) {
 
                 $device_notification = array(
@@ -254,7 +253,6 @@ class DevicesController extends AppController {
                     'device_id' => $device['Device']['id'],
                     'status' => $this->DevicesNotification->status_pending
                 );
-
 
                 $this->DevicesNotification->create();
                 if ($this->DevicesNotification->save($device_notification)) {
@@ -265,7 +263,11 @@ class DevicesController extends AppController {
                         'Data' => $data
                     );
 
-                    $this->writeNotification($device['Device']['fifo_name'], $notification);
+                    if($this->writeNotification($device['Device']['output_fifo_name'], $notification)){
+                        $this->Session->setFlash(__('Se ha enviado la notificacion.'));
+                    }else{    
+                        $this->Session->setFlash(__('Ha ocurrido un error. Por favor, intenta nuevamente.'));
+                    }
                 }
             } else {
                 $this->Session->setFlash(__('The notification could not be sent, Please, try again.'));

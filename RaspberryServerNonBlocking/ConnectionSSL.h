@@ -45,19 +45,28 @@ public:
     ConnectionSSL(int _connection_fd, struct event_base *_evbase, SSL *_ssl);
     ~ConnectionSSL();
     
+    
+    void closeOutputFifo();
+    void closeInputFifo();
+    
+    void createOutputFifo();
+    void createInputFifo();
 
-    void createAssociatedFifo();
+    void createAssociatedFifos();
     void createSecureBufferEvent(int _connection_fd, SSL *_ssl);
 
     static void readSSLCallback(struct bufferevent *bev, void *arg);
     static void eventSSLCallback(struct bufferevent *bev, short events, void *arg);
     static void writeSSLCallback(struct bufferevent *bev, void *arg);
 
-    static void readFIFOCallback(struct bufferevent *bev, void *arg);
-    static void eventFIFOCallback(struct bufferevent *bev, short events, void *arg);
+    static void readOutputFifoCallback(struct bufferevent *bev, void *arg);
+    static void eventOutputFifoCallback(struct bufferevent *bev, short events, void *arg);
 
-    static void successJSONCallback(JSONNode &node, void *arg);
-    static void errorJSONCallback(int code, void *arg);
+    static void writeInputFifoCallback(struct bufferevent *bev, void *arg);
+    static void eventInputFifoCallback(struct bufferevent *bev, short events, void *arg);
+    
+    static void successJsonCallback(JSONNode &node, void *arg);
+    static void errorJsonCallback(int code, void *arg);
         
     int checkCredentialsOnDatabase();
     int disconnectFromDatabase();
@@ -66,7 +75,6 @@ public:
     
     int writeNotification(Notification notification);
     
-    void clearCredentials();
     void closeConnection(); 
 
     void setAccessToken(std::string _access_token);
@@ -79,20 +87,26 @@ private:
 
     struct bufferevent *ssl_bev = NULL;
 
-    struct bufferevent *fifo_bev = NULL;
-    int fifo_fd = -1;
+    /*
+     * Estructuras que manejan la salida de datos hacia el cliente
+     */
+    
+    struct bufferevent *fifo_output_bev = NULL;
+    int fifo_output_fd = -1;
+    std::string fifo_output_filename = "";
+
+    /*
+     * Estructuras que manejan la antrada de datos desde el cliente
+     */
+    
+    struct bufferevent *fifo_input_bev = NULL;
+    int fifo_input_fd = -1;
+    std::string fifo_input_filename = "";
+        
     
     JSONBuffer json_buffer;
 
     std::string access_token = "";
-    std::string fifo_filename = "";
-
-    //std::string user_id = "";
-    //std::string user_token = "";
-    
-    //int authenticated = false;
-    //std::string connection_id = "";
-    
     std::string status = "";
     std::string id = "";
 

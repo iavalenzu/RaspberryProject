@@ -73,17 +73,18 @@ sql::ResultSet* DatabaseAdapter::getDeviceByAccessToken(std::string token) {
 
 }
 
-sql::ResultSet* DatabaseAdapter::connectDevice(std::string device_id, std::string device_fifo_name) {
+sql::ResultSet* DatabaseAdapter::connectDevice(std::string device_id, std::string device_output_fifo_name, std::string device_input_fifo_name) {
 
 try {
 
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
-        pstmt = this->con->prepareStatement("UPDATE devices SET fifo_name = ?, status = ?, modified = NOW() WHERE id = ?");
-        pstmt->setString(1, device_fifo_name);
-        pstmt->setString(2, "1");
-        pstmt->setString(3, device_id);
+        pstmt = this->con->prepareStatement("UPDATE devices SET output_fifo_name = ?, input_fifo_name = ?, status = ?, modified = NOW() WHERE id = ?");
+        pstmt->setString(1, device_output_fifo_name);
+        pstmt->setString(2, device_input_fifo_name);
+        pstmt->setString(3, "1");
+        pstmt->setString(4, device_id);
 
         int update_count = pstmt->executeUpdate();
 

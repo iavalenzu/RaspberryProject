@@ -11,6 +11,7 @@
 #include <openssl/ssl.h>
 #include <openssl/err.h>
 #include <openssl/rand.h>
+#include <unistd.h>
 #include <sstream>
 
 class Utilities {
@@ -19,7 +20,7 @@ public:
     Utilities(const Utilities& orig);
     virtual ~Utilities();
     static std::string char_to_string(unsigned char *rand_bytes);
-    static std::string get_unique_filename(std::string basepath);
+    static std::string get_unique_filename(std::string basepath, int max_attempts);
 private:
 
 };

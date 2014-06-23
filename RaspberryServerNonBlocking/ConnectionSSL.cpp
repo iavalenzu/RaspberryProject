@@ -24,7 +24,7 @@ ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL
      * Se definen los callbacks asociados al buffer de objetos JSON
      */
 
-    this->json_buffer.setCallbacks(ConnectionSSL::successJSONCallback, ConnectionSSL::errorJSONCallback, this);
+    this->json_buffer.setCallbacks(ConnectionSSL::successJsonCallback, ConnectionSSL::errorJsonCallback, this);
 
 }
 
@@ -53,28 +53,72 @@ void ConnectionSSL::closeConnection() {
         this->ssl_bev = NULL;
     }
 
-    if (this->fifo_bev != NULL) {
-        bufferevent_free(this->fifo_bev);
-        this->fifo_bev = NULL;
+    /*
+     * Se cierra el fifo de salida hacia el cliente
+     */
+    this->closeOutputFifo();
+
+    /*
+     * Se cierra el fifo de entrada desde el cliente     
+     */
+
+    this->closeInputFifo();
+
+    /*
+     * Marca la connecion como inactiva
+     */
+    
+    this->connection_active = false;
+}
+
+void ConnectionSSL::closeOutputFifo() {
+
+    if (this->fifo_output_bev != NULL) {
+        bufferevent_free(this->fifo_output_bev);
+        this->fifo_output_bev = NULL;
     }
 
-    if (this->fifo_fd != -1) {
-        if (close(this->fifo_fd) == 0) {
-            this->fifo_fd = -1;
+    if (this->fifo_output_fd != -1) {
+        if (close(this->fifo_output_fd) == 0) {
+            this->fifo_output_fd = -1;
         } else {
             std::cout << "Error al cerrar el file descriptor." << std::endl;
         }
     }
 
-    if (!this->fifo_filename.empty()) {
-        if (unlink(this->fifo_filename.c_str()) == 0) {
-            this->fifo_filename.clear();
+    if (!this->fifo_output_filename.empty()) {
+        if (unlink(this->fifo_output_filename.c_str()) == 0) {
+            this->fifo_output_filename.clear();
         } else {
             std::cout << "Error al remover el enlace al archivo." << std::endl;
         }
     }
 
-    this->connection_active = false;
+}
+
+void ConnectionSSL::closeInputFifo() {
+
+    if (this->fifo_input_bev != NULL) {
+        bufferevent_free(this->fifo_input_bev);
+        this->fifo_input_bev = NULL;
+    }
+
+    if (this->fifo_input_fd != -1) {
+        if (close(this->fifo_input_fd) == 0) {
+            this->fifo_input_fd = -1;
+        } else {
+            std::cout << "Error al cerrar el file descriptor." << std::endl;
+        }
+    }
+
+    if (!this->fifo_input_filename.empty()) {
+        if (unlink(this->fifo_input_filename.c_str()) == 0) {
+            this->fifo_input_filename.clear();
+        } else {
+            std::cout << "Error al remover el enlace al archivo." << std::endl;
+        }
+    }
+
 }
 
 int ConnectionSSL::isActive() {
@@ -113,42 +157,88 @@ void ConnectionSSL::createSecureBufferEvent(int _connection_fd, SSL* _ssl) {
 
 }
 
-void ConnectionSSL::createAssociatedFifo() {
+void ConnectionSSL::createOutputFifo() {
 
-    std::cout << "Creando FIFO en '" << this->fifo_filename.c_str() << "'" << std::endl;
+    std::cout << "Creando Output FIFO en '" << this->fifo_output_filename.c_str() << "'" << std::endl;
 
-    if (unlink(this->fifo_filename.c_str()) == 0) {
+    if (unlink(this->fifo_output_filename.c_str()) == 0) {
         std::cout << "El FIFO ya existia previamente!!" << std::endl;
     }
-
-    if (mkfifo(this->fifo_filename.c_str(), 0600) == -1) {
+    
+    if (mkfifo(this->fifo_output_filename.c_str(), 0600) == -1) {
         perror("mkfifo");
         this->closeConnection();
     }
 
-    this->fifo_fd = open(this->fifo_filename.c_str(), O_RDONLY | O_NONBLOCK, 0);
-
-    if (this->fifo_fd == -1) {
+    this->fifo_output_fd = open(this->fifo_output_filename.c_str(), O_RDONLY | O_NONBLOCK, 0);
+    
+    if (this->fifo_output_fd == -1) {
         perror("open");
         this->closeConnection();
     }
 
-    this->fifo_bev = bufferevent_new(this->fifo_fd, ConnectionSSL::readFIFOCallback, NULL, ConnectionSSL::eventFIFOCallback, this);
+    this->fifo_output_bev = bufferevent_new(this->fifo_output_fd, ConnectionSSL::readOutputFifoCallback, NULL, ConnectionSSL::eventOutputFifoCallback, this);
 
-    if (this->fifo_bev == NULL) {
+    if (this->fifo_output_bev == NULL) {
         std::cout << "El nuevo bufferevent del FIFO es nulo" << std::endl;
         this->closeConnection();
     }
 
-    if (bufferevent_base_set(this->evbase, this->fifo_bev) == -1) {
+    if (bufferevent_base_set(this->evbase, this->fifo_output_bev) == -1) {
         std::cout << "bufferevent_base_set failure" << std::endl;
         this->closeConnection();
     }
 
-    if (bufferevent_enable(this->fifo_bev, EV_READ) == -1) {
+    if (bufferevent_enable(this->fifo_output_bev, EV_READ) == -1) {
         std::cout << "bufferevent_enable failure" << std::endl;
         this->closeConnection();
     }
+
+}
+
+void ConnectionSSL::createInputFifo() {
+
+    std::cout << "Creando Input FIFO en '" << this->fifo_input_filename.c_str() << "'" << std::endl;
+
+    if (unlink(this->fifo_input_filename.c_str()) == 0) {
+        std::cout << "El FIFO ya existia previamente!!" << std::endl;
+    }
+
+    if (mkfifo(this->fifo_input_filename.c_str(), 0600) == -1) {
+        perror("mkfifo");
+        this->closeConnection();
+    }
+
+    this->fifo_input_fd = open(this->fifo_input_filename.c_str(), O_RDWR | O_NONBLOCK, 0);
+
+    if (this->fifo_input_fd == -1) {
+        perror("open");
+        this->closeConnection();
+    }
+    
+    this->fifo_input_bev = bufferevent_new(this->fifo_input_fd, NULL, ConnectionSSL::writeInputFifoCallback, ConnectionSSL::eventInputFifoCallback, this);
+
+    if (this->fifo_input_bev == NULL) {
+        std::cout << "El nuevo bufferevent del FIFO es nulo" << std::endl;
+        this->closeConnection();
+    }
+
+    if (bufferevent_base_set(this->evbase, this->fifo_input_bev) == -1) {
+        std::cout << "bufferevent_base_set failure" << std::endl;
+        this->closeConnection();
+    }
+
+    if (bufferevent_enable(this->fifo_input_bev, EV_READ) == -1) {
+        std::cout << "bufferevent_enable failure" << std::endl;
+        this->closeConnection();
+    }
+
+}
+
+void ConnectionSSL::createAssociatedFifos() {
+
+    this->createInputFifo();
+    this->createOutputFifo();
 
 }
 
@@ -180,7 +270,7 @@ void ConnectionSSL::eventSSLCallback(struct bufferevent *bev, short events, void
     }
 }
 
-void ConnectionSSL::successJSONCallback(JSONNode &json, void *arg) {
+void ConnectionSSL::successJsonCallback(JSONNode &json, void *arg) {
 
     std::cout << "Recibo con exito una cadena json..." << std::endl;
 
@@ -191,9 +281,15 @@ void ConnectionSSL::successJSONCallback(JSONNode &json, void *arg) {
 
     connection_ssl->incoming_action_executor.execute(incoming_notification, connection_ssl);
 
+
+    std::string data = incoming_notification.toString();
+
+    bufferevent_write(connection_ssl->fifo_input_bev, data.data(), data.size());
+
+
 }
 
-void ConnectionSSL::errorJSONCallback(int code, void *arg) {
+void ConnectionSSL::errorJsonCallback(int code, void *arg) {
 
     std::cout << "Tengo problemas al recibir la cadena json..." << std::endl;
 
@@ -260,7 +356,7 @@ int ConnectionSSL::saveNotificationResponseOnDatabase(Notification notification)
     return false;
 }
 
-void ConnectionSSL::eventFIFOCallback(struct bufferevent *bev, short events, void *arg) {
+void ConnectionSSL::eventOutputFifoCallback(struct bufferevent *bev, short events, void *arg) {
 
     if (events & BEV_EVENT_READING) {
         std::cout << "BEV_EVENT_READING" << std::endl;
@@ -277,9 +373,26 @@ void ConnectionSSL::eventFIFOCallback(struct bufferevent *bev, short events, voi
     }
 }
 
-void ConnectionSSL::readFIFOCallback(struct bufferevent *bev, void *arg) {
+void ConnectionSSL::eventInputFifoCallback(struct bufferevent *bev, short events, void *arg) {
 
-    std::cout << "Reading from FIFO connection..." << std::endl;
+    if (events & BEV_EVENT_READING) {
+        std::cout << "BEV_EVENT_READING" << std::endl;
+    } else if (events & BEV_EVENT_WRITING) {
+        std::cout << "BEV_EVENT_WRITING" << std::endl;
+    } else if (events & BEV_EVENT_ERROR) {
+        std::cout << "BEV_EVENT_ERROR" << std::endl;
+    } else if (events & BEV_EVENT_TIMEOUT) {
+        std::cout << "BEV_EVENT_WRITING" << std::endl;
+    } else if (events & BEV_EVENT_EOF) {
+        std::cout << "BEV_EVENT_EOF" << std::endl;
+    } else if (events & BEV_EVENT_CONNECTED) {
+        std::cout << "CBEV_EVENT_CONNECTED" << std::endl;
+    }
+}
+
+void ConnectionSSL::readOutputFifoCallback(struct bufferevent *bev, void *arg) {
+
+    std::cout << "Reading from Output FIFO connection..." << std::endl;
 
     struct bufferevent *connection_ssl_bev;
 
@@ -296,6 +409,12 @@ void ConnectionSSL::readFIFOCallback(struct bufferevent *bev, void *arg) {
 
 }
 
+void ConnectionSSL::writeInputFifoCallback(struct bufferevent *bev, void *arg) {
+
+    std::cout << "Writing on Input FIFO connection..." << std::endl;
+
+}
+
 int ConnectionSSL::checkCredentialsOnDatabase() {
 
     /*
@@ -309,28 +428,29 @@ int ConnectionSSL::checkCredentialsOnDatabase() {
         sql::ResultSet* device = dba.getDeviceByAccessToken(this->access_token);
 
         if (device != NULL) {
-            
+
             this->status = device->getString("status");
             this->id = device->getString("id");
 
             if (this->status.compare("0") == 0) {
-                
+
                 //Si el device esta desconectado lo conectamos
 
-                this->fifo_filename = Utilities::get_unique_filename(FIFOS_DIR);
+                this->fifo_output_filename = Utilities::get_unique_filename(FIFOS_DIR, MAX_UNIQUE_NAME_GENERATION_ATTEMPS);
+                this->fifo_input_filename = Utilities::get_unique_filename(FIFOS_DIR, MAX_UNIQUE_NAME_GENERATION_ATTEMPS);
 
-                device = dba.connectDevice(this->id, this->fifo_filename); 
-                
+                device = dba.connectDevice(this->id, this->fifo_output_filename, this->fifo_input_filename);
+
                 if (device != NULL) {
-                    
+
                     this->status = device->getString("status");
 
                     /*
                      * Se crea el fifo asociado a la coneccion
                      */
 
-                    this->createAssociatedFifo();
-                    
+                    this->createAssociatedFifos();
+
                     return this->status.compare("1") == 0;
 
                 }
@@ -340,12 +460,6 @@ int ConnectionSSL::checkCredentialsOnDatabase() {
         }
 
     }
-
-    /*
-     * Borramos los valores asociados al dispositivo
-     */
-
-    this->clearCredentials();
 
     return false;
 
@@ -362,16 +476,4 @@ int ConnectionSSL::disconnectFromDatabase() {
     this->status = device->getString("status");
 
     return this->status.compare("0") == 0;
-}
-
-void ConnectionSSL::clearCredentials() {
-
-    this->access_token.clear();
-    this->status = "0";
-    //this->authenticated = false;
-    //this->connection_id.clear();
-    //this->user_id.clear();
-    //this->user_token.clear();
-    this->connection_active = false;
-
 }

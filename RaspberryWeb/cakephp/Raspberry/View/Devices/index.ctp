@@ -4,7 +4,8 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('user_id'); ?></th>
-			<th><?php echo $this->Paginator->sort('fifo_name'); ?></th>
+			<th><?php echo $this->Paginator->sort('output_fifo_name'); ?></th>
+			<th><?php echo $this->Paginator->sort('input_fifo_name'); ?></th>
 			<th><?php echo $this->Paginator->sort('access_token'); ?></th>
 			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th><?php echo $this->Paginator->sort('status'); ?></th>
@@ -18,7 +19,8 @@
 		<td>
 			<?php echo $this->Html->link($device['User']['name'], array('controller' => 'users', 'action' => 'view', $device['User']['id'])); ?>
 		</td>
-		<td><?php echo h($device['Device']['fifo_name']); ?>&nbsp;</td>
+		<td><?php echo h($device['Device']['output_fifo_name']); ?>&nbsp;</td>
+		<td><?php echo h($device['Device']['input_fifo_name']); ?>&nbsp;</td>
 		<td><?php echo h($device['Device']['access_token']); ?>&nbsp;</td>
 		<td><?php echo h($device['Device']['name']); ?>&nbsp;</td>
 		<td><?php echo h($device['Device']['status']); ?>&nbsp;</td>

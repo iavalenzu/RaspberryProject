@@ -33,16 +33,28 @@ std::string Utilities::char_to_string(unsigned char *rand_bytes) {
 
 //TODO Revisar si el nombre del fifo efectivamente es unico, buscando en la carpeta
 
-std::string Utilities::get_unique_filename(std::string basepath) {
+std::string Utilities::get_unique_filename(std::string basepath, int max_attempts) {
 
     unsigned char rand_bytes[32];
-    
-    RAND_bytes(rand_bytes, sizeof(rand_bytes));
 
-    std::ostringstream filename;
+    int attempts = 0;
 
-    filename << basepath << Utilities::char_to_string(rand_bytes) << ".fifo";
+    while (attempts < max_attempts) {
 
-    return filename.str();
+        RAND_bytes(rand_bytes, sizeof (rand_bytes));
+
+        std::ostringstream filename;
+
+        filename << basepath << Utilities::char_to_string(rand_bytes) << ".fifo";
+
+        std::string out = filename.str();
+        
+        if( access(out.c_str(), F_OK) == -1 ) {
+            return out;
+        }
+
+    }
+
+    exit(EXIT_FAILURE);
 
 }
