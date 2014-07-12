@@ -201,22 +201,90 @@ int DatabaseModel::update(std::map< std::string, std::string > *_sets, std::map<
 
 }
 
+std::string DatabaseModel::parseKeyValues(std::map< std::string, std::string >* _values) {
+
+    std::string insert = "";
+
+    if (_values == NULL || _values->empty()) {
+        insert = "()";
+    } else {
+
+        insert = "(";
+
+        int count = 0;
+        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it, count++) {
+
+            insert += it->first;
+
+            if (count < _values->size() - 1) {
+                insert += ", ";
+            }
+
+        }
+        
+        insert += ")";
+
+    }
+
+    return insert;
+
+}
+
+std::string DatabaseModel::parseValues(std::map< std::string, std::string >* _values) {
+
+    std::string insert = "";
+
+    if (_values == NULL || _values->empty()) {
+        insert = "VALUES()";
+    } else {
+
+        insert = "VALUES(";
+
+        for(int count = 0; count < _values->size(); count++){
+        
+            insert += "?";
+        
+            if (count < _values->size() - 1) {
+                insert += ", ";
+            }
+            
+        }
+                
+        insert += ")";
+
+    }
+
+    return insert;
+
+}
+
+void DatabaseModel::setInsertValues(std::map< std::string, std::string >* _values, sql::PreparedStatement *pstmt){
+ 
+    if (_values != NULL && !_values->empty()) {
+
+        int count = 1;
+        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it, count++) {
+            pstmt->setString(count, it->second);
+        }
+
+    }
+
+}
+
 int DatabaseModel::insert(std::map< std::string, std::string > *_values) {
 
     try {
 
         sql::Connection *con;
         sql::PreparedStatement *pstmt;
-        
+
         con = this->db_source.getConnection();
 
         std::string query = "INSERT INTO " + this->table_name + " " + this->parseKeyValues(_values) + " " + this->parseValues(_values);
-        
 
-        pstmt = this->con->prepareStatement("INSERT INTO responses(notification_id, data, status, created, modified) VALUES(?,?,?, NOW(), NOW())");
-        pstmt->setString(1, notification_id);
-        pstmt->setString(2, data);
-        pstmt->setString(3, "1");
+        pstmt = con->prepareStatement(query);
+        
+        this->setInsertValues(_values, pstmt);
 
         return pstmt->executeUpdate();
 

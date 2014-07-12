@@ -54,6 +54,10 @@ public:
     
     int insert(std::map< std::string, std::string > *_values);
     
+    std::string parseKeyValues(std::map< std::string, std::string >* _values);
+    std::string parseValues(std::map< std::string, std::string >* _values);
+    void setInsertValues(std::map< std::string, std::string >* _values, sql::PreparedStatement *pstmt);
+ 
     
 private:
 
