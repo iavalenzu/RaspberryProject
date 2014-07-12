@@ -4,14 +4,10 @@ App::uses('AppModel', 'Model');
  * Device Model
  *
  * @property User $User
+ * @property Fifo $Fifo
  * @property DevicesNotifications $DevicesNotifications
  */
 class Device extends AppModel {
-    
-    
-        public $status_disconnected = 0;
-        public $status_connected = 1;
-    
 
 /**
  * Display field
@@ -44,6 +40,19 @@ class Device extends AppModel {
  * @var array
  */
 	public $hasMany = array(
+		'Fifo' => array(
+			'className' => 'Fifo',
+			'foreignKey' => 'device_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'DevicesNotifications' => array(
 			'className' => 'DevicesNotifications',
 			'foreignKey' => 'device_id',

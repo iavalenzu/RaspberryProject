@@ -10,6 +10,8 @@
 #include "ConnectionSSL.h"
 #include "Utilities.h"
 
+
+
 ConnectionSSL::ConnectionSSL(int _connection_fd, struct event_base* _evbase, SSL* _ssl) {
 
     this->evbase = _evbase;
@@ -432,7 +434,7 @@ int ConnectionSSL::checkCredentialsOnDatabase() {
             this->status = device->getString("status");
             this->id = device->getString("id");
 
-            if (this->status.compare("0") == 0) {
+            if (this->status.compare(DeviceModel::status_disconnected) == 0) {
 
                 //Si el device esta desconectado lo conectamos
 

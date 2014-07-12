@@ -95,6 +95,14 @@
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionResponsePinMeter.cpp</itemPath>
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ActionResponsePinMeter.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f5" displayName="Model" projectFiles="true">
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseSource.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseSource.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.h</itemPath>
+      </logicalFolder>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.h</itemPath>
       <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp</itemPath>
@@ -143,7 +151,6 @@
         </ccTool>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/usr/local/lib/libyajl.2.1.0.dylib</linkerLibFileItem>
             <linkerLibFileItem>/usr/local/lib/libmysqlcppconn.dylib</linkerLibFileItem>
             <linkerLibFileItem>/usr/local/lib/libevent_openssl-2.0.5.dylib</linkerLibFileItem>
           </linkerLibItems>
@@ -221,6 +228,36 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseSource.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseSource.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -599,6 +636,36 @@
             flavor2="0">
       </item>
       <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseSource.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseSource.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.h"
             ex="false"
             tool="3"
             flavor2="0">

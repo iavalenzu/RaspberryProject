@@ -37,6 +37,8 @@
 #include "DatabaseAdapter.h"
 #include "Utilities.h"
 
+#include "DeviceModel.h"
+
 
 using namespace std;
 

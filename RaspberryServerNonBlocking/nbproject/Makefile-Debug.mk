@@ -42,6 +42,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/441878278/ActionResponsePinMeter.o \
 	${OBJECTDIR}/_ext/441878278/ConnectionSSL.o \
 	${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o \
+	${OBJECTDIR}/_ext/441878278/DatabaseModel.o \
+	${OBJECTDIR}/_ext/441878278/DatabaseSource.o \
+	${OBJECTDIR}/_ext/441878278/DeviceModel.o \
 	${OBJECTDIR}/_ext/441878278/IncomingAction.o \
 	${OBJECTDIR}/_ext/441878278/IncomingActionExecutor.o \
 	${OBJECTDIR}/_ext/441878278/IncomingActionFactory.o \
@@ -80,13 +83,11 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=/usr/local/lib/libyajl.2.1.0.dylib /usr/local/lib/libmysqlcppconn.dylib /usr/local/lib/libevent_openssl-2.0.5.dylib
+LDLIBSOPTIONS=/usr/local/lib/libmysqlcppconn.dylib /usr/local/lib/libevent_openssl-2.0.5.dylib
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
 	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking
-
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking: /usr/local/lib/libyajl.2.1.0.dylib
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/raspberryservernonblocking: /usr/local/lib/libmysqlcppconn.dylib
 
@@ -130,6 +131,21 @@ ${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o: /Users/Ismael/NetBeansProjects/Ra
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/DatabaseAdapter.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp
+
+${OBJECTDIR}/_ext/441878278/DatabaseModel.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/DatabaseModel.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.cpp
+
+${OBJECTDIR}/_ext/441878278/DatabaseSource.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseSource.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/DatabaseSource.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseSource.cpp
+
+${OBJECTDIR}/_ext/441878278/DeviceModel.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/441878278
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -w -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/441878278/DeviceModel.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.cpp
 
 ${OBJECTDIR}/_ext/441878278/IncomingAction.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/IncomingAction.cpp 
 	${MKDIR} -p ${OBJECTDIR}/_ext/441878278

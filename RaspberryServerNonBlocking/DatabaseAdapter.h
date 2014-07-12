@@ -33,6 +33,7 @@ class DatabaseAdapter {
 public:
     DatabaseAdapter();
     virtual ~DatabaseAdapter();
+    
     sql::ResultSet* getDeviceByAccessToken(std::string token);
     //sql::ResultSet* getLastNotificationByAccessToken(std::string token);
     //sql::ResultSet* getLastNotificationByConnectionId(std::string connection_id);

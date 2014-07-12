@@ -18,6 +18,12 @@ class DevicesController extends AppController {
     public $components = array('Paginator');
     public $uses = array('Device', 'DevicesNotification', 'Notification');
 
+    
+    public function websocket(){
+        $this->autoLayout = false;
+        
+    }
+    
     /**
      * index method
      *
