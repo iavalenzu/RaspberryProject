@@ -27,19 +27,31 @@ void DatabaseModel::setTable(std::string _table) {
     this->table_name = _table;
 }
 
-std::string DatabaseModel::parseSelect(std::vector<std::string> *_select) {
+std::string DatabaseModel::createSelectExpr(std::vector<std::string> *_select) {
 
     std::string select_fields = "";
+    std::string tmp;
+
+    /*
+     * Si la lista de campos a seleccionar es NULA o vacia por defecto los seleccionamos todos *
+     */
 
     if (_select == NULL || _select->empty()) {
         select_fields = "*";
     } else {
 
         for (int i = 0; i < _select->size(); i++) {
-            select_fields += _select->at(i);
 
-            if (i < _select->size() - 1)
-                select_fields += ", ";
+            tmp = _select->at(i);
+
+            if (!tmp.empty()) {
+
+                select_fields += tmp;
+
+                if (i < _select->size() - 1)
+                    select_fields += ", ";
+
+            }
 
         }
     }
@@ -48,9 +60,10 @@ std::string DatabaseModel::parseSelect(std::vector<std::string> *_select) {
 
 }
 
-std::string DatabaseModel::parseConditions(std::map< std::string, std::string >* _conditions) {
+std::string DatabaseModel::createWhereConditions(std::map< std::string, std::string >* _conditions) {
 
     std::string conditions = "";
+    std::string variable, value;
 
     if (_conditions == NULL || _conditions->empty()) {
         conditions = "";
@@ -61,10 +74,17 @@ std::string DatabaseModel::parseConditions(std::map< std::string, std::string >*
         int count = 0;
         for (std::map<std::string, std::string>::iterator it = _conditions->begin(); it != _conditions->end(); ++it, count++) {
 
-            conditions += it->first + " = ? ";
+            variable = it->first;
+            value = it->second;
 
-            if (count < _conditions->size() - 1) {
-                conditions += "AND ";
+            if (!variable.empty() && !value.empty()) {
+
+                conditions += variable + " = ? ";
+
+                if (count < _conditions->size() - 1) {
+                    conditions += "AND ";
+                }
+
             }
 
         }
@@ -77,43 +97,57 @@ std::string DatabaseModel::parseConditions(std::map< std::string, std::string >*
 
 void DatabaseModel::setConditionsValues(std::map< std::string, std::string >* _conditions, sql::PreparedStatement *pstmt) {
 
+    std::string variable, value;
+
     if (_conditions != NULL && !_conditions->empty()) {
 
         int count = 1;
-        for (std::map<std::string, std::string>::iterator it = _conditions->begin(); it != _conditions->end(); ++it, count++) {
-            pstmt->setString(count, it->second);
+        for (std::map<std::string, std::string>::iterator it = _conditions->begin(); it != _conditions->end(); ++it) {
+            variable = it->first;
+            value = it->second;
+
+            if (!variable.empty() && !value.empty()) {
+                pstmt->setString(count, value);
+                count++;
+            }
         }
 
     }
 
 }
 
-std::string DatabaseModel::parseLimit(int _limit) {
+std::string DatabaseModel::createLimit(int _limit) {
 
     std::string limit = "";
 
     if (_limit > 0) {
         limit = "LIMIT " + std::to_string(_limit);
-        ;
     }
 
     return limit;
 
 }
 
-std::string DatabaseModel::parseOrderBy(std::vector<std::string> *_order) {
+std::string DatabaseModel::createOrderBy(std::vector<std::string> *_order) {
 
     std::string order = "";
+    std::string tmp;
 
     if (_order != NULL && !_order->empty()) {
 
         order = "ORDER BY ";
 
         for (int i = 0; i < _order->size(); i++) {
-            order += _order->at(i);
 
-            if (i < _order->size() - 1)
-                order += ", ";
+            tmp = _order->at(i);
+
+            if (!tmp.empty()) {
+
+                order += tmp;
+
+                if (i < _order->size() - 1)
+                    order += ", ";
+            }
 
         }
     }
@@ -124,11 +158,19 @@ std::string DatabaseModel::parseOrderBy(std::vector<std::string> *_order) {
 
 void DatabaseModel::setSetsValues(std::map< std::string, std::string >* _sets, sql::PreparedStatement *pstmt) {
 
+    std::string variable, value;
+
     if (_sets != NULL && !_sets->empty()) {
 
         int count = 1;
-        for (std::map<std::string, std::string>::iterator it = _sets->begin(); it != _sets->end(); ++it, count++) {
-            pstmt->setString(count, it->second);
+        for (std::map<std::string, std::string>::iterator it = _sets->begin(); it != _sets->end(); ++it) {
+            variable = it->first;
+            value = it->second;
+
+            if (!variable.empty() && !value.empty()) {
+                pstmt->setString(count, value);
+                count++;
+            }
         }
 
     }
@@ -138,6 +180,7 @@ void DatabaseModel::setSetsValues(std::map< std::string, std::string >* _sets, s
 std::string DatabaseModel::parseSets(std::map< std::string, std::string >* _sets) {
 
     std::string sets = "";
+    std::string variable, value;
 
     if (_sets == NULL || _sets->empty()) {
         sets = "";
@@ -148,10 +191,17 @@ std::string DatabaseModel::parseSets(std::map< std::string, std::string >* _sets
         int count = 0;
         for (std::map<std::string, std::string>::iterator it = _sets->begin(); it != _sets->end(); ++it, count++) {
 
-            sets += it->first + " = ? ";
+            variable = it->first;
+            value = it->second;
 
-            if (count < _sets->size() - 1) {
-                sets += ", ";
+            if (!variable.empty() && !value.empty()) {
+
+                sets += variable + " = ? ";
+
+                if (count < _sets->size() - 1) {
+                    sets += ", ";
+                }
+
             }
 
         }
@@ -178,7 +228,7 @@ int DatabaseModel::update(std::map< std::string, std::string > *_sets, std::map<
         sql::Connection *con;
         sql::PreparedStatement *pstmt;
 
-        std::string query = "UPDATE " + this->table_name + " " + this->parseSets(_sets) + " " + this->parseConditions(_conditions);
+        std::string query = "UPDATE " + this->table_name + " " + this->parseSets(_sets) + " " + this->createWhereConditions(_conditions);
 
         con = this->db_source.getConnection();
 
@@ -204,6 +254,7 @@ int DatabaseModel::update(std::map< std::string, std::string > *_sets, std::map<
 std::string DatabaseModel::parseKeyValues(std::map< std::string, std::string >* _values) {
 
     std::string insert = "";
+    std::string variable, value;
 
     if (_values == NULL || _values->empty()) {
         insert = "()";
@@ -214,14 +265,21 @@ std::string DatabaseModel::parseKeyValues(std::map< std::string, std::string >* 
         int count = 0;
         for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it, count++) {
 
-            insert += it->first;
+            variable = it->first;
+            value = it->second;
 
-            if (count < _values->size() - 1) {
-                insert += ", ";
+            if (!variable.empty() && !value.empty()) {
+
+                insert += variable;
+
+                if (count < _values->size() - 1) {
+                    insert += ", ";
+                }
+
             }
 
         }
-        
+
         insert += ")";
 
     }
@@ -233,6 +291,7 @@ std::string DatabaseModel::parseKeyValues(std::map< std::string, std::string >* 
 std::string DatabaseModel::parseValues(std::map< std::string, std::string >* _values) {
 
     std::string insert = "";
+    std::string variable, value;
 
     if (_values == NULL || _values->empty()) {
         insert = "VALUES()";
@@ -240,16 +299,21 @@ std::string DatabaseModel::parseValues(std::map< std::string, std::string >* _va
 
         insert = "VALUES(";
 
-        for(int count = 0; count < _values->size(); count++){
-        
-            insert += "?";
-        
-            if (count < _values->size() - 1) {
-                insert += ", ";
+        int count = 0;
+        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it, count++) {
+
+            variable = it->first;
+            value = it->second;
+
+            if (!variable.empty() && !value.empty()) {
+                insert += "?";
+
+                if (count < _values->size() - 1) {
+                    insert += ", ";
+                }
             }
-            
         }
-                
+
         insert += ")";
 
     }
@@ -258,13 +322,23 @@ std::string DatabaseModel::parseValues(std::map< std::string, std::string >* _va
 
 }
 
-void DatabaseModel::setInsertValues(std::map< std::string, std::string >* _values, sql::PreparedStatement *pstmt){
- 
+void DatabaseModel::setInsertValues(std::map< std::string, std::string >* _values, sql::PreparedStatement *pstmt) {
+
+    std::string variable, value;
+
     if (_values != NULL && !_values->empty()) {
 
         int count = 1;
-        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it, count++) {
-            pstmt->setString(count, it->second);
+        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it) {
+
+            variable = it->first;
+            value = it->second;
+
+            if (!variable.empty() && !value.empty()) {
+                pstmt->setString(count, value);
+                count++;
+            }
+
         }
 
     }
@@ -283,7 +357,7 @@ int DatabaseModel::insert(std::map< std::string, std::string > *_values) {
         std::string query = "INSERT INTO " + this->table_name + " " + this->parseKeyValues(_values) + " " + this->parseValues(_values);
 
         pstmt = con->prepareStatement(query);
-        
+
         this->setInsertValues(_values, pstmt);
 
         return pstmt->executeUpdate();
@@ -301,6 +375,10 @@ int DatabaseModel::insert(std::map< std::string, std::string > *_values) {
 
 }
 
+/*
+ * http://dev.mysql.com/doc/refman/5.0/en/select.html
+ */
+
 sql::ResultSet* DatabaseModel::select(std::vector<std::string> *_select, std::map< std::string, std::string > *_conditions, std::vector<std::string> *_order, int _limit) {
 
 
@@ -312,7 +390,7 @@ sql::ResultSet* DatabaseModel::select(std::vector<std::string> *_select, std::ma
 
         con = this->db_source.getConnection();
 
-        std::string query = "SELECT " + this->parseSelect(_select) + " FROM " + this->table_name + " " + this->parseConditions(_conditions) + " " + this->parseOrderBy(_order) + " " + this->parseLimit(_limit);
+        std::string query = "SELECT " + this->createSelectExpr(_select) + " FROM " + this->table_name + " " + this->createWhereConditions(_conditions) + " " + this->createOrderBy(_order) + " " + this->createLimit(_limit);
 
         std::cout << query << std::endl;
 

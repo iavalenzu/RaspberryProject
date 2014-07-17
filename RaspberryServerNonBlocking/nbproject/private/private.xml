@@ -14,7 +14,14 @@
             <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/Device.h</file>
         </group>
         <group name="Raspberry">
-            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/ConnectionSSL.cpp</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseAdapter.cpp</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/main.cpp</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.h</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.h</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.h</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DeviceModel.cpp</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.cpp</file>
+            <file>file:/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/DatabaseModel.cpp</file>
         </group>
     </open-files>
 </project-private>

@@ -35,13 +35,13 @@ public:
     DatabaseModel(const DatabaseModel& orig);
     virtual ~DatabaseModel();
 
-    std::string parseSelect(std::vector<std::string> *_select);
+    std::string createSelectExpr(std::vector<std::string> *_select);
     
-    std::string parseConditions(std::map< std::string, std::string > *_conditions);
+    std::string createWhereConditions(std::map< std::string, std::string > *_conditions);
     void setConditionsValues(std::map< std::string, std::string >* _conditions, sql::PreparedStatement *pstmt);
 
-    std::string parseOrderBy(std::vector<std::string> *_order);    
-    std::string parseLimit(int _limit);
+    std::string createOrderBy(std::vector<std::string> *_order);    
+    std::string createLimit(int _limit);
     
     std::string parseSets(std::map< std::string, std::string > *_sets);
     void setSetsValues(std::map< std::string, std::string >* _sets, sql::PreparedStatement *pstmt);
