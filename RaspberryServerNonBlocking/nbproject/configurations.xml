@@ -125,8 +125,8 @@
                      displayName="DatabaseModelTest"
                      projectFiles="true"
                      kind="TEST">
-        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.cpp</itemPath>
-        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.h</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestclass.cpp</itemPath>
+        <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestclass.h</itemPath>
         <itemPath>/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestrunner.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
@@ -554,12 +554,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestclass.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestclass.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -579,6 +579,7 @@
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
           <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
             <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
           </linkerLibItems>
         </linkerTool>
@@ -991,12 +992,12 @@
             tool="3"
             flavor2="0">
       </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.cpp"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestclass.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.h"
+      <item path="/Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestclass.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -1016,6 +1017,7 @@
         <linkerTool>
           <output>${TESTDIR}/TestFiles/f1</output>
           <linkerLibItems>
+            <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
             <linkerOptionItem>`cppunit-config --libs`</linkerOptionItem>
           </linkerLibItems>
         </linkerTool>

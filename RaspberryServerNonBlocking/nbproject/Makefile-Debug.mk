@@ -270,15 +270,15 @@ ${OBJECTDIR}/main.o: main.cpp
 
 # Build Test Targets
 .build-tests-conf: .build-conf ${TESTFILES}
-${TESTDIR}/TestFiles/f1: ${TESTDIR}/_ext/776693964/databasemodelclass.o ${TESTDIR}/_ext/776693964/newtestrunner.o ${OBJECTFILES:%.o=%_nomain.o}
+${TESTDIR}/TestFiles/f1: ${TESTDIR}/_ext/776693964/newtestclass.o ${TESTDIR}/_ext/776693964/newtestrunner.o ${OBJECTFILES:%.o=%_nomain.o}
 	${MKDIR} -p ${TESTDIR}/TestFiles
-	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} `cppunit-config --libs`   
+	${LINK.cc}   -o ${TESTDIR}/TestFiles/f1 $^ ${LDLIBSOPTIONS} `cppunit-config --libs` `cppunit-config --libs`   
 
 
-${TESTDIR}/_ext/776693964/databasemodelclass.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.cpp 
+${TESTDIR}/_ext/776693964/newtestclass.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestclass.cpp 
 	${MKDIR} -p ${TESTDIR}/_ext/776693964
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -w -I/usr/local/include `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/_ext/776693964/databasemodelclass.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/databasemodelclass.cpp
+	$(COMPILE.cc) -g -w -I/usr/local/include `cppunit-config --cflags` -MMD -MP -MF "$@.d" -o ${TESTDIR}/_ext/776693964/newtestclass.o /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestclass.cpp
 
 
 ${TESTDIR}/_ext/776693964/newtestrunner.o: /Users/Ismael/NetBeansProjects/RaspberryProject/RaspberryServerNonBlocking/tests/newtestrunner.cpp 

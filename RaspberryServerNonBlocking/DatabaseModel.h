@@ -27,11 +27,7 @@
 
 class DatabaseModel {
 public:
-    DatabaseModel();
-    void initConnection();
-    
-    void setTable(std::string _table);
-
+    DatabaseModel(std::string _table);    
     DatabaseModel(const DatabaseModel& orig);
     virtual ~DatabaseModel();
 
@@ -41,10 +37,10 @@ public:
     void setConditionsValues(std::map< std::string, std::string >* _conditions, sql::PreparedStatement *pstmt);
 
     std::string createOrderBy(std::vector<std::string> *_order);    
-    std::string createLimit(int _limit);
+    std::string createLimit(int _offset, int _limit);
     
-    std::string parseSets(std::map< std::string, std::string > *_sets);
-    void setSetsValues(std::map< std::string, std::string >* _sets, sql::PreparedStatement *pstmt);
+    std::string createSetsKeys(std::map< std::string, std::string > *_sets);
+    void createSetsValues(std::map< std::string, std::string >* _sets, sql::PreparedStatement *pstmt);
     
     
     sql::ResultSet* findBy(std::string _key, std::string _value, std::vector<std::string> *_select);

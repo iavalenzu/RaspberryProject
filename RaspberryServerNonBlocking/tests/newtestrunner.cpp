@@ -2,7 +2,7 @@
  * File:   newtestrunner.cpp
  * Author: Ismael
  *
- * Created on 15-07-2014, 04:22:59 PM
+ * Created on 17-07-2014, 07:47:50 PM
  */
 
 #include <cppunit/BriefTestProgressListener.h>

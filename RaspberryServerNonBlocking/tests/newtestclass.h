@@ -1,66 +1,61 @@
 /*
- * File:   databasemodelclass.h
+ * File:   newtestclass.h
  * Author: Ismael
  *
- * Created on 15-07-2014, 04:22:53 PM
+ * Created on 17-07-2014, 07:47:49 PM
  */
 
-#ifndef DATABASEMODELCLASS_H
-#define	DATABASEMODELCLASS_H
+#ifndef NEWTESTCLASS_H
+#define	NEWTESTCLASS_H
 
+#include <iostream>
 #include <cppunit/extensions/HelperMacros.h>
 
-class databasemodelclass : public CPPUNIT_NS::TestFixture {
-    CPPUNIT_TEST_SUITE(databasemodelclass);
+class newtestclass : public CPPUNIT_NS::TestFixture {
+    CPPUNIT_TEST_SUITE(newtestclass);
 
     CPPUNIT_TEST(testDatabaseModel);
-    CPPUNIT_TEST(testDatabaseModel2);
+    CPPUNIT_TEST(testCreateLimit);
+    CPPUNIT_TEST(testCreateOrderBy);
+    CPPUNIT_TEST(testCreateSelectExpr);
+    CPPUNIT_TEST(testCreateWhereConditions);
     CPPUNIT_TEST(testFindBy);
-    CPPUNIT_TEST(testInitConnection);
     CPPUNIT_TEST(testInsert);
-    CPPUNIT_TEST(testParseConditions);
     CPPUNIT_TEST(testParseKeyValues);
-    CPPUNIT_TEST(testParseLimit);
-    CPPUNIT_TEST(testParseOrderBy);
-    CPPUNIT_TEST(testParseSelect);
     CPPUNIT_TEST(testParseSets);
     CPPUNIT_TEST(testParseValues);
     CPPUNIT_TEST(testSelect);
     CPPUNIT_TEST(testSetConditionsValues);
     CPPUNIT_TEST(testSetInsertValues);
     CPPUNIT_TEST(testSetSetsValues);
-    CPPUNIT_TEST(testSetTable);
     CPPUNIT_TEST(testUpdate);
 
     CPPUNIT_TEST_SUITE_END();
 
 public:
-    databasemodelclass();
-    virtual ~databasemodelclass();
+    newtestclass();
+    virtual ~newtestclass();
     void setUp();
     void tearDown();
 
 private:
     void testDatabaseModel();
-    void testDatabaseModel2();
+    void testCreateLimit();
+    void testCreateOrderBy();
+    void testCreateSelectExpr();
+    void testCreateWhereConditions();
     void testFindBy();
-    void testInitConnection();
     void testInsert();
-    void testParseConditions();
     void testParseKeyValues();
-    void testParseLimit();
-    void testParseOrderBy();
-    void testParseSelect();
     void testParseSets();
     void testParseValues();
     void testSelect();
     void testSetConditionsValues();
     void testSetInsertValues();
     void testSetSetsValues();
-    void testSetTable();
     void testUpdate();
 
 };
 
-#endif	/* DATABASEMODELCLASS_H */
+#endif	/* NEWTESTCLASS_H */
 

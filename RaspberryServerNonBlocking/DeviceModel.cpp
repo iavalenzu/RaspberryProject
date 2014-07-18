@@ -23,11 +23,10 @@ const std::string DeviceModel::modified = "modified";
 const std::string DeviceModel::status_disconnected = "0";
 const std::string DeviceModel::status_connected = "1";
 
-DeviceModel::DeviceModel() : DatabaseModel() {
-    this->setTable("devices");
+DeviceModel::DeviceModel() : DatabaseModel("devices") {
 }
 
-DeviceModel::DeviceModel(const DeviceModel& orig) {
+DeviceModel::DeviceModel(const DeviceModel& orig) : DatabaseModel(orig.table_name) {
 }
 
 DeviceModel::~DeviceModel() {}
