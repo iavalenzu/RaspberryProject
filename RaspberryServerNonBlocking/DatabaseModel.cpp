@@ -22,6 +22,8 @@ DatabaseModel::DatabaseModel(const DatabaseModel& orig) {
 DatabaseModel::~DatabaseModel() {
 }
 
+//TESTED
+
 std::string DatabaseModel::createSelectExpr(std::vector<std::string> *_select) {
 
     std::string out = "";
@@ -36,26 +38,28 @@ std::string DatabaseModel::createSelectExpr(std::vector<std::string> *_select) {
 
             if (!tmp.empty()) {
 
-                if(first){
+                if (first) {
                     out += tmp;
                     first = false;
-                }else{
+                } else {
                     out += ", " + tmp;
                 }
             }
 
         }
     }
-    
-    if(out.empty()){
-        out = "SELECT ALL";
-    }else{
-        out = "SELECT " + out;
+
+    if (out.empty()) {
+        out = "SELECT ALL FROM " + this->table_name;
+    } else {
+        out = "SELECT " + out + " FROM " + this->table_name;
     }
 
     return out;
 
 }
+
+//TESTED
 
 std::string DatabaseModel::createWhereConditions(std::map< std::string, std::string >* _conditions) {
 
@@ -70,25 +74,25 @@ std::string DatabaseModel::createWhereConditions(std::map< std::string, std::str
             variable = it->first;
             value = it->second;
 
-            if (!variable.empty()){
-                
-                if(first){
-                    
-                    if(value == "NULL"){
+            if (!variable.empty()) {
+
+                if (first) {
+
+                    if (value == "NULL") {
                         out += variable + " IS NULL";
-                    }else{
+                    } else {
                         out += variable + " = ?";
                     }
-                    
+
                     first = false;
-                }else{
-                    
-                    if(value == "NULL"){
+                } else {
+
+                    if (value == "NULL") {
                         out += " AND " + variable + " IS NULL";
-                    }else{
+                    } else {
                         out += " AND " + variable + " = ?";
                     }
-                    
+
                 }
 
             }
@@ -96,8 +100,8 @@ std::string DatabaseModel::createWhereConditions(std::map< std::string, std::str
         }
 
     }
-    
-    if(!out.empty()){
+
+    if (!out.empty()) {
         out = "WHERE " + out;
     }
 
@@ -105,7 +109,7 @@ std::string DatabaseModel::createWhereConditions(std::map< std::string, std::str
 
 }
 
-void DatabaseModel::setConditionsValues(std::map< std::string, std::string >* _conditions, sql::PreparedStatement *pstmt) {
+void DatabaseModel::setWhereConditionsValues(std::map< std::string, std::string >* _conditions, sql::PreparedStatement *pstmt) {
 
     std::string variable, value;
 
@@ -116,15 +120,20 @@ void DatabaseModel::setConditionsValues(std::map< std::string, std::string >* _c
             variable = it->first;
             value = it->second;
 
-            if (!variable.empty() && !value.empty()) {
-                pstmt->setString(count, value);
-                count++;
+            if (!variable.empty()) {
+
+                if (value == "NULL") {
+                } else {
+                    pstmt->setString(count++, value);
+                }
             }
         }
 
     }
 
 }
+
+//TESTED
 
 std::string DatabaseModel::createLimit(int _offset, int _limit) {
 
@@ -137,6 +146,8 @@ std::string DatabaseModel::createLimit(int _offset, int _limit) {
     return cout;
 
 }
+
+//TESTED
 
 std::string DatabaseModel::createOrderBy(std::vector<std::string> *_order) {
 
@@ -152,27 +163,27 @@ std::string DatabaseModel::createOrderBy(std::vector<std::string> *_order) {
 
             if (!variable.empty()) {
 
-                if(first){
+                if (first) {
                     out += variable;
                     first = false;
-                }else{
+                } else {
                     out += ", " + variable;
                 }
             }
 
         }
-        
-        if(!out.empty()){
+
+        if (!out.empty()) {
             out = "ORDER BY " + out;
         }
-        
+
     }
 
     return out;
 
 }
 
-void DatabaseModel::createSetsValues(std::map< std::string, std::string >* _sets, sql::PreparedStatement *pstmt) {
+void DatabaseModel::createUpdateValues(std::map< std::string, std::string >* _sets, sql::PreparedStatement *pstmt) {
 
     std::string variable, value;
 
@@ -183,9 +194,12 @@ void DatabaseModel::createSetsValues(std::map< std::string, std::string >* _sets
             variable = it->first;
             value = it->second;
 
-            if (!variable.empty() && !value.empty()) {
-                pstmt->setString(count, value);
-                count++;
+            if (!variable.empty()) {
+
+                if (value == "NULL") {
+                } else {
+                    pstmt->setString(count++, value);
+                }
             }
         }
 
@@ -193,29 +207,41 @@ void DatabaseModel::createSetsValues(std::map< std::string, std::string >* _sets
 
 }
 
-std::string DatabaseModel::createSetsKeys(std::map< std::string, std::string >* _sets) {
+//TESTED
 
-    std::string sets = "";
+std::string DatabaseModel::createUpdateKeys(std::map< std::string, std::string >* _sets) {
+
+    std::string out = "";
     std::string variable, value;
+    bool first = true;
 
-    if (_sets == NULL || _sets->empty()) {
-        sets = "";
-    } else {
+    if (_sets != NULL && !_sets->empty()) {
 
-        sets = "SET ";
-
-        int count = 0;
-        for (std::map<std::string, std::string>::iterator it = _sets->begin(); it != _sets->end(); ++it, count++) {
+        for (std::map<std::string, std::string>::iterator it = _sets->begin(); it != _sets->end(); ++it) {
 
             variable = it->first;
             value = it->second;
 
-            if (!variable.empty() && !value.empty()) {
+            if (!variable.empty()) {
 
-                sets += variable + " = ? ";
+                if (first) {
 
-                if (count < _sets->size() - 1) {
-                    sets += ", ";
+                    if (value == "NULL") {
+                        out += variable + " = NULL";
+                    } else {
+                        out += variable + " = ?";
+                    }
+
+                    first = false;
+
+                } else {
+
+                    if (value == "NULL") {
+                        out += ", " + variable + " = NULL";
+                    } else {
+                        out += ", " + variable + " = ?";
+                    }
+
                 }
 
             }
@@ -224,117 +250,97 @@ std::string DatabaseModel::createSetsKeys(std::map< std::string, std::string >* 
 
     }
 
-    return sets;
-
-}
-
-sql::ResultSet* DatabaseModel::findBy(std::string _key, std::string _value, std::vector<std::string> *_select) {
-
-    std::map< std::string, std::string > _conditions;
-    _conditions[_key] = _value;
-
-    return this->select(_select, &_conditions, NULL, 1);
-
-}
-
-int DatabaseModel::update(std::map< std::string, std::string > *_sets, std::map< std::string, std::string > *_conditions) {
-
-    try {
-
-        sql::Connection *con;
-        sql::PreparedStatement *pstmt;
-
-        std::string query = "UPDATE " + this->table_name + " " + this->createSetsKeys(_sets) + " " + this->createWhereConditions(_conditions);
-
-        con = this->db_source.getConnection();
-
-        pstmt = con->prepareStatement(query);
-
-        this->createSetsValues(_sets, pstmt);
-        this->setConditionsValues(_conditions, pstmt);
-
-        return pstmt->executeUpdate();
-
-    } catch (sql::SQLException &e) {
-
-        std::cout << "SQLException: " << e.what() << std::endl;
-        std::cout << "SQLException: code > " << e.getErrorCode() << std::endl;
-        std::cout << "SQLException: state > " << e.getSQLState() << std::endl;
-
-        return -1;
-
+    if (!out.empty()) {
+        out = "UPDATE " + this->table_name + " SET " + out;
     }
 
+    return out;
+
 }
 
-std::string DatabaseModel::parseKeyValues(std::map< std::string, std::string >* _values) {
+//TESTED
 
-    std::string insert = "";
+std::string DatabaseModel::createInsertKeys(std::map< std::string, std::string >* _values) {
+
+    std::string out = "";
     std::string variable, value;
+    bool first = true;
 
-    if (_values == NULL || _values->empty()) {
-        insert = "()";
-    } else {
+    if (_values != NULL && !_values->empty()) {
 
-        insert = "(";
-
-        int count = 0;
-        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it, count++) {
+        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it) {
 
             variable = it->first;
             value = it->second;
 
-            if (!variable.empty() && !value.empty()) {
+            if (!variable.empty()) {
 
-                insert += variable;
-
-                if (count < _values->size() - 1) {
-                    insert += ", ";
+                if (first) {
+                    out += variable;
+                    first = false;
+                } else {
+                    out += "," + variable;
                 }
 
             }
 
         }
 
-        insert += ")";
-
     }
 
-    return insert;
+    if (!out.empty()) {
+        out = "INSERT INTO " + this->table_name + "(" + out + ")";
+    }
+
+
+    return out;
 
 }
 
-std::string DatabaseModel::parseValues(std::map< std::string, std::string >* _values) {
+//TESTED
 
-    std::string insert = "";
+std::string DatabaseModel::createInsertValues(std::map< std::string, std::string >* _values) {
+
+    std::string out = "";
     std::string variable, value;
+    bool first = true;
 
-    if (_values == NULL || _values->empty()) {
-        insert = "VALUES()";
-    } else {
+    if (_values != NULL && !_values->empty()) {
 
-        insert = "VALUES(";
-
-        int count = 0;
-        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it, count++) {
+        for (std::map<std::string, std::string>::iterator it = _values->begin(); it != _values->end(); ++it) {
 
             variable = it->first;
             value = it->second;
 
-            if (!variable.empty() && !value.empty()) {
-                insert += "?";
+            if (!variable.empty()) {
 
-                if (count < _values->size() - 1) {
-                    insert += ", ";
+                if (first) {
+                    if (value == "NULL") {
+                        out += "NULL";
+                    } else {
+                        out += "?";
+                    }
+
+                    first = false;
+                } else {
+
+                    if (value == "NULL") {
+                        out += ",NULL";
+                    } else {
+                        out += ",?";
+                    }
+
                 }
             }
         }
 
-        insert += ")";
-
     }
 
-    return insert;
+    if (!out.empty()) {
+        out = "VALUES(" + out + ")";
+    }
+
+    return out;
 
 }
 
@@ -350,15 +356,109 @@ void DatabaseModel::setInsertValues(std::map< std::string, std::string >* _value
             variable = it->first;
             value = it->second;
 
-            if (!variable.empty() && !value.empty()) {
-                pstmt->setString(count, value);
-                count++;
+            if (!variable.empty()) {
+
+                if (value == "NULL") {
+                } else {
+                    pstmt->setString(count++, value);
+                }
+
             }
 
         }
 
     }
 
+}
+
+//TESTED
+
+std::string DatabaseModel::createSelectQuery(std::vector<std::string> *_select, std::map< std::string, std::string > *_conditions, std::vector<std::string> *_order, int _offset, int _limit) {
+
+    std::string query = "";
+    std::string select = "";
+    std::string conditions = "";
+    std::string order = "";
+    std::string limit = "";
+
+    select = this->createSelectExpr(_select);
+
+    if (select.empty()) {
+        return "";
+    } else {
+        query += select;
+    }
+
+    conditions = this->createWhereConditions(_conditions);
+
+    if (!conditions.empty()) {
+        query += " " + conditions;
+    }
+
+    order = this->createOrderBy(_order);
+
+    if (!order.empty()) {
+        query += " " + order;
+    }
+
+    limit = this->createLimit(_offset, _limit);
+
+    if (!limit.empty()) {
+        query += " " + limit;
+    }
+
+    return query;
+
+}
+
+std::string DatabaseModel::createInsertQuery(std::map< std::string, std::string >* _values) {
+
+    std::string query = "";
+    std::string keys = "";
+    std::string values = "";
+
+    keys = this->createInsertKeys(_values);
+
+    if (keys.empty()) {
+        return "";
+    } else {
+        query += keys;
+    }
+
+    values = this->createInsertValues(_values);
+
+    if (values.empty()) {
+        return "";
+    } else {
+        query += " " + values;
+    }
+
+    return query;
+
+}
+
+std::string DatabaseModel::createUpdateQuery(std::map< std::string, std::string >* _values, std::map< std::string, std::string > *_conditions) {
+
+    std::string query = "";
+    std::string keys = "";
+    std::string conditions = "";
+
+    keys = this->createUpdateKeys(_values);
+    
+    if(keys.empty()){
+        return "";
+    }else{
+        query += keys;
+    }
+    
+    conditions = this->createWhereConditions(_conditions);
+    
+    if(!conditions.empty()){
+        query += " " + conditions;
+    }
+    
+    return query;
+    
 }
 
 int DatabaseModel::insert(std::map< std::string, std::string > *_values) {
@@ -370,7 +470,7 @@ int DatabaseModel::insert(std::map< std::string, std::string > *_values) {
 
         con = this->db_source.getConnection();
 
-        std::string query = "INSERT INTO " + this->table_name + " " + this->parseKeyValues(_values) + " " + this->parseValues(_values);
+        std::string query = "INSERT INTO " + this->table_name + " " + this->createInsertKeys(_values) + " " + this->createInsertValues(_values);
 
         pstmt = con->prepareStatement(query);
 
@@ -395,24 +495,27 @@ int DatabaseModel::insert(std::map< std::string, std::string > *_values) {
  * http://dev.mysql.com/doc/refman/5.0/en/select.html
  */
 
-sql::ResultSet* DatabaseModel::select(std::vector<std::string> *_select, std::map< std::string, std::string > *_conditions, std::vector<std::string> *_order, int _limit) {
+sql::ResultSet* DatabaseModel::select(std::vector<std::string> *_select, std::map< std::string, std::string > *_conditions, std::vector<std::string> *_order, int _offset, int _limit) {
 
 
     try {
 
+        std::string query = "";
         sql::Connection *con;
         sql::PreparedStatement *pstmt;
         sql::ResultSet *res;
 
         con = this->db_source.getConnection();
 
-        std::string query = "SELECT " + this->createSelectExpr(_select) + " FROM " + this->table_name + " " + this->createWhereConditions(_conditions) + " " + this->createOrderBy(_order) + " " + this->createLimit(0, _limit);
-
-        std::cout << query << std::endl;
-
+        query = this->createSelectQuery(_select, _conditions, _order, _offset, _limit);
+        
+        if(query.empty()){
+            return NULL;
+        }
+        
         pstmt = con->prepareStatement(query);
 
-        this->setConditionsValues(_conditions, pstmt);
+        this->setWhereConditionsValues(_conditions, pstmt);
 
         res = pstmt->executeQuery();
 
@@ -427,6 +530,45 @@ sql::ResultSet* DatabaseModel::select(std::vector<std::string> *_select, std::ma
         std::cout << "SQLException: state > " << e.getSQLState() << std::endl;
 
         return NULL;
+
+    }
+
+}
+
+sql::ResultSet* DatabaseModel::findBy(std::string _key, std::string _value, std::vector<std::string> *_select) {
+
+    std::map< std::string, std::string > _conditions;
+    _conditions[_key] = _value;
+
+    return this->select(_select, &_conditions, NULL, 0, 1);
+
+}
+
+int DatabaseModel::update(std::map< std::string, std::string > *_sets, std::map< std::string, std::string > *_conditions) {
+
+    try {
+
+        sql::Connection *con;
+        sql::PreparedStatement *pstmt;
+
+        std::string query = "UPDATE " + this->table_name + " " + this->createUpdateKeys(_sets) + " " + this->createWhereConditions(_conditions);
+
+        con = this->db_source.getConnection();
+
+        pstmt = con->prepareStatement(query);
+
+        this->createUpdateValues(_sets, pstmt);
+        this->setWhereConditionsValues(_conditions, pstmt);
+
+        return pstmt->executeUpdate();
+
+    } catch (sql::SQLException &e) {
+
+        std::cout << "SQLException: " << e.what() << std::endl;
+        std::cout << "SQLException: code > " << e.getErrorCode() << std::endl;
+        std::cout << "SQLException: state > " << e.getSQLState() << std::endl;
+
+        return -1;
 
     }
 

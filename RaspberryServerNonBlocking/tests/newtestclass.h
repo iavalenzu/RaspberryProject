@@ -19,16 +19,16 @@ class newtestclass : public CPPUNIT_NS::TestFixture {
     CPPUNIT_TEST(testCreateOrderBy);
     CPPUNIT_TEST(testCreateSelectExpr);
     CPPUNIT_TEST(testCreateWhereConditions);
-    CPPUNIT_TEST(testFindBy);
-    CPPUNIT_TEST(testInsert);
-    CPPUNIT_TEST(testParseKeyValues);
-    CPPUNIT_TEST(testParseSets);
-    CPPUNIT_TEST(testParseValues);
+    CPPUNIT_TEST(testCreateInsertKeys);
+    CPPUNIT_TEST(testCreateUpdateKeys);
+    CPPUNIT_TEST(testCreateInsertValues);
+    
+    CPPUNIT_TEST(testCreateSelectQuery);
+    CPPUNIT_TEST(testCreateInsertQuery);
+    CPPUNIT_TEST(testCreateUpdateQuery);
+
     CPPUNIT_TEST(testSelect);
-    CPPUNIT_TEST(testSetConditionsValues);
-    CPPUNIT_TEST(testSetInsertValues);
-    CPPUNIT_TEST(testSetSetsValues);
-    CPPUNIT_TEST(testUpdate);
+   
 
     CPPUNIT_TEST_SUITE_END();
 
@@ -44,16 +44,13 @@ private:
     void testCreateOrderBy();
     void testCreateSelectExpr();
     void testCreateWhereConditions();
-    void testFindBy();
-    void testInsert();
-    void testParseKeyValues();
-    void testParseSets();
-    void testParseValues();
+    void testCreateInsertKeys();
+    void testCreateUpdateKeys();
+    void testCreateInsertValues();
+    void testCreateSelectQuery();
+    void testCreateInsertQuery();
+    void testCreateUpdateQuery();
     void testSelect();
-    void testSetConditionsValues();
-    void testSetInsertValues();
-    void testSetSetsValues();
-    void testUpdate();
 
 };
 
