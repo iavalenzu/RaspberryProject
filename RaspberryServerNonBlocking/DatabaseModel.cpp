@@ -444,33 +444,34 @@ std::string DatabaseModel::createUpdateQuery(std::map< std::string, std::string 
     std::string conditions = "";
 
     keys = this->createUpdateKeys(_values);
-    
-    if(keys.empty()){
+
+    if (keys.empty()) {
         return "";
-    }else{
+    } else {
         query += keys;
     }
-    
+
     conditions = this->createWhereConditions(_conditions);
-    
-    if(!conditions.empty()){
+
+    if (!conditions.empty()) {
         query += " " + conditions;
     }
-    
+
     return query;
-    
+
 }
 
 int DatabaseModel::insert(std::map< std::string, std::string > *_values) {
 
     try {
 
+        std::string query = "";
         sql::Connection *con;
         sql::PreparedStatement *pstmt;
 
         con = this->db_source.getConnection();
 
-        std::string query = "INSERT INTO " + this->table_name + " " + this->createInsertKeys(_values) + " " + this->createInsertValues(_values);
+        query = this->createInsertQuery(_values);
 
         pstmt = con->prepareStatement(query);
 
@@ -508,11 +509,13 @@ sql::ResultSet* DatabaseModel::select(std::vector<std::string> *_select, std::ma
         con = this->db_source.getConnection();
 
         query = this->createSelectQuery(_select, _conditions, _order, _offset, _limit);
-        
-        if(query.empty()){
+
+        std::cout << query << std::endl;
+
+        if (query.empty()) {
             return NULL;
         }
-        
+
         pstmt = con->prepareStatement(query);
 
         this->setWhereConditionsValues(_conditions, pstmt);
@@ -535,29 +538,21 @@ sql::ResultSet* DatabaseModel::select(std::vector<std::string> *_select, std::ma
 
 }
 
-sql::ResultSet* DatabaseModel::findBy(std::string _key, std::string _value, std::vector<std::string> *_select) {
-
-    std::map< std::string, std::string > _conditions;
-    _conditions[_key] = _value;
-
-    return this->select(_select, &_conditions, NULL, 0, 1);
-
-}
-
-int DatabaseModel::update(std::map< std::string, std::string > *_sets, std::map< std::string, std::string > *_conditions) {
+int DatabaseModel::update(std::map< std::string, std::string > *_values, std::map< std::string, std::string > *_conditions) {
 
     try {
 
+        std::string query = "";
         sql::Connection *con;
         sql::PreparedStatement *pstmt;
 
-        std::string query = "UPDATE " + this->table_name + " " + this->createUpdateKeys(_sets) + " " + this->createWhereConditions(_conditions);
+        query = this->createUpdateQuery(_values, _conditions);
 
         con = this->db_source.getConnection();
 
         pstmt = con->prepareStatement(query);
 
-        this->createUpdateValues(_sets, pstmt);
+        this->createUpdateValues(_values, pstmt);
         this->setWhereConditionsValues(_conditions, pstmt);
 
         return pstmt->executeUpdate();
@@ -572,4 +567,52 @@ int DatabaseModel::update(std::map< std::string, std::string > *_sets, std::map<
 
     }
 
+}
+
+std::map< std::string, std::string > DatabaseModel::resultSetToMap(sql::ResultSet *_res) {
+
+    sql::ResultSetMetaData *_res_meta;
+    std::string name;
+    std::string value;
+    std::map< std::string, std::string > resultmap;
+
+    if(_res == NULL){
+        return resultmap;
+    }
+    
+    _res_meta = _res->getMetaData();
+
+    for (int i=0; i<_res_meta->getColumnCount(); ++i) {
+        
+        name = _res_meta->getColumnLabel(i+1);
+        value = _res->getString(i+1);
+        
+        resultmap[name] = value; 
+        
+    }
+
+    return resultmap;
+
+}
+
+std::map< std::string, std::string > DatabaseModel::find(std::vector<std::string> *_select, std::map< std::string, std::string > *_conditions, std::vector<std::string> *_order, int _offset, int _limit) {
+
+    sql::ResultSet *res;
+
+    res = this->select(_select, _conditions, _order, _offset, _limit);
+
+    return this->resultSetToMap(res);
+
+}
+
+std::map< std::string, std::string > DatabaseModel::findBy(std::string _key, std::string _value, std::vector<std::string> *_select) {
+
+    std::map< std::string, std::string > _conditions;
+    _conditions[_key] = _value;
+
+    //return this->select(_select, &_conditions, NULL, 0, 1);
+
+    std::map< std::string, std::string > resultmap;
+    
+    return resultmap;
 }

@@ -56,15 +56,24 @@ public:
     std::string createInsertValues(std::map< std::string, std::string >* _values);
     void setInsertValues(std::map< std::string, std::string >* _values, sql::PreparedStatement *pstmt);
 
-
-
-    sql::ResultSet* findBy(std::string _key, std::string _value, std::vector<std::string> *_select);
-
+    /*
+     * Se crean los metodos que permiten hacer Select, Update e Insert
+     */
+    
     sql::ResultSet* select(std::vector<std::string> *_select, std::map< std::string, std::string > *_conditions, std::vector<std::string> *_order, int _offset, int _limit);
     int update(std::map< std::string, std::string > *_sets, std::map< std::string, std::string > *_conditions);
-
     int insert(std::map< std::string, std::string > *_values);
 
+    
+    std::map< std::string, std::string > resultSetToMap(sql::ResultSet *_res);
+    
+    /*
+     * Se crea Save y Find
+     */
+    
+    std::map< std::string, std::string >  find(std::vector<std::string> *_select, std::map< std::string, std::string > *_conditions, std::vector<std::string> *_order, int _offset, int _limit);
+    std::map< std::string, std::string > findBy(std::string _key, std::string _value, std::vector<std::string> *_select);
+    void save(std::map< std::string, std::string > *_fields);
 
 
 private:

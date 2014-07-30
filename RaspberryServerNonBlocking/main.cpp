@@ -40,14 +40,14 @@ int main(int argc, char** argv) {
     conditions["user_id"] = "2";
 
 
-    sql::ResultSet* device = device_model.findBy(DeviceModel::id, "4", &select);
+    //sql::ResultSet* device = device_model.findBy(DeviceModel::id, "4", &select);
 
     //sql::ResultSet* device = device_model.find("first", &select, &conditions, &order, 10);
-
+/*
     while (device->next()) {
         DatabaseAdapter::showColumns(device);
     }
-
+*/
 
 
     return 0;

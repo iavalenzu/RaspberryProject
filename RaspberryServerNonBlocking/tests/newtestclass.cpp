@@ -617,6 +617,38 @@ void newtestclass::testSelect() {
         CPPUNIT_ASSERT(_conditions["user_id"] == res->getString("user_id"));
 
     }
+
+
+    _select.clear();
+    _select.push_back("*");
+
+
+    _conditions.clear();
+    _conditions["access_token"] = "c1a78b34d479d3280bd42121646f4aaa090ebddd";
+    
+    _order.clear();
+    _order.push_back("id ASC");
+    _order.push_back("user_id");
+
+    res = databaseModel.select(&_select, &_conditions, &_order, 0, 10);
+
+    if(res != NULL){
+        
+        res->next();
+        
+        DatabaseAdapter::showColumns(res);
+        
+        std::map< std::string, std::string > resultmap = databaseModel.resultSetToMap(res);
+        
+        std::cout << resultmap["access_token"] << std::endl;
+        
+        
+        CPPUNIT_ASSERT(_conditions["access_token"] == res->getString("access_token"));
+
+    }else{
+        std::cout << "El resultado es NULO!!" << std::endl;
+    }
+
     
 
 }
